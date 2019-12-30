@@ -16,5 +16,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9fabc1e177f8d654897316dc828ab86e, type: 3}
   flavourText: From a distant region, it'ss valuable as gold and all [creatures] adore
     it. Small amounts can draw certain species out in no time.
-  quantity: 1
+  quantity: 0
   price: 750

@@ -16,5 +16,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9fabc1e177f8d654897316dc828ab86e, type: 3}
   flavourText: Originally a failed product made for humans. Creatures act more docile
     when they catch its odour.
-  quantity: 2
+  quantity: 0
   price: 1000

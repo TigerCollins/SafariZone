@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Hand Reel
   icon: {fileID: 21300000, guid: 5ba8a11d453bdfd46a28d25e5748177a, type: 3}
   flavourText: Can be used at fishing spots. Not very good, but she gets it done.
-  quantity: 99
+  quantity: 0
   price: 500

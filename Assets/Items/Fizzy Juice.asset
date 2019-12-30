@@ -16,5 +16,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9fabc1e177f8d654897316dc828ab86e, type: 3}
   flavourText: It's said that some species of [creatures] are drawn to it. It's not
     the most effective bait.
-  quantity: 3
+  quantity: 0
   price: 100

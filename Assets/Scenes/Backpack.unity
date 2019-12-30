@@ -3559,7 +3559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b957d7108d852ec4ab82b33b72621804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryObject: {fileID: 11400000, guid: 85ae62e19014a0c45bd3fcb2fb892389, type: 2}
+  inventoryObject: {fileID: 11400000, guid: df91a505c153cc647ac41474efcfd3df, type: 2}
   list: []
   player: {fileID: 1551073687}
   inventoryContainer: {fileID: 1385970244}
