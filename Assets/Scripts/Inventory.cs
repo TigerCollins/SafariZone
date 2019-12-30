@@ -6,16 +6,20 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
-    public List<Item> list = new List<Item>();
+    public InventoryObject inventoryObject;
+    public List<Item> list;// = new List<inventoryObject.Inventory>;   //new List<Item>();
 
     public GameObject player;
     public GameObject inventoryContainer;
     public GameObject itemContainerPrefab;
 
+    
+
 
     private void Start()
     {
         instance = this;
+        list = inventoryObject.Inventory;
 
         for (int i = 0; i < list.Count; i++)
         {

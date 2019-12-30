@@ -644,7 +644,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &189626766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1625,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &601023507
 GameObject:
   m_ObjectHideFlags: 0
@@ -3559,12 +3559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b957d7108d852ec4ab82b33b72621804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  list:
-  - {fileID: 11400000, guid: f13d835a187b5af4dabd2a4b45682ad8, type: 2}
-  - {fileID: 11400000, guid: d3f285d310701904dbde22956092a4c0, type: 2}
-  - {fileID: 11400000, guid: d3f285d310701904dbde22956092a4c0, type: 2}
-  - {fileID: 11400000, guid: d3f285d310701904dbde22956092a4c0, type: 2}
-  - {fileID: 11400000, guid: d3f285d310701904dbde22956092a4c0, type: 2}
+  inventoryObject: {fileID: 11400000, guid: 85ae62e19014a0c45bd3fcb2fb892389, type: 2}
+  list: []
   player: {fileID: 1551073687}
   inventoryContainer: {fileID: 1385970244}
   itemContainerPrefab: {fileID: 3978241308980081576, guid: 11059534da17f6e4abce6b1da8c47ab1,
