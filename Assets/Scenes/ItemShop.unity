@@ -4988,7 +4988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quantityWanted: 0
   selectedItem: {fileID: 0}
-  inventoryObject: {fileID: 11400000, guid: df91a505c153cc647ac41474efcfd3df, type: 2}
+  inventoryObject: {fileID: 11400000, guid: 8d49ca8c7cd868f45803e842ad4b32b9, type: 2}
   lureList:
   - {fileID: 11400000, guid: babb1165c27fac14da277ad6698b1403, type: 2}
   - {fileID: 11400000, guid: f13d835a187b5af4dabd2a4b45682ad8, type: 2}
