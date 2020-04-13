@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696d369079439bd4fa89614579745dbe, type: 3}
+  m_Name: Guidance Isle
+  m_EditorClassIdentifier: 
+  itemName: Guidance Isle Travel Pass
+  icon: {fileID: 2222112303906254637, guid: 87056dc9887a45d40af0a7beee198658, type: 3}
+  flavourText: A special ticket that allows its owner to start at Guidance Isle.
+  itemTypes: 0
+  canHaveMultiple: 0
+  lingerTime: 0
+  travelPass: 1
+  isOwned: 0
+  quantity: 1
+  price: 100
+  smallWeightFactor: 0
+  largeWeightFactor: 0

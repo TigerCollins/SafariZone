@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e26a5f64e098374692f29977098e96b, type: 3}
+  m_Name: Sayvya Orb
+  m_EditorClassIdentifier: 
+  itemName: Sayvya Orb
+  icon: {fileID: -2577828920120405303, guid: f35db787ae1e6814e8eb7d897a53c569, type: 3}
+  flavourText: The latest creation from Sayvya corp. Thanks to the aura this incense
+    produces, it slightly increases your time allowed in the safari zone
+  itemTypes: 2
+  canHaveMultiple: 0
+  lingerTime: 15
+  quantity: 0
+  price: 1000
+  smallWeightFactor: 5
+  largeWeightFactor: 0

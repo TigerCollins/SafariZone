@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afab533ba4feba49956f5f69a5d9b1e, type: 3}
+  m_Name: Platyfrost
+  m_EditorClassIdentifier: 
+  previouslyCaptured: 1
+  creatureName: Platyfrost
+  creatureIcon: {fileID: 21300000, guid: 6724ec80db262e844828effce32e658d, type: 3}
+  habitatIcon: {fileID: 7853380305798159675, guid: 87056dc9887a45d40af0a7beee198658,
+    type: 3}
+  flavourText: Platyfrosts live in winter envrionments. During spring, Platyfrosts
+    migrate to a more suited winter environment.
+  totalCaught: 0
+  dateFirstCaught: 
+  minigameMultiplier: 2
+  spawnRate: 40
+  heaviestCaught: 0
+  lightestCaught: 0
+  currentWeight: 0
+  minWeight: 31
+  maxWeight: 60
+  price: 200
+  creatureType: 5
+  creatureRarity: 0

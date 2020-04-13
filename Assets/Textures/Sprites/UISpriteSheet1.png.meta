@@ -1,0 +1,619 @@
+fileFormatVersion: 2
+guid: 87056dc9887a45d40af0a7beee198658
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 987555040497142889
+    second: KebarVillage
+  - first:
+      213: -1184952282296640084
+    second: AzaleaForest
+  - first:
+      213: -8883868455492771238
+    second: Pin_LegendaryHunter
+  - first:
+      213: 7298702607466729764
+    second: Pin_BigSpender
+  - first:
+      213: -8101101053060405956
+    second: Icon_Desert
+  - first:
+      213: 3863945383246320413
+    second: LakePerano
+  - first:
+      213: -7589223744965623563
+    second: EgressCave
+  - first:
+      213: 5054361106605239887
+    second: Pin_SupportGroup
+  - first:
+      213: -3618693793272876214
+    second: Pin_Completionist
+  - first:
+      213: -6631254912728464919
+    second: Icon_Forest
+  - first:
+      213: -1822681779495744777
+    second: Pin_ZaWorldo
+  - first:
+      213: 5539392352424447683
+    second: Pin_GreatWall
+  - first:
+      213: -2525320356243936148
+    second: Icon_Jungle
+  - first:
+      213: 4116642270952171001
+    second: ParharVillage
+  - first:
+      213: 2222112303906254637
+    second: GuidanceIsle
+  - first:
+      213: -4898192526144885209
+    second: Pin_TrainingWheels
+  - first:
+      213: 5383922476957995562
+    second: Pin_KnowItAll
+  - first:
+      213: 7853380305798159675
+    second: Icon_Mountains
+  - first:
+      213: 5982269105900792360
+    second: Pin_WelcomeToTheJungle
+  - first:
+      213: 3318375221500268589
+    second: Pin_Lecturer
+  - first:
+      213: -5973887711794968113
+    second: Icons_SnowFlake
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: KebarVillage
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 1342
+        width: 659
+        height: 549
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c8af8b31084bd00800000000000000
+      internalID: 987555040497142889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AzaleaForest
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 1331
+        width: 658
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad9be96d243e8fe0800000000000000
+      internalID: -1184952282296640084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_LegendaryHunter
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 1581
+        width: 329
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a522e0f55b826b480800000000000000
+      internalID: -8883868455492771238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_BigSpender
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 1581
+        width: 310
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 421954fe9533a4560800000000000000
+      internalID: 7298702607466729764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Desert
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 1562
+        width: 348
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35aac2838b139f80800000000000000
+      internalID: -8101101053060405956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakePerano
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 715
+        width: 659
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1358ef9add7f9530800000000000000
+      internalID: 3863945383246320413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EgressCave
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 726
+        width: 658
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f04d50a639ada690800000000000000
+      internalID: -7589223744965623563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_SupportGroup
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1208
+        width: 248
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e61c5b5a2b42640800000000000000
+      internalID: 5054361106605239887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_Completionist
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 1220
+        width: 290
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a433f0dea21d7cdc0800000000000000
+      internalID: -3618693793272876214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Forest
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 1178
+        width: 348
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e181cf6acc09f3a0800000000000000
+      internalID: -6631254912728464919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_ZaWorldo
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 814
+        width: 229
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa449a149884b6e0800000000000000
+      internalID: -1822681779495744777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_GreatWall
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 808
+        width: 320
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce46cddeffdfdc40800000000000000
+      internalID: 5539392352424447683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Jungle
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 793
+        width: 348
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c6406048244fcd0800000000000000
+      internalID: -2525320356243936148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ParharVillage
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 130
+        width: 659
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f52673a550412930800000000000000
+      internalID: 4116642270952171001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuidanceIsle
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 130
+        width: 658
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f6b5dfd5786de10800000000000000
+      internalID: 2222112303906254637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_TrainingWheels
+      rect:
+        serializedVersion: 2
+        x: 1505
+        y: 448
+        width: 329
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e29a569df160cb0800000000000000
+      internalID: -4898192526144885209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_KnowItAll
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 448
+        width: 270
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a229251b7f887ba40800000000000000
+      internalID: 5383922476957995562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Mountains
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 437
+        width: 348
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3dd52577cfccfc60800000000000000
+      internalID: 7853380305798159675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_WelcomeToTheJungle
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 103
+        width: 329
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82aa2007e0a450350800000000000000
+      internalID: 5982269105900792360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pin_Lecturer
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 90
+        width: 290
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d205bf4beac3d0e20800000000000000
+      internalID: 3318375221500268589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_SnowFlake
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 70
+        width: 348
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9c362f6cc781da0800000000000000
+      internalID: -5973887711794968113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: d60650d03e32bb04aa6ff707cfb09b2d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979dd3900f0cbb643906a159f2e7b0cc, type: 3}
+  m_Name: Catching Net
+  m_EditorClassIdentifier: 
+  itemName: Catching Net
+  icon: {fileID: 56379292950395380, guid: f35db787ae1e6814e8eb7d897a53c569, type: 3}
+  flavourText: Can be used whilst hunting, in fishing spots and at lure spots. It's
+    not the most effective.
+  itemTypes: 0
+  canHaveMultiple: 0
+  lingerTime: 0
+  travelPass: 0
+  isOwned: 0
+  quantity: 1
+  price: 750
+  smallWeightFactor: 0
+  largeWeightFactor: 0
+  trapEffectiveness: 8
+  equipped: 1

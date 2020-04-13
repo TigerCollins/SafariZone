@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afab533ba4feba49956f5f69a5d9b1e, type: 3}
+  m_Name: Confisoar
+  m_EditorClassIdentifier: 
+  previouslyCaptured: 1
+  creatureName: Confisoar
+  creatureIcon: {fileID: 21300000, guid: 58857b18feb643648b90c9cc51b88ce8, type: 3}
+  habitatIcon: {fileID: 7853380305798159675, guid: 87056dc9887a45d40af0a7beee198658,
+    type: 3}
+  flavourText: Confisoar glides from tree to tree finding sweet fruits. The more
+    sugar Confisoar consumes, the more colourful it appears to be.
+  totalCaught: 0
+  dateFirstCaught: 
+  minigameMultiplier: 2
+  spawnRate: 40
+  heaviestCaught: 0
+  lightestCaught: 0
+  currentWeight: 0
+  minWeight: 5
+  maxWeight: 25
+  price: 140
+  creatureType: 2
+  creatureRarity: 3
