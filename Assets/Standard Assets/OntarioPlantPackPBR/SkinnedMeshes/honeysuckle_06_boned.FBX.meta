@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: f9028cdd9ab8cb648a43fc6307692a3a
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Bone578
+  - first:
+      1: 100002
+    second: Bone580
+  - first:
+      1: 100004
+    second: Bone582
+  - first:
+      1: 100006
+    second: Bone584
+  - first:
+      1: 100008
+    second: Bone586
+  - first:
+      1: 100010
+    second: Bone588
+  - first:
+      1: 100012
+    second: Bone590
+  - first:
+      1: 100014
+    second: //RootNode
+  - first:
+      1: 100016
+    second: yh6l1
+  - first:
+      1: 100018
+    second: yh6l2
+  - first:
+      1: 100020
+    second: yh6l3
+  - first:
+      1: 100022
+    second: yh6l4
+  - first:
+      1: 100024
+    second: yh6l5
+  - first:
+      1: 100026
+    second: yh6l6
+  - first:
+      1: 100028
+    second: yh6r
+  - first:
+      1: 100030
+    second: yh6s
+  - first:
+      1: 100032
+    second: young_honeysuckle_06_b
+  - first:
+      4: 400000
+    second: Bone578
+  - first:
+      4: 400002
+    second: Bone580
+  - first:
+      4: 400004
+    second: Bone582
+  - first:
+      4: 400006
+    second: Bone584
+  - first:
+      4: 400008
+    second: Bone586
+  - first:
+      4: 400010
+    second: Bone588
+  - first:
+      4: 400012
+    second: Bone590
+  - first:
+      4: 400014
+    second: //RootNode
+  - first:
+      4: 400016
+    second: yh6l1
+  - first:
+      4: 400018
+    second: yh6l2
+  - first:
+      4: 400020
+    second: yh6l3
+  - first:
+      4: 400022
+    second: yh6l4
+  - first:
+      4: 400024
+    second: yh6l5
+  - first:
+      4: 400026
+    second: yh6l6
+  - first:
+      4: 400028
+    second: yh6r
+  - first:
+      4: 400030
+    second: yh6s
+  - first:
+      4: 400032
+    second: young_honeysuckle_06_b
+  - first:
+      43: 4300000
+    second: young_honeysuckle_06_b
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: young_honeysuckle_06_b
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 1
+    secondaryUVAreaDistortion: 1
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 8
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.0254
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
