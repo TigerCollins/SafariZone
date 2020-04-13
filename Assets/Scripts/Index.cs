@@ -33,7 +33,7 @@ public class Index : MonoBehaviour
 
     }
 
-   void UpdateCreatureContainerSlots()
+   public void UpdateCreatureContainerSlots()
     {
         int index = 0;
         foreach (Transform child in creatureListContainer.transform)

@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: Attractive Incense
   m_EditorClassIdentifier: 
   itemName: Attractive Incense
-  icon: {fileID: 21300000, guid: 9fabc1e177f8d654897316dc828ab86e, type: 3}
+  icon: {fileID: -2014176061952406889, guid: f35db787ae1e6814e8eb7d897a53c569, type: 3}
   flavourText: Creatures are less likely to be startled by you when hunting...
+  itemTypes: 2
+  canHaveMultiple: 0
+  lingerTime: 15
+  travelPass: 0
+  isOwned: 0
   quantity: 0
   price: 1000
+  smallWeightFactor: 5
+  largeWeightFactor: 0

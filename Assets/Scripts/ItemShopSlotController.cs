@@ -11,8 +11,10 @@ public class ItemShopSlotController : MonoBehaviour
     public Text flavourText;
     public Text itemNameExtra;
     public Text inInventory;
+    public Image itemSprite;
+    public Sprite unknownSprite;
 
-    public void Start()
+    public void Awake()
     {
         UpdateInfo();
       
@@ -20,6 +22,7 @@ public class ItemShopSlotController : MonoBehaviour
         itemNameExtra = GameObject.Find("Item Display Name").GetComponent<Text>();
         itemShopScript = GameObject.Find("ScriptController").GetComponent<ItemShop>();
         inInventory = GameObject.Find("num").GetComponent<Text>();
+        itemSprite = GameObject.Find("CreatureImage").GetComponent<Image>();
 
     }
 
@@ -29,11 +32,34 @@ public class ItemShopSlotController : MonoBehaviour
         Text displayNameText = transform.Find("ItemName").GetComponent<Text>();
         Image displayImage = transform.Find("ItemImage").GetComponent<Image>();
 
-        if (item)
+        if (item != null)
         {
-            priceText.text = item.price.ToString();
-            displayNameText.text = item.itemName;
-            displayImage.sprite = item.icon;
+            if (item.travelPass == true)
+            {
+                if (item.isOwned)
+                {
+                    priceText.text = "0";
+                    displayNameText.text = item.itemName;
+                    displayImage.sprite = item.icon;
+                }
+
+                else
+                {
+                    priceText.text = item.price.ToString();
+                    displayNameText.text = item.itemName;
+                    displayImage.sprite = item.icon;
+                }
+            }
+
+            else
+            {
+                priceText.text = item.price.ToString();
+                displayNameText.text = item.itemName;
+                displayImage.sprite = item.icon;
+            }
+
+
+            
         }
 
         else
@@ -49,7 +75,14 @@ public class ItemShopSlotController : MonoBehaviour
         if (item)
         {
             itemShopScript.selectedItem = item;
-            Debug.Log("You selected " + item.itemName);
+            if(item.itemTypes == Item.ItemTypes.Lure && item.canHaveMultiple == false)
+            {
+                itemShopScript.quantityInputfield.gameObject.SetActive(false);
+            }
+            else
+            {
+                itemShopScript.quantityInputfield.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -57,9 +90,36 @@ public class ItemShopSlotController : MonoBehaviour
     {
         if (item)
         {
-            itemNameExtra.text = item.itemName;
-            flavourText.text = item.flavourText;
-            inInventory.text = "x" + item.quantity.ToString();
+            //TRAVEL PASS
+            if(item.travelPass == true)
+            {
+                if(item.isOwned)
+                {
+                    itemNameExtra.text = item.itemName;
+                    flavourText.text = item.flavourText;
+                    inInventory.text = "x" + item.quantity.ToString();
+                    itemSprite.sprite = item.icon;
+                }
+
+                else
+                {
+                    itemNameExtra.text = item.itemName;
+                    flavourText.text = item.flavourText;
+                    inInventory.text = "x" + item.quantity.ToString();
+                    itemSprite.sprite = item.icon;
+                }
+               
+            }
+            //NORMAL ITEM
+            else
+            {
+                itemNameExtra.text = item.itemName;
+                flavourText.text = item.flavourText;
+                inInventory.text = "x" + item.quantity.ToString();
+                itemSprite.sprite = item.icon;
+            }
+
+           
         }
 
         else
@@ -67,6 +127,7 @@ public class ItemShopSlotController : MonoBehaviour
             itemNameExtra.text = "";
             flavourText.text = "Select an item";
             inInventory.text = "x" + 0;
+            itemSprite.sprite = unknownSprite;
         }
     }
 

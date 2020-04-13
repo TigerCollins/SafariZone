@@ -14,13 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previouslyCaptured: 1
   creatureName: Solarin
-  creatureIcon: {fileID: 21300000, guid: dc65c942d2b479d458f574e8521c77b6, type: 3}
-  habitatIcon: {fileID: 21300000, guid: c8b851ba03945f84aa9af1285f642d24, type: 3}
+  creatureIcon: {fileID: 21300000, guid: bb04d47754141aa48b5d94dd5b7619ce, type: 3}
+  habitatIcon: {fileID: -2525320356243936148, guid: 87056dc9887a45d40af0a7beee198658,
+    type: 3}
   flavourText: One of the original creatures created from the Baun Tree. It's said
     that it can produce enough energy to power a city for decades within seconds.
   totalCaught: 0
-  dateFirstCaught: 01/01/2020
+  dateFirstCaught: 
+  minigameMultiplier: 7
+  spawnRate: 2
   heaviestCaught: 0
+  lightestCaught: 0
+  currentWeight: 0
+  minWeight: 161
+  maxWeight: 250
   price: 4000
   creatureType: 0
   creatureRarity: 3

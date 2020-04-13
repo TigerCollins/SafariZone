@@ -9,10 +9,12 @@ public class ItemShopUIManager : MonoBehaviour
     public Toggle lureToggle;
     public Toggle incenseToggle;
     public Toggle whistlesToggle;
+    public Toggle travelPassToggle;
 
     public GameObject luresContainer;
     public GameObject incenseContainer;
     public GameObject whistlesContainer;
+    public GameObject travelPassContainer;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,8 @@ public class ItemShopUIManager : MonoBehaviour
             luresContainer.SetActive(true);
             incenseContainer.SetActive(false);
             whistlesContainer.SetActive(false);
+            travelPassContainer.SetActive(false);
+            luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
         }
 
         if (incenseToggle.isOn)
@@ -39,6 +43,8 @@ public class ItemShopUIManager : MonoBehaviour
             incenseContainer.SetActive(true);
             luresContainer.SetActive(false);
             whistlesContainer.SetActive(false);
+            travelPassContainer.SetActive(false);
+            incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
         }
 
         if (whistlesToggle.isOn)
@@ -46,6 +52,16 @@ public class ItemShopUIManager : MonoBehaviour
             whistlesContainer.SetActive(true);
             luresContainer.SetActive(false);
             incenseContainer.SetActive(false);
+            travelPassContainer.SetActive(false);
+            whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
+        }
+        if (travelPassToggle.isOn)
+        {
+            whistlesContainer.SetActive(false);
+            luresContainer.SetActive(false);
+            incenseContainer.SetActive(false);
+            travelPassContainer.SetActive(true);
+            travelPassContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
         }
     }
 }

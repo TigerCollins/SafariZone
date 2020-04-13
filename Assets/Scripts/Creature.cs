@@ -13,7 +13,15 @@ public class Creature : ScriptableObject
     public string flavourText;
     public int totalCaught;
     public string dateFirstCaught;
+    public float minigameMultiplier;
+    public float spawnRate;
+
+    [Header("Creature Weight Details")]
     public float heaviestCaught;
+    public float lightestCaught;
+    public float currentWeight;
+    public int minWeight;
+    public int maxWeight;
 
     [Header("Shop Details")]
     public int price;
@@ -21,6 +29,7 @@ public class Creature : ScriptableObject
     public CreatureType creatureType;
     public enum CreatureRarity {Common, Uncommon, Rare, Impossible}
     public CreatureRarity creatureRarity;
+
 
     public virtual void Use()
     {

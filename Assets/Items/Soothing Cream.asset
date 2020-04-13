@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Soothing Cream
   m_EditorClassIdentifier: 
   itemName: Soothing Cream
-  icon: {fileID: 21300000, guid: 9fabc1e177f8d654897316dc828ab86e, type: 3}
+  icon: {fileID: 2940400626307896001, guid: f35db787ae1e6814e8eb7d897a53c569, type: 3}
   flavourText: Originally a failed product made for humans. Creatures act more docile
     when they catch its odour.
+  itemTypes: 2
+  canHaveMultiple: 0
+  lingerTime: 10
   quantity: 0
   price: 1000
+  smallWeightFactor: 0
+  largeWeightFactor: 0

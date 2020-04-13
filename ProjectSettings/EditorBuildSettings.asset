@@ -26,4 +26,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpawnSelect.unity
     guid: e7a63a743e70d3948a8bcfa5dbf67264
+  - enabled: 0
+    path: Assets/Scenes/World.unity
+    guid: 574cf245f4fd21d45adc30db1a0b0e3e
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: ddba7f220bf987248b6cc957fb0c248a
+  - enabled: 1
+    path: Assets/Scenes/Visitor Pass.unity
+    guid: 522c8027fd7353b49a1e3914d34eea24
+  - enabled: 1
+    path: Assets/Scenes/GameWorld.unity
+    guid: c73f06ceac3fc0941a0e281b0e024a45
   m_configObjects: {}

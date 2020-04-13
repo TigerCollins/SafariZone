@@ -14,13 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previouslyCaptured: 1
   creatureName: Pastound
-  creatureIcon: {fileID: 21300000, guid: dc65c942d2b479d458f574e8521c77b6, type: 3}
-  habitatIcon: {fileID: 21300000, guid: c8b851ba03945f84aa9af1285f642d24, type: 3}
+  creatureIcon: {fileID: 21300000, guid: bb14ead912c877f479518ab7165fb16e, type: 3}
+  habitatIcon: {fileID: 7853380305798159675, guid: 87056dc9887a45d40af0a7beee198658,
+    type: 3}
   flavourText: Often found in pastures. Pastounds claws grow sharper when it consumes
     grass.
   totalCaught: 0
-  dateFirstCaught: 31/12/2019
+  dateFirstCaught: 
+  minigameMultiplier: 1.5
+  spawnRate: 40
   heaviestCaught: 0
+  lightestCaught: 0
+  currentWeight: 0
+  minWeight: 91
+  maxWeight: 120
   price: 80
   creatureType: 3
   creatureRarity: 0

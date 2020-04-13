@@ -16,6 +16,7 @@ public class IndexSlotController : MonoBehaviour
     public Text valueText;
     public Sprite questionMark;
     public Text rarityText;
+    public GameObject beenCaught;
 
     public void Start()
     {
@@ -36,27 +37,26 @@ public class IndexSlotController : MonoBehaviour
     {
         Text displayNameText = transform.Find("Species Name").GetComponent<Text>();
         Image displayImage = transform.Find("Creature Sprite").GetComponent<Image>();
-        Text beenCaught = transform.Find("Species Capture").GetComponent<Text>();
 
         if (creature && creature.previouslyCaptured == true)
         {
             displayNameText.text = creature.creatureName;
             displayImage.sprite = creature.creatureIcon;
-            beenCaught.text = "Captured";
+            beenCaught.SetActive(true);
         }
 
         if (creature && creature.previouslyCaptured == false)
         {
-            displayNameText.text = creature.creatureName;
+            displayNameText.text = "Undiscovered";
             displayImage.sprite = questionMark;
-            beenCaught.text = "";
+            beenCaught.SetActive(false);
         }
 
         if (creature == null)
         {
             displayNameText.text = "???";
             displayImage.sprite = null;
-            beenCaught.text = "";
+            beenCaught.SetActive(false);
         }
     }
 
@@ -67,7 +67,7 @@ public class IndexSlotController : MonoBehaviour
 
     public void UpdateInfoSelected()
     {
-        if (creature)
+        if (creature && creature.previouslyCaptured == true)
         {
             flavourText.text = creature.flavourText;
             creatureImageMain.sprite = creature.creatureIcon;
@@ -75,21 +75,22 @@ public class IndexSlotController : MonoBehaviour
             creatureNameMainText.text = creature.name;
             totalCaughtText.text = creature.totalCaught.ToString();
             firstCaughtText.text = creature.dateFirstCaught;
-            heaviestCaughtText.text = creature.heaviestCaught.ToString();
+            heaviestCaughtText.text = creature.heaviestCaught.ToString("f2") + "kg";
             valueText.text = creature.price.ToString();
             rarityText.text = creature.creatureRarity.ToString();
         }
 
         if(creature && creature.previouslyCaptured == false)
         {
-            flavourText.text = "???";
+            creatureNameMainText.text = "Undiscovered";
+            flavourText.text = "Capture this creature to index it and discover more details.";
             creatureImageMain.sprite = questionMark;
             habitatImage.sprite = creature.habitatIcon;
-            creatureNameMainText.text = creature.name;
+            //creatureNameMainText.text = creature.name;
             totalCaughtText.text = creature.totalCaught.ToString();
-            firstCaughtText.text = "N/A";
-            heaviestCaughtText.text = creature.heaviestCaught.ToString();
-            valueText.text = "???";
+            firstCaughtText.text = "--/--/--";
+            heaviestCaughtText.text = "--- kg";
+            valueText.text = "---";
             rarityText.text = creature.creatureRarity.ToString();
         }
     }

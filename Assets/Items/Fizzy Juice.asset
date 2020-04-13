@@ -13,8 +13,17 @@ MonoBehaviour:
   m_Name: Fizzy Juice
   m_EditorClassIdentifier: 
   itemName: Fizzy Juice
-  icon: {fileID: 21300000, guid: 9fabc1e177f8d654897316dc828ab86e, type: 3}
-  flavourText: It's said that some species of [creatures] are drawn to it. It's not
-    the most effective bait.
+  icon: {fileID: 871045040179669782, guid: f35db787ae1e6814e8eb7d897a53c569, type: 3}
+  flavourText: It's said that some species are drawn to it. It's not the most effective
+    bait.
+  itemTypes: 0
+  canHaveMultiple: 1
+  lingerTime: 0
+  travelPass: 0
+  isOwned: 0
   quantity: 0
   price: 100
+  smallWeightFactor: 0
+  largeWeightFactor: 0
+  trapEffectiveness: 4
+  equipped: 0
