@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour
 {
@@ -42,9 +43,18 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-       // inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+        // inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
         list = inventoryObject.Inventory;
-        gameController = GameObject.Find("ScriptController").GetComponent<GameController>();
+        if(SceneManager.GetActiveScene().name == "GameWorld")
+        {
+            gameController = GameObject.Find("_ScriptController").GetComponent<GameController>();
+        }
+
+        else
+        {
+            gameController = GameObject.Find("ScriptController").GetComponent<GameController>();
+        }
+
         for (int i = 0; i < trap.Count; i++)
         {
             if (trap[i].equipped == true)

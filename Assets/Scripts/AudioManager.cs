@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
         soundEffectSource = transform.GetChild(1).GetComponent<AudioSource>();
         StartCoroutine(ChangePitch());
 
-        if (currentScene!= "World")
+        if (currentScene!= "GameWorld")
         {
             soundtrackSource.clip = menuMusic;
             inMenu = false;
@@ -78,7 +78,7 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(.5f);
         currentPitch = Random.Range(minPitch, maxPitch);
-        if(currentScene == "World")
+        if(currentScene == "GameWorld")
         {
             StartCoroutine(ChangePitch());
         }
@@ -93,6 +93,7 @@ public class AudioManager : MonoBehaviour
 
     public void OneShotMenuHover(AudioClip audioClip)
     {
+       
         menuHover.clip = audioClip;
         menuHover.Play();
     }
@@ -108,7 +109,7 @@ public class AudioManager : MonoBehaviour
     {
         currentScene = SceneManager.GetSceneByBuildIndex(sceneBuildIndex).name; ;
 
-        if (currentScene != "World")
+        if (currentScene != "GameWorld")
         {
             inMenu = false;
           //  soundtrackSource.clip = menuMusic;
@@ -117,6 +118,7 @@ public class AudioManager : MonoBehaviour
         else
         {
             inMenu = false;
+         //.   menuHover = GameObject.Find
         }
 
         ChangeLowPass();

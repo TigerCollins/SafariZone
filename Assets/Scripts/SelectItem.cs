@@ -17,7 +17,7 @@ public class SelectItem : MonoBehaviour
         //toggle = gameObject.transform.GetChild(3).GetComponent<Toggle>();
         if (SceneManager.GetActiveScene().name == "GameWorld")
         {
-            useItemScript = GameObject.Find("ScriptController").GetComponent<UseItem>();
+            useItemScript = GameObject.Find("_ScriptController").GetComponent<UseItem>();
             useItemButton = GameObject.Find("USE BUTTON").GetComponent<Button>();
          //   equipItemButton = GameObject.Find("EQUIP BUTTON").GetComponent<Button>();
 

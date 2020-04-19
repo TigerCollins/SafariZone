@@ -22,7 +22,7 @@ public class InventorySlotController : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "GameWorld")
         {
-            gameController = GameObject.Find("ScriptController").GetComponent<GameController>();
+            gameController = GameObject.Find("_ScriptController").GetComponent<GameController>();
 
         }
        
@@ -34,7 +34,7 @@ public class InventorySlotController : MonoBehaviour
 
         else
         {
-            inventory = GameObject.Find("ScriptController").GetComponent<GameController>().inventoryScript;
+            inventory = GameObject.Find("_ScriptController").GetComponent<GameController>().inventoryScript;
         }
       
         quantityText = GameObject.Find("num").GetComponent<Text>();
