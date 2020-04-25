@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    private TMP_Animated animatedText;
     [HideInInspector]
     public bool gameOverBool;
     private Queue<string> sentences;
 
-    public Text NPCName;
-    public Text NPCSentence;
+    public TextMeshProUGUI NPCName;
+    public TMP_Animated NPCSentence;
 
     public Animator animator;
 
+    
     public bool dialogueActive;
 
     // Start is called before the first frame update
@@ -58,7 +62,7 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         if(!animator.IsInTransition(0))
         {
-            StartCoroutine(TypeSentence(sentence));
+            NPCSentence.ReadText(sentence);
         }
         
        // Debug.Log(sentence);

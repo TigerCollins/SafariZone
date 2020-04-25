@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public Backpack playerInventory;
     public GameController scriptControllerObject;
     public TrapTrigger trapTrigger;
-    public Rigidbody rigidbody;
+    public CharacterController rigidbody;
     public DialogueTrigger dialogueTrigger;
     public DialogueManager dialogueManager;
     public TrapManager trapManager;
@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public ItemDrop itemDrop;
 
     [Header("Movement Variables")]
+    public Vector3 desiredMoveDirection;
+    public Vector3 sneakDesiredMoveDirection;
+    public float desiredRotationSpeed;
     private float originalMovementMultiplier;
     private bool valueChanged;
     public float maxVelocity = 3;
@@ -27,6 +30,9 @@ public class PlayerController : MonoBehaviour
     public float baseMovementMultiplier;
     public bool isSneaking = false;
     public float sneakMultiplier;
+    public float verticalVel;
+    private Vector3 moveVector;
+    public bool isGrounded;
 
     [Header("Camera Options")]
     public Camera gameCamera;
@@ -167,33 +173,19 @@ valueChanged = false;
     {
         originalMovementMultiplier = maxVelocity;
         lastPosition = transform.position;
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<CharacterController>();
         distanceTravelled = baseHuntingTimer;
         canMove = true;
-        //        gameObject.GetComponent<Animator>().SetBool("InCave", true);
-     //   scriptControllerObject.pauseMenuText.text = areaIdentifier.areaName.ToUpper();
+
     }
 
     private void FixedUpdate()
     {
-        /*  if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("PlayerStart_InCave"))
-           {
-               animator.SetBool("InCave", true);
-               animator.enabled = true;
 
-           }
-
-           if (Input.GetAxis("Horizontal")!=0 || Input.GetAxis("Vertical")!=0)
-           {
-               gameObject.GetComponent<Animator>().enabled = false;
-               canMove = true;
-           }
-            */
         Interactions();
 
         HuntingZoneCountdown();
         CameraMove();
-       // canMove = true;
         if (canMove)
         {
             Movement();
@@ -206,7 +198,17 @@ valueChanged = false;
     // Update is called once per frame
     void Update()
     {
-
+        isGrounded = rigidbody.isGrounded;
+        if (isGrounded)
+        {
+            verticalVel -= 0;
+        }
+        else
+        {
+            verticalVel -= 1;
+        }
+        moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
+        rigidbody.Move(moveVector);
         Raycast();
         AnimationMovement();
         AudioMovement();
@@ -395,27 +397,23 @@ valueChanged = false;
         {
             walkingSpeed = 0;
         }
-
-            //Normal Movement
-            if (isSneaking == false && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+        desiredMoveDirection = new Vector3((horizontal / baseMovementMultiplier), 0, (vertical/ baseMovementMultiplier));
+        //Normal Movement
+        if (isSneaking == false && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
         {
-            rigidbody.MovePosition(transform.position +  Vector3.ClampMagnitude(new Vector3(horizontal, 0, vertical), maxVelocity) * Time.fixedDeltaTime);
-
+          
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
+            rigidbody.Move(desiredMoveDirection * Time.deltaTime * maxVelocity);
             walkingSpeed = 1;
         }
 
         //Sneak Movement
+        sneakDesiredMoveDirection = new Vector3((sneakHorizontal / baseMovementMultiplier), 0, (sneakVertical / baseMovementMultiplier));
         if (isSneaking == true && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
         {
-            rigidbody.MovePosition(transform.position + new Vector3(sneakHorizontal, 0, sneakVertical) * Time.fixedDeltaTime);
-           // transform.rotation = Quaternion.LookRotation(new Vector3(sneakHorizontal, 0, sneakVertical));
-        }
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(sneakDesiredMoveDirection), desiredRotationSpeed);
+            rigidbody.Move(sneakDesiredMoveDirection * Time.deltaTime * (maxVelocity/sneakMultiplier));
 
-        //Player Rotation
-        Vector3 movement = new Vector3(horizontal, 0.0f, vertical);
-        if (horizontal != 0 || vertical != 0)
-        {
-            transform.rotation = Quaternion.LookRotation(movement);
         }
     }
 
