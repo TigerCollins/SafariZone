@@ -17,7 +17,12 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
 
-    
+    public Color personColour;
+    public Color itemColour;
+    public Color defaultColour;
+    //public Color personColour;
+
+
     public bool dialogueActive;
 
     // Start is called before the first frame update

@@ -401,9 +401,13 @@ valueChanged = false;
         //Normal Movement
         if (isSneaking == false && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
         {
-          
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
-            rigidbody.Move(desiredMoveDirection * Time.deltaTime * maxVelocity);
+            if (desiredMoveDirection != new Vector3(0, 0, 0))
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
+            
+                rigidbody.Move(desiredMoveDirection * Time.deltaTime * maxVelocity);
+            }
+
             walkingSpeed = 1;
         }
 

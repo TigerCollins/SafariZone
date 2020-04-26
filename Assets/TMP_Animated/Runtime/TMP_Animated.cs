@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 namespace TMPro
@@ -22,6 +23,7 @@ namespace TMPro
         public ActionEvent onAction;
         public TextRevealEvent onTextReveal;
         public DialogueEvent onDialogueFinish;
+        private Text tempText;
 
         public void ReadText(string newText)
         {
@@ -96,6 +98,13 @@ namespace TMPro
                         {
                             onAction.Invoke(tag.Split('=')[1]);
                         }
+                       /* else if(tag.StartsWith("colour="))
+                        {
+                            int colourValue = 0;
+                            tempText.text = horizontalMapping.ToString();
+                            //tempText.text = StringToCharArray[colourValue].ToString();
+                        }
+                        */
                     }
                     return null;
                 }
