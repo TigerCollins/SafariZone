@@ -214,13 +214,16 @@ MonoBehaviour:
   maxPitch: 1
   currentPitch: 0
   inMenu: 0
-  lowPassMenuFrequency: 900
+  lowPassMenuFrequency: 1000
   lowPassGameFrequency: 4000
   routeSoundtrack:
-  - {fileID: 8300000, guid: aede0f3fc0d47124896351ab92bef3a5, type: 3}
+  - {fileID: 8300000, guid: fc6c43d49c7aab4478bd7e540cfa9840, type: 3}
   - {fileID: 8300000, guid: 2a44ed1f74b512f49aaaa0741c54ae13, type: 3}
   - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
-  menuMusic: {fileID: 8300000, guid: 2a44ed1f74b512f49aaaa0741c54ae13, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  menuMusic: {fileID: 8300000, guid: aede0f3fc0d47124896351ab92bef3a5, type: 3}
   footstep: {fileID: 6490878021329917460}
   menuHover: {fileID: 6490878021625158958}
   menuClick: {fileID: 6490878021303137441}

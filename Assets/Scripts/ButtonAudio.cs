@@ -16,7 +16,16 @@ public class ButtonAudio : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        audioManager.OneShotMenuHover(audioClip);
+        if(audioClip != null)
+        {
+            audioManager.OneShotMenuHover(audioClip);
+        }
+
+        else
+        {
+            Debug.Log("No audio clip attached to " + gameObject.transform.name);
+        }
+
     }
 
     void OnMouseExit()

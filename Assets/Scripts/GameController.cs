@@ -93,6 +93,9 @@ public class GameController : MonoBehaviour
     public Color pausedColour;
     public Color timerColour;
 
+    [Header("Audio Clips")]
+    public AudioClip menuOpenSC;
+
     [Header("Spawn Zones")]
     public GameObject[] spawnPoints;
 
@@ -127,37 +130,65 @@ public class GameController : MonoBehaviour
 
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
-        if (PlayerPrefs.GetInt("AreaID") == 1)
+
+        if (playerData.firstTime == false)
         {
-            playerObject.transform.position = spawnPoints[0].transform.position;
-            playerObject.transform.localRotation = spawnPoints[0].transform.rotation;
-            areaID = 1;
-            playerScript.areaIdentifierID = 1;
-            areaIdentifier = areaIdentifierForSpawn[0];
+            if (PlayerPrefs.GetInt("AreaID") == 1)
+            {
+                playerObject.transform.position = spawnPoints[0].transform.position;
+                playerObject.transform.localRotation = spawnPoints[0].transform.rotation;
+                areaID = 1;
+                playerScript.areaIdentifierID = 1;
+                areaIdentifier = areaIdentifierForSpawn[0];
+            }
+
+            if (PlayerPrefs.GetInt("AreaID") == 6)
+            {
+                playerObject.transform.position = spawnPoints[1].transform.position;
+                playerObject.transform.localRotation = spawnPoints[1].transform.rotation;
+                areaID = 6;
+                playerScript.areaIdentifierID = 6;
+                areaIdentifier = areaIdentifierForSpawn[1];
+            }
+
+            if (PlayerPrefs.GetInt("AreaID") == 9)
+            {
+                playerObject.transform.position = spawnPoints[2].transform.position;
+                playerObject.transform.localRotation = spawnPoints[2].transform.rotation;
+                areaID = 9;
+                playerScript.areaIdentifierID = 9;
+                areaIdentifier = areaIdentifierForSpawn[2];
+            }
+
+            if (PlayerPrefs.GetInt("AreaID") == 0)
+            {
+                playerObject.transform.position = spawnPoints[3].transform.position;
+                playerObject.transform.localRotation = spawnPoints[3].transform.rotation;
+                areaID = 0;
+                playerScript.areaIdentifierID = 0;
+                areaIdentifier = areaIdentifierForSpawn[3];
+            }
         }
 
-        if (PlayerPrefs.GetInt("AreaID") == 6)
+        else
         {
-            playerObject.transform.position = spawnPoints[1].transform.position;
-            playerObject.transform.localRotation = spawnPoints[1].transform.rotation;
-            areaID = 6;
-            playerScript.areaIdentifierID = 6;
-            areaIdentifier = areaIdentifierForSpawn[1];
+            FirstSpawn();
         }
-
-        if (PlayerPrefs.GetInt("AreaID") == 9)
-        {
-            playerObject.transform.position = spawnPoints[2].transform.position;
-            playerObject.transform.localRotation = spawnPoints[2].transform.rotation;
-            areaID = 9;
-            playerScript.areaIdentifierID = 9;
-            areaIdentifier = areaIdentifierForSpawn[2];
-        }
-
         //Needs to be the end of Awake
         // lastPosition = transform.position;
     }
 
+    public void FirstSpawn()
+    {
+        if (PlayerPrefs.GetInt("AreaID") == 0)
+        {
+            playerObject.transform.position = spawnPoints[3].transform.position;
+            playerObject.transform.localRotation = spawnPoints[3].transform.rotation;
+            areaID = 0;
+            playerScript.areaIdentifierID = 0;
+            areaIdentifier = areaIdentifierForSpawn[3];
+        }
+    }
     private void Start()
     {
         
@@ -340,6 +371,7 @@ public class GameController : MonoBehaviour
             gamePaused = true;
             audioManager.inMenu = true;
             audioManager.ChangeLowPass();
+            audioManager.OneShotMenuClick(menuOpenSC);
         }
     }
 

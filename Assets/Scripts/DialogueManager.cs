@@ -7,6 +7,7 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    private PlayerController playerController;
     private TMP_Animated animatedText;
     [HideInInspector]
     public bool gameOverBool;
@@ -29,6 +30,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     public void StartDialogue (Dialogue dialogue)
@@ -48,7 +50,7 @@ public class DialogueManager : MonoBehaviour
             {
                 sentences.Enqueue(sentence);
             }
-
+            playerController.canMove = false;
             DisplayNextSentence();
         }
        
@@ -85,6 +87,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        playerController.canMove = true;
         Debug.Log("End of conversation");
         animator.SetBool("IsOpen", false);
         dialogueActive = false;

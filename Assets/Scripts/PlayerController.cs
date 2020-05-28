@@ -75,6 +75,10 @@ public class PlayerController : MonoBehaviour
     public Input zoomIn;
     public Input zoomOut;
 
+    [Header("Tutorial")]
+    public FirstPlaythrough firstPlaythrough;
+    public CloseMovementTutorial closeMovementTutorialScript;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.GetComponent<HuntingCreature>())
@@ -137,6 +141,20 @@ public class PlayerController : MonoBehaviour
                 areaIdentifierID = areaIdentifier.areaID;
                 scriptControllerObject.pauseMenuText.text = areaIdentifier.areaName.ToUpper();
             }
+        }
+
+        if (other.GetComponent<CloseMovementTutorial>())
+        {
+            closeMovementTutorialScript = other.GetComponent<CloseMovementTutorial>();
+            closeMovementTutorialScript.ChangeBool();
+        }
+
+        if (other.tag == "IntroDialogue" && scriptControllerObject.playerData.firstTime)
+        {
+            canMove = false;
+            firstPlaythrough.professorDialogueTrigger = other.transform.parent.GetComponent<DialogueTrigger>();
+            firstPlaythrough.chatStarted = true;
+            
         }
     }
 
@@ -373,15 +391,7 @@ valueChanged = false;
 
         float sneakHorizontal = horizontal / sneakMultiplier;
         float sneakVertical = vertical / sneakMultiplier;
-
-        //Clamps max speed
-        /*if (rigidbody.velocity.magnitude > maxVelocity)
-        {
-            Debug.Log("Velocity clamped");
-            Vector3 rbTempVelocity = Vector3.ClampMagnitude(new Vector3 (rigidbody.velocity.x , 0 , rigidbody.velocity.z), maxVelocity);
-            rigidbody.velocity = rbTempVelocity;
-        }
-        */
+       
         //Sneak Bool Changing
         if (Input.GetKey(KeyCode.LeftControl))
         {
@@ -397,7 +407,8 @@ valueChanged = false;
         {
             walkingSpeed = 0;
         }
-        desiredMoveDirection = new Vector3((horizontal / baseMovementMultiplier), 0, (vertical/ baseMovementMultiplier));
+        //Clamps max speed
+        desiredMoveDirection = Vector3.ClampMagnitude(new Vector3(horizontal , 0, vertical), maxVelocity);
         //Normal Movement
         if (isSneaking == false && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
         {
@@ -405,7 +416,7 @@ valueChanged = false;
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
             
-                rigidbody.Move(desiredMoveDirection * Time.deltaTime * maxVelocity);
+                rigidbody.Move(desiredMoveDirection * Time.deltaTime * baseMovementMultiplier);
             }
 
             walkingSpeed = 1;

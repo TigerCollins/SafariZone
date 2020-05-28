@@ -7,9 +7,9 @@ public class DialogueTrigger : MonoBehaviour
     public bool NPC;
     public Dialogue dialogue;
 
+
     public void TriggerDialogue()
     {
-        
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         if(NPC)
         {

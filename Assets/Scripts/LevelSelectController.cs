@@ -78,11 +78,15 @@ public class LevelSelectController : MonoBehaviour
 
     public void ChangeSpawnpoint(int value)
     {
-        PlayerPrefs.SetInt("AreaID", value);
+
+            PlayerPrefs.SetInt("AreaID", value);
+
+
     }
 
     public void ChangeSpawnPointMenu(int value)
     {
         toggle[value].isOn = true;
     }
+
 }

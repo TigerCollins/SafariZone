@@ -13,7 +13,8 @@ public enum AmbientOcclusionFactor { None, low, Medium, High }
 
 public class PlayerVariables : ScriptableObject
 {
-   
+    public bool firstTime;
+    public bool controllerInput;
 
     [Header("Player Info")]
     public string playerName;

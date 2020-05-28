@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -291,6 +292,7 @@ GameObject:
   - component: {fileID: 68075345}
   - component: {fileID: 68075344}
   - component: {fileID: 68075343}
+  - component: {fileID: 68075346}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -372,6 +374,18 @@ MonoBehaviour:
           m_StringArgument: GameWorld
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &68075344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +401,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -408,6 +423,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68075341}
   m_CullTransparentMesh: 0
+--- !u!114 &68075346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68075341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf40c8a1d055e845b541130d0339a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
 --- !u!1 &91554232
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +489,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -600,6 +630,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -634,6 +665,7 @@ GameObject:
   - component: {fileID: 134955276}
   - component: {fileID: 134955275}
   - component: {fileID: 134955278}
+  - component: {fileID: 134955279}
   m_Layer: 5
   m_Name: 'Parhar Village '
   m_TagString: Untagged
@@ -743,6 +775,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &134955276
 MonoBehaviour:
@@ -759,6 +803,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -795,6 +840,20 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+--- !u!114 &134955279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134955273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf40c8a1d055e845b541130d0339a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
 --- !u!1 &154638253
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +906,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -920,6 +980,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1085,6 +1146,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1141,7 +1203,7 @@ RectTransform:
   - {fileID: 1355245256}
   - {fileID: 1684332368}
   m_Father: {fileID: 595225742}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1193,6 +1255,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1267,6 +1330,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1342,7 +1406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 0.0008509649, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &248073113
@@ -1436,6 +1500,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1509,6 +1574,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1582,6 +1648,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.29411766, g: 0.43921572, b: 0.5568628, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1616,6 +1683,7 @@ GameObject:
   - component: {fileID: 368741868}
   - component: {fileID: 368741867}
   - component: {fileID: 368741870}
+  - component: {fileID: 368741871}
   m_Layer: 5
   m_Name: Kebar Village
   m_TagString: Untagged
@@ -1725,6 +1793,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &368741868
 MonoBehaviour:
@@ -1741,6 +1821,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1777,6 +1858,20 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+--- !u!114 &368741871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368741865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf40c8a1d055e845b541130d0339a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
 --- !u!1 &383036588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,6 +1925,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1958,6 +2054,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2187,6 +2284,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2296,6 +2394,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2374,6 +2473,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.33917767, g: 0.53077996, b: 0.6981132, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2435,6 +2535,7 @@ GameObject:
   - component: {fileID: 514494962}
   - component: {fileID: 514494961}
   - component: {fileID: 514494964}
+  - component: {fileID: 514494965}
   m_Layer: 0
   m_Name: ScriptController
   m_TagString: Untagged
@@ -2522,6 +2623,28 @@ MonoBehaviour:
   - {x: 0, y: 0.1}
   scrollRect: {fileID: 220471428}
   time: 2.5
+--- !u!114 &514494965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514494960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710cc4a35730be3479ec4e07c8c649c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  player: {fileID: 11400000, guid: 8ddb999eb09ffa441b1b7621e6275c99, type: 2}
+  masterSlider: {fileID: 0}
+  gameSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  menuSlider: {fileID: 0}
+  newVolume1: 0
+  newVolume2: 0
+  newVolume3: 0
+  newVolume4: 0
 --- !u!1 &514684777
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,6 +2697,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2602,6 +2726,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 595225742}
     m_Modifications:
+    - target: {fileID: 2391506323110489637, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -320.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391506323110489637, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 61.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2391651084003838227, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2665,12 +2799,12 @@ PrefabInstance:
     - target: {fileID: 2392056690245763511, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 28.47
       objectReference: {fileID: 0}
     - target: {fileID: 2392056690245763511, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 6.9299927
+      value: -148.08
       objectReference: {fileID: 0}
     - target: {fileID: 2392056690245763511, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
@@ -2685,12 +2819,12 @@ PrefabInstance:
     - target: {fileID: 2392056690245763511, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1168.9
+      value: 376.37317
       objectReference: {fileID: 0}
     - target: {fileID: 2392056690245763511, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 663.78
+      value: 11.311951
       objectReference: {fileID: 0}
     - target: {fileID: 2392056690245763511, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
@@ -2735,12 +2869,37 @@ PrefabInstance:
     - target: {fileID: 2392320236747825849, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 190.6
+      value: 158.3
       objectReference: {fileID: 0}
     - target: {fileID: 2392320236747825849, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 135.2
+      value: 135.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392320236747825849, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.121437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392320236747825849, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.121437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392320236747825849, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.121437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392513863041828561, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -144.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392513863041828561, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.100006
       objectReference: {fileID: 0}
     - target: {fileID: 2392850734137539513, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
@@ -2780,7 +2939,7 @@ PrefabInstance:
     - target: {fileID: 2392850734137539513, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392850734137539513, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
@@ -2805,7 +2964,7 @@ PrefabInstance:
     - target: {fileID: 2392850734137539513, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.299927
+      value: -8.300049
       objectReference: {fileID: 0}
     - target: {fileID: 2392850734137539513, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
@@ -2860,6 +3019,26 @@ PrefabInstance:
     - target: {fileID: 2462721451984851117, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2573464081718871637, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574003729270200615, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_Text
+      value: LEAVING PARK HUB
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574003729270200615, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574003729270200615, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2574302332065436899, guid: 149658bce0fb38148b6f1716f8d2a2a2,
@@ -2875,6 +3054,32 @@ PrefabInstance:
     - target: {fileID: 2574302332065436899, guid: 149658bce0fb38148b6f1716f8d2a2a2,
         type: 3}
       propertyPath: _showReferences
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574870126178796751, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b94485c51f1e73c478a9ea1595c62bfb,
+        type: 3}
+    - target: {fileID: 2574870126178796751, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574870126178796751, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574870126178796751, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574870126178796751, guid: 149658bce0fb38148b6f1716f8d2a2a2,
+        type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2970,9 +3175,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1390587528}
   - {fileID: 220471427}
   - {fileID: 710229821}
-  - {fileID: 1390587528}
   - {fileID: 508975917}
   - {fileID: 1478544033}
   - {fileID: 684697849}
@@ -3080,6 +3285,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3153,6 +3359,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3205,7 +3412,7 @@ RectTransform:
   - {fileID: 68075342}
   - {fileID: 59856599}
   m_Father: {fileID: 595225742}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3225,6 +3432,7 @@ GameObject:
   - component: {fileID: 758991123}
   - component: {fileID: 758991122}
   - component: {fileID: 758991125}
+  - component: {fileID: 758991126}
   m_Layer: 5
   m_Name: Lake Perano
   m_TagString: Untagged
@@ -3334,6 +3542,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &758991123
 MonoBehaviour:
@@ -3350,6 +3570,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3386,6 +3607,20 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+--- !u!114 &758991126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758991120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf40c8a1d055e845b541130d0339a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
 --- !u!1 &786732332
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,6 +3673,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3516,6 +3752,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3608,6 +3845,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3681,6 +3919,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3822,6 +4061,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &837210367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3837,6 +4088,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3940,6 +4192,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3974,6 +4227,7 @@ GameObject:
   - component: {fileID: 888202458}
   - component: {fileID: 888202457}
   - component: {fileID: 888202460}
+  - component: {fileID: 888202461}
   m_Layer: 5
   m_Name: Egress Cave
   m_TagString: Untagged
@@ -4083,6 +4337,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &888202458
 MonoBehaviour:
@@ -4099,6 +4365,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4135,6 +4402,20 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+--- !u!114 &888202461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888202455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf40c8a1d055e845b541130d0339a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
 --- !u!1 &1015743407
 GameObject:
   m_ObjectHideFlags: 0
@@ -4187,6 +4468,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4423,6 +4705,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4579,6 +4862,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1231692883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4594,6 +4889,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4683,6 +4979,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.24705882}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4757,6 +5054,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4894,6 +5192,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1339501909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4909,6 +5219,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5027,7 +5338,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1281418155}
   m_HandleRect: {fileID: 1281418154}
   m_Direction: 0
-  m_Value: 0
+  m_Value: -0.00000085314423
   m_Size: 0.5601511
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5048,6 +5359,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5139,6 +5451,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5212,6 +5525,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5306,7 +5620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
-  audioClip: {fileID: 8300000, guid: 442595cda3e6449cd8456af471e0ee74, type: 3}
+  audioClip: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
 --- !u!114 &1523999697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5361,12 +5675,13 @@ MonoBehaviour:
           m_StringArgument: Main Menu
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadNewScene
-        m_Mode: 5
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Main Menu
@@ -5387,6 +5702,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5460,6 +5776,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5495,6 +5812,7 @@ GameObject:
   - component: {fileID: 1616996083}
   - component: {fileID: 1616996082}
   - component: {fileID: 1616996085}
+  - component: {fileID: 1616996086}
   m_Layer: 5
   m_Name: Guidance Isle
   m_TagString: Untagged
@@ -5604,6 +5922,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &1616996083
 MonoBehaviour:
@@ -5620,6 +5950,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5656,6 +5987,20 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+--- !u!114 &1616996086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616996080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf40c8a1d055e845b541130d0339a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
 --- !u!1 &1627205112
 GameObject:
   m_ObjectHideFlags: 0
@@ -5709,6 +6054,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5801,6 +6147,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5938,6 +6285,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1666019544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5953,6 +6312,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6043,6 +6403,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6185,6 +6546,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6258,6 +6620,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6331,6 +6694,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6405,6 +6769,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6478,6 +6843,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6555,6 +6921,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6692,6 +7059,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1912299031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6707,6 +7086,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6804,6 +7184,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6890,6 +7271,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6967,6 +7349,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7104,6 +7487,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2009291238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7119,6 +7514,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7169,6 +7565,7 @@ GameObject:
   - component: {fileID: 2031846317}
   - component: {fileID: 2031846316}
   - component: {fileID: 2031846319}
+  - component: {fileID: 2031846320}
   m_Layer: 5
   m_Name: Azalea Forest
   m_TagString: Untagged
@@ -7279,6 +7676,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 514494965}
+        m_MethodName: OneShotMenuClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &2031846317
 MonoBehaviour:
@@ -7295,6 +7704,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7331,6 +7741,20 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+--- !u!114 &2031846320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031846314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf40c8a1d055e845b541130d0339a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
 --- !u!1 &2088735977
 GameObject:
   m_ObjectHideFlags: 0
@@ -7384,6 +7808,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7476,6 +7901,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
