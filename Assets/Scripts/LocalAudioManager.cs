@@ -38,6 +38,11 @@ public class LocalAudioManager : MonoBehaviour
         }
     }
 
+    public void ReutrnToMenuAudio()
+    {
+        PlayerPrefs.SetInt("Play Song", 1);
+    }
+
     public void OneShotMenuClick(AudioClip audioClip)
     {
         if(audioManager !=null)

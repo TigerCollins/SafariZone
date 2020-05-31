@@ -107,17 +107,25 @@ public class AudioManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int sceneBuildIndex)
     {
-        currentScene = SceneManager.GetSceneByBuildIndex(sceneBuildIndex).name; ;
+        currentScene = SceneManager.GetSceneByBuildIndex(sceneBuildIndex).name;
+        soundtrackSource = transform.GetChild(0).GetComponent<AudioSource>();
 
         if (currentScene != "GameWorld")
         {
             inMenu = false;
-          //  soundtrackSource.clip = menuMusic;
+            soundtrackSource.clip = menuMusic;
+            if(PlayerPrefs.GetInt("Play Song")==1)
+            {
+                soundtrackSource.Play();
+                PlayerPrefs.SetInt("Play Song", 0);
+            }
+            
         }
 
         else
         {
             inMenu = false;
+            ChangeRouteSoundtrackClip(PlayerPrefs.GetInt("AreaID"));
          //.   menuHover = GameObject.Find
         }
 

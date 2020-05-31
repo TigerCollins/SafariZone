@@ -105,31 +105,6 @@ public class GameController : MonoBehaviour
         playerObject = GameObject.Find("Player");
         playerScript = playerObject.GetComponent<PlayerController>();
         menuPrefabController = GetComponent<MenuPrefabController>();
-      
-
-
-
-
-        //Close minigames on startup
-        popMinigame.SetActive(false);
-
-        //Reset Sprites
-        incenseIconHolder.color = invisibleInk;
-        incenseIconBG.fillAmount = 0;
-        whistleIconHolder.color = invisibleInk;
-        whistleIconBG.fillAmount = 0;
-
-        initialWalkAnimator = playerObject.GetComponent<Animator>();
-        if (!equippedLure)
-        {
-            equippedLure = completeLureList[0];
-            lureIconHolder.color = visibleInk;
-            lureIconHolder.sprite = equippedLure.icon;
-            lureIconHolder.preserveAspect = true;
-        }
-
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-
 
         if (playerData.firstTime == false)
         {
@@ -176,18 +151,43 @@ public class GameController : MonoBehaviour
         }
         //Needs to be the end of Awake
         // lastPosition = transform.position;
+
+
+
+
+        //Close minigames on startup
+        popMinigame.SetActive(false);
+
+        //Reset Sprites
+        incenseIconHolder.color = invisibleInk;
+        incenseIconBG.fillAmount = 0;
+        whistleIconHolder.color = invisibleInk;
+        whistleIconBG.fillAmount = 0;
+
+        initialWalkAnimator = playerObject.GetComponent<Animator>();
+        if (!equippedLure)
+        {
+            equippedLure = completeLureList[0];
+            lureIconHolder.color = visibleInk;
+            lureIconHolder.sprite = equippedLure.icon;
+            lureIconHolder.preserveAspect = true;
+        }
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
+
+       
     }
 
     public void FirstSpawn()
     {
-        if (PlayerPrefs.GetInt("AreaID") == 0)
-        {
             playerObject.transform.position = spawnPoints[3].transform.position;
             playerObject.transform.localRotation = spawnPoints[3].transform.rotation;
             areaID = 0;
             playerScript.areaIdentifierID = 0;
             areaIdentifier = areaIdentifierForSpawn[3];
-        }
+            PlayerPrefs.SetInt("AreaID", 0);
+
     }
     private void Start()
     {

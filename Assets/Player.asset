@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6211ad15f5acfb244a9c7c000054c22e, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  firstTime: 0
+  firstTime: 1
   controllerInput: 0
   playerName: 
   wallet: 0
-  playTime: 5505.729
+  playTime: 6131.219
   runsCompleted: 0
-  totalDistanceTravelled: 39.597282
+  totalDistanceTravelled: 420.97806
   creaturesCaught: 0
   timePlayed: 0
   guidanceIsle: 1
