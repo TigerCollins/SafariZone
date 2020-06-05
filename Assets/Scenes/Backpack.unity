@@ -750,6 +750,8 @@ MonoBehaviour:
   luresContainer: {fileID: 627658815}
   incenseContainer: {fileID: 699340729}
   whistlesContainer: {fileID: 506009455}
+  emptyTextPrefab: {fileID: 7305034400148651857, guid: cdba285af421d2c45a9ea51d007a3df3,
+    type: 3}
 --- !u!114 &1551073692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,27 +907,27 @@ PrefabInstance:
         type: 3}
       propertyPath: audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
+      objectReference: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
     - target: {fileID: 3005032571199579905, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
+      objectReference: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
     - target: {fileID: 3005032571199579906, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
+      objectReference: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
     - target: {fileID: 3005032571199579907, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
+      objectReference: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
     - target: {fileID: 3005032571199579908, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369, type: 3}
+      objectReference: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
     - target: {fileID: 3005032571199579909, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: audioClip
@@ -1225,7 +1227,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: ca49d0a7bbe947c41bc317f77fa7b1f0, type: 3}
+      objectReference: {fileID: 8300000, guid: b6526f03f6723c54b9abdbff27c307ad, type: 3}
     - target: {fileID: 6590570822643388061, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1315,7 +1317,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: ca49d0a7bbe947c41bc317f77fa7b1f0, type: 3}
+      objectReference: {fileID: 8300000, guid: b6526f03f6723c54b9abdbff27c307ad, type: 3}
     - target: {fileID: 6590570822946756115, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1355,7 +1357,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: ca49d0a7bbe947c41bc317f77fa7b1f0, type: 3}
+      objectReference: {fileID: 8300000, guid: b6526f03f6723c54b9abdbff27c307ad, type: 3}
     - target: {fileID: 6590570823660009375, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1387,6 +1389,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6590570823845612762, guid: 400122a909007e04da0636b4bf67c2ac,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590570823854304734, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -1475,7 +1482,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: ca49d0a7bbe947c41bc317f77fa7b1f0, type: 3}
+      objectReference: {fileID: 8300000, guid: b6526f03f6723c54b9abdbff27c307ad, type: 3}
     - target: {fileID: 8269290670885439457, guid: 400122a909007e04da0636b4bf67c2ac,
         type: 3}
       propertyPath: m_AnchorMin.y

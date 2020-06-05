@@ -19,6 +19,11 @@ public class SceneChanger : MonoBehaviour
     public Animator currentSceneAnimator;
 
 
+    private void Awake()
+    {
+       // gameObject.SetActive(true);
+    }
+
     void Start()
     {
         //Colour change

@@ -30,7 +30,9 @@ public class SplashScreen : MonoBehaviour
     {
         if (playerData.firstTime == true)
         {
+            PlayerPrefs.SetInt("AreaID", 0);
             SceneManager.LoadScene(2);
+
         }
 
         else

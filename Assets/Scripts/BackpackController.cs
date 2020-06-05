@@ -16,6 +16,7 @@ public class BackpackController : MonoBehaviour
     public GameObject luresContainer;
     public GameObject incenseContainer;
     public GameObject whistlesContainer;
+    public GameObject emptyTextPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +46,7 @@ public class BackpackController : MonoBehaviour
             {
                 allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
             }
-            
+
             //inventory.inventoryContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().Select();
             // if (inventory.inventoryContainer.transform.GetChild(0).transform.GetChild(5) != null)
             //{
@@ -60,11 +61,20 @@ public class BackpackController : MonoBehaviour
             luresContainer.SetActive(true);
             incenseContainer.SetActive(false);
             whistlesContainer.SetActive(false);
-              if (luresContainer.transform.GetChild(0).GetChild(0).GetChild(0) != null)
+              if (luresContainer.transform.GetChild(0).GetChild(0).transform.childCount > 0)
             {
-                luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                if (luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                {
+                    luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                }
             }
-            
+
+            else
+            {
+                Instantiate(emptyTextPrefab, luresContainer.transform.GetChild(0).GetChild(0));
+               // luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+            }
+
             //  if (inventory.lureListContainer.transform.GetChild(0).transform.GetChild(5) != null)
             //  {
             //      inventory.lureListContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();
@@ -77,9 +87,19 @@ public class BackpackController : MonoBehaviour
             incenseContainer.SetActive(true);
             luresContainer.SetActive(false);
             whistlesContainer.SetActive(false);
-              if (incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0) != null)
+              if (incenseContainer.transform.GetChild(0).GetChild(0).transform.childCount > 0)
             {
-                incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                if(incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                {
+                    incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                }
+
+            }
+
+              else
+            {
+                Instantiate(emptyTextPrefab, incenseContainer.transform.GetChild(0).GetChild(0));
+                //incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
             }
             
 
@@ -95,11 +115,20 @@ public class BackpackController : MonoBehaviour
             whistlesContainer.SetActive(true);
             luresContainer.SetActive(false);
             incenseContainer.SetActive(false);
-              if (whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0) != null)
+              if (whistlesContainer.transform.GetChild(0).GetChild(0).transform.childCount > 0 )
             {
-                whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                if (whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                {
+                    whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                }
             }
-            
+
+
+            else
+            {
+                Instantiate(emptyTextPrefab, whistlesContainer.transform.GetChild(0).GetChild(0));
+                //whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+            }
             // if(inventory.whistlesListContainer.transform.GetChild(0).transform.GetChild(5) != null)
             // {
             //     inventory.whistlesListContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();

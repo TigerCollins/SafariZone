@@ -257,7 +257,7 @@ public class GameController : MonoBehaviour
             screenTransition.transform.localScale = Vector3.MoveTowards(screenTransition.transform.localScale, newScreenTransitionSize, Time.deltaTime * gameOverTransitionTime);
             if(screenTransition.transform.localScale == newScreenTransitionSize)
             {
-                Application.LoadLevel(0);
+                Application.LoadLevel(1);
             }
         }
 

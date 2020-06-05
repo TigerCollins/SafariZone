@@ -207,8 +207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: 
-  soundtrackSource: {fileID: 0}
-  soundEffectSource: {fileID: 0}
+  soundtrackSource: {fileID: 899597003024364022}
+  soundEffectSource: {fileID: 6490878021303137441}
   audioMixer: {fileID: 24100000, guid: 8040c6e2b4f94094ab8021afb56d4b68, type: 2}
   minPitch: 0.8
   maxPitch: 1
@@ -223,7 +223,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
   - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
   - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
-  menuMusic: {fileID: 8300000, guid: aede0f3fc0d47124896351ab92bef3a5, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  - {fileID: 8300000, guid: b24b250b090194e4d801413df79a9a40, type: 3}
+  menuMusic: {fileID: 8300000, guid: 3b299f8cc3825c749a19230ff15a04fa, type: 3}
   footstep: {fileID: 6490878021329917460}
   menuHover: {fileID: 6490878021625158958}
   menuClick: {fileID: 6490878021303137441}
@@ -397,7 +406,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1888472803852154219, guid: 8040c6e2b4f94094ab8021afb56d4b68,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 797da453001930d4abbf0f9db27b28b3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2c5b50ba8e63053459ef5718ddbf3f03, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
@@ -527,7 +536,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 442595cda3e6449cd8456af471e0ee74, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.672
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 0
   Mute: 0
