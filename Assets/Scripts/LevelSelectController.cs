@@ -96,7 +96,7 @@ public class LevelSelectController : MonoBehaviour
     {
 
             PlayerPrefs.SetInt("AreaID", value);
-
+        Debug.Log("Area ID changed to " + PlayerPrefs.GetInt("AreaID"));
 
     }
 

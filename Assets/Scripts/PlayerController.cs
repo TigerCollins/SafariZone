@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
                 scriptControllerObject.areaText.text = areaIdentifier.areaName.ToUpper();
                 scriptControllerObject.OpenAreaTitle();
                 scriptControllerObject.NewArea();
-                scriptControllerObject.audioManager.ChangeRouteSoundtrackClip(areaIdentifier.areaID - 1);
+                scriptControllerObject.audioManager.ChangeRouteSoundtrackClip(areaIdentifier.areaID);
                 areaIdentifierID = areaIdentifier.areaID;
                 scriptControllerObject.pauseMenuText.text = areaIdentifier.areaName.ToUpper();
             }
