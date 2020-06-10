@@ -18,6 +18,19 @@ public class FirstPlaythrough : MonoBehaviour
     public GameObject ProfessorNPC;
     public bool chatStarted;
     public DialogueTrigger professorDialogueTrigger;
+
+    [Header("Interact Intro")]
+    public bool interactionTriggered;
+    public CanvasGroup interactionCanvasGroup;
+    public bool interactionCompleted;
+    public bool triggeredInteractionDialogue;
+
+
+    [Header("Fishing Tut")]
+    public bool fishingTriggered;
+    public CanvasGroup fishingCanvasGroup;
+    public bool fishingCompleted;
+    public bool triggeredFishingDialogue;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +45,8 @@ public class FirstPlaythrough : MonoBehaviour
             OpenMovementTutorial();
             CloseMovementTutorial();
             FirstChatCoroutine();
+            StartFishingTutorial();
+            StartInteractionTutorial();
         }
     }
 
@@ -69,7 +84,66 @@ public class FirstPlaythrough : MonoBehaviour
     IEnumerator FirstChat()
     {
         
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.1f);
             professorDialogueTrigger.TriggerDialogue();
+        
+    }
+
+    public void StartFishingTutorial()
+    {
+        if (fishingTriggered)
+        {
+            if (triggeredFishingDialogue != true)
+            {
+                fishingCanvasGroup.alpha += Time.deltaTime;
+                if (fishingCanvasGroup.alpha >= 1)
+                {
+                    triggeredFishingDialogue = true;
+                }
+            }
+
+        }
+
+        else
+        {
+            if (fishingCanvasGroup.alpha <= 0)
+            {
+                fishingCompleted = true;
+            }
+
+            else
+            {
+                fishingCanvasGroup.alpha -= Time.deltaTime;
+            }
+        }
+    }
+
+    public void StartInteractionTutorial()
+    {
+        if (interactionTriggered)
+        {
+            if (triggeredInteractionDialogue != true)
+            {
+                interactionCanvasGroup.alpha += Time.deltaTime;
+                if (interactionCanvasGroup.alpha >= 1)
+                {
+                    triggeredInteractionDialogue = true;
+                }
+            }
+
+        }
+
+        else
+        {
+            if (interactionCanvasGroup.alpha <= 0)
+            {
+                interactionCompleted = true;
+            }
+
+            else
+            {
+                interactionCanvasGroup.alpha -= Time.deltaTime;
+            }
+        }
     }
 }

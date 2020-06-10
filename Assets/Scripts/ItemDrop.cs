@@ -30,6 +30,7 @@ public class ItemDrop : MonoBehaviour
         hasBeenTriggeredPass2 = false;
         BubbleOpened();
         player = FindObjectOfType<PlayerController>().gameObject;
+        gameController = FindObjectOfType<GameController>();
     }
 
     public void BubbleClosed()

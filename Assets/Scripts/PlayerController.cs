@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public int areaIdentifierID;
     public FishingTrigger fishingTrigger;
     public ItemDrop itemDrop;
+    public InteractTutorial interactTutorial;
 
     [Header("Movement Variables")]
     public Vector3 desiredMoveDirection;
@@ -78,6 +79,7 @@ public class PlayerController : MonoBehaviour
     [Header("Tutorial")]
     public FirstPlaythrough firstPlaythrough;
     public CloseMovementTutorial closeMovementTutorialScript;
+    public StartFishingTutorial startFishingTutorial;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -149,12 +151,24 @@ public class PlayerController : MonoBehaviour
             closeMovementTutorialScript.ChangeBool();
         }
 
-        if (other.tag == "IntroDialogue" && scriptControllerObject.playerData.firstTime)
+        if (other.tag == "IntroDialogue" && scriptControllerObject.playerData.firstTime && !firstPlaythrough.chatStarted)
         {
             canMove = false;
             firstPlaythrough.professorDialogueTrigger = other.transform.parent.GetComponent<DialogueTrigger>();
             firstPlaythrough.chatStarted = true;
             
+        }
+
+        if (other.GetComponent<StartFishingTutorial>())
+        {
+            startFishingTutorial = other.GetComponent<StartFishingTutorial>();
+            startFishingTutorial.ChangeBool();
+        }
+
+        if (other.GetComponent<InteractTutorial>())
+        {
+            interactTutorial = other.GetComponent<InteractTutorial>();
+            interactTutorial.ChangeBool();
         }
     }
 
@@ -357,23 +371,39 @@ valueChanged = false;
         {
             if (trapTrigger != null)
             {
-
+                if(firstPlaythrough.interactionTriggered)
+                {
+                    firstPlaythrough.interactionTriggered = false;
+                }
                 trapTrigger.CheckIfTrapPlaced();
             }
 
             if (dialogueTrigger != null)
             {
+                if (firstPlaythrough.interactionTriggered)
+                {
+                    firstPlaythrough.interactionTriggered = false;
+                }
+
                 dialogueTrigger.TriggerDialogue();
             }
 
             if (fishingTrigger != null)
             {
+                if (firstPlaythrough.interactionTriggered)
+                {
+                    firstPlaythrough.interactionTriggered = false;
+                }
                 fishingRod.SetBool("isFishing", true);
                 fishingTrigger.AttemptFish();
             }
 
             if (itemDrop != null)
             {
+                if (firstPlaythrough.interactionTriggered)
+                {
+                    firstPlaythrough.interactionTriggered = false;
+                }
                 itemDrop.OnChestTrigger();
             }
         }

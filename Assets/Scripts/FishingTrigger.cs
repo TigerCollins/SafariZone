@@ -6,6 +6,7 @@ public class FishingTrigger : MonoBehaviour
 {
     public bool isFishing;
     public GameObject thisObject;
+    public FirstPlaythrough firstPlaythrough;
 
 
     [Header("Script References")]
@@ -62,6 +63,7 @@ public class FishingTrigger : MonoBehaviour
         
         trapManager = FindObjectOfType<TrapManager>();
         playerController = FindObjectOfType<PlayerController>();
+        firstPlaythrough = FindObjectOfType<FirstPlaythrough>();
         player = playerController.gameObject;
         thisObject = gameObject;
 
@@ -82,6 +84,7 @@ public class FishingTrigger : MonoBehaviour
         BubbleClosed();
         if (!isFishing)
         {
+            firstPlaythrough.fishingTriggered = false;
             stillFishing = true;
             playerController.animator.SetBool("isFishing",true);
             isFishing = true;
@@ -117,6 +120,8 @@ public class FishingTrigger : MonoBehaviour
             {
                 BubbleOpened();
             }
+            
+            
         }
 
         
