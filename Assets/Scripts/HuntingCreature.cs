@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class HuntingCreature : MonoBehaviour
 {
     public GameController gameController;
-   
+    private bool beenDestroyed = false;
 
     [Header("AI")]
     public GameObject player;
@@ -107,8 +107,16 @@ public class HuntingCreature : MonoBehaviour
 
     void DropObject()
     {
+
         float timeMultiplier = Time.deltaTime;
         gameObject.transform.position -= new Vector3(gameObject.transform.position.x, 1 * timeMultiplier,gameObject.transform.position.z);
+        if(!beenDestroyed)
+        {
+            beenDestroyed = true;
+            huntingZone.amountSpawned -= 1;
+
+        }
+
         Destroy(gameObject, destroyTimer);
     }
 

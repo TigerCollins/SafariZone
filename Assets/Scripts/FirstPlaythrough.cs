@@ -31,6 +31,24 @@ public class FirstPlaythrough : MonoBehaviour
     public CanvasGroup fishingCanvasGroup;
     public bool fishingCompleted;
     public bool triggeredFishingDialogue;
+
+     [Header("Hunting Tut")]
+    public bool huntingTriggered;
+    public CanvasGroup huntingCanvasGroup;
+    public bool huntingCompleted;
+    public bool triggeredHuntingDialogue;
+
+    [Header("Trap Tut")]
+    public bool trapTutTriggered;
+    public CanvasGroup trapTutCanvasGroup;
+    public bool trapTutCompleted;
+    public bool triggeredTrapDialogue;
+
+    [Header("TitleCard")]
+    public bool titlecardTriggered;
+    public CanvasGroup titlecardCanvasGroup;
+    public float titlecardTimer;
+    public bool titlecardCompleted;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +65,9 @@ public class FirstPlaythrough : MonoBehaviour
             FirstChatCoroutine();
             StartFishingTutorial();
             StartInteractionTutorial();
+            StartHuntingTutorial();
+            StartTrapTutorial();
+            StartTitleCard();
         }
     }
 
@@ -143,6 +164,97 @@ public class FirstPlaythrough : MonoBehaviour
             else
             {
                 interactionCanvasGroup.alpha -= Time.deltaTime;
+            }
+        }
+    }
+
+    public void StartHuntingTutorial()
+    {
+        if (huntingTriggered)
+        {
+            if (triggeredHuntingDialogue != true)
+            {
+                huntingCanvasGroup.alpha += Time.deltaTime;
+                if (huntingCanvasGroup.alpha >= 1)
+                {
+                    triggeredHuntingDialogue = true;
+                }
+            }
+
+        }
+
+        else
+        {
+            if (huntingCanvasGroup.alpha <= 0)
+            {
+                huntingCompleted = true;
+            }
+
+            else
+            {
+                huntingCanvasGroup.alpha -= Time.deltaTime;
+            }
+        }
+    }
+
+    public void StartTrapTutorial()
+    {
+        if (trapTutTriggered)
+        {
+            if (triggeredTrapDialogue != true)
+            {
+                trapTutCanvasGroup.alpha += Time.deltaTime;
+                if (trapTutCanvasGroup.alpha >= 1)
+                {
+                    triggeredTrapDialogue = true;
+                }
+            }
+
+        }
+
+        else
+        {
+            if (trapTutCanvasGroup.alpha <= 0)
+            {
+                trapTutCompleted = true;
+            }
+
+            else
+            {
+                trapTutCanvasGroup.alpha -= Time.deltaTime;
+            }
+        }
+    }
+
+    public void StartTitleCard()
+    {
+        if (titlecardTriggered)
+        {
+            if (titlecardCompleted != true)
+            {
+                titlecardCanvasGroup.alpha += Time.deltaTime;
+                if (titlecardCanvasGroup.alpha >= 1)
+                {
+                    titlecardCompleted = true;
+                }
+            }
+
+        }
+
+
+            if (titlecardCanvasGroup.alpha > 0 && titlecardTimer <= 0)
+            {
+                titlecardCanvasGroup.alpha -= Time.deltaTime;
+            }
+
+
+
+        if(titlecardCompleted)
+        {
+            titlecardTimer -= Time.deltaTime;
+            if(titlecardTimer <= 0)
+            {
+                titlecardTriggered = false;
             }
         }
     }

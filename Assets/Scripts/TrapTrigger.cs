@@ -12,6 +12,7 @@ public class TrapTrigger : MonoBehaviour
     [Header("Script References")]
     public GameController scriptController;
     public TrapManager trapManager;
+    public FirstPlaythrough firstPlaythrough;
 
     [Header("Creature Variables")]
     public float smallWeightFactor;
@@ -52,6 +53,8 @@ public class TrapTrigger : MonoBehaviour
         BubbleOpened();
         renderer.material = lureSymbol;
         player = FindObjectOfType<PlayerController>().gameObject;
+        firstPlaythrough = FindObjectOfType<FirstPlaythrough>().GetComponent<FirstPlaythrough>();
+        scriptController = FindObjectOfType<GameController>().GetComponent<GameController>();
 
         if (Vector3.Distance(gameObject.transform.position, player.transform.position) < distance)
         {
@@ -150,6 +153,11 @@ public class TrapTrigger : MonoBehaviour
     {
         if(trapPlaced)
         {
+            if(firstPlaythrough.playerProfile.firstTime)
+            {
+                firstPlaythrough.trapTutTriggered = false;
+                firstPlaythrough.trapTutCompleted = true;
+            }
             trapManager.SpawnCreature(spawnedCreature);
             trapPlaced = false;
         }

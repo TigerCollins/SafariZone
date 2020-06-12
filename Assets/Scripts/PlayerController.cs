@@ -80,6 +80,10 @@ public class PlayerController : MonoBehaviour
     public FirstPlaythrough firstPlaythrough;
     public CloseMovementTutorial closeMovementTutorialScript;
     public StartFishingTutorial startFishingTutorial;
+    public StartHuntingTutorial startHuntingTutorial;
+    public CloseHuntingTutorial closeHuntingTutorial;
+    public StartTrapTutorial startTrapTutorial;
+    public StartTitleCard startTitleCard;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -91,6 +95,8 @@ public class PlayerController : MonoBehaviour
 
             if (!tempRunningAway && tempNoticed)
             {
+                
+                firstPlaythrough.huntingTriggered = false;
                 scriptControllerObject.CapturePopup(collision.collider.GetComponent<HuntingCreature>().selectedCreature);
                 AddToWallet(collision.collider.GetComponent<HuntingCreature>().selectedCreature);
                 spawnedCreature.previouslyCaptured = true;
@@ -123,7 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "ZoneTrigger")
         {
-            huntingZone = other.transform.parent.parent.GetComponent<HuntingZone>();
+            huntingZone = other.transform.parent.GetComponent<HuntingZone>();
         }
 
         if(other.GetComponent<AreaIdentifier>())
@@ -170,6 +176,30 @@ public class PlayerController : MonoBehaviour
             interactTutorial = other.GetComponent<InteractTutorial>();
             interactTutorial.ChangeBool();
         }
+
+        if (other.GetComponent<StartHuntingTutorial>())
+        {
+            startHuntingTutorial = other.GetComponent<StartHuntingTutorial>();
+            startHuntingTutorial.ChangeBool();
+        }
+
+        if (other.GetComponent<CloseHuntingTutorial>())
+        {
+            closeHuntingTutorial = other.GetComponent<CloseHuntingTutorial>();
+            closeHuntingTutorial.ChangeBool();
+        }
+
+        if (other.GetComponent<StartTrapTutorial>())
+        {
+            startTrapTutorial = other.GetComponent<StartTrapTutorial>();
+            startTrapTutorial.ChangeBool();
+        }
+
+        if (other.GetComponent<StartTitleCard>())
+        {
+            startTitleCard = other.GetComponent<StartTitleCard>();
+            startTitleCard.ChangeBool();
+        }
     }
 
 
@@ -187,7 +217,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "ZoneTrigger")
         {
-            other.transform.parent.parent.GetComponent<HuntingZone>().SpawnCreature();
+            huntingZone = null;
         }
 
         if (other.GetComponent<SpeedModifier>() && valueChanged == true && areaIdentifierID == 7)
@@ -356,10 +386,11 @@ valueChanged = false;
         {
             distanceTravelled -= Vector3.Distance(transform.position, lastPosition);
             lastPosition = transform.position;
-            if(distanceTravelled <= 0)
+            if(distanceTravelled <= 0 && huntingZone.amountSpawned < huntingZone.maxCreatures)
             {
                 huntingZone.SpawnCreature();
                 distanceTravelled = baseHuntingTimer;
+                huntingZone.amountSpawned += 1;
             }
 
         }
@@ -425,6 +456,10 @@ valueChanged = false;
         //Sneak Bool Changing
         if (Input.GetKey(KeyCode.LeftControl))
         {
+            if(firstPlaythrough.playerProfile.firstTime)
+            {
+                firstPlaythrough.huntingTriggered = false;
+            }
             isSneaking = true;
         }
 

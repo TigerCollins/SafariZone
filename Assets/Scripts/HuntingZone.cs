@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HuntingZone : MonoBehaviour
 {
+    public int maxCreatures;
+    public int amountSpawned;
     [Header("AI")]
     public List<Transform> spawnPoints;
     public GameObject creaturePrefab;
@@ -32,6 +34,7 @@ public class HuntingZone : MonoBehaviour
 
     public void SpawnCreature()
     {
+        /*
         int creatureCount = 0;
         int index = 0;
         foreach (Transform spawnPoint in spawnPointHolder.transform)
@@ -46,13 +49,13 @@ public class HuntingZone : MonoBehaviour
 
 
         if(creatureCount == 0)
-        {
-            int spawnNum = Random.Range(0, spawnPoints.Count);
+        {    */
+        int spawnNum = Random.Range(0, spawnPoints.Count);
             Instantiate(creaturePrefab, spawnPoints[spawnNum].transform.position, spawnPoints[spawnNum].transform.rotation, spawnPoints[spawnNum]);
             int creatureSpawnNum = Random.Range(0, possibleCreatures.Count);
             //GetComponent<>
             spawnPoints[spawnNum].GetChild(0).GetComponent<HuntingCreature>().selectedCreature = possibleCreatures[creatureSpawnNum];
-        }
+        //}
 
                 
 

@@ -8,5 +8,6 @@ public class AreaIdentifier : MonoBehaviour
     public int areaID;
     public string areaName;
     public Sprite areaIcon;
+    public bool changeMovementTracker;
 
 }

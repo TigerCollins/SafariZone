@@ -145,7 +145,7 @@ Material:
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 400, g: 400, b: 4, a: 4}
-    - _TintColor: {r: 0.735849, g: 0.5020887, b: 0.16313633, a: 1}
+    - _TintColor: {r: 0.3679245, g: 0.22337645, b: 0.13710395, a: 1}
     - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.41, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
