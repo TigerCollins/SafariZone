@@ -19,6 +19,7 @@ public class StartTitleCard : MonoBehaviour
     public void ChangeBool()
     {
         firstPlaythrough.titlecardTriggered = true;
+        firstPlaythrough.playerProfile.firstTime = false;
     }
 
 }
