@@ -200,6 +200,16 @@ public class PlayerController : MonoBehaviour
             startTitleCard = other.GetComponent<StartTitleCard>();
             startTitleCard.ChangeBool();
         }
+
+        if(other.tag == "StartFall")
+        {
+            isGrounded = false;
+        }
+
+        if(other.tag == "FallEnd")
+        {
+            isGrounded = true;
+        }
     }
 
 
@@ -260,14 +270,14 @@ valueChanged = false;
     // Update is called once per frame
     void Update()
     {
-        isGrounded = rigidbody.isGrounded;
+        
         if (isGrounded)
         {
-            verticalVel -= 0;
+            animator.SetBool("Falling", false);
         }
         else
-        {
-            verticalVel -= 1;
+       {
+            animator.SetBool("Falling", true);
         }
         moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
         rigidbody.Move(moveVector);

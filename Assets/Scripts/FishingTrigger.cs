@@ -62,8 +62,9 @@ public class FishingTrigger : MonoBehaviour
     {
         
         trapManager = FindObjectOfType<TrapManager>();
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>().GetComponent<PlayerController>();
         firstPlaythrough = FindObjectOfType<FirstPlaythrough>();
+        scriptController = FindObjectOfType<GameController>().GetComponent<GameController>();
         player = playerController.gameObject;
         thisObject = gameObject;
 

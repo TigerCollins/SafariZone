@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1895221656788586940
 Transform:
@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 1895221657041462659}
   - component: {fileID: 1895221657041462670}
   - component: {fileID: 1895221657041462671}
-  - component: {fileID: 1895221657041462668}
   - component: {fileID: 1895221657041462669}
   - component: {fileID: 1895221657041462658}
   m_Layer: 0
@@ -53,7 +52,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1895221657041462659
 Transform:
@@ -117,20 +116,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1895221657041462668
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895221657041462656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1895221657041462669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +144,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 7d7a9c8b875d7784ba3199bfb1da5e25, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -183,7 +168,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1895221657303347188
 Transform:
@@ -274,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFishing: 0
   thisObject: {fileID: 0}
+  firstPlaythrough: {fileID: 0}
   scriptController: {fileID: 0}
   playerController: {fileID: 0}
   trapManager: {fileID: 0}
@@ -351,7 +337,7 @@ MonoBehaviour:
   failedMessage:
   - Nothing seems to be biting...
   player: {fileID: 0}
-  distance: 0
+  distance: 20
   visible: 0
   animatorBubble: {fileID: 1895221657041462658}
   renderer: {fileID: 1895221657344367856}
@@ -368,14 +354,13 @@ GameObject:
   - component: {fileID: 1895221657344367863}
   - component: {fileID: 1895221657344367859}
   - component: {fileID: 1895221657344367856}
-  - component: {fileID: 1895221657344367857}
   - component: {fileID: 1895221657344367862}
   m_Layer: 0
   m_Name: NotificationBubble Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1895221657344367863
 Transform:
@@ -438,20 +423,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1895221657344367857
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895221657344367860}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1895221657344367862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1404714186194738, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1497628649277390, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
       propertyPath: m_Name
@@ -484,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497628649277390, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4556773208972270, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -547,7 +518,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1404714186194738, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1497628649277390, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
       propertyPath: m_Name
@@ -555,7 +526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497628649277390, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4556773208972270, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
       propertyPath: m_LocalPosition.x
