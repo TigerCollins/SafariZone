@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &8217497824441615342
 Transform:
@@ -141,6 +141,7 @@ MonoBehaviour:
   renderer: {fileID: 8217497824995893995}
   exclamationMark: {fileID: 2100000, guid: 43b2023c3f1e3fa46852bf990f2c4799, type: 2}
   lureSymbol: {fileID: 2100000, guid: 3f0a8593a5617804784afe77278df627, type: 2}
+  runningMark: {fileID: 2100000, guid: fa15df20d33834e4aa8a0bab28caf06c, type: 2}
 --- !u!1 &8217497824516389237
 GameObject:
   m_ObjectHideFlags: 0

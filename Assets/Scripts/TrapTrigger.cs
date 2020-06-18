@@ -43,6 +43,7 @@ public class TrapTrigger : MonoBehaviour
     public Renderer renderer;
     public Material exclamationMark;
     public Material lureSymbol;
+    public Material runningMark;
 
     private Vector3 lastPosition;
 
@@ -210,17 +211,23 @@ public class TrapTrigger : MonoBehaviour
     }
 
     void TrapTimer()
+
+
+   
     {
-        
         if(trapTimer > 0)
         {
-            trapTimer = trapTimer - Vector3.Distance(scriptController.playerObject.transform.position, lastPosition);
+            trapTimer -= Vector3.Distance(scriptController.playerObject.transform.position, lastPosition);
             lastPosition = scriptController.playerObject.transform.position;
-            
+            if (trapPlaced)
+            {
+                renderer.material = runningMark;
+            }
         }
 
         else
         {
+            lastPosition = scriptController.playerObject.transform.position;
             BubbleOpened();
             if(trapPlaced)
             {
