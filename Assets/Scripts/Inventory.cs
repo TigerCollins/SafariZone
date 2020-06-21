@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Aura2API;
 
 public class Inventory : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         // inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
-        list = inventoryObject.Inventory;
+       // list = inventoryObject.Inventory;
         if(SceneManager.GetActiveScene().name == "GameWorld")
         {
             gameController = GameObject.Find("_ScriptController").GetComponent<GameController>();
@@ -69,70 +70,9 @@ public class Inventory : MonoBehaviour
         DestroyLure();
         DestroyWhistle();
 
-        if (list.Count > 0)
-        {
+        
 
-            for (int i = 0; i < list.Count; i++)
-            {
-
-                Instantiate(itemContainerPrefab, inventoryContainer.transform);
-                if (list[i].itemTypes == Item.ItemTypes.Lure)
-                {
-                    for (int ii = 0; ii < wholeLureList.Count; ii++)
-                    {
-                        if (wholeLureList[ii].itemName == list[i].itemName)
-                        {
-                            trap.Add(wholeLureList[ii]);
-                        }
-                    }
-                }
-
-                if (list[i].itemTypes == Item.ItemTypes.Whistle)
-                {
-                    for (int ii = 0; ii < wholeWhistleList.Count; ii++)
-                    {
-                        if (wholeWhistleList[ii].itemName == list[i].itemName)
-                        {
-                            whistles.Add(wholeWhistleList[ii]);
-                        }
-                    }
-                }
-
-                if (list[i].itemTypes == Item.ItemTypes.Incense)
-                {
-                    for (int ii = 0; ii < wholeIncenseList.Count; ii++)
-                    {
-                        if (wholeIncenseList[ii].itemName == list[i].itemName)
-                        {
-                            incenses.Add(wholeIncenseList[ii]);
-                        }
-                    }
-                }
-            }
-
-            //Lures
-            for (int i = 0; i < trap.Count; i++)
-            {
-                Instantiate(itemContainerPrefab, lureListContainer.transform);
-                UpdateLureContainerSlots();
-            }
-
-            for (int i = 0; i < incenses.Count; i++)
-            {
-                Instantiate(itemContainerPrefab, incenseListContainer.transform);
-                UpdateIncenseContainerSlots();
-            }
-
-            for (int i = 0; i < whistles.Count; i++)
-            {
-                Instantiate(itemContainerPrefab, whistlesListContainer.transform);
-                UpdateWhistleContainerSlots();
-            }
-            UpdateContainerSlots();
-            ForceSerialization();
-
-
-        }
+        
     }
 
     private void OnEnable()
@@ -209,6 +149,121 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void WipeInventoryList()
+    {
+        foreach (Transform transform in whistlesListContainer.transform)
+        {
+            whistles.Clear();
+            Destroy(transform.gameObject);
+        }
+        foreach (Transform transform in lureListContainer.transform)
+        {
+            trap.Clear();
+            Destroy(transform.gameObject);
+        }
+        foreach (Transform transform in inventoryContainer.transform)
+        {
+            //list.Clear();
+            Destroy(transform.gameObject);
+        }
+
+        foreach (Transform transform in incenseListContainer.transform)
+        {
+            incenses.Clear();
+            Destroy(transform.gameObject);
+        }
+    }
+
+    public void UpdateInventory()
+    {
+        list = inventoryObject.Inventory;
+        if (list.Count > 0)
+        {
+            
+            for (int i = 0; i < list.Count; i++)
+            {
+                print(i);
+                var itemTest = Instantiate(itemContainerPrefab, inventoryContainer.transform);
+                itemTest.GetComponent<InventorySlotController>().item = list[i];
+                itemTest.GetComponent<InventorySlotController>().UpdateInfo();
+                if (itemTest.transform.GetSiblingIndex() == 0 && itemTest.transform.GetComponent<InventorySlotController>().item.name == "Hand Reel")
+                {
+                    
+                    Destroy(itemTest);
+                }
+                //if(item)
+                if (list[i].itemTypes == Item.ItemTypes.Lure)
+                {
+                    for (int ii = 0; ii < wholeLureList.Count; ii++)
+                    {
+                        if (wholeLureList[ii].itemName == list[i].itemName)
+                        {
+                            trap.Add(wholeLureList[ii]);
+                        }
+                    }
+                }
+
+                if (list[i].itemTypes == Item.ItemTypes.Whistle)
+                {
+                    for (int ii = 0; ii < wholeWhistleList.Count; ii++)
+                    {
+                        if (wholeWhistleList[ii].itemName == list[i].itemName)
+                        {
+                            whistles.Add(wholeWhistleList[ii]);
+                        }
+                    }
+                }
+
+                if (list[i].itemTypes == Item.ItemTypes.Incense)
+                {
+                    for (int ii = 0; ii < wholeIncenseList.Count; ii++)
+                    {
+                        if (wholeIncenseList[ii].itemName == list[i].itemName)
+                        {
+                            incenses.Add(wholeIncenseList[ii]);
+                        }
+                    }
+                }
+              
+            }
+
+            //Lures
+            for (int i = 0; i < trap.Count; i++)
+            {
+                Instantiate(itemContainerPrefab, lureListContainer.transform);
+                UpdateLureContainerSlots();
+            }
+
+            for (int i = 0; i < incenses.Count; i++)
+            {
+                Instantiate(itemContainerPrefab, incenseListContainer.transform);
+                UpdateIncenseContainerSlots();
+            }
+
+            for (int i = 0; i < whistles.Count; i++)
+            {
+                Instantiate(itemContainerPrefab, whistlesListContainer.transform);
+                UpdateWhistleContainerSlots();
+            }
+
+
+
+        }
+        if (inventoryContainer.transform.GetChild(0) != null)
+        {
+            print("not empty");
+            eventSystem.SetSelectedGameObject(inventoryContainer.transform.GetChild(0).gameObject);
+            inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+            //Destroy(inventoryContainer.transform.GetChild(1));
+            /*
+            foreach (InventorySlotController item in inventoryContainer.transform)
+            {
+                 inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+            }
+           */
+        }
+    }
+
     public void DestroyLure()
     {
         foreach (Transform child in lureListContainer.transform)
@@ -246,6 +301,8 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
+   
 
     public void UpdateContainerSlots()
     {

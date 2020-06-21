@@ -1148,7 +1148,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1083700105}
+      - m_Target: {fileID: 0}
         m_MethodName: ClearPlayerPref
         m_Mode: 1
         m_Arguments:
@@ -2741,7 +2741,6 @@ GameObject:
   - component: {fileID: 1083700101}
   - component: {fileID: 1083700103}
   - component: {fileID: 1083700104}
-  - component: {fileID: 1083700105}
   m_Layer: 0
   m_Name: ScriptController
   m_TagString: Untagged
@@ -2841,20 +2840,6 @@ MonoBehaviour:
   changeTime: 0
   smallSizePercentage: 20
   largeSizePercentage: 5
---- !u!114 &1083700105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083700100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7bfcbfd115e876438d12e18d0a8634c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timesLoaded: 0
-  firstTimePlayPopup: {fileID: 1619102736}
 --- !u!1 &1084101903
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,7 +3673,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1083700105}
+      - m_Target: {fileID: 0}
         m_MethodName: ClearPlayerPref
         m_Mode: 1
         m_Arguments:
@@ -6175,7 +6160,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1083700105}
+      - m_Target: {fileID: 0}
         m_MethodName: ClosePopup
         m_Mode: 1
         m_Arguments:

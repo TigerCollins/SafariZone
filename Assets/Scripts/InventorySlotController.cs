@@ -20,6 +20,7 @@ public class InventorySlotController : MonoBehaviour
 
     public void Awake()
     {
+        print("I exist");
         if(SceneManager.GetActiveScene().name == "GameWorld")
         {
             gameController = GameObject.Find("_ScriptController").GetComponent<GameController>();
@@ -36,13 +37,18 @@ public class InventorySlotController : MonoBehaviour
         {
             inventory = GameObject.Find("_ScriptController").GetComponent<GameController>().inventoryScript;
         }
+
+
+            quantityText = GameObject.Find("num").GetComponent<Text>();
+            flavourText = GameObject.Find("Item Disc.").GetComponent<Text>();
+            itemNameExtra = GameObject.Find("Item Display Name").GetComponent<Text>();
+            itemDisplay = GameObject.Find("ItemDisplay").GetComponent<Image>();
+            toggleGroup = gameObject.transform.parent.GetComponent<ToggleGroup>();
+            gameObject.transform.GetComponentInChildren<Toggle>().group = toggleGroup;
+       
       
-        quantityText = GameObject.Find("num").GetComponent<Text>();
-        flavourText = GameObject.Find("Item Disc.").GetComponent<Text>();
-        itemNameExtra = GameObject.Find("Item Display Name").GetComponent<Text>();
-        itemDisplay = GameObject.Find("ItemDisplay").GetComponent<Image>();
-        toggleGroup = gameObject.transform.parent.GetComponent<ToggleGroup>();
-        gameObject.transform.GetComponentInChildren<Toggle>().group = toggleGroup;
+       
+       
         if (item.itemTypes == Item.ItemTypes.Lure)
         {
             for (int i = 0; i < inventory.trap.Count; i++)

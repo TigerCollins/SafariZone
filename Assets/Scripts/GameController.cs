@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
         playerScript = playerObject.GetComponent<PlayerController>();
         menuPrefabController = GetComponent<MenuPrefabController>();
 
-        Debug.Log(PlayerPrefs.GetInt("AreaID"));
+       
 
       
         //Needs to be the end of Awake
@@ -142,6 +142,7 @@ public class GameController : MonoBehaviour
        
     }
 
+
     public void FirstSpawn()
     {
             playerObject.transform.position = spawnPoints[3].transform.position;
@@ -150,10 +151,13 @@ public class GameController : MonoBehaviour
             playerScript.areaIdentifierID = 0;
             areaIdentifier = areaIdentifierForSpawn[3];
             PlayerPrefs.SetInt("AreaID", 0);
+        Debug.Log(PlayerPrefs.GetInt("Players first playthrough"));
 
     }
     private void Start()
     {
+        playerObject = GameObject.Find("Player");
+        playerScript = playerObject.GetComponent<PlayerController>();
         audioManager.ChangeRouteSoundtrackClip(PlayerPrefs.GetInt("AreaID"));
         if (playerData.firstTime == false)
         {
@@ -164,6 +168,7 @@ public class GameController : MonoBehaviour
                 areaID = 1;
                 playerScript.areaIdentifierID = 1;
                 areaIdentifier = areaIdentifierForSpawn[0];
+                Debug.Log(PlayerPrefs.GetInt("Spawned at first spawn"));
             }
 
             if (PlayerPrefs.GetInt("AreaID") == 6)
@@ -173,6 +178,7 @@ public class GameController : MonoBehaviour
                 areaID = 6;
                 playerScript.areaIdentifierID = 6;
                 areaIdentifier = areaIdentifierForSpawn[1];
+                Debug.Log(PlayerPrefs.GetInt("Spawned at second spawn"));
             }
 
             if (PlayerPrefs.GetInt("AreaID") == 9)
@@ -182,6 +188,7 @@ public class GameController : MonoBehaviour
                 areaID = 9;
                 playerScript.areaIdentifierID = 9;
                 areaIdentifier = areaIdentifierForSpawn[2];
+                Debug.Log(PlayerPrefs.GetInt("Spawned at third spawn"));
             }
 
             if (PlayerPrefs.GetInt("AreaID") == 0)
@@ -191,6 +198,7 @@ public class GameController : MonoBehaviour
                 areaID = 0;
                 playerScript.areaIdentifierID = 0;
                 areaIdentifier = areaIdentifierForSpawn[3];
+                Debug.Log(PlayerPrefs.GetInt("Spawned at forth spawn"));
             }
         }
 
