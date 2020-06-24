@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6211ad15f5acfb244a9c7c000054c22e, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  firstTime: 1
+  firstTime: 0
   controllerInput: 0
   playerName: 
   wallet: 0
-  playTime: 10956.111
+  playTime: 11841.971
   runsCompleted: 0
-  totalDistanceTravelled: 368.73502
+  totalDistanceTravelled: 1.2585214
   creaturesCaught: 0
   timePlayed: 0
   guidanceIsle: 1
-  egressCave: 1
-  kebarVillage: 1
-  parharVillage: 1
+  egressCave: 0
+  kebarVillage: 0
+  parharVillage: 0
   AzaleaForest: 0
   lakePerano: 0
   masterVolume: 4.4444447

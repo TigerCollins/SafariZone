@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afab533ba4feba49956f5f69a5d9b1e, type: 3}
   m_Name: Darklodon
   m_EditorClassIdentifier: 
-  previouslyCaptured: 1
+  previouslyCaptured: 0
   creatureName: Darklodon
   creatureIcon: {fileID: 21300000, guid: 766fe0866b50efb4da0bb4e3787ed633, type: 3}
   habitatIcon: {fileID: -6631254912728464919, guid: 87056dc9887a45d40af0a7beee198658,

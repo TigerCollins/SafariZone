@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afab533ba4feba49956f5f69a5d9b1e, type: 3}
   m_Name: Panfire
   m_EditorClassIdentifier: 
-  previouslyCaptured: 1
+  previouslyCaptured: 0
   creatureName: Panfire
   creatureIcon: {fileID: 21300000, guid: b94485c51f1e73c478a9ea1595c62bfb, type: 3}
   habitatIcon: {fileID: -6631254912728464919, guid: 87056dc9887a45d40af0a7beee198658,

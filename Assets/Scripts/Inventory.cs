@@ -49,26 +49,30 @@ public class Inventory : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "GameWorld")
         {
             gameController = GameObject.Find("_ScriptController").GetComponent<GameController>();
+            DestroyItem();
+            DestroyIncense();
+            DestroyLure();
+            DestroyWhistle();
+
+            for (int i = 0; i < trap.Count; i++)
+            {
+                if (trap[i].equipped == true)
+                {
+                    gameController.equippedLure = trap[i];
+                    break;
+                }
+            }
         }
 
         else
         {
             gameController = GameObject.Find("ScriptController").GetComponent<GameController>();
+            UpdateInventory();
         }
 
-        for (int i = 0; i < trap.Count; i++)
-        {
-            if (trap[i].equipped == true)
-            {
-                gameController.equippedLure = trap[i];
-                break;
-            }
-        }
 
-        DestroyItem();
-        DestroyIncense();
-        DestroyLure();
-        DestroyWhistle();
+
+
 
         
 
@@ -90,7 +94,7 @@ public class Inventory : MonoBehaviour
 
         //All
 
-       if(inventoryContainer.transform.GetChild(0)!=null)
+       if(inventoryContainer.transform.GetChild(0)!=null && SceneManager.GetActiveScene().name == "GameWorld")
         {
             eventSystem.SetSelectedGameObject(inventoryContainer.transform.GetChild(0).gameObject);
             inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();

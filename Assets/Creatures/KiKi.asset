@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afab533ba4feba49956f5f69a5d9b1e, type: 3}
   m_Name: KiKi
   m_EditorClassIdentifier: 
-  previouslyCaptured: 1
+  previouslyCaptured: 0
   creatureName: KiKi
   creatureIcon: {fileID: 21300000, guid: e3e1fe72b65475a4399db7248463ed70, type: 3}
   habitatIcon: {fileID: -2525320356243936148, guid: 87056dc9887a45d40af0a7beee198658,

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afab533ba4feba49956f5f69a5d9b1e, type: 3}
   m_Name: Wedgeflame
   m_EditorClassIdentifier: 
-  previouslyCaptured: 1
+  previouslyCaptured: 0
   creatureName: Wedgeflame
   creatureIcon: {fileID: 21300000, guid: 0dd56a5dbdd5636418603203b276963f, type: 3}
   habitatIcon: {fileID: 7853380305798159675, guid: 87056dc9887a45d40af0a7beee198658,
