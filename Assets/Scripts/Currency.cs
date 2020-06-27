@@ -26,6 +26,7 @@ public class Currency : MonoBehaviour
     {
         wallet += addAmount;
         textDisplay.text = wallet.ToString("f0");
+       
     }
 
     public void RemoveFromLocalWallet(int removeAmount)

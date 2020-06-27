@@ -19,6 +19,7 @@ public class MenuPrefabController : MonoBehaviour
     public Animator indexMenuAnimator;
     public Animator backpackMenuAnimator;
     public GameObject optionsMenuPrefab;
+    public Animator optionsMenuAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +50,7 @@ public class MenuPrefabController : MonoBehaviour
         otherMenuHolder.SetActive(true);
         indexMenuAnimator.SetBool("IsOpen", false);
         backpackMenuAnimator.SetBool("IsOpen", false);
-        optionsMenuPrefab.SetActive(false);
+        ;
         mainMenuPrefab.SetActive(true);
         eventSystem.SetSelectedGameObject(resumeButton);
         parkPadAnimator.SetBool("IsOpen", true);
@@ -58,7 +59,7 @@ public class MenuPrefabController : MonoBehaviour
         public void GoToMainMenu()
     {
 
-
+        optionsMenuAnimator.SetBool("IsOpen", false);
         backpackMenuAnimator.SetBool("IsOpen", false);
         indexMenuAnimator.SetBool("IsOpen", false);
         parkPadAnimator.SetBool("IsOpen", true);
@@ -76,7 +77,7 @@ public class MenuPrefabController : MonoBehaviour
         otherMenuHolder.SetActive(true);
         indexMenuPrefab.SetActive(false);
         backpackMenuPrefab.SetActive(false);
-        optionsMenuPrefab.SetActive(false);
+        ;
         mainMenuPrefab.SetActive(true);
         sceneChanger.ClosePanelNoSceneChange();
     }
@@ -88,7 +89,7 @@ public class MenuPrefabController : MonoBehaviour
         backpackMenuAnimator.SetBool("IsOpen", false);
         indexMenuAnimator.SetBool("IsOpen", true);
         parkPadAnimator.SetBool("IsOpen", false);
-        optionsMenuPrefab.SetActive(false);
+       // ;
         indexMenuPrefab.GetComponent<Index>().UpdateCreatureContainerSlots();
     }
 
@@ -106,7 +107,7 @@ public class MenuPrefabController : MonoBehaviour
         mainMenuPrefab.SetActive(false);
        // backpackMenuPrefab.SetActive(false);
         indexMenuPrefab.SetActive(false);
-        optionsMenuPrefab.SetActive(false);
+        //;
         sceneChanger.ClosePanelNoSceneChange();
     }
 
@@ -128,7 +129,7 @@ public class MenuPrefabController : MonoBehaviour
         sceneChanger.OpenPanelNoSceneChange();
         yield return new WaitForSecondsRealtime(sceneChanger.animationTime);
         mainMenuPrefab.SetActive(false);
-        optionsMenuPrefab.SetActive(false);
+        ;
         indexMenuPrefab.SetActive(false);
         //backpackMenuPrefab.SetActive(true);
         sceneChanger.ClosePanelNoSceneChange();
@@ -138,13 +139,17 @@ public class MenuPrefabController : MonoBehaviour
     {
         mainMenuPrefab.SetActive(false);
       //  backpackMenuPrefab.SetActive(false);
-        optionsMenuPrefab.SetActive(false);
+        ;
         indexMenuPrefab.SetActive(false);
         eventSystem.SetSelectedGameObject(selectedButton);
     }
     public void GoToOptionsPrefab(GameObject selectedButton)
     {
-        StartCoroutine("GoToOptions");
+        optionsMenuAnimator.SetBool("IsOpen", true);
+        eventSystem.SetSelectedGameObject(resumeButton);
+        parkPadAnimator.SetBool("IsOpen", false);
+        //backpackMenuPrefab.SetActive(true);
+        // sceneChanger.ClosePanelNoSceneChange();
         eventSystem.SetSelectedGameObject(selectedButton);
     }
 

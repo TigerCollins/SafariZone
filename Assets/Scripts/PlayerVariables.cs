@@ -15,6 +15,8 @@ public class PlayerVariables : ScriptableObject
 {
     public bool firstTime;
     public bool controllerInput;
+    public string latestCommunityMessage;
+    public string latestCommunityDate;
 
     [Header("Player Info")]
     public string playerName;
@@ -24,6 +26,7 @@ public class PlayerVariables : ScriptableObject
     public float totalDistanceTravelled;    
     public int creaturesCaught;    
     public int timePlayed;
+    public bool maleGender;
 
     [Header("Spawn Areas")]
     public bool guidanceIsle;

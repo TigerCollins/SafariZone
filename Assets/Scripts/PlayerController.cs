@@ -85,6 +85,10 @@ public class PlayerController : MonoBehaviour
     public StartTrapTutorial startTrapTutorial;
     public StartTitleCard startTitleCard;
 
+    private bool inCave;
+    private float camMoveTimer;
+    public bool canInitiallyMove = false;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.GetComponent<HuntingCreature>())
@@ -117,6 +121,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+     
     }
 
 
@@ -132,7 +137,9 @@ public class PlayerController : MonoBehaviour
             huntingZone = other.transform.parent.GetComponent<HuntingZone>();
         }
 
-        if(other.GetComponent<AreaIdentifier>())
+  
+
+        if (other.GetComponent<AreaIdentifier>())
         {
             areaIdentifier = other.GetComponent<AreaIdentifier>();
             //Debug.Log(areaIdentifier.areaID);
@@ -145,7 +152,15 @@ public class PlayerController : MonoBehaviour
                 scriptControllerObject.areaText.text = areaIdentifier.areaName.ToUpper();
                 scriptControllerObject.OpenAreaTitle();
                 scriptControllerObject.NewArea();
-                scriptControllerObject.audioManager.ChangeRouteSoundtrackClip(areaIdentifier.areaID);
+                if(areaIdentifier.areaID < 90)
+                {
+                    scriptControllerObject.audioManager.ChangeRouteSoundtrackClip(areaIdentifier.areaID, areaIdentifier.changeMovementTracker);
+                }
+
+                else
+                {
+                    scriptControllerObject.audioManager.ChangeRouteSoundtrackClip(0, areaIdentifier.changeMovementTracker);
+                }
                 areaIdentifierID = areaIdentifier.areaID;
                 scriptControllerObject.pauseMenuText.text = areaIdentifier.areaName.ToUpper();
             }
@@ -162,6 +177,7 @@ public class PlayerController : MonoBehaviour
             canMove = false;
             firstPlaythrough.professorDialogueTrigger = other.transform.parent.GetComponent<DialogueTrigger>();
             firstPlaythrough.chatStarted = true;
+            scriptControllerObject.playerData.firstTime = true;
             
         }
 
@@ -210,6 +226,8 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+
+ 
     }
 
 
@@ -217,13 +235,31 @@ public class PlayerController : MonoBehaviour
     {
         if (other.GetComponent<SpeedModifier>() && valueChanged == false && areaIdentifierID == 7)
         {
-            maxVelocity = originalMovementMultiplier;
+            scriptControllerObject.distanceMultiplier = 1.25f;
 
-
+            
             valueChanged = true;
         }
+
+        if (other.GetComponent<TeleportCave>())
+        {
+            inCave = true;
+            camMoveTimer = .5f;
+            if(other.GetComponent<TeleportCave>().toEgress)
+            {
+                scriptControllerObject.TeleportCaveToEgress();
+             //   moveVector = new Vector3(scriptControllerObject.spawnPoints[0].transform.position.x, scriptControllerObject.spawnPoints[0].transform.position.y, scriptControllerObject.spawnPoints[0].transform.position.z);
+            }
+
+            else if(other.GetComponent<TeleportCave>().toGuidanceIsle)
+            {
+                scriptControllerObject.TeleportCaveToGuidance();
+              //  moveVector = new Vector3(scriptControllerObject.spawnPoints[3].transform.position.x, scriptControllerObject.spawnPoints[3].transform.position.y, scriptControllerObject.spawnPoints[3].transform.position.z);
+            }
+
+        }
     }
-        private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.tag == "ZoneTrigger")
         {
@@ -232,12 +268,15 @@ public class PlayerController : MonoBehaviour
 
         if (other.GetComponent<SpeedModifier>() && valueChanged == true && areaIdentifierID == 7)
         {
-            maxVelocity = maxVelocity * other.GetComponent<SpeedModifier>().speedModifier;
-            move = move / 2;
-valueChanged = false;
+            scriptControllerObject.distanceMultiplier = 1f;
+            valueChanged = false;
+        }
+
+        if (other.GetComponent<TeleportCave>())
+        {
+           
         }
     }
-
 
 
     // Start is called before the first frame update
@@ -279,8 +318,50 @@ valueChanged = false;
        {
             animator.SetBool("Falling", true);
         }
-        moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
-        rigidbody.Move(moveVector);
+
+        if (transform.position == scriptControllerObject.spawnPoints[0].transform.position || transform.position == scriptControllerObject.spawnPoints[4].transform.position)
+        {
+            inCave = false;
+        }
+
+        if (!canInitiallyMove)
+        {
+            if (PlayerPrefs.GetInt("AreaID") ==1 && transform.position == scriptControllerObject.spawnPoints[0].transform.position)
+            {
+                canInitiallyMove = true;
+            }
+
+            else if (PlayerPrefs.GetInt("AreaID") == 6 && transform.position == scriptControllerObject.spawnPoints[1].transform.position)
+            {
+                canInitiallyMove = true;
+            }
+
+            else if (PlayerPrefs.GetInt("AreaID") == 9 && transform.position == scriptControllerObject.spawnPoints[2].transform.position)
+            {
+                canInitiallyMove = true;
+            }
+
+            else if (PlayerPrefs.GetInt("AreaID") == 0 && transform.position == scriptControllerObject.spawnPoints[3].transform.position)
+            {
+                canInitiallyMove = true;
+            }
+        }
+
+        if (camMoveTimer >= 0)
+        {
+            camMoveTimer -= Time.deltaTime;
+        }
+
+        if (!inCave && camMoveTimer <= 0 )
+        {
+            moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
+            rigidbody.Move(moveVector);
+        }
+
+ 
+
+
+
         Raycast();
         AnimationMovement();
         AudioMovement();
@@ -485,7 +566,7 @@ valueChanged = false;
         //Clamps max speed
         desiredMoveDirection = Vector3.ClampMagnitude(new Vector3(horizontal , 0, vertical), maxVelocity);
         //Normal Movement
-        if (isSneaking == false && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+        if (isSneaking == false && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) && !inCave && canInitiallyMove)
         {
             if (desiredMoveDirection != new Vector3(0, 0, 0))
             {

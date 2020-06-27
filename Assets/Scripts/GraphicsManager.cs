@@ -66,7 +66,7 @@ public class GraphicsManager : MonoBehaviour
     private void Awake()
     {
 
-        if (SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "World")
+        if (SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "GameWorld")
         {
             InitialiseOptions();
         }

@@ -91,11 +91,18 @@ MonoBehaviour:
   areaIdentifier: {fileID: 0}
   areaIdentifierID: 0
   fishingTrigger: {fileID: 0}
+  itemDrop: {fileID: 0}
+  interactTutorial: {fileID: 0}
+  desiredMoveDirection: {x: 0, y: 0, z: 0}
+  sneakDesiredMoveDirection: {x: 0, y: 0, z: 0}
+  desiredRotationSpeed: 0
   maxVelocity: 5
   canMove: 1
   baseMovementMultiplier: 8
   isSneaking: 0
   sneakMultiplier: 2
+  verticalVel: 0
+  isGrounded: 0
   gameCamera: {fileID: 0}
   cameraDelay: 0.5
   xOffset: 0
@@ -114,6 +121,13 @@ MonoBehaviour:
   walkingSpeed: 0
   baseIdleTimer: 3
   animationTransitionSpeed: 0
+  firstPlaythrough: {fileID: 0}
+  closeMovementTutorialScript: {fileID: 0}
+  startFishingTutorial: {fileID: 0}
+  startHuntingTutorial: {fileID: 0}
+  closeHuntingTutorial: {fileID: 0}
+  startTrapTutorial: {fileID: 0}
+  startTitleCard: {fileID: 0}
 --- !u!54 &6834567666187830791
 Rigidbody:
   m_ObjectHideFlags: 0

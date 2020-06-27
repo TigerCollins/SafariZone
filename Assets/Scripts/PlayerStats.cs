@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour
 
         else if(sessionTime)
         {
-            text.text = playerData.timePlayed.ToString();
+            text.text = (playerData.playTime / 60).ToString("f2") + " minutes";
         }
 
         else if (runsCompleted)

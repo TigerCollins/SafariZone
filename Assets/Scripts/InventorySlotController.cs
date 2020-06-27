@@ -78,7 +78,7 @@ public class InventorySlotController : MonoBehaviour
 
     public void Update()
     {
-        if (SceneManager.GetActiveScene().name == "World")
+        if (SceneManager.GetActiveScene().name == "GameWorld")
         {
             if (gameObject.transform.parent.gameObject.GetComponent<ToggleGroup>().AnyTogglesOn() == false)
             {

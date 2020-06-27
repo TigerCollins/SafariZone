@@ -12,38 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6211ad15f5acfb244a9c7c000054c22e, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  firstTime: 0
+  firstTime: 1
   controllerInput: 0
-  playerName: 
+  latestCommunityMessage: 0
+  latestCommunityDate: 0
+  playerName: Armani
   wallet: 0
-  playTime: 11841.971
+  playTime: 0
   runsCompleted: 0
-  totalDistanceTravelled: 1.2585214
+  totalDistanceTravelled: 0
   creaturesCaught: 0
   timePlayed: 0
+  maleGender: 0
   guidanceIsle: 1
   egressCave: 0
   kebarVillage: 0
   parharVillage: 0
   AzaleaForest: 0
   lakePerano: 0
-  masterVolume: 4.4444447
-  masterVolumeCore: 100
-  gameVolume: -26.666666
-  gameVolumeCore: 30
-  menuVolume: -17.777779
-  menuVolumeCore: 50
-  musicVolume: -6.6666665
-  musicVolumeCore: 75
-  chromaticAberration: 0
-  filmGrain: 0
-  vignette: 0
-  dynamicResolution: 0
+  masterVolume: -1.3333334
+  masterVolumeCore: 87
+  gameVolume: -4.888889
+  gameVolumeCore: 79
+  menuVolume: -3.1111112
+  menuVolumeCore: 83
+  musicVolume: -5.7777777
+  musicVolumeCore: 77
+  chromaticAberration: 1
+  filmGrain: 1
+  vignette: 1
+  dynamicResolution: 1
   anistropicFiltering: 0
-  VSync: 0
-  textureResolution: 2
-  antiAliasing: 3
+  VSync: 1
+  textureResolution: 1
+  antiAliasing: 0
   ambientOcclusion: 0
-  fullScreen: 0
+  fullScreen: 1
   resolutionWidth: 1920
   resolutionHeight: 1080

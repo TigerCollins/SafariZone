@@ -94,7 +94,7 @@ public class Inventory : MonoBehaviour
 
         //All
 
-       if(inventoryContainer.transform.GetChild(0)!=null && SceneManager.GetActiveScene().name == "GameWorld")
+       if(inventoryContainer.transform.GetChild(0)!=null && SceneManager.GetActiveScene().name != "GameWorld")
         {
             eventSystem.SetSelectedGameObject(inventoryContainer.transform.GetChild(0).gameObject);
             inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();

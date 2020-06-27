@@ -36,7 +36,7 @@ public class ResolutionDropdown : MonoBehaviour {
     public void Awake()
     {
 
-       if (SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "World")
+       if (SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "GameWorld")
         {
 
             resolutions = Screen.resolutions;
@@ -115,7 +115,7 @@ public class ResolutionDropdown : MonoBehaviour {
 
     public void SetResolution(int resolutionX, int resolutionY)
     {
-        if (SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "World")
+        if (SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "GameWorld")
         {
 
             if (canChangeRes)

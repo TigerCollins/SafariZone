@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
+  m_Name: RemoteConfigDataStoreAsset
+  m_EditorClassIdentifier: 
+  rsKeyList:
+  - metadata:
+      entityId: c4d27251-f2d2-4534-8cd9-f84eff2ff421
+    rs:
+      key: Date
+      type: string
+      value: 27/06/20
+  - metadata:
+      entityId: 53dca463-1233-4283-a94e-6b7f5a751cb6
+    rs:
+      key: Community Message
+      type: string
+      value: Thankyou for playing Safari Zone
+  rsLastCachedKeyList:
+  - metadata:
+      entityId: c4d27251-f2d2-4534-8cd9-f84eff2ff421
+    rs:
+      key: Date
+      type: string
+      value: 27/06/20
+  - metadata:
+      entityId: 53dca463-1233-4283-a94e-6b7f5a751cb6
+    rs:
+      key: Community Message
+      type: string
+      value: Thankyou for playing Safari Zone
+  configId: c8e13a1d-5804-4452-a0c6-85dbd9cc6e81
+  currentEnvironmentId: 0984b44f-f752-413c-ad50-50d4e3e46cb9
+  environments:
+  - id: 6ba47d8b-a496-4d4a-aaee-593a5d73c2f7
+    appId: 
+    name: Community Message (Default)
+    description: 
+    createdAt: 2020-06-25T18:59:07Z
+    updatedAt: 2020-06-25T18:59:07Z
+  - id: 3169fdf2-3632-4e51-96f9-7298d7b81a78
+    appId: 
+    name: Release
+    description: 
+    createdAt: 2020-06-26T23:48:44Z
+    updatedAt: 2020-06-26T23:48:44Z
+  - id: 0984b44f-f752-413c-ad50-50d4e3e46cb9
+    appId: 
+    name: Development
+    description: 
+    createdAt: 2020-06-26T23:48:44Z
+    updatedAt: 2020-06-26T23:48:44Z
+  rulesList: []
+  lastCachedRulesList: []
+  addedRulesIDs: []
+  updatedRulesIDs: []
+  deletedRulesIDs: []

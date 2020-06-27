@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AreaIdentifier : MonoBehaviour
 {
     public int areaID;
-    public string areaName;
+    [TextArea(1,2)]public string areaName;
     public Sprite areaIcon;
     public bool changeMovementTracker;
 

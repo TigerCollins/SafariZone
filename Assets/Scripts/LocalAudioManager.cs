@@ -21,7 +21,7 @@ public class LocalAudioManager : MonoBehaviour
     void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        if(SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "GameWorld")
+        if(SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "GameWorld" || SceneManager.GetActiveScene().name == "Splash Screen")
         {
             if(gameObject.name == "LocalAudioManager")
             {

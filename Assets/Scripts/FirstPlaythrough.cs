@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FirstPlaythrough : MonoBehaviour
 {
     public PlayerData playerProfile;
-    
+    public bool localFirstTime;
 
     [Header("Movement")]
     public bool triggeredMovementDialogue;
@@ -52,13 +52,17 @@ public class FirstPlaythrough : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (playerProfile.firstTime)
+        {
+            localFirstTime = true;
 
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerProfile.firstTime)
+        if (localFirstTime == true)
         {
             OpenMovementTutorial();
             CloseMovementTutorial();
@@ -69,6 +73,8 @@ public class FirstPlaythrough : MonoBehaviour
             StartTrapTutorial();
             StartTitleCard();
         }
+
+
     }
 
     public void OpenMovementTutorial()

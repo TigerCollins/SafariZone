@@ -36,10 +36,12 @@ public class GameController : MonoBehaviour
     public float gameOverTransitionTime;
 
     [Header("Player Variables")]
+    public bool distanceCounted;
     [SerializeField]
     public float distanceTravelled;
     private Vector3 lastPosition;
     public string currentArea;
+    public float distanceMultiplier;
 
 
 
@@ -99,20 +101,24 @@ public class GameController : MonoBehaviour
     [Header("Spawn Zones")]
     public GameObject[] spawnPoints;
 
+
+    [HideInInspector]
+    public int caveChange;
+
     // Start is called before the first frame update
     void Awake()
     {
+        menuPrefabController = GetComponent<MenuPrefabController>();
         playerObject = GameObject.Find("Player");
         playerScript = playerObject.GetComponent<PlayerController>();
-        menuPrefabController = GetComponent<MenuPrefabController>();
-
        
 
-      
+
+
         //Needs to be the end of Awake
         // lastPosition = transform.position;
 
-
+          
 
 
         //Close minigames on startup
@@ -135,76 +141,87 @@ public class GameController : MonoBehaviour
         if (GameObject.Find("AudioManager").GetComponent<AudioManager>() != null)
         {
             audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+            audioManager.ChangeRouteSoundtrackClip(PlayerPrefs.GetInt("AreaID"), false);
         }
+        SpawnPoints();
 
 
 
-       
+
     }
 
-
-    public void FirstSpawn()
+    private void Start()
     {
+        playerObject = GameObject.Find("Player");
+        playerScript = playerObject.GetComponent<PlayerController>();
+        audioManager.ChangeRouteSoundtrackClip(PlayerPrefs.GetInt("AreaID"),false);
+
+        SpawnPoints();
+    }
+
+    public void TeleportCaveToEgress()
+    {
+            playerObject.transform.position = spawnPoints[0].transform.position;
+            playerObject.transform.localRotation = spawnPoints[0].transform.rotation;
+            areaID = 1;
+            playerScript.areaIdentifierID = 1;
+            areaIdentifier = areaIdentifierForSpawn[0];
+    }
+
+    public void TeleportCaveToGuidance()
+    {
+        playerObject.transform.position = spawnPoints[4].transform.position;
+        playerObject.transform.localRotation = spawnPoints[4].transform.rotation;
+        areaID = 0;
+        playerScript.areaIdentifierID = 0;
+        areaIdentifier = areaIdentifierForSpawn[3];
+    }
+
+    public void SpawnPoints()
+    {
+        if (PlayerPrefs.GetInt("AreaID") == 1)
+        {
+            playerObject.transform.position = spawnPoints[0].transform.position;
+            playerObject.transform.localRotation = spawnPoints[0].transform.rotation;
+            areaID = 1;
+            playerScript.areaIdentifierID = 1;
+            areaIdentifier = areaIdentifierForSpawn[0];
+            Debug.Log("Spawned at first spawn");
+        }
+
+        else if (PlayerPrefs.GetInt("AreaID") == 6)
+        {
+            playerObject.transform.position = spawnPoints[1].transform.position;
+            playerObject.transform.localRotation = spawnPoints[1].transform.rotation;
+            areaID = 6;
+            playerScript.areaIdentifierID = 6;
+            areaIdentifier = areaIdentifierForSpawn[1];
+            Debug.Log("Spawned at second spawn");
+        }
+
+        else if (PlayerPrefs.GetInt("AreaID") == 9)
+        {
+            playerObject.transform.position = spawnPoints[2].transform.position;
+            playerObject.transform.localRotation = spawnPoints[2].transform.rotation;
+            areaID = 9;
+            playerScript.areaIdentifierID = 9;
+            areaIdentifier = areaIdentifierForSpawn[2];
+            Debug.Log("Spawned at third spawn");
+        }
+
+        else if (PlayerPrefs.GetInt("AreaID") == 0)
+        {
             playerObject.transform.position = spawnPoints[3].transform.position;
             playerObject.transform.localRotation = spawnPoints[3].transform.rotation;
             areaID = 0;
             playerScript.areaIdentifierID = 0;
             areaIdentifier = areaIdentifierForSpawn[3];
-            PlayerPrefs.SetInt("AreaID", 0);
-        Debug.Log(PlayerPrefs.GetInt("Players first playthrough"));
-
-    }
-    private void Start()
-    {
-        playerObject = GameObject.Find("Player");
-        playerScript = playerObject.GetComponent<PlayerController>();
-        audioManager.ChangeRouteSoundtrackClip(PlayerPrefs.GetInt("AreaID"));
-        if (playerData.firstTime == false)
-        {
-            if (PlayerPrefs.GetInt("AreaID") == 1)
-            {
-                playerObject.transform.position = spawnPoints[0].transform.position;
-                playerObject.transform.localRotation = spawnPoints[0].transform.rotation;
-                areaID = 1;
-                playerScript.areaIdentifierID = 1;
-                areaIdentifier = areaIdentifierForSpawn[0];
-                Debug.Log(PlayerPrefs.GetInt("Spawned at first spawn"));
-            }
-
-            if (PlayerPrefs.GetInt("AreaID") == 6)
-            {
-                playerObject.transform.position = spawnPoints[1].transform.position;
-                playerObject.transform.localRotation = spawnPoints[1].transform.rotation;
-                areaID = 6;
-                playerScript.areaIdentifierID = 6;
-                areaIdentifier = areaIdentifierForSpawn[1];
-                Debug.Log(PlayerPrefs.GetInt("Spawned at second spawn"));
-            }
-
-            if (PlayerPrefs.GetInt("AreaID") == 9)
-            {
-                playerObject.transform.position = spawnPoints[2].transform.position;
-                playerObject.transform.localRotation = spawnPoints[2].transform.rotation;
-                areaID = 9;
-                playerScript.areaIdentifierID = 9;
-                areaIdentifier = areaIdentifierForSpawn[2];
-                Debug.Log(PlayerPrefs.GetInt("Spawned at third spawn"));
-            }
-
-            if (PlayerPrefs.GetInt("AreaID") == 0)
-            {
-                playerObject.transform.position = spawnPoints[3].transform.position;
-                playerObject.transform.localRotation = spawnPoints[3].transform.rotation;
-                areaID = 0;
-                playerScript.areaIdentifierID = 0;
-                areaIdentifier = areaIdentifierForSpawn[3];
-                Debug.Log(PlayerPrefs.GetInt("Spawned at forth spawn"));
-            }
+            Debug.Log("Spawned at forth spawn");
         }
 
         else
         {
-            FirstSpawn();
+            Debug.LogError("No spawn point could be chosen.");
         }
     }
 
@@ -224,6 +241,7 @@ public class GameController : MonoBehaviour
 
     public void NewArea()
     {
+        /*
         if(areaID == 1)
         {
             playerData.egressCave = true;
@@ -238,6 +256,12 @@ public class GameController : MonoBehaviour
         {
             playerData.parharVillage = true;
         }
+
+        if (areaID == 9)
+        {
+            playerData.parharVillage = true;
+        }
+        */
     }
 
     // Update is called once per frame
@@ -407,10 +431,10 @@ public class GameController : MonoBehaviour
 
     void Statistics()
     {
-        if (areaID != 1 && areaID != 6 && areaID != 9)
+        if (areaID != 1 && areaID != 6 && areaID != 9 && areaID != 0 )
         {
-
-            distanceTravelled += Vector3.Distance(playerObject.transform.position, lastPosition);
+            distanceCounted = true;
+            distanceTravelled += (Vector3.Distance(playerObject.transform.position, lastPosition)*distanceMultiplier);
 
             if (pauseIcon.activeInHierarchy != false)
             {
@@ -428,7 +452,7 @@ public class GameController : MonoBehaviour
             }
 
 
-            if (distanceTravelled > (maxDistance - (maxDistance / midCapacityThreshold)) && distanceTravelled < (maxDistance - (maxDistance / lowCapacityThreshold)))
+            if (distanceTravelled < (maxDistance - (maxDistance / midCapacityThreshold)) && distanceTravelled > (maxDistance - (maxDistance / lowCapacityThreshold)))
             {
                 timerImage.color = midCapacity;
                 timerImageBG.color = timerColour;
@@ -443,6 +467,7 @@ public class GameController : MonoBehaviour
         //Paused timer
         else
         {
+            distanceCounted = false;
             timerImage.color = pausedColour;
             if(pauseIcon.activeInHierarchy != true)
             {

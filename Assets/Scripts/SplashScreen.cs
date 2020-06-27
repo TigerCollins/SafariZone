@@ -1,12 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SplashScreen : MonoBehaviour
 {
 
     public PlayerData playerData;
+    public bl_SceneLoader sceneLoader;
+    public CanvasGroup splashScreenCanvas;
+    public CanvasGroup communityMessageCanvas;
+    public bool showCommmunityMessage;
+    public Button communityMessageButton;
+    public float buttonTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -17,27 +24,54 @@ public class SplashScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        if (SceneManager.GetActiveScene().name == "Splash Screen")
         {
-            playerData.controllerInput = false;
-            ChangeScene();
+            if (Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+            {
+                playerData.controllerInput = false;
+                if(showCommmunityMessage == false)
+                {
+                    ChangeScene();
+                }
+
+                else
+                {
+                    splashScreenCanvas.alpha = 0;
+                    communityMessageCanvas.alpha = 1;
+
+                }
+                //
+            }
         }
 
-       // if()
+        if(communityMessageCanvas.alpha ==1)
+        {
+            buttonTimer -= Time.deltaTime;
+            if(buttonTimer <= 0)
+            {
+                communityMessageButton.interactable = true;
+            }
+        }
+        // if()
     }
 
-    void ChangeScene()
+    public void ChangeScene()
     {
         if (playerData.firstTime == true)
         {
             PlayerPrefs.SetInt("AreaID", 0);
-            SceneManager.LoadScene(2);
+            sceneLoader.LoadLevel("GameWorld");
 
         }
 
         else
         {
-            SceneManager.LoadScene(1);
+            sceneLoader.LoadLevel("Main Menu");
         }
+    }
+
+    public void ChangeBoolFirstTime()
+    {
+        playerData.firstTime = true;
     }
 }

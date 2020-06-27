@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource menuClick;
 
     public static AudioManager Instance;
+    private int previousRoute;
 
     void Awake()
     {
@@ -68,10 +69,21 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void ChangeRouteSoundtrackClip(int routeNum)
+    public void ChangeRouteSoundtrackClip(int routeNum,bool dontChangeTrack)
     {
-        soundtrackSource.clip = routeSoundtrack[routeNum];
-        soundtrackSource.Play();
+        if(dontChangeTrack == false)
+        {
+            soundtrackSource.clip = routeSoundtrack[routeNum];
+            soundtrackSource.Play();
+            previousRoute = routeNum;
+        }
+
+        else
+        {
+           // soundtrackSource.clip = routeSoundtrack[0];
+        }
+        
+       
     }
 
     IEnumerator ChangePitch()
@@ -107,6 +119,8 @@ public class AudioManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int sceneBuildIndex)
     {
+        previousRoute = 0;
+       
         currentScene = SceneManager.GetSceneByBuildIndex(sceneBuildIndex).name;
         soundtrackSource = transform.GetChild(0).GetComponent<AudioSource>();
 
@@ -125,7 +139,9 @@ public class AudioManager : MonoBehaviour
         else
         {
             inMenu = false;
-            ChangeRouteSoundtrackClip(PlayerPrefs.GetInt("AreaID"));
+            soundtrackSource.clip = routeSoundtrack[PlayerPrefs.GetInt("AreaID")];
+            soundtrackSource.Play();
+            ChangeRouteSoundtrackClip(PlayerPrefs.GetInt("AreaID"), false);
          //.   menuHover = GameObject.Find
         }
 

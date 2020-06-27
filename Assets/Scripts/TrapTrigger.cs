@@ -88,12 +88,15 @@ public class TrapTrigger : MonoBehaviour
         if (trapPlaced)
         {
             TriggerTrap();
-
+            if (firstPlaythrough.localFirstTime == true)
+            {
+                firstPlaythrough.trapTutTriggered = false;
+                firstPlaythrough.trapTutCompleted = true;
+            }
         }
-
         else
         {
-            if(scriptController.equippedLure)
+            if (scriptController.equippedLure)
             {
                 BubbleClosed();
                 trapManager.placedTrap = scriptController.equippedLure;
@@ -154,7 +157,7 @@ public class TrapTrigger : MonoBehaviour
     {
         if(trapPlaced)
         {
-            if(firstPlaythrough.playerProfile.firstTime)
+            if(firstPlaythrough.localFirstTime)
             {
                 firstPlaythrough.trapTutTriggered = false;
                 firstPlaythrough.trapTutCompleted = true;

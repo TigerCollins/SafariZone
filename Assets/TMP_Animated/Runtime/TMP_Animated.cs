@@ -24,22 +24,43 @@ namespace TMPro
         public TextRevealEvent onTextReveal;
         public DialogueEvent onDialogueFinish;
         private Text tempText;
+        private PlayerData playerData;
+
 
         public void ReadText(string newText)
         {
+            playerData = GameObject.FindObjectOfType<GameController>().GetComponent<GameController>().playerData;
             text = string.Empty;
+            newText.Replace("PlayerName", "boi");
             // split the whole text into parts based off the <> tags 
             // even numbers in the array are text, odd numbers are tags
+
             string[] subTexts = newText.Split('<', '>');
 
             // textmeshpro still needs to parse its built-in tags, so we only include noncustom tags
             string displayText = "";
             for (int i = 0; i < subTexts.Length; i++)
             {
+            
                 if (i % 2 == 0)
+                {
                     displayText += subTexts[i];
+                    
+                }
+
+                else if (subTexts[i].Contains("PlayerName"))
+                {
+                    displayText += $"{playerData.playerName}";
+                }
+
                 else if (!isCustomTag(subTexts[i].Replace(" ", "")))
+                {
                     displayText += $"<{subTexts[i]}>";
+                }
+
+      
+
+
             }
             // check to see if a tag is our own
             bool isCustomTag(string tag)
@@ -47,7 +68,9 @@ namespace TMPro
                 return tag.StartsWith("speed=") || tag.StartsWith("pause=") || tag.StartsWith("emotion=") || tag.StartsWith("action");
             }
 
+
             // send that string to textmeshpro and hide all of it, then start reading
+
             text = displayText;
             maxVisibleCharacters = 0;
             StartCoroutine(Read());
@@ -62,6 +85,7 @@ namespace TMPro
                     if (subCounter % 2 == 1)
                     {
                         yield return EvaluateTag(subTexts[subCounter].Replace(" ", ""));
+                     
                     }
                     else
                     {
@@ -78,7 +102,7 @@ namespace TMPro
                 }
                 yield return null;
 
-                WaitForSeconds EvaluateTag(string tag)
+                    WaitForSeconds EvaluateTag(string tag)
                 {
                     if (tag.Length > 0)
                     {
@@ -98,13 +122,6 @@ namespace TMPro
                         {
                             onAction.Invoke(tag.Split('=')[1]);
                         }
-                       /* else if(tag.StartsWith("colour="))
-                        {
-                            int colourValue = 0;
-                            tempText.text = horizontalMapping.ToString();
-                            //tempText.text = StringToCharArray[colourValue].ToString();
-                        }
-                        */
                     }
                     return null;
                 }

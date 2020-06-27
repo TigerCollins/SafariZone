@@ -20,7 +20,7 @@ public class BackpackController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       CategoryChanger();
+      // CategoryChanger();
     }
 
     private void Awake()
