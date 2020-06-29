@@ -582,7 +582,7 @@ public class PlayerController : MonoBehaviour
             }
 
             //Deselect a creature spawn when anopther raycast has been hit
-            if (hit.collider.GetComponent<TrapTrigger>() == false)
+            else if (hit.collider.GetComponent<TrapTrigger>() == false)
             {
                 trapTrigger = null;
             }
@@ -593,7 +593,7 @@ public class PlayerController : MonoBehaviour
                 dialogueTrigger = hit.collider.GetComponent<DialogueTrigger>();
             }
 
-            if (hit.collider.GetComponent<DialogueTrigger>() == false)
+            else if (hit.collider.GetComponent<DialogueTrigger>() == false)
             {
                 dialogueTrigger = null;
             }
@@ -604,7 +604,7 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else
+            else if (hit.collider.GetComponent<FishingTrigger>() == false)
             {
                 fishingTrigger = null;
             }
@@ -614,7 +614,7 @@ public class PlayerController : MonoBehaviour
                 itemDrop = hit.collider.GetComponent<ItemDrop>();
             }
 
-            else
+            else if (hit.collider.GetComponent<ItemDrop>() == false)
             {
                 itemDrop = null;
             }
@@ -623,7 +623,10 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            //scriptControllerObject.creatureSpawn = null;
+            fishingTrigger = null;
+            itemDrop = null;
+            dialogueTrigger = null;
+            trapTrigger = null;
         }
     }
 }
