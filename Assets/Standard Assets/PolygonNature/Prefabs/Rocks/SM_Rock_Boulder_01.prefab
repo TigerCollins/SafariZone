@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4434221626337540}
   - component: {fileID: 33264041529804706}
   - component: {fileID: 23612501818743164}
-  - component: {fileID: 95460592423374290}
   m_Layer: 0
   m_Name: SM_Rock_Boulder_01
   m_TagString: Untagged
@@ -80,22 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &95460592423374290
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732272334065596}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3bf1797a1e906ed419074e5bd4b7ff3b, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

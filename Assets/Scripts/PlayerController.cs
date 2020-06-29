@@ -85,9 +85,7 @@ public class PlayerController : MonoBehaviour
     public StartTrapTutorial startTrapTutorial;
     public StartTitleCard startTitleCard;
 
-    private bool inCave;
-    private float camMoveTimer;
-    public bool canInitiallyMove = false;
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -137,7 +135,22 @@ public class PlayerController : MonoBehaviour
             huntingZone = other.transform.parent.GetComponent<HuntingZone>();
         }
 
-  
+        if (other.GetComponent<TeleportCave>())
+        {
+            if (other.GetComponent<TeleportCave>().toEgress == true)
+            {
+                scriptControllerObject.TeleportCaveToEgress();
+                //   moveVector = new Vector3(scriptControllerObject.spawnPoints[0].transform.position.x, scriptControllerObject.spawnPoints[0].transform.position.y, scriptControllerObject.spawnPoints[0].transform.position.z);
+            }
+
+            else if (other.GetComponent<TeleportCave>().toGuidanceIsle == true)
+            {
+                scriptControllerObject.TeleportCaveToGuidance();
+                //  moveVector = new Vector3(scriptControllerObject.spawnPoints[3].transform.position.x, scriptControllerObject.spawnPoints[3].transform.position.y, scriptControllerObject.spawnPoints[3].transform.position.z);
+            }
+
+        }
+    
 
         if (other.GetComponent<AreaIdentifier>())
         {
@@ -231,34 +244,17 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void OnTriggerStay (Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<SpeedModifier>() && valueChanged == false && areaIdentifierID == 7)
         {
             scriptControllerObject.distanceMultiplier = 1.25f;
 
-            
+
             valueChanged = true;
         }
-
-        if (other.GetComponent<TeleportCave>())
-        {
-            inCave = true;
-            camMoveTimer = .5f;
-            if(other.GetComponent<TeleportCave>().toEgress)
-            {
-                scriptControllerObject.TeleportCaveToEgress();
-             //   moveVector = new Vector3(scriptControllerObject.spawnPoints[0].transform.position.x, scriptControllerObject.spawnPoints[0].transform.position.y, scriptControllerObject.spawnPoints[0].transform.position.z);
-            }
-
-            else if(other.GetComponent<TeleportCave>().toGuidanceIsle)
-            {
-                scriptControllerObject.TeleportCaveToGuidance();
-              //  moveVector = new Vector3(scriptControllerObject.spawnPoints[3].transform.position.x, scriptControllerObject.spawnPoints[3].transform.position.y, scriptControllerObject.spawnPoints[3].transform.position.z);
-            }
-
-        }
     }
+      
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "ZoneTrigger")
@@ -290,17 +286,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
 
-        Interactions();
+            Interactions();
 
-        HuntingZoneCountdown();
-        CameraMove();
-        if (canMove)
-        {
-            Movement();
-        }
+            HuntingZoneCountdown();
+            CameraMove();
+            if (canMove)
+            {
+                Movement();
+            }
+        
+      
 
     }
 
@@ -308,58 +306,20 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    { 
+
         if (isGrounded)
         {
             animator.SetBool("Falling", false);
         }
         else
-       {
+        {
             animator.SetBool("Falling", true);
         }
 
-        if (transform.position == scriptControllerObject.spawnPoints[0].transform.position || transform.position == scriptControllerObject.spawnPoints[4].transform.position)
-        {
-            inCave = false;
-        }
 
-        if (!canInitiallyMove)
-        {
-            if (PlayerPrefs.GetInt("AreaID") ==1 && transform.position == scriptControllerObject.spawnPoints[0].transform.position)
-            {
-                canInitiallyMove = true;
-            }
-
-            else if (PlayerPrefs.GetInt("AreaID") == 6 && transform.position == scriptControllerObject.spawnPoints[1].transform.position)
-            {
-                canInitiallyMove = true;
-            }
-
-            else if (PlayerPrefs.GetInt("AreaID") == 9 && transform.position == scriptControllerObject.spawnPoints[2].transform.position)
-            {
-                canInitiallyMove = true;
-            }
-
-            else if (PlayerPrefs.GetInt("AreaID") == 0 && transform.position == scriptControllerObject.spawnPoints[3].transform.position)
-            {
-                canInitiallyMove = true;
-            }
-        }
-
-        if (camMoveTimer >= 0)
-        {
-            camMoveTimer -= Time.deltaTime;
-        }
-
-        if (!inCave && camMoveTimer <= 0 )
-        {
-            moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
-            rigidbody.Move(moveVector);
-        }
-
- 
-
+      
+            
 
 
         Raycast();
@@ -374,6 +334,12 @@ public class PlayerController : MonoBehaviour
             verticalMovement = Mathf.Abs(Input.GetAxis("Vertical"));
             horizontalMovement = Mathf.Abs(Input.GetAxis("Horizontal"));
 
+           
+                move = Mathf.Clamp(verticalMovement + horizontalMovement, 0, 1);
+            
+           
+
+            /*
             if (!valueChanged && areaIdentifierID == 7)
             {
                 move = Mathf.MoveTowards(move, Mathf.Clamp(verticalMovement + horizontalMovement, 0, .5f), animationTransitionSpeed * Time.deltaTime);
@@ -381,9 +347,9 @@ public class PlayerController : MonoBehaviour
 
             else
             {
-                move =  Mathf.Clamp(verticalMovement + horizontalMovement, 0, 1);
+               
             }
-
+            */
         }
 
         else
@@ -498,6 +464,7 @@ public class PlayerController : MonoBehaviour
                     firstPlaythrough.interactionTriggered = false;
                 }
                 trapTrigger.CheckIfTrapPlaced();
+                trapTrigger = null;
             }
 
             if (dialogueTrigger != null)
@@ -508,6 +475,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 dialogueTrigger.TriggerDialogue();
+                dialogueTrigger = null;
             }
 
             if (fishingTrigger != null)
@@ -518,6 +486,7 @@ public class PlayerController : MonoBehaviour
                 }
                 fishingRod.SetBool("isFishing", true);
                 fishingTrigger.AttemptFish();
+                fishingTrigger = null;
             }
 
             if (itemDrop != null)
@@ -527,6 +496,7 @@ public class PlayerController : MonoBehaviour
                     firstPlaythrough.interactionTriggered = false;
                 }
                 itemDrop.OnChestTrigger();
+                itemDrop = null;
             }
         }
         if (Input.GetKeyUp(KeyCode.X))
@@ -543,49 +513,55 @@ public class PlayerController : MonoBehaviour
 
         float sneakHorizontal = horizontal / sneakMultiplier;
         float sneakVertical = vertical / sneakMultiplier;
-       
+        //  if (!inCave)
+        // {
+        moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
+
+
+        rigidbody.Move(moveVector);
         //Sneak Bool Changing
         if (Input.GetKey(KeyCode.LeftControl))
-        {
-            if(firstPlaythrough.playerProfile.firstTime)
             {
-                firstPlaythrough.huntingTriggered = false;
-            }
-            isSneaking = true;
-        }
-
-        else
-        {
-            isSneaking = false;
-        }
-
-        if (isSneaking == false && (Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0))
-        {
-            walkingSpeed = 0;
-        }
-        //Clamps max speed
-        desiredMoveDirection = Vector3.ClampMagnitude(new Vector3(horizontal , 0, vertical), maxVelocity);
-        //Normal Movement
-        if (isSneaking == false && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) && !inCave && canInitiallyMove)
-        {
-            if (desiredMoveDirection != new Vector3(0, 0, 0))
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
-            
-                rigidbody.Move(desiredMoveDirection * Time.deltaTime * baseMovementMultiplier);
+                if (firstPlaythrough.playerProfile.firstTime)
+                {
+                    firstPlaythrough.huntingTriggered = false;
+                }
+                isSneaking = true;
             }
 
-            walkingSpeed = 1;
-        }
+            else
+            {
+                isSneaking = false;
+            }
 
-        //Sneak Movement
-        sneakDesiredMoveDirection = new Vector3((sneakHorizontal / baseMovementMultiplier), 0, (sneakVertical / baseMovementMultiplier));
-        if (isSneaking == true && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(sneakDesiredMoveDirection), desiredRotationSpeed);
-            rigidbody.Move(sneakDesiredMoveDirection * Time.deltaTime * (maxVelocity/sneakMultiplier));
+            if (isSneaking == false && (Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0))
+            {
+                walkingSpeed = 0;
+            }
+            //Clamps max speed
+            desiredMoveDirection = Vector3.ClampMagnitude(new Vector3(horizontal, 0, vertical), maxVelocity);
+            //Normal Movement
+            if (isSneaking == false && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+            {
+                if (desiredMoveDirection != new Vector3(0, 0, 0))
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
 
-        }
+                    rigidbody.Move(desiredMoveDirection * Time.deltaTime * baseMovementMultiplier);
+                }
+
+                walkingSpeed = 1;
+            }
+
+            //Sneak Movement
+            sneakDesiredMoveDirection = new Vector3((sneakHorizontal / baseMovementMultiplier), 0, (sneakVertical / baseMovementMultiplier));
+            if (isSneaking == true && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(sneakDesiredMoveDirection), desiredRotationSpeed);
+                rigidbody.Move(sneakDesiredMoveDirection * Time.deltaTime * (maxVelocity / sneakMultiplier));
+
+            }
+      //  }
     }
 
     void CameraMove()

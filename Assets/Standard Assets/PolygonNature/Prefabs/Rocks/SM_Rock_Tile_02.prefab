@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4902767411299108}
   - component: {fileID: 33888173698075282}
   - component: {fileID: 23060172624914524}
-  - component: {fileID: 95090385140511094}
   m_Layer: 0
   m_Name: SM_Rock_Tile_02
   m_TagString: Untagged
@@ -80,22 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &95090385140511094
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086035016369964}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9e603b22215e1374eb7ce95c1e24c1ff, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

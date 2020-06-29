@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     public Text metaText;
     public string metaString; //FEED INTO HERE
     public Inventory inventoryScript;
+    public CharacterController characterController;
 
     [Header("Game Variables")]
     [SerializeField]
@@ -108,17 +109,18 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        
         menuPrefabController = GetComponent<MenuPrefabController>();
         playerObject = GameObject.Find("Player");
         playerScript = playerObject.GetComponent<PlayerController>();
-       
-
+        characterController = playerObject.GetComponent<CharacterController>();
+        characterController.enabled = false;
 
 
         //Needs to be the end of Awake
         // lastPosition = transform.position;
 
-          
+
 
 
         //Close minigames on startup
@@ -161,61 +163,71 @@ public class GameController : MonoBehaviour
 
     public void TeleportCaveToEgress()
     {
-            playerObject.transform.position = spawnPoints[0].transform.position;
+        characterController.enabled = false;
+        playerObject.GetComponent<CharacterController>().transform.position = spawnPoints[0].transform.position;
             playerObject.transform.localRotation = spawnPoints[0].transform.rotation;
             areaID = 1;
             playerScript.areaIdentifierID = 1;
             areaIdentifier = areaIdentifierForSpawn[0];
+        characterController.enabled = true;
+
     }
 
     public void TeleportCaveToGuidance()
     {
-        playerObject.transform.position = spawnPoints[4].transform.position;
+        characterController.enabled = false;
+        playerObject.GetComponent<CharacterController>().transform.position = spawnPoints[4].transform.position;
         playerObject.transform.localRotation = spawnPoints[4].transform.rotation;
         areaID = 0;
         playerScript.areaIdentifierID = 0;
         areaIdentifier = areaIdentifierForSpawn[3];
+        characterController.enabled = true;
+     
     }
 
     public void SpawnPoints()
     {
         if (PlayerPrefs.GetInt("AreaID") == 1)
         {
-            playerObject.transform.position = spawnPoints[0].transform.position;
+            playerObject.GetComponent<CharacterController>().transform.position = spawnPoints[0].transform.position;
             playerObject.transform.localRotation = spawnPoints[0].transform.rotation;
             areaID = 1;
             playerScript.areaIdentifierID = 1;
             areaIdentifier = areaIdentifierForSpawn[0];
+            characterController.enabled = true;
             Debug.Log("Spawned at first spawn");
         }
 
         else if (PlayerPrefs.GetInt("AreaID") == 6)
         {
-            playerObject.transform.position = spawnPoints[1].transform.position;
+            playerObject.GetComponent<CharacterController>().transform.position = spawnPoints[1].transform.position;
             playerObject.transform.localRotation = spawnPoints[1].transform.rotation;
             areaID = 6;
             playerScript.areaIdentifierID = 6;
             areaIdentifier = areaIdentifierForSpawn[1];
+            characterController.enabled = true;
             Debug.Log("Spawned at second spawn");
         }
 
         else if (PlayerPrefs.GetInt("AreaID") == 9)
         {
-            playerObject.transform.position = spawnPoints[2].transform.position;
+            playerObject.GetComponent<CharacterController>().transform.position = spawnPoints[2].transform.position;
             playerObject.transform.localRotation = spawnPoints[2].transform.rotation;
             areaID = 9;
             playerScript.areaIdentifierID = 9;
             areaIdentifier = areaIdentifierForSpawn[2];
+            characterController.enabled = true;
             Debug.Log("Spawned at third spawn");
         }
 
         else if (PlayerPrefs.GetInt("AreaID") == 0)
         {
-            playerObject.transform.position = spawnPoints[3].transform.position;
+            playerObject.GetComponent<CharacterController>().transform.position = spawnPoints[3].transform.position;
             playerObject.transform.localRotation = spawnPoints[3].transform.rotation;
             areaID = 0;
             playerScript.areaIdentifierID = 0;
             areaIdentifier = areaIdentifierForSpawn[3];
+            characterController.enabled = true;
             Debug.Log("Spawned at forth spawn");
         }
 

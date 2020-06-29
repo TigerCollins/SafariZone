@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4139481990496560}
   - component: {fileID: 33463689109910704}
   - component: {fileID: 23295206455837460}
-  - component: {fileID: 95020155307650028}
   m_Layer: 0
   m_Name: SM_Rock_Small_01
   m_TagString: Untagged
@@ -80,22 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &95020155307650028
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548467455464118}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a553825fca8d84145ba6309e3155a2d0, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

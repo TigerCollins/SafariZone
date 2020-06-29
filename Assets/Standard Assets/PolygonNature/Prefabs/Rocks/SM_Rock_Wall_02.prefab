@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4080440661629114}
   - component: {fileID: 33334729220565570}
   - component: {fileID: 23865421956001822}
-  - component: {fileID: 95237444439599004}
   m_Layer: 0
   m_Name: SM_Rock_Wall_02
   m_TagString: Untagged
@@ -80,22 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &95237444439599004
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442160774557540}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b65f5a848058d3944b0eefbe04d0c5bd, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
