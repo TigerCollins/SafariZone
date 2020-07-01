@@ -198,36 +198,42 @@ public class PlayerController : MonoBehaviour
         {
             startFishingTutorial = other.GetComponent<StartFishingTutorial>();
             startFishingTutorial.ChangeBool();
+            firstPlaythrough.CheckForSkipping();
         }
 
         if (other.GetComponent<InteractTutorial>())
         {
             interactTutorial = other.GetComponent<InteractTutorial>();
             interactTutorial.ChangeBool();
+            firstPlaythrough.CheckForSkipping();
         }
 
         if (other.GetComponent<StartHuntingTutorial>())
         {
             startHuntingTutorial = other.GetComponent<StartHuntingTutorial>();
             startHuntingTutorial.ChangeBool();
+            firstPlaythrough.CheckForSkipping();
         }
 
         if (other.GetComponent<CloseHuntingTutorial>())
         {
             closeHuntingTutorial = other.GetComponent<CloseHuntingTutorial>();
             closeHuntingTutorial.ChangeBool();
+            firstPlaythrough.CheckForSkipping();
         }
 
         if (other.GetComponent<StartTrapTutorial>())
         {
             startTrapTutorial = other.GetComponent<StartTrapTutorial>();
             startTrapTutorial.ChangeBool();
+            firstPlaythrough.CheckForSkipping();
         }
 
         if (other.GetComponent<StartTitleCard>())
         {
             startTitleCard = other.GetComponent<StartTitleCard>();
             startTitleCard.ChangeBool();
+            firstPlaythrough.CheckForSkipping();
         }
 
         if(other.tag == "StartFall")

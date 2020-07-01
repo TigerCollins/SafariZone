@@ -11,7 +11,7 @@ public class TrapObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+      //  animator = GetComponent<Animator>();
       //  particle = transform.GetChild(0).GetComponentInChildren<ParticleSystem>();
         TrapReset();
     }
@@ -33,7 +33,7 @@ public class TrapObject : MonoBehaviour
     public void TrapReset()
     {
         isAnimated = false;
-        animator.SetBool("IsOn", false);
+//animator.SetBool("IsOn", false);
         //particle.Stop();
         //particleIdle.Play();
     }

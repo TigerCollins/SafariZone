@@ -7,6 +7,7 @@ public class FirstPlaythrough : MonoBehaviour
 {
     public PlayerData playerProfile;
     public bool localFirstTime;
+    public bool isSkipping;
 
     [Header("Movement")]
     public bool triggeredMovementDialogue;
@@ -77,9 +78,34 @@ public class FirstPlaythrough : MonoBehaviour
 
     }
 
+    public void CheckForSkipping()
+    {
+        if(fishingTriggered && triggeredInteractionDialogue)
+        {
+            isSkipping = true;
+        }
+
+        else if (huntingTriggered && triggeredFishingDialogue)
+        {
+            isSkipping = true;
+        }
+        else if (trapTutTriggered && triggeredHuntingDialogue )
+        {
+            isSkipping = true;
+        }
+
+        else if (titlecardTriggered && triggeredTrapDialogue)
+        {
+            isSkipping = true;
+        }
+
+    }
+
+    //void 
+
     public void OpenMovementTutorial()
     {
-        if(triggeredMovementDialogue != true)
+        if(triggeredMovementDialogue != true )
             {
             movementCanvasGroup.alpha += Time.deltaTime;
             if (movementCanvasGroup.alpha >= 1)
@@ -118,7 +144,7 @@ public class FirstPlaythrough : MonoBehaviour
 
     public void StartFishingTutorial()
     {
-        if (fishingTriggered)
+        if (fishingTriggered && !isSkipping)
         {
             if (triggeredFishingDialogue != true)
             {
@@ -147,7 +173,7 @@ public class FirstPlaythrough : MonoBehaviour
 
     public void StartInteractionTutorial()
     {
-        if (interactionTriggered)
+        if (interactionTriggered && !isSkipping)
         {
             if (triggeredInteractionDialogue != true)
             {
@@ -176,7 +202,7 @@ public class FirstPlaythrough : MonoBehaviour
 
     public void StartHuntingTutorial()
     {
-        if (huntingTriggered)
+        if (huntingTriggered && !isSkipping)
         {
             if (triggeredHuntingDialogue != true)
             {
@@ -205,7 +231,7 @@ public class FirstPlaythrough : MonoBehaviour
 
     public void StartTrapTutorial()
     {
-        if (trapTutTriggered)
+        if (trapTutTriggered && !isSkipping)
         {
             if (triggeredTrapDialogue != true)
             {
