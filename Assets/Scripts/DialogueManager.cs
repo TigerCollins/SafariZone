@@ -8,6 +8,7 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     private PlayerController playerController;
+    public GameController gameController;
     private TMP_Animated animatedText;
     [HideInInspector]
     public bool gameOverBool;
@@ -31,12 +32,14 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        gameController = GameObject.FindObjectOfType<GameController>().GetComponent<GameController>();
     }
 
     public void StartDialogue (Dialogue dialogue)
     {
         if(!gameOverBool)
         {
+            gameController.dialogueActive = true;
             gameOverBool = dialogue.gameOverMessage;
             dialogueActive = true;
             Debug.Log("Starting convo with " + dialogue.NPCName);
@@ -87,6 +90,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        gameController.dialogueActive = false;
         playerController.canMove = true;
         Debug.Log("End of conversation");
         animator.SetBool("IsOpen", false);

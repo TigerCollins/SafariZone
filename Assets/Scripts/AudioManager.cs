@@ -12,9 +12,12 @@ public class AudioManager : MonoBehaviour
     public AudioMixer audioMixer;
 
     [Header("Pitch Effects")]
-    public float minPitch;
-    public float maxPitch;
-    public float currentPitch;
+    public float footstepsMinPitch;
+    public float footstepsMaxPitch;
+    public float footstepsCurrentPitch;
+    public float dialogueMinPitch;
+    public float dialogueMaxPitch;
+    public float dialogueCurrentPitch;
 
     [Header("Post Effects")]
     public bool inMenu;
@@ -27,11 +30,16 @@ public class AudioManager : MonoBehaviour
     public AudioClip menuMusic;
 
     [Header("SFX")]
+
     public AudioSource footstep;
 
-    [Header("SFX")]
+    [Header("Menu SFX")]
     public AudioSource menuHover;
     public AudioSource menuClick;
+
+    [Header("Dialogue SFX")]
+    public AudioClip dialogueClip;
+    public AudioSource dialogueSource;
 
     public static AudioManager Instance;
     private int previousRoute;
@@ -89,8 +97,9 @@ public class AudioManager : MonoBehaviour
     IEnumerator ChangePitch()
     {
         yield return new WaitForSecondsRealtime(.5f);
-        currentPitch = Random.Range(minPitch, maxPitch);
-        if(currentScene == "GameWorld")
+        footstepsCurrentPitch = Random.Range(footstepsMinPitch, footstepsMaxPitch);
+        dialogueCurrentPitch = Random.Range(dialogueMinPitch, dialogueMaxPitch);
+        if (currentScene == "GameWorld")
         {
             StartCoroutine(ChangePitch());
         }
@@ -99,7 +108,7 @@ public class AudioManager : MonoBehaviour
 
     public void OneShotFootsteps()
     {
-        footstep.pitch = currentPitch;
+        footstep.pitch = footstepsCurrentPitch;
         footstep.Play();
     }
 
@@ -116,6 +125,14 @@ public class AudioManager : MonoBehaviour
         menuClick.Play();
     }
 
+    public void OneShotDialogue()
+    {
+        dialogueSource.pitch = dialogueCurrentPitch;
+        dialogueSource.clip = dialogueClip;
+        dialogueSource.Play();
+     
+
+    }
 
     private void OnLevelWasLoaded(int sceneBuildIndex)
     {

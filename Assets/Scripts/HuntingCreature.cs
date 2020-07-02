@@ -32,7 +32,7 @@ public class HuntingCreature : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        gameController = GetComponent<GameController>();
+        gameController = GameObject.FindObjectOfType<GameController>().GetComponent<GameController>();
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         huntingZone = transform.parent.parent.parent.GetComponent<HuntingZone>();
@@ -57,13 +57,13 @@ public class HuntingCreature : MonoBehaviour
         //SNEAK UPDATE
         if (player.GetComponent<PlayerController>().isSneaking == true)
         {
-            objectSensitivityDivider = 1400;
+            objectSensitivityDivider = 1700;
         }
 
         else
         {
 
-            objectSensitivityDivider = 2;
+            objectSensitivityDivider = 1700;
         }
 
         //START

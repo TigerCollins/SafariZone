@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public FishingTrigger fishingTrigger;
     public ItemDrop itemDrop;
     public InteractTutorial interactTutorial;
+    public Currency currency;
 
     [Header("Movement Variables")]
     public Vector3 desiredMoveDirection;
@@ -87,9 +88,9 @@ public class PlayerController : MonoBehaviour
 
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnControllerColliderHit(ControllerColliderHit collision)
     {
-        if (collision.collider.GetComponent<HuntingCreature>())
+        if (collision.gameObject.GetComponent<HuntingCreature>())
         {
             bool tempRunningAway = collision.collider.GetComponent<HuntingCreature>().runningAway;
             bool tempNoticed = collision.collider.GetComponent<HuntingCreature>().noticed;
@@ -97,35 +98,29 @@ public class PlayerController : MonoBehaviour
 
             if (!tempRunningAway && tempNoticed)
             {
-                
                 firstPlaythrough.huntingTriggered = false;
                 scriptControllerObject.CapturePopup(collision.collider.GetComponent<HuntingCreature>().selectedCreature);
-                AddToWallet(collision.collider.GetComponent<HuntingCreature>().selectedCreature);
+                currency.AddToLocalWallet(spawnedCreature.price);
                 spawnedCreature.previouslyCaptured = true;
                 spawnedCreature.totalCaught += 1;
                 if (spawnedCreature.dateFirstCaught == null)
                 {
                     spawnedCreature.dateFirstCaught = System.DateTime.Now.ToShortDateString();
                 }
-                if (spawnedCreature.currentWeight >= spawnedCreature.heaviestCaught)
+                if (spawnedCreature.currentWeight > spawnedCreature.heaviestCaught)
                 {
                     spawnedCreature.heaviestCaught = spawnedCreature.currentWeight;
                 }
 
-                if (spawnedCreature.currentWeight <= spawnedCreature.lightestCaught)
+                if (spawnedCreature.currentWeight < spawnedCreature.lightestCaught)
                 {
                     spawnedCreature.lightestCaught = spawnedCreature.currentWeight;
                 }
+                collision.gameObject.GetComponent<Collider>().enabled = false;
             }
         }
 
      
-    }
-
-
-    public void AddToWallet(Creature creature)
-    {
-        scriptControllerObject.currencyScript.wallet += creature.price;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -335,7 +330,7 @@ public class PlayerController : MonoBehaviour
 
     void AnimationMovement()
     {
-        if (canMove)
+        if (canMove && rigidbody.velocity != new Vector3(0, rigidbody.velocity.y, 0))
         {
             verticalMovement = Mathf.Abs(Input.GetAxis("Vertical"));
             horizontalMovement = Mathf.Abs(Input.GetAxis("Horizontal"));
@@ -408,7 +403,7 @@ public class PlayerController : MonoBehaviour
     void AudioMovement()
     {
         //Footsteps
-        if(Input.GetAxisRaw("Horizontal")==0 && Input.GetAxisRaw("Vertical") == 0)
+        if(Input.GetAxisRaw("Horizontal")==0 && Input.GetAxisRaw("Vertical") == 0 && rigidbody.velocity != new Vector3(0, 0, 0))
         {
             if(!isSneaking)
             {
@@ -422,13 +417,13 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        else
+        else if (Input.GetAxisRaw("Horizontal") != 0 && rigidbody.velocity != new Vector3(0, 0, 0) || Input.GetAxisRaw("Vertical") != 0 && rigidbody.velocity != new Vector3(0, 0, 0))
         {
             footstepTimer -= Time.deltaTime;
         }
 
 
-        if(footstepTimer < 0)
+        if(footstepTimer < 0 )
         {
             scriptControllerObject.audioManager.OneShotFootsteps();
             if (!isSneaking)

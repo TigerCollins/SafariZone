@@ -25,11 +25,15 @@ namespace TMPro
         public DialogueEvent onDialogueFinish;
         private Text tempText;
         private PlayerData playerData;
+        private LocalAudioManager localAudioManager;
+        private GameController gameController;
 
 
         public void ReadText(string newText)
         {
             playerData = GameObject.FindObjectOfType<GameController>().GetComponent<GameController>().playerData;
+            localAudioManager = GameObject.FindObjectOfType<LocalAudioManager>().GetComponent<LocalAudioManager>();
+            gameController = GameObject.FindObjectOfType<GameController>().GetComponent<GameController>();
             text = string.Empty;
             newText.Replace("PlayerName", "boi");
             // split the whole text into parts based off the <> tags 
@@ -92,6 +96,11 @@ namespace TMPro
                         while (visibleCounter < subTexts[subCounter].Length)
                         {
                             onTextReveal.Invoke(subTexts[subCounter][visibleCounter]);
+                            if(gameController.dialogueActive)
+                            {
+                                localAudioManager.OneShotDialogue();
+                            }
+
                             visibleCounter++;
                             maxVisibleCharacters++;
                             yield return new WaitForSeconds(1f / speed);

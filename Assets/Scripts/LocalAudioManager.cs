@@ -52,6 +52,15 @@ public class LocalAudioManager : MonoBehaviour
        
     }
 
+    public void OneShotDialogue()
+    {
+        if (audioManager != null)
+        {
+            audioManager.OneShotDialogue();
+        }
+
+    }
+
     public void MasterVolume()
     {
         float volumeValue = masterSlider.value;

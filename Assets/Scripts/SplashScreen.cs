@@ -14,6 +14,8 @@ public class SplashScreen : MonoBehaviour
     public bool showCommmunityMessage;
     public Button communityMessageButton;
     public float buttonTimer;
+    public AudioClip continueButtonClip;
+    public LocalAudioManager localAudioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -28,10 +30,13 @@ public class SplashScreen : MonoBehaviour
         {
             if (Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
             {
+
                 playerData.controllerInput = false;
                 if(showCommmunityMessage == false)
                 {
-                    ChangeScene();
+                    localAudioManager.audioManager.OneShotMenuClick(continueButtonClip);
+                    StartCoroutine(WaitAndPrint(1f));
+                    
                 }
 
                 else
@@ -53,6 +58,15 @@ public class SplashScreen : MonoBehaviour
             }
         }
         // if()
+    }
+
+    private IEnumerator WaitAndPrint(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            ChangeScene();
+        }
     }
 
     public void ChangeScene()

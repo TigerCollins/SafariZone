@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
     public Vector3 newScreenTransitionSize;
     private bool sceneTransitionBool;
     public float gameOverTransitionTime;
+    public bool dialogueActive;
 
     [Header("Player Variables")]
     public bool distanceCounted;

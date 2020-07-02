@@ -28,11 +28,7 @@ public class PopMinigameController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-        //SpawnPopIcons();
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -106,13 +102,12 @@ public class PopMinigameController : MonoBehaviour
         {
             spawnedCreature.previouslyCaptured = true;
             spawnedCreature.totalCaught += 1;
-            scriptController.currencyScript.wallet += spawnedCreature.price;
             if(spawnedCreature.dateFirstCaught == null)
             {
                 spawnedCreature.dateFirstCaught = System.DateTime.Now.ToShortDateString();
             }
             scriptController.currencyScript.AddToLocalWallet(spawnedCreature.price);
-            if(spawnedCreature.currentWeight >= spawnedCreature.heaviestCaught)
+            if (spawnedCreature.currentWeight >= spawnedCreature.heaviestCaught)
             {
                 spawnedCreature.heaviestCaught = spawnedCreature.currentWeight;
             }

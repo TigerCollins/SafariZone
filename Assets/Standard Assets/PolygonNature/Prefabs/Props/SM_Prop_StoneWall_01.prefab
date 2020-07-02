@@ -11,14 +11,12 @@ GameObject:
   - component: {fileID: 4339720627652856}
   - component: {fileID: 33473579233259624}
   - component: {fileID: 23928323972766580}
-  - component: {fileID: 95004685352352362}
-  - component: {fileID: 6752579539372691755}
   m_Layer: 0
   m_Name: SM_Prop_StoneWall_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4339720627652856
 Transform:
@@ -81,48 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &95004685352352362
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436398286074176}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 83566b3fe600f364daa9d18fd667ea7f, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6752579539372691755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436398286074176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd26898b3699e4541b0fa00dfb3e7f24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  msObject: {fileID: 0}
-  blendDistance: 0.55
-  normalBlendDistance: 1
-  blendContrast: 0.197
-  blendCurve: 1.03
-  slopeFilter: 1
-  slopeContrast: 20
-  slopeNoise: 0.35
-  snowDampening: 0
-  snowWidth: 0
-  noiseScale: 1
-  doSnow: 1
-  doTerrainBlend: 1
-  normalFromObject: {fileID: 0}

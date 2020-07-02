@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6211ad15f5acfb244a9c7c000054c22e, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  firstTime: 1
+  firstTime: 0
   controllerInput: 0
-  latestCommunityMessage: 0
-  latestCommunityDate: 0
+  latestCommunityMessage: big yeets
+  latestCommunityDate: 27/06/20
   playerName: Armani
   wallet: 0
-  playTime: 0
+  playTime: 915.0103
   runsCompleted: 0
   totalDistanceTravelled: 0
   creaturesCaught: 0
   timePlayed: 0
   maleGender: 0
   guidanceIsle: 1
-  egressCave: 0
-  kebarVillage: 0
-  parharVillage: 0
+  egressCave: 1
+  kebarVillage: 1
+  parharVillage: 1
   AzaleaForest: 0
   lakePerano: 0
   masterVolume: -1.3333334

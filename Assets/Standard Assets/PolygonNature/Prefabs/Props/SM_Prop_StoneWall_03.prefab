@@ -11,14 +11,12 @@ GameObject:
   - component: {fileID: 4204474577979000}
   - component: {fileID: 33564383235432920}
   - component: {fileID: 23197632003833720}
-  - component: {fileID: 95590083995699384}
-  - component: {fileID: 7136543386777830192}
   m_Layer: 0
   m_Name: SM_Prop_StoneWall_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4204474577979000
 Transform:
@@ -61,7 +59,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b72e16591230315448c77c827b522ae1, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,48 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &95590083995699384
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932553094402948}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: efed596a94373ce4b9a57c826076ca39, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7136543386777830192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932553094402948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd26898b3699e4541b0fa00dfb3e7f24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  msObject: {fileID: 0}
-  blendDistance: 0.55
-  normalBlendDistance: 1
-  blendContrast: 0.197
-  blendCurve: 1.03
-  slopeFilter: 1
-  slopeContrast: 20
-  slopeNoise: 0.35
-  snowDampening: 0
-  snowWidth: 0
-  noiseScale: 1
-  doSnow: 1
-  doTerrainBlend: 1
-  normalFromObject: {fileID: 0}

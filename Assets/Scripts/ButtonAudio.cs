@@ -23,7 +23,7 @@ public class ButtonAudio : MonoBehaviour, IPointerEnterHandler
 
         else
         {
-            Debug.Log("No audio clip attached to " + gameObject.transform.name);
+            Debug.LogWarning("No audio clip attached to " + gameObject.transform.name);
         }
 
     }
