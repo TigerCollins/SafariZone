@@ -18,16 +18,16 @@ MonoBehaviour:
   latestCommunityDate: 
   playerName: Armani
   wallet: 500
-  playTime: 5901.535
+  playTime: 0
   runsCompleted: 0
-  totalDistanceTravelled: 151.48529
+  totalDistanceTravelled: 0
   creaturesCaught: 0
   timePlayed: 0
   maleGender: 0
   guidanceIsle: 1
-  egressCave: 1
-  kebarVillage: 1
-  parharVillage: 1
+  egressCave: 0
+  kebarVillage: 0
+  parharVillage: 0
   AzaleaForest: 0
   lakePerano: 0
   masterVolume: 0.8888889
