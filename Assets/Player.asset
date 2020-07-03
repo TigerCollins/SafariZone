@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6211ad15f5acfb244a9c7c000054c22e, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  firstTime: 0
+  firstTime: 1
   controllerInput: 0
-  latestCommunityMessage: big yeets
-  latestCommunityDate: 27/06/20
+  latestCommunityMessage: 
+  latestCommunityDate: 
   playerName: Armani
-  wallet: 0
-  playTime: 915.0103
+  wallet: 500
+  playTime: 5901.535
   runsCompleted: 0
-  totalDistanceTravelled: 0
+  totalDistanceTravelled: 151.48529
   creaturesCaught: 0
   timePlayed: 0
   maleGender: 0
@@ -30,14 +30,14 @@ MonoBehaviour:
   parharVillage: 1
   AzaleaForest: 0
   lakePerano: 0
-  masterVolume: -1.3333334
-  masterVolumeCore: 87
-  gameVolume: -4.888889
-  gameVolumeCore: 79
+  masterVolume: 0.8888889
+  masterVolumeCore: 92
+  gameVolume: -10.222222
+  gameVolumeCore: 67
   menuVolume: -3.1111112
   menuVolumeCore: 83
-  musicVolume: -5.7777777
-  musicVolumeCore: 77
+  musicVolume: -4.4444447
+  musicVolumeCore: 80
   chromaticAberration: 1
   filmGrain: 1
   vignette: 1

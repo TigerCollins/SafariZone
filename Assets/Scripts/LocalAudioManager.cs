@@ -61,6 +61,15 @@ public class LocalAudioManager : MonoBehaviour
 
     }
 
+    public void OneShotShrub(AudioClip gameClip)
+    {
+        if (audioManager != null)
+        {
+            audioManager.OneShotShrub(gameClip);
+        }
+
+    }
+
     public void MasterVolume()
     {
         float volumeValue = masterSlider.value;

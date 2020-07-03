@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public ItemDrop itemDrop;
     public InteractTutorial interactTutorial;
     public Currency currency;
+    public LocalAudioManager localAudioManager;
 
     [Header("Movement Variables")]
     public Vector3 desiredMoveDirection;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
     public float baseFootstepTimer;
     public float baseCrouchFootstepTimer;
     public float footstepTimer;
+    public AudioClip bushClip;
 
     [Header("Animation Options")]
     public GameObject playerModel;
@@ -120,6 +122,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
+       
      
     }
 
@@ -279,6 +283,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        localAudioManager = GameObject.FindObjectOfType<LocalAudioManager>().GetComponent<LocalAudioManager>();
         originalMovementMultiplier = maxVelocity;
         lastPosition = transform.position;
         rigidbody = GetComponent<CharacterController>();
@@ -327,6 +332,7 @@ public class PlayerController : MonoBehaviour
         AnimationMovement();
         AudioMovement();
     }
+
 
     void AnimationMovement()
     {

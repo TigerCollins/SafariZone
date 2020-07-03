@@ -29,6 +29,6 @@ MonoBehaviour:
   currentWeight: 0
   minWeight: 5
   maxWeight: 35
-  price: 4000
+  price: 1000
   creatureType: 0
   creatureRarity: 1

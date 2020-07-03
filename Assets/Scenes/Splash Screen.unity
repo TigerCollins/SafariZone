@@ -574,7 +574,7 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 1690700638}
+  shadowMapRenderTexture: {fileID: 411989814}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
@@ -588,6 +588,41 @@ MonoBehaviour:
   customCookieDistanceFalloffPower: 2
   customAngularFalloffThreshold: 0.8
   customAngularFalloffPower: 2
+--- !u!84 &411989814
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &412446561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2181,41 +2216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
   audioClip: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
---- !u!84 &1690700638
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1745769592
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,26 +2514,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 899597003100821726, guid: 95e1c3614972e784bbe79b0f99fe1005,
-        type: 3}
-      propertyPath: footstepsMinPitch
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 899597003100821726, guid: 95e1c3614972e784bbe79b0f99fe1005,
-        type: 3}
-      propertyPath: footstepsMaxPitch
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 899597003100821726, guid: 95e1c3614972e784bbe79b0f99fe1005,
-        type: 3}
-      propertyPath: dialogueMinPitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 899597003100821726, guid: 95e1c3614972e784bbe79b0f99fe1005,
-        type: 3}
-      propertyPath: dialogueMaxPitch
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 899597003100821727, guid: 95e1c3614972e784bbe79b0f99fe1005,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2588,11 +2568,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2177692124844342332, guid: 95e1c3614972e784bbe79b0f99fe1005,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95e1c3614972e784bbe79b0f99fe1005, type: 3}

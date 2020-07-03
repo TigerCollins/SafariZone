@@ -30,7 +30,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip menuMusic;
 
     [Header("SFX")]
-
+    public AudioSource shrubSource1;
+    public AudioSource shrubSource2;
     public AudioSource footstep;
 
     [Header("Menu SFX")]
@@ -110,6 +111,22 @@ public class AudioManager : MonoBehaviour
     {
         footstep.pitch = footstepsCurrentPitch;
         footstep.Play();
+    }
+
+    public void OneShotShrub(AudioClip audioClip)
+    {
+       if(shrubSource1.isPlaying)
+        {
+            shrubSource2.clip = audioClip;
+            shrubSource2.Play();
+        }
+
+       else
+        {
+            shrubSource1.clip = audioClip;
+            shrubSource1.Play();
+        }
+
     }
 
     public void OneShotMenuHover(AudioClip audioClip)
