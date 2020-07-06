@@ -328,9 +328,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 11400000, guid: 2a50a3ae9be382c40814e098c628d3ca, type: 2}
   - {fileID: 11400000, guid: 2a50a3ae9be382c40814e098c628d3ca, type: 2}
-  timeReduction: 200
-  minFishingTime: 10
-  maxFishingTime: 17
+  timeReduction: 150
+  minFishingTime: 7
+  maxFishingTime: 15
   encounterMessage:
   - 'Get ready! You encountered a '
   - 

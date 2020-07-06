@@ -444,7 +444,7 @@ public class GameController : MonoBehaviour
 
     void Statistics()
     {
-        if (areaID != 1 && areaID != 6 && areaID != 9 && areaID != 0 )
+        if (areaID != 1 && areaID != 6 && areaID != 9 && areaID != 0  && GetComponent<FirstPlaythrough>().localFirstTime == false)
         {
             distanceCounted = true;
             distanceTravelled += (Vector3.Distance(playerObject.transform.position, lastPosition)*distanceMultiplier);

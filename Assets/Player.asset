@@ -17,7 +17,7 @@ MonoBehaviour:
   latestCommunityMessage: 
   latestCommunityDate: 
   playerName: Armani
-  wallet: 500
+  wallet: 0
   playTime: 0
   runsCompleted: 0
   totalDistanceTravelled: 0

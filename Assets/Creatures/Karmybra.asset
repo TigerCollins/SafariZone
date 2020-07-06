@@ -20,7 +20,7 @@ MonoBehaviour:
   flavourText: Karmybras often bring good luck to those who encounter it. They are
     the largest rodent appearing creature in the Safari Zone and are worth a pretty
     penny.
-  totalCaught: 0
+  totalCaught: 4
   dateFirstCaught: 
   minigameMultiplier: 2
   spawnRate: 40

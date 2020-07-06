@@ -20,7 +20,7 @@ MonoBehaviour:
   flavourText: This creature can phase through walls and rocks and will likely hide
     if it doesn't trust you. Encountering a Chrisclaw is said to bring incredible
     luck.
-  totalCaught: 0
+  totalCaught: 1
   dateFirstCaught: 
   minigameMultiplier: 2
   spawnRate: 40

@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
             bool tempRunningAway = collision.collider.GetComponent<HuntingCreature>().runningAway;
             bool tempNoticed = collision.collider.GetComponent<HuntingCreature>().noticed;
             Creature spawnedCreature = collision.collider.GetComponent<HuntingCreature>().selectedCreature;
-
+            print(collision.collider.GetComponent<HuntingCreature>().selectedCreature);
             if (!tempRunningAway && tempNoticed)
             {
                 firstPlaythrough.huntingTriggered = false;

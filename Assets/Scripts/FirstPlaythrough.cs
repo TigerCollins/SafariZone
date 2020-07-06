@@ -25,31 +25,35 @@ public class FirstPlaythrough : MonoBehaviour
     public CanvasGroup interactionCanvasGroup;
     public bool interactionCompleted;
     public bool triggeredInteractionDialogue;
-
+    private bool checkedInteraction;
 
     [Header("Fishing Tut")]
     public bool fishingTriggered;
     public CanvasGroup fishingCanvasGroup;
     public bool fishingCompleted;
     public bool triggeredFishingDialogue;
+    private bool checkedFishing;
 
-     [Header("Hunting Tut")]
+    [Header("Hunting Tut")]
     public bool huntingTriggered;
     public CanvasGroup huntingCanvasGroup;
     public bool huntingCompleted;
     public bool triggeredHuntingDialogue;
+    private bool checkedHunting;
 
     [Header("Trap Tut")]
     public bool trapTutTriggered;
     public CanvasGroup trapTutCanvasGroup;
     public bool trapTutCompleted;
     public bool triggeredTrapDialogue;
+    private bool checkedTrap;
 
     [Header("TitleCard")]
     public bool titlecardTriggered;
     public CanvasGroup titlecardCanvasGroup;
     public float titlecardTimer;
     public bool titlecardCompleted;
+    private bool checkedTitle;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,22 +84,26 @@ public class FirstPlaythrough : MonoBehaviour
 
     public void CheckForSkipping()
     {
-        if(fishingTriggered && triggeredInteractionDialogue)
+        if(fishingTriggered && interactionTriggered && !checkedInteraction)
         {
+            checkedInteraction = true;
             isSkipping = true;
         }
 
-        else if (huntingTriggered && triggeredFishingDialogue)
+        else if (huntingTriggered && fishingTriggered && !checkedFishing)
         {
+            checkedFishing = true;
             isSkipping = true;
         }
-        else if (trapTutTriggered && triggeredHuntingDialogue )
+        else if (trapTutTriggered && huntingTriggered && !checkedTrap)
         {
+            checkedTrap = true;
             isSkipping = true;
         }
 
-        else if (titlecardTriggered && triggeredTrapDialogue)
+        else if (titlecardTriggered && trapTutTriggered && !checkedTrap)
         {
+            checkedTitle = true;
             isSkipping = true;
         }
 
@@ -286,6 +294,7 @@ public class FirstPlaythrough : MonoBehaviour
             titlecardTimer -= Time.deltaTime;
             if(titlecardTimer <= 0)
             {
+                localFirstTime = false;
                 titlecardTriggered = false;
             }
         }
