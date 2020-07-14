@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public EventSystem eventSystem;
     public GameObject playerObject;
     public PlayerController playerScript;
     public UseItem useItem;
@@ -26,6 +28,7 @@ public class GameController : MonoBehaviour
     public string metaString; //FEED INTO HERE
     public Inventory inventoryScript;
     public CharacterController characterController;
+    public GameObject backpackButton;
 
     [Header("Game Variables")]
     [SerializeField]
@@ -412,6 +415,19 @@ public class GameController : MonoBehaviour
 
     }
 
+
+    public void SetSelectedButton(GameObject selectedObject)
+    {
+
+        eventSystem.SetSelectedGameObject(selectedObject);
+    }
+    public void DeselectButton()
+
+    {
+
+        eventSystem.SetSelectedGameObject(null);
+    }
+
     void CheckForPause()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && gamePaused == false)
@@ -423,6 +439,8 @@ public class GameController : MonoBehaviour
             audioManager.inMenu = true;
             audioManager.ChangeLowPass();
             audioManager.OneShotMenuClick(menuOpenSC);
+            playerScript.canMove = false;
+            SetSelectedButton(backpackButton);
         }
     }
 

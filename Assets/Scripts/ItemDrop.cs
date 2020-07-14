@@ -22,6 +22,7 @@ public class ItemDrop : MonoBehaviour
     public Renderer renderer;
     public Material exclamationMark;
     public Material lureSymbol;
+    public TrapManager trapManager;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,6 +32,7 @@ public class ItemDrop : MonoBehaviour
         BubbleOpened();
         player = FindObjectOfType<PlayerController>().gameObject;
         gameController = FindObjectOfType<GameController>();
+        trapManager = gameController.gameObject.GetComponent<TrapManager>();
     }
 
     public void BubbleClosed()
@@ -38,6 +40,7 @@ public class ItemDrop : MonoBehaviour
        // if(ca)
         animatorBubble.SetBool("Closed", true);
         animatorBubble.SetBool("Triggered", false);
+
     }
 
     public void BubbleOpened()
@@ -46,6 +49,7 @@ public class ItemDrop : MonoBehaviour
         {
             animatorBubble.SetBool("Closed", false);
             animatorBubble.SetBool("Triggered", true);
+           
         }
     }
 
@@ -84,6 +88,7 @@ public class ItemDrop : MonoBehaviour
 
             if (selectedItem == selectedItem)
             {
+                gameController.SetSelectedButton(trapManager.closeButton.gameObject);
                 hasBeenTriggered = true;
                 if (hasBeenTriggered)
                 {

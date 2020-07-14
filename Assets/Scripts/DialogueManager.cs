@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -10,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     private PlayerController playerController;
     public GameController gameController;
     private TMP_Animated animatedText;
+    public GameObject nextButton;
     [HideInInspector]
     public bool gameOverBool;
     private Queue<string> sentences;
@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
 
+
     public Color personColour;
     public Color itemColour;
     public Color defaultColour;
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
 
 
     public bool dialogueActive;
+    public bool finished = true;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+       // gameController.SetSelectedButton(nextButton.gameObject);
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -70,26 +73,41 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
-        if(!animator.IsInTransition(0))
+
+        if(!animator.IsInTransition(0) && finished == true)
         {
+            nextButton.gameObject.GetComponent<Button>().interactable= false;
+            gameController.SetSelectedButton(nextButton);
             NPCSentence.ReadText(sentence);
+
         }
-        
+
        // Debug.Log(sentence);
     }
+
+    public void DialogueFinished()
+    {
+        finished = true;
+    }
+
+
 
     IEnumerator TypeSentence(string sentence)
     {
         NPCSentence.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
-            NPCSentence.text += letter;
-            yield return null;
-        }
+            foreach (char letter in sentence.ToCharArray())
+            {
+                NPCSentence.text += letter;
+                yield return null;
+            }
+     
+
     }
 
     void EndDialogue()
     {
+
+        gameController.DeselectButton();
         gameController.dialogueActive = false;
         playerController.canMove = true;
         Debug.Log("End of conversation");

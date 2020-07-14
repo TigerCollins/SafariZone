@@ -40,17 +40,22 @@ public class MenuPrefabController : MonoBehaviour
         backpackMenuAnimator.SetBool("IsOpen", false);
         parkPadAnimator.SetBool("IsOpen", false);
         indexMenuAnimator.SetBool("IsOpen", false);
+        FindObjectOfType<GameController>().DeselectButton();
         gameObject.GetComponent<GameController>().gamePaused = false;
         gameObject.GetComponent<GameController>().audioManager.inMenu = false;
         gameObject.GetComponent<GameController>().audioManager.ChangeLowPass();
+        FindObjectOfType<GameController>().playerScript.canMove = true;
     }
+
+
+
 
     public void GoToMainMenuFromGame()
     {
         otherMenuHolder.SetActive(true);
         indexMenuAnimator.SetBool("IsOpen", false);
         backpackMenuAnimator.SetBool("IsOpen", false);
-        ;
+        
         mainMenuPrefab.SetActive(true);
         eventSystem.SetSelectedGameObject(resumeButton);
         parkPadAnimator.SetBool("IsOpen", true);
@@ -63,6 +68,7 @@ public class MenuPrefabController : MonoBehaviour
         backpackMenuAnimator.SetBool("IsOpen", false);
         indexMenuAnimator.SetBool("IsOpen", false);
         parkPadAnimator.SetBool("IsOpen", true);
+
         //eventSystem.SetSelectedGameObject(resumeButton);
 
 

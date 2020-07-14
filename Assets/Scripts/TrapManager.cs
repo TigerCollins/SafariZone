@@ -28,6 +28,7 @@ public class TrapManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", true);
         trapMessageActive = true;
+        gameController.SetSelectedButton(closeButton.gameObject);
     }
 
 
@@ -35,6 +36,7 @@ public class TrapManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         trapMessageActive = false;
+        gameController.DeselectButton();
     }
 
 

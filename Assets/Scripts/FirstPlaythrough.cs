@@ -292,7 +292,7 @@ public class FirstPlaythrough : MonoBehaviour
         if(titlecardCompleted)
         {
             titlecardTimer -= Time.deltaTime;
-            if(titlecardTimer <= 0)
+            if(titlecardCanvasGroup.alpha <= 0 && titlecardTimer <=0)
             {
                 localFirstTime = false;
                 titlecardTriggered = false;

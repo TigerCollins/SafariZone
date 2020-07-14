@@ -27,14 +27,17 @@ namespace TMPro
         private PlayerData playerData;
         private LocalAudioManager localAudioManager;
         private GameController gameController;
+        private DialogueManager dialogueManager;
 
-
+        
         public void ReadText(string newText)
         {
+            dialogueManager = GameObject.FindObjectOfType<DialogueManager>().GetComponent<DialogueManager>();
             playerData = GameObject.FindObjectOfType<GameController>().GetComponent<GameController>().playerData;
             localAudioManager = GameObject.FindObjectOfType<LocalAudioManager>().GetComponent<LocalAudioManager>();
             gameController = GameObject.FindObjectOfType<GameController>().GetComponent<GameController>();
             text = string.Empty;
+            dialogueManager.finished = false;
             newText.Replace("PlayerName", "boi");
             // split the whole text into parts based off the <> tags 
             // even numbers in the array are text, odd numbers are tags
@@ -134,7 +137,14 @@ namespace TMPro
                     }
                     return null;
                 }
+
+                
                 onDialogueFinish.Invoke();
+                dialogueManager.finished = true;
+                dialogueManager.nextButton.GetComponent<Button>().interactable = true;
+
+                gameController.SetSelectedButton(dialogueManager.nextButton);
+                //gameController.eventSystem.SetSelectedGameObject(dialogueManager.nextButton);
             }
         }
     }
