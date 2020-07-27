@@ -462,11 +462,11 @@ public class GameController : MonoBehaviour
 
     void Statistics()
     {
-        if (areaID != 1 && areaID != 6 && areaID != 9 && areaID != 0  && GetComponent<FirstPlaythrough>().localFirstTime == false)
+        if (areaID != 1 && areaID != 6 && areaID != 9 && areaID != 0 && areaID != 13 && GetComponent<FirstPlaythrough>().localFirstTime == false)
         {
             distanceCounted = true;
             distanceTravelled += (Vector3.Distance(playerObject.transform.position, lastPosition)*distanceMultiplier);
-
+            float newDistanceTravelled = maxDistance - distanceTravelled;
             if (pauseIcon.activeInHierarchy != false)
             {
                 pauseIcon.SetActive(false);
@@ -476,19 +476,19 @@ public class GameController : MonoBehaviour
 
 
             //(maxDistance -(maxDistance/10))
-            if (distanceTravelled < (maxDistance - (maxDistance / midCapacityThreshold)))
+            if (newDistanceTravelled > (maxDistance * (midCapacityThreshold / 100)))
             {
                 timerImage.color = fullCapacity;
                 timerImageBG.color = timerColour;
             }
 
 
-            if (distanceTravelled < (maxDistance - (maxDistance / midCapacityThreshold)) && distanceTravelled > (maxDistance - (maxDistance / lowCapacityThreshold)))
+            if (newDistanceTravelled < (maxDistance * (midCapacityThreshold / 100)) && newDistanceTravelled > (maxDistance * (lowCapacityThreshold / 100)))
             {
                 timerImage.color = midCapacity;
                 timerImageBG.color = timerColour;
             }
-            if (distanceTravelled > (maxDistance - (maxDistance / lowCapacityThreshold)))
+            if (newDistanceTravelled < (maxDistance * (lowCapacityThreshold / 100)))
             {
                 timerImage.color = lowCapacity;
                 timerImageBG.color = lowCapacity;
