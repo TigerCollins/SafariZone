@@ -167,7 +167,7 @@ Material:
     m_Colors:
     - _BarkColor: {r: 0.44705883, g: 0.357349, b: 0.2932706, a: 0}
     - _Color: {r: 0.5019608, g: 0.41566747, b: 0.36141178, a: 1}
-    - _CoverageColor: {r: 1, g: 1, b: 1, a: 0}
+    - _CoverageColor: {r: 0.26730573, g: 0.4245283, b: 0.24230152, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 1, g: 1, b: 1, a: 0}
     - _SurfaceColor: {r: 0.44, g: 0.37448633, b: 0.33176, a: 0}

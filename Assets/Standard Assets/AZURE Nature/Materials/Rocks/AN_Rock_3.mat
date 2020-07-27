@@ -150,6 +150,6 @@ Material:
     - __dirty: 0
     m_Colors:
     - _Color: {r: 0.76557493, g: 0.8363022, b: 0.8679245, a: 1}
-    - _CoverageColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
+    - _CoverageColor: {r: 0.6509434, g: 0.5987451, b: 0.5987451, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SurfaceColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+    - _SurfaceColor: {r: 0.59607846, g: 0.4784314, b: 0.3647059, a: 1}

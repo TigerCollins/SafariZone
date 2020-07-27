@@ -134,9 +134,9 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _Snow: 0
     - _Snow1: 0
-    - _SnowAmount: 0.358
+    - _SnowAmount: 0.336
     - _SnowAmount1: 0.5
-    - _SnowFade: 0.252
+    - _SnowFade: 0.257
     - _SnowLevel: 0
     - _SnowOverlayType: 1
     - _SpecularHighlights: 1
@@ -163,8 +163,8 @@ Material:
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.13867483, g: 0.461, b: 0.2773496, a: 0}
-    - _Color2: {r: 0.15972951, g: 0.4433962, b: 0.04433963, a: 0}
+    - _Color1: {r: 0.22745098, g: 0.21999541, b: 0.12156863, a: 1}
+    - _Color2: {r: 0.344678, g: 0.44313726, b: 0.04313725, a: 0}
     - _Color3: {r: 0, g: 0, b: 0, a: 0}
     - _CoverageColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
