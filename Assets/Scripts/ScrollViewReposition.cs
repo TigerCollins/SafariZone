@@ -26,7 +26,7 @@ public class ScrollViewReposition : MonoBehaviour
 
     public void Update()
     {
-
+     //   print("x pos: " + currentPosX + " y pos: " + currentPosY);
         if(canDrag == true)
         {
             currentPosX = scrollRect.horizontalNormalizedPosition;

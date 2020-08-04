@@ -235,6 +235,17 @@ public class GameController : MonoBehaviour
             Debug.Log("Spawned at forth spawn");
         }
 
+        else if (PlayerPrefs.GetInt("AreaID") == 13)
+        {
+            playerObject.GetComponent<CharacterController>().transform.position = spawnPoints[6].transform.position;
+            playerObject.transform.localRotation = spawnPoints[6].transform.rotation;
+            areaID = 13;
+            playerScript.areaIdentifierID = 13;
+            areaIdentifier = areaIdentifierForSpawn[4];
+            characterController.enabled = true;
+            Debug.Log("Spawned at forth spawn");
+        }
+
         else
         {
             Debug.LogError("No spawn point could be chosen.");

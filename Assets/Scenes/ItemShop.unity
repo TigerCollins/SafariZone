@@ -6448,7 +6448,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b412f9b1a66d3c4ba02aaed5d9732fb, type: 2}
   - {fileID: 11400000, guid: 7ab56d56b3b40b047a7ded939bc2a5f8, type: 2}
   - {fileID: 11400000, guid: 2f583f7039ebc3843be292324b72a851, type: 2}
-  - {fileID: 11400000, guid: 1e336fa04b683224f93c8e5ebe850433, type: 2}
   - {fileID: 11400000, guid: b3eb997e884504d489abcf9d3e85144f, type: 2}
   player: {fileID: 1551073687}
   lureListContainer: {fileID: 1385970244}

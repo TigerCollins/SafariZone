@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4281802443385458}
   - component: {fileID: 33721854914160922}
   - component: {fileID: 23174238121432146}
-  - component: {fileID: 95199159658436536}
   m_Layer: 0
   m_Name: SM_Rock_CaveEntrance_02
   m_TagString: Untagged
@@ -80,22 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &95199159658436536
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823287720207536}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 65d06d193475f034b9b24dfb94bf888f, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
