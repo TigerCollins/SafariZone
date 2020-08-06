@@ -645,8 +645,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1794989550}
   m_HandleRect: {fileID: 1794989549}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2161,7 +2161,7 @@ PrefabInstance:
     - target: {fileID: 2440706276728874891, guid: 5b0625b1811849148b571eaca17236ac,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b0625b1811849148b571eaca17236ac, type: 3}
@@ -4404,7 +4404,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 332156032}
   m_HandleRect: {fileID: 332156031}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8022,8 +8022,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 267129187}
   m_HandleRect: {fileID: 267129186}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

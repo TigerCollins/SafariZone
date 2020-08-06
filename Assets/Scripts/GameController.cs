@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
     public bool dialogueActive;
 
     [Header("Player Variables")]
+    public Text countdownText;
     public bool distanceCounted;
     [SerializeField]
     public float distanceTravelled;
@@ -154,6 +155,12 @@ public class GameController : MonoBehaviour
 
 
 
+    }
+
+    private void FixedUpdate()
+    {
+        countdownText.text = (maxDistance - distanceTravelled).ToString("f0") + "m";
+        countdownText.color = timerImage.color;
     }
 
     private void Start()

@@ -21,7 +21,7 @@ public class SceneChanger : MonoBehaviour
 
     private void Awake()
     {
-       // gameObject.SetActive(true);
+        gameObject.SetActive(true);
     }
 
     void Start()
