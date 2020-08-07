@@ -48,7 +48,7 @@ Material:
     - _2: 0.7
     - _ChromaticAberration: 0
     - _CoastalWavesDensity: 0.5
-    - _DepthDistance: 0.388
+    - _DepthDistance: 0.648
     - _DepthFade: 1
     - _DepthIntensity: 0.411
     - _EdgeFoamTile: 4.24
@@ -64,7 +64,7 @@ Material:
     - _Power: 0.2
     - _RefractionIntensity: 0.15
     - _Scale: 50
-    - _Smoothness: 0.206
+    - _Smoothness: 0
     - _TransAmbient: 0.2
     - _TransDirect: 1
     - _TransNormalDistortion: 0.1
