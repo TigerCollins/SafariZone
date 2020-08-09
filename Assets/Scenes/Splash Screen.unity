@@ -539,7 +539,7 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 1138739200}
+  shadowMapRenderTexture: {fileID: 1102987222}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
@@ -1719,7 +1719,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 5b443add28a46874c9060109103bf1e5, type: 3}
---- !u!84 &1138739200
+--- !u!84 &1102987222
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1882,7 +1882,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e4f1fee3de32377429fd1348fae62b10,
+      objectReference: {fileID: 21300000, guid: dc04e9b53654c9f48a6a29d443a5f5ae,
         type: 3}
     - target: {fileID: 4794232126879433142, guid: 010b3d9b7e293ef48995a003ff75cb9e,
         type: 3}
@@ -2045,6 +2045,12 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4794232127190790449, guid: 010b3d9b7e293ef48995a003ff75cb9e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 29c3ceebc69f83747ace035ba62558a9,
+        type: 3}
     - target: {fileID: 4794232127190790463, guid: 010b3d9b7e293ef48995a003ff75cb9e,
         type: 3}
       propertyPath: m_Name

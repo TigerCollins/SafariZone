@@ -90,6 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4188878019612106}
   - component: {fileID: 205670617719592218}
+  - component: {fileID: 9103573435271604988}
   m_Layer: 0
   m_Name: SM_Tree_Pine_Small_01
   m_TagString: Untagged
@@ -106,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 1137204502678828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4264242579669420}
   - {fileID: 4359465233654730}
@@ -131,11 +132,24 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23148524604531196}
-  - screenRelativeHeight: 0.029715272
+  - screenRelativeHeight: 0.004014828
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23495053559401334}
   m_Enabled: 1
+--- !u!65 &9103573435271604988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137204502678828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.33, y: 8.33, z: 0.43}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1783114842634712
 GameObject:
   m_ObjectHideFlags: 0
