@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Basic Rod
   icon: {fileID: 9045628833805791029, guid: f35db787ae1e6814e8eb7d897a53c569, type: 3}
-  flavourText: Can be used at fishing spots. Better than just then the hand the Basic
-    Rod does it all.
+  flavourText: Can be used at fishing spots. Better than just just your hand, the
+    Basic Rod does it all.
   itemTypes: 0
   canHaveMultiple: 0
   lingerTime: 0

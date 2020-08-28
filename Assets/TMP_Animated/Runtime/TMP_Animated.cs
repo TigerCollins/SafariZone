@@ -88,11 +88,11 @@ namespace TMPro
                 int visibleCounter = 0;
                 while (subCounter < subTexts.Length)
                 {
-                    // if 
+                      
                     if (subCounter % 2 == 1)
                     {
                         yield return EvaluateTag(subTexts[subCounter].Replace(" ", ""));
-                     
+                    
                     }
                     else
                     {

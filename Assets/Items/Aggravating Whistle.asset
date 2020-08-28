@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Aggravating Whistle
   icon: {fileID: 1040854479760811982, guid: f35db787ae1e6814e8eb7d897a53c569, type: 3}
   flavourText: Marketed to consumers as a practicle joke, this whistle causes creatures
-    of all kinds to become agitated
+    of all kinds to become agitated and fall for traps more frequently
   itemTypes: 1
   canHaveMultiple: 0
   lingerTime: 40

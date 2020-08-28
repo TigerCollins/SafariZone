@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Trappy Trap
   icon: {fileID: 4978887736602020366, guid: f35db787ae1e6814e8eb7d897a53c569, type: 3}
-  flavourText: A moden take on a classic bear trap. It's effective on both fishing
+  flavourText: A modern take on a classic bear trap. It's effective on both fishing
     and trap spots.
   itemTypes: 0
   canHaveMultiple: 1
   lingerTime: 0
+  travelPass: 0
+  isOwned: 0
   quantity: 0
   price: 750
   smallWeightFactor: 0

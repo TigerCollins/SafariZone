@@ -19,7 +19,9 @@ MonoBehaviour:
   itemTypes: 1
   canHaveMultiple: 0
   lingerTime: 40
+  travelPass: 0
+  isOwned: 0
   quantity: 0
-  price: 300
+  price: 10000
   smallWeightFactor: 0
   largeWeightFactor: 0

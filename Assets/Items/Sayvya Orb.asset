@@ -18,7 +18,9 @@ MonoBehaviour:
     produces, it slightly increases your time allowed in the safari zone
   itemTypes: 2
   canHaveMultiple: 0
-  lingerTime: 15
+  lingerTime: 300
+  travelPass: 0
+  isOwned: 0
   quantity: 0
   price: 1000
   smallWeightFactor: 5
