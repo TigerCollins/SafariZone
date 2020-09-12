@@ -17,8 +17,23 @@ TextureImporter:
   - first:
       213: -7785097774634854423
     second: ControlSpriteSheet_3
+  - first:
+      213: 8567664775735494543
+    second: ControlSpriteSheet_0
+  - first:
+      213: 1369673100928920168
+    second: ControlSpriteSheet_1
+  - first:
+      213: 1666539926621065703
+    second: ControlSpriteSheet_2
+  - first:
+      213: 6550369592890096318
+    second: ControlSpriteSheet_3
+  - first:
+      213: -8128460853870521147
+    second: ControlSpriteSheet_4
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -72,8 +87,9 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -84,7 +100,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -95,7 +112,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -106,7 +124,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,6 +136,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -124,8 +144,8 @@ TextureImporter:
       name: ControlSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 151
-        y: 1543
+        x: 227
+        y: 1545
         width: 318
         height: 318
       alignment: 0
@@ -135,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 356c1e9c52bf90744b3176850f56816d
-      internalID: -5792626745585177132
+      spriteID: f87475858b576e670800000000000000
+      internalID: 8567664775735494543
       vertices: []
       indices: 
       edges: []
@@ -156,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed327e6dce638d04b844ec464526702a
-      internalID: -3559532000798822805
+      spriteID: 86aa64fad6e020310800000000000000
+      internalID: 1369673100928920168
       vertices: []
       indices: 
       edges: []
@@ -177,14 +197,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eacfc6f7e7b8f5e4d926777789790bcb
-      internalID: 7919784092181404539
+      spriteID: 7e1114acb3db02710800000000000000
+      internalID: 1666539926621065703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: ControlSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1187
+        width: 318
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebafbbb707697ea50800000000000000
+      internalID: 6550369592890096318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ControlSpriteSheet_4
       rect:
         serializedVersion: 2
         x: 1031
@@ -198,8 +239,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49e9dfa2fe76aba468c24898f0f8213a
-      internalID: -7785097774634854423
+      spriteID: 5c4116a7be7e13f80800000000000000
+      internalID: -8128460853870521147
       vertices: []
       indices: 
       edges: []

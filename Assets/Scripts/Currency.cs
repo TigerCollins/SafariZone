@@ -12,8 +12,14 @@ public class Currency : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        ScriptAwoke();
+    }
+
+    public void ScriptAwoke()
+    {
         wallet = playerData.wallet;
         textDisplay.text = wallet.ToString("f0");
+        UpdatePlayerData();
     }
 
     // Update is called once per frame

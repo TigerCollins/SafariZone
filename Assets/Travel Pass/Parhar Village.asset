@@ -20,7 +20,7 @@ MonoBehaviour:
   lingerTime: 0
   travelPass: 1
   isOwned: 0
-  quantity: 0
-  price: 2000
+  quantity: 1
+  price: 4000
   smallWeightFactor: 0
   largeWeightFactor: 0

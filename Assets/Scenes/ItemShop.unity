@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 15059800}
   - component: {fileID: 15059801}
   - component: {fileID: 15059802}
+  - component: {fileID: 15059803}
   m_Layer: 5
   m_Name: Travel Pass
   m_TagString: Untagged
@@ -252,6 +253,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 15059803}
+        m_MethodName: OnTankTypeToggleClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &15059800
 MonoBehaviour:
@@ -297,6 +309,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
   audioClip: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
+--- !u!114 &15059803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15059797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2728c08b1b26548ac2e4fbf0dd1864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankTypeBase: 0
 --- !u!1 &56866288
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +670,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1794989550}
   m_HandleRect: {fileID: 1794989549}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1085,6 +1110,7 @@ GameObject:
   - component: {fileID: 186422662}
   - component: {fileID: 186422663}
   - component: {fileID: 186422664}
+  - component: {fileID: 186422665}
   m_Layer: 5
   m_Name: Incense
   m_TagString: Untagged
@@ -1203,6 +1229,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 15059803}
+        m_MethodName: OnTankTypeToggleClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &186422662
 MonoBehaviour:
@@ -1248,6 +1285,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
   audioClip: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
+--- !u!114 &186422665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186422659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2728c08b1b26548ac2e4fbf0dd1864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankTypeBase: 0
 --- !u!1 &189626766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,7 +2370,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 719456251}
   m_HandleRect: {fileID: 719456250}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2540,7 +2590,7 @@ MonoBehaviour:
         m_MethodName: OneShotMenuClick
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 8d025934a5e0f44379da2cc2e05a4e56,
+          m_ObjectArgument: {fileID: 8300000, guid: ef1c06712f6536d47b63d96f0de67369,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -2609,7 +2659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
-  audioClip: {fileID: 8300000, guid: 442595cda3e6449cd8456af471e0ee74, type: 3}
+  audioClip: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
 --- !u!114 &482815126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2638,6 +2688,7 @@ GameObject:
   - component: {fileID: 488061437}
   - component: {fileID: 488061438}
   - component: {fileID: 488061439}
+  - component: {fileID: 488061440}
   m_Layer: 5
   m_Name: Lures
   m_TagString: Untagged
@@ -2756,6 +2807,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 488061440}
+        m_MethodName: OnTankTypeToggleClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!114 &488061437
 MonoBehaviour:
@@ -2801,6 +2863,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
   audioClip: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
+--- !u!114 &488061440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488061434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2728c08b1b26548ac2e4fbf0dd1864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankTypeBase: 0
 --- !u!1 &488401324
 GameObject:
   m_ObjectHideFlags: 0
@@ -4034,7 +4109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 595.1, y: -94.20007}
+  m_AnchoredPosition: {x: 595.1001, y: -94.19995}
   m_SizeDelta: {x: 865.3, y: -308.39996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752946719
@@ -4404,7 +4479,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 332156032}
   m_HandleRect: {fileID: 332156031}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4720,7 +4795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 595.1, y: -95.599976}
+  m_AnchoredPosition: {x: 595.1001, y: -95.59985}
   m_SizeDelta: {x: 865.3, y: -334.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &889373260
@@ -5677,7 +5752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 595.1, y: -95.599976}
+  m_AnchoredPosition: {x: 595.1001, y: -95.59985}
   m_SizeDelta: {x: 865.3, y: -334.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1239651006
@@ -6232,7 +6307,7 @@ GameObject:
   - component: {fileID: 1412949857}
   - component: {fileID: 1412949856}
   m_Layer: 5
-  m_Name: Amount
+  m_Name: WalletAmountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6412,6 +6487,15 @@ MonoBehaviour:
   inventoryObject: {fileID: 11400000, guid: 8d49ca8c7cd868f45803e842ad4b32b9, type: 2}
   currencyScript: {fileID: 1551073692}
   playerVariables: {fileID: 11400000, guid: 8ddb999eb09ffa441b1b7621e6275c99, type: 2}
+  incenseList:
+  - {fileID: 11400000, guid: 62f42f6ce2aa9ea4690820101f782a4f, type: 2}
+  - {fileID: 11400000, guid: d3f285d310701904dbde22956092a4c0, type: 2}
+  - {fileID: 11400000, guid: e276005386c446f43b35b95b9a4a4fb1, type: 2}
+  - {fileID: 11400000, guid: 0bb59f4077dfeac4ea34b24f897963c0, type: 2}
+  - {fileID: 11400000, guid: 642b0c7346ef48649aafe3e4f8462cc5, type: 2}
+  - {fileID: 11400000, guid: cbf77912dea41d249b92311850becb7e, type: 2}
+  - {fileID: 11400000, guid: 707b509a8e7fd284c91c1460c295ebf8, type: 2}
+  - {fileID: 11400000, guid: 18422c0f160dc824cb1ae340d6c7e3f0, type: 2}
   lureList:
   - {fileID: 11400000, guid: f13d835a187b5af4dabd2a4b45682ad8, type: 2}
   - {fileID: 11400000, guid: 5ed1a3302fe88dd4582137d23061cde6, type: 2}
@@ -6425,15 +6509,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6386054966c60e6448fe867e563f923a, type: 2}
   - {fileID: 11400000, guid: 222a7cec870ba924bb1cf642454e4855, type: 2}
   - {fileID: 11400000, guid: c197d20fccc3afa4e93e9347f19fdd2e, type: 2}
-  incenseList:
-  - {fileID: 11400000, guid: 62f42f6ce2aa9ea4690820101f782a4f, type: 2}
-  - {fileID: 11400000, guid: d3f285d310701904dbde22956092a4c0, type: 2}
-  - {fileID: 11400000, guid: e276005386c446f43b35b95b9a4a4fb1, type: 2}
-  - {fileID: 11400000, guid: 0bb59f4077dfeac4ea34b24f897963c0, type: 2}
-  - {fileID: 11400000, guid: 642b0c7346ef48649aafe3e4f8462cc5, type: 2}
-  - {fileID: 11400000, guid: cbf77912dea41d249b92311850becb7e, type: 2}
-  - {fileID: 11400000, guid: 707b509a8e7fd284c91c1460c295ebf8, type: 2}
-  - {fileID: 11400000, guid: 18422c0f160dc824cb1ae340d6c7e3f0, type: 2}
   whistlesList:
   - {fileID: 11400000, guid: 88796870f2029dd448a6b27390244b3c, type: 2}
   - {fileID: 11400000, guid: 9c39d8dd18841324e98dc2d436ceacee, type: 2}
@@ -6459,6 +6534,7 @@ MonoBehaviour:
   quantityInputfield: {fileID: 1613549709}
   bagQuantity: {fileID: 778979134}
   walletAmount: {fileID: 1412949856}
+  lastItem: {fileID: 0}
 --- !u!114 &1551073691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6479,6 +6555,9 @@ MonoBehaviour:
   incenseContainer: {fileID: 889373258}
   whistlesContainer: {fileID: 1239651004}
   travelPassContainer: {fileID: 1684743850}
+  toggleCount: 0
+  baseToggle: 0
+  itemShop: {fileID: 1551073690}
 --- !u!114 &1551073692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7050,7 +7129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 595.1, y: -95.599976}
+  m_AnchoredPosition: {x: 595.1001, y: -95.59985}
   m_SizeDelta: {x: 865.3, y: -334.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684743852
@@ -7520,6 +7599,7 @@ GameObject:
   - component: {fileID: 1833276844}
   - component: {fileID: 1833276845}
   - component: {fileID: 1833276846}
+  - component: {fileID: 1833276847}
   m_Layer: 5
   m_Name: Whistles
   m_TagString: Untagged
@@ -7638,6 +7718,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 15059803}
+        m_MethodName: OnTankTypeToggleClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &1833276844
 MonoBehaviour:
@@ -7683,6 +7774,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
   audioClip: {fileID: 8300000, guid: f6aa61cf744f3df4fa40d89a54b53466, type: 3}
+--- !u!114 &1833276847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833276841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2728c08b1b26548ac2e4fbf0dd1864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankTypeBase: 0
 --- !u!1 &1841717129
 GameObject:
   m_ObjectHideFlags: 0
@@ -8022,7 +8126,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 267129187}
   m_HandleRect: {fileID: 267129186}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8465,7 +8569,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.010009766, y: 10}
+  m_AnchoredPosition: {x: -0.010253906, y: 10}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072438979

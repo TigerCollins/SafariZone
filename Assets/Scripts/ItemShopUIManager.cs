@@ -15,9 +15,15 @@ public class ItemShopUIManager : MonoBehaviour
     public GameObject incenseContainer;
     public GameObject whistlesContainer;
     public GameObject travelPassContainer;
+
+    public int toggleCount;
+    public int baseToggle;
+
+    public ItemShop itemShop;
     // Start is called before the first frame update
     void Start()
     {
+       // itemShop.CreateLists();
         CategoryChanger();
     }
 
@@ -29,39 +35,61 @@ public class ItemShopUIManager : MonoBehaviour
 
     public void CategoryChanger()
     {
-        if(lureToggle.isOn)
+        if (baseToggle <= toggleCount)
         {
-            luresContainer.SetActive(true);
-            incenseContainer.SetActive(false);
-            whistlesContainer.SetActive(false);
-            travelPassContainer.SetActive(false);
-            luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
-        }
+            baseToggle = toggleCount;
+            toggleCount++;
 
-        if (incenseToggle.isOn)
-        {
-            incenseContainer.SetActive(true);
-            luresContainer.SetActive(false);
-            whistlesContainer.SetActive(false);
-            travelPassContainer.SetActive(false);
-            incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
-        }
+            itemShop.UpdateLureContainerSlots();
+            itemShop.UpdateTravelPassContainerSlots();
+            itemShop.UpdateWhistleContainerSlots();
+            itemShop.UpdateIncenseContainerSlots();
 
-        if (whistlesToggle.isOn)
-        {
-            whistlesContainer.SetActive(true);
-            luresContainer.SetActive(false);
-            incenseContainer.SetActive(false);
-            travelPassContainer.SetActive(false);
-            whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
-        }
-        if (travelPassToggle.isOn)
-        {
-            whistlesContainer.SetActive(false);
-            luresContainer.SetActive(false);
-            incenseContainer.SetActive(false);
-            travelPassContainer.SetActive(true);
-            travelPassContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
+
+            // itemShop.CreateLists();
+
+            if (lureToggle.isOn)
+            {
+                luresContainer.SetActive(true);
+                incenseContainer.SetActive(false);
+                whistlesContainer.SetActive(false);
+                travelPassContainer.SetActive(false);
+                luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().Awoke();
+                luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
+
+            }
+
+            if (incenseToggle.isOn)
+            {
+                incenseContainer.SetActive(true);
+                luresContainer.SetActive(false);
+                whistlesContainer.SetActive(false);
+                travelPassContainer.SetActive(false);
+                incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().Awoke();
+                incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
+
+            }
+
+            if (whistlesToggle.isOn)
+            {
+                whistlesContainer.SetActive(true);
+                luresContainer.SetActive(false);
+                incenseContainer.SetActive(false);
+                travelPassContainer.SetActive(false);
+                whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().Awoke();
+                whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
+
+            }
+            if (travelPassToggle.isOn)
+            {
+                whistlesContainer.SetActive(false);
+                luresContainer.SetActive(false);
+                incenseContainer.SetActive(false);
+                travelPassContainer.SetActive(true);
+                travelPassContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().Awoke();
+                travelPassContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
+
+            }
         }
     }
 }

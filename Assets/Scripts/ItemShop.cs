@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Aura2API;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,8 +17,9 @@ public class ItemShop : MonoBehaviour
     public PlayerVariables playerVariables;
 
     [Header("List Variables")]
-    public List<Lure> lureList = new List<Lure>();// = new List<inventoryObject.Inventory>;   //new List<Item>();
+    // = new List<inventoryObject.Inventory>;   //new List<Item>();
     public List<Incense> incenseList = new List<Incense>();
+    public List<Lure> lureList = new List<Lure>();
     public List<Whistles> whistlesList = new List<Whistles>();
     public List<TravelPass> travelPassList = new List<TravelPass>();
 
@@ -31,12 +33,19 @@ public class ItemShop : MonoBehaviour
     public InputField quantityInputfield;
     public Text bagQuantity;
     public Text walletAmount;
+    public GameObject lastItem;
 
     public void Awake()
+    {
+        CreateLists();
+    }
+     
+    public void CreateLists()
     {
         for (int i = 0; i < lureList.Count; i++)
         {
             Instantiate(itemContainerPrefab, lureListContainer.transform);
+            
             UpdateLureContainerSlots();
         }
 
@@ -65,30 +74,94 @@ public class ItemShop : MonoBehaviour
         walletAmount.text = currencyScript.wallet.ToString();
         // list = inventoryObject.Inventory;
 
-        print(lureListContainer.transform.GetChild(0));
         if(lureListContainer.transform.GetChild(0) != null)
         {
             lureListContainer.transform.GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
         }
-
+        //pr
     }
+/*
+    public void DestroyList()
+    {
+        foreach (Transform child in travelPassListContainer.transform)
+        {
+            ItemShopSlotController slot = child.GetComponent<ItemShopSlotController>();
 
+            slot.gameObject.Destroy();
+        }
+
+        foreach (Transform child in lureListContainer.transform)
+        {
+            ItemShopSlotController slot = child.GetComponent<ItemShopSlotController>();
+
+            slot.gameObject.Destroy();
+        }
+
+        foreach (Transform child in whistlesListContainer.transform)
+        {
+            ItemShopSlotController slot = child.GetComponent<ItemShopSlotController>();
+
+            slot.gameObject.Destroy();
+        }
+
+        foreach (Transform child in incenseListContainer.transform)
+        {
+            ItemShopSlotController slot = child.GetComponent<ItemShopSlotController>();
+
+            slot.gameObject.Destroy();
+        }
+    }
+    */
     public void BuyItem()
     {
         if (selectedItem != null)
         {
-            if(selectedItem.price <= currencyScript.wallet)
+           
+         
+       
+            foreach (Transform child in incenseListContainer.transform)
+            {
+                //Updates slot indexs name and icon
+                ItemShopSlotController slot = child.GetComponent<ItemShopSlotController>();
+
+                slot.UpdateInfo();
+            }
+            foreach (Transform child in lureListContainer.transform)
+            {
+                //Updates slot indexs name and icon
+                ItemShopSlotController slot = child.GetComponent<ItemShopSlotController>();
+
+                slot.UpdateInfo();
+            }
+            foreach (Transform child in whistlesListContainer.transform)
+            {
+                //Updates slot indexs name and icon
+                ItemShopSlotController slot = child.GetComponent<ItemShopSlotController>();
+
+                slot.UpdateInfo();
+            }
+            foreach (Transform child in travelPassListContainer.transform)
+            {
+                //Updates slot indexs name and icon
+                ItemShopSlotController slot = child.GetComponent<ItemShopSlotController>();
+
+                slot.UpdateInfo();
+            }
+
+            if (selectedItem.price <= currencyScript.wallet)
             {
                 if (inventoryObject.Inventory.Contains(selectedItem) == true)
                 {
                     
                     if (selectedItem.itemTypes != Item.ItemTypes.Lure)
                     {
+
                         if ((selectedItem.quantity + quantityWanted) > 99 && selectedItem.itemTypes != Item.ItemTypes.Lure)
                         {
                             int currentItemQuantity = selectedItem.quantity;
                             selectedItem.quantity = 99;
                             currencyScript.wallet -= selectedItem.price * (99 - currentItemQuantity);
+                            currencyScript.RemoveFromLocalWallet(selectedItem.price * (99 - currentItemQuantity));
                             walletAmount.text = currencyScript.wallet.ToString();
                             Debug.Log("Inventory Full");
 
@@ -100,6 +173,7 @@ public class ItemShop : MonoBehaviour
                             selectedItem.quantity += quantityWanted;
                             currencyScript.wallet -= selectedItem.price * quantityWanted;
                             walletAmount.text = currencyScript.wallet.ToString();
+
                         }
 
                     }
@@ -112,6 +186,7 @@ public class ItemShop : MonoBehaviour
                             int currentItemQuantity = selectedItem.quantity;
                             selectedItem.quantity = 99;
                             currencyScript.wallet -= selectedItem.price * (99 - currentItemQuantity);
+                            currencyScript.RemoveFromLocalWallet(selectedItem.price * (99 - currentItemQuantity));
                             walletAmount.text = currencyScript.wallet.ToString();
                         }
 
@@ -127,6 +202,7 @@ public class ItemShop : MonoBehaviour
                     {
                         selectedItem.quantity += quantityWanted;
                         currencyScript.wallet -= selectedItem.price * quantityWanted;
+                        currencyScript.RemoveFromLocalWallet(selectedItem.price * quantityWanted);
                         walletAmount.text = currencyScript.wallet.ToString();
                     }
                    
@@ -138,6 +214,7 @@ public class ItemShop : MonoBehaviour
                     inventoryObject.Inventory.Add(selectedItem);
                     selectedItem.quantity += quantityWanted;
                     currencyScript.wallet -= selectedItem.price;
+                    currencyScript.RemoveFromLocalWallet(selectedItem.price);
                     walletAmount.text = currencyScript.wallet.ToString();
                     Debug.Log("Added" + selectedItem + "to your inventory");
                 }
@@ -182,6 +259,10 @@ public class ItemShop : MonoBehaviour
             }
             
         }
+        if (lastItem.GetComponent<ItemShopSlotController>() != null)
+        {
+            lastItem.transform.gameObject.GetComponent<ItemShopSlotController>().UpdateInfo();
+        }
         if (selectedItem != null)
         {
             bagQuantity.text = "x" + selectedItem.quantity.ToString();
@@ -189,7 +270,7 @@ public class ItemShop : MonoBehaviour
     }
 
 
-    void UpdateTravelPassContainerSlots()
+    public void UpdateTravelPassContainerSlots()
     {
         int index = 0;
         foreach (Transform child in travelPassListContainer.transform)
@@ -213,17 +294,17 @@ public class ItemShop : MonoBehaviour
         }
     }
 
-    void UpdateLureContainerSlots()
+    public void UpdateLureContainerSlots()
     {
-        int index = 0;
+        int i = 0;
         foreach (Transform child in lureListContainer.transform)
         {
             //Updates slot indexs name and icon
             ItemShopSlotController slot = child.GetComponent<ItemShopSlotController>();
 
-            if (index < lureList.Count)
+            if ( i < lureList.Count)
             {
-                slot.item = lureList[index];
+                slot.item = lureList[i];
             }
 
             else
@@ -233,11 +314,11 @@ public class ItemShop : MonoBehaviour
 
             slot.UpdateInfo();
 
-            index++;
+            i += 1;
         }
     }
 
-    void UpdateWhistleContainerSlots()
+    public void UpdateWhistleContainerSlots()
     {
         int index = 0;
         foreach (Transform child in whistlesListContainer.transform)
@@ -261,7 +342,7 @@ public class ItemShop : MonoBehaviour
         }
     }
 
-    void UpdateIncenseContainerSlots()
+    public void UpdateIncenseContainerSlots()
     {
         int index = 0;
         foreach (Transform child in incenseListContainer.transform)

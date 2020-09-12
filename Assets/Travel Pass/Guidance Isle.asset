@@ -19,8 +19,8 @@ MonoBehaviour:
   canHaveMultiple: 0
   lingerTime: 0
   travelPass: 1
-  isOwned: 0
+  isOwned: 1
   quantity: 1
-  price: 100
+  price: 1000
   smallWeightFactor: 0
   largeWeightFactor: 0
