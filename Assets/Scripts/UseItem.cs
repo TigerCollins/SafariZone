@@ -40,7 +40,7 @@ public class UseItem : MonoBehaviour
 
     public void UseSelectedItem()
     {
-        
+        print("UseItemScript");
         if (SceneManager.GetActiveScene().name == "GameWorld")
         {
 
@@ -55,7 +55,7 @@ public class UseItem : MonoBehaviour
                         {
                             Destroy(itemPrefabHolder);
                             inventory.list.Remove(inventory.list[i]);
-                            //inventory.UpdateContainerSlots();
+                            inventory.UpdateContainerSlots();
 
                             break;
                         }

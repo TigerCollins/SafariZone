@@ -62,6 +62,8 @@ public class Inventory : MonoBehaviour
                     break;
                 }
             }
+            UpdateInventory();
+            
         }
 
         else
@@ -81,10 +83,10 @@ public class Inventory : MonoBehaviour
 
     private void OnEnable()
     {
-        DestroyItem();
-        DestroyIncense();
-        DestroyLure();
-        DestroyWhistle();
+//DestroyItem();
+     //   DestroyIncense();
+    //    DestroyLure();
+    //    DestroyWhistle();
     }
 
     private void Start()
@@ -94,10 +96,10 @@ public class Inventory : MonoBehaviour
 
         //All
 
-       if(inventoryContainer.transform.GetChild(0)!=null && SceneManager.GetActiveScene().name != "GameWorld")
+       if(SceneManager.GetActiveScene().name != "GameWorld" && inventoryContainer.transform.GetChild(0)!=null)
         {
             eventSystem.SetSelectedGameObject(inventoryContainer.transform.GetChild(0).gameObject);
-            inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+           // inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
         }
         //print(inventoryContainer.transform.GetChild(0).gameObject);
         //
@@ -153,40 +155,48 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void ResetInventory()
+    {
+        foreach(Transform child in inventoryContainer.transform)
+        {
+            child.gameObject.Destroy();
+        }
+        foreach (Transform child in lureListContainer.transform)
+        {
+            child.gameObject.Destroy();
+        }
+        foreach (Transform child in whistlesListContainer.transform)
+        {
+            child.gameObject.Destroy();
+        }
+        foreach (Transform child in incenseListContainer.transform)
+        {
+            child.gameObject.Destroy();
+        }
+        UpdateInventory();
+    }
+
+
+
+
+
     public void WipeInventoryList()
     {
-        foreach (Transform transform in whistlesListContainer.transform)
-        {
-            whistles.Clear();
-            Destroy(transform.gameObject);
-        }
-        foreach (Transform transform in lureListContainer.transform)
-        {
-            trap.Clear();
-            Destroy(transform.gameObject);
-        }
-        foreach (Transform transform in inventoryContainer.transform)
-        {
-            //list.Clear();
-            Destroy(transform.gameObject);
-        }
-
-        foreach (Transform transform in incenseListContainer.transform)
-        {
-            incenses.Clear();
-            Destroy(transform.gameObject);
-        }
+        DestroyItem();
+        DestroyIncense();
+        DestroyLure();
+        DestroyWhistle();
     }
 
     public void UpdateInventory()
     {
+        print("Inventory called");
         list = inventoryObject.Inventory;
         if (list.Count > 0)
         {
             
             for (int i = 0; i < list.Count; i++)
             {
-                print(i);
                 var itemTest = Instantiate(itemContainerPrefab, inventoryContainer.transform);
                 itemTest.GetComponent<InventorySlotController>().item = list[i];
                 itemTest.GetComponent<InventorySlotController>().UpdateInfo();
@@ -259,12 +269,12 @@ public class Inventory : MonoBehaviour
             eventSystem.SetSelectedGameObject(inventoryContainer.transform.GetChild(0).gameObject);
             inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
             //Destroy(inventoryContainer.transform.GetChild(1));
-            /*
-            foreach (InventorySlotController item in inventoryContainer.transform)
+            
+           /* foreach (InventorySlotController transform in inventoryContainer.transform)
             {
                  inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
             }
-           */
+           8*/
         }
     }
 
@@ -355,7 +365,12 @@ public class Inventory : MonoBehaviour
                 slot.item = null;
             }
 
-            if (slot.item.quantity < 1)
+            if(slot.item == null)
+            {
+                gameObject.Destroy();
+            }
+
+            else if (slot.item.quantity < 1)
             {
                 for (int i = 0; i < incenses.Count; i++)
                 {
@@ -376,37 +391,42 @@ public class Inventory : MonoBehaviour
     }
     public void UpdateLureContainerSlots()
     {
+       // DestroyLure();
         int index = 0;
         foreach (Transform child in lureListContainer.transform)
         {
             //Updates slot indexs name and icon
             InventorySlotController slot = child.GetComponent<InventorySlotController>();
-
-            if (index < trap.Count)
+            if (slot.item != null)
             {
-                slot.item = trap[index];
-            }
-
-            else
-            {
-                slot.item = null;
-            }
-
-            if (slot.item.quantity < 1)
-            {
-                for (int i = 0; i < trap.Count; i++)
+                if (index < trap.Count)
                 {
-                    if (slot.item == trap[i])
+                    slot.item = trap[index];
+                }
+
+                else
+                {
+                    slot.item = null;
+                }
+                
+                if (slot.item.quantity < 1)
+                {
+                    for (int i = 0; i < trap.Count; i++)
                     {
-                        list.Remove(trap[i]);
+                        if (slot.item == trap[i])
+                        {
+                            list.Remove(trap[i]);
+                        }
                     }
                 }
+
+                slot.UpdateInfo();
+
+                ForceSerialization();
+                index++;
             }
 
-            slot.UpdateInfo();
-
-            ForceSerialization();
-            index++;
+           
         }
         ForceSerialization();
         lureListContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();

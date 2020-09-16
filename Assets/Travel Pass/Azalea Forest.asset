@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Azalea Forest Travel Pass
   icon: {fileID: -1184952282296640084, guid: 87056dc9887a45d40af0a7beee198658, type: 3}
   flavourText: A special ticket that allows its owner to start at Azalea Forest.
-  itemTypes: 0
+  itemTypes: 1
   canHaveMultiple: 0
   lingerTime: 0
   travelPass: 1

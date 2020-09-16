@@ -14,11 +14,11 @@ public class SelectItem : MonoBehaviour
 
     public void Awake()
     {
-        //toggle = gameObject.transform.GetChild(3).GetComponent<Toggle>();
+        toggle = GetComponent<Toggle>();
         if (SceneManager.GetActiveScene().name == "GameWorld")
         {
             useItemScript = GameObject.Find("_ScriptController").GetComponent<UseItem>();
-            useItemButton = GameObject.Find("USE BUTTON").GetComponent<Button>();
+            useItemButton = GameObject.Find("_ScriptController").GetComponent<GameController>().buyButton;
          //   equipItemButton = GameObject.Find("EQUIP BUTTON").GetComponent<Button>();
 
         }
@@ -57,9 +57,10 @@ public class SelectItem : MonoBehaviour
 
     public void SelectedObject()
     {
-        if(inventorySlotController.item.itemTypes == Item.ItemTypes.Lure)
+       
+        if(inventorySlotController.item.itemTypes == Item.ItemTypes.Lure && toggle.isOn == false)
         {
-            toggle.isOn = true;
+           // toggle.isOn = true;
         }
 
         if (SceneManager.GetActiveScene().name == "GameWorld" && inventorySlotController.item != null)
@@ -76,16 +77,20 @@ public class SelectItem : MonoBehaviour
                 useItemButton.gameObject.SetActive(false);
             }
 
-        }
-
-        if (SceneManager.GetActiveScene().name == "GameWorld" && inventorySlotController.trap)
-        {
-            if (inventorySlotController.trap.itemTypes == Item.ItemTypes.Lure)
+            if (inventorySlotController.trap != null && inventorySlotController.trap.itemTypes == Item.ItemTypes.Lure)
             {
                 useItemButton.gameObject.SetActive(false);
+                inventorySlotController.trap.equipped = true;
+                useItemScript.gameController.equippedLure = inventorySlotController.trap;
             }
-            useItemScript.gameController.equippedLure = inventorySlotController.trap;
-            inventorySlotController.trap.equipped = true;
+
+        }
+
+        if (SceneManager.GetActiveScene().name == "GameWorld" && inventorySlotController.item != null)
+        {
+           
+           
+
             CheckEquippedOrNot();
         }
     }

@@ -72,6 +72,7 @@ public class GameController : MonoBehaviour
     public float whistleTimeRemaining;
     public Image whistleIconHolder;
     public Image whistleIconBG;
+    public GameObject UseButton;
 
     [Header("Captured Popup")]
     public Text creatureText;
@@ -359,6 +360,16 @@ public class GameController : MonoBehaviour
 
     public void ItemUpdateTime()
     {
+        if(equippedLure)
+        {
+            lureIconBG.fillAmount = 1;
+        }
+
+        else
+        {
+            lureIconBG.fillAmount = 0;
+        }
+
         if (activeIncense)
         {
 

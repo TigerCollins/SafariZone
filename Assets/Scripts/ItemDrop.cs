@@ -97,6 +97,7 @@ public class ItemDrop : MonoBehaviour
                     hasBeenTriggered = false;
                 }
             }
+            
         }
        
     }
@@ -133,6 +134,8 @@ public class ItemDrop : MonoBehaviour
                         backpack.Inventory.Add(selectedItem);
                         Debug.Log("Item Added: " + selectedItem);
                         item.quantity += 1;
+                        gameController.inventoryScript.ResetInventory();
+                        gameController.inventoryScript.UpdateInventory();
                     }
                 }
                 

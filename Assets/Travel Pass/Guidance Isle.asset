@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Guidance Isle Travel Pass
   icon: {fileID: 2222112303906254637, guid: 87056dc9887a45d40af0a7beee198658, type: 3}
   flavourText: A special ticket that allows its owner to start at Guidance Isle.
-  itemTypes: 0
+  itemTypes: 1
   canHaveMultiple: 0
   lingerTime: 0
   travelPass: 1

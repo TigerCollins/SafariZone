@@ -2068,7 +2068,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 514494966}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBoolFirstTime
         m_Mode: 1
         m_Arguments:
@@ -2079,7 +2079,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 514494966}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
@@ -2627,7 +2627,6 @@ GameObject:
   - component: {fileID: 514494961}
   - component: {fileID: 514494964}
   - component: {fileID: 514494965}
-  - component: {fileID: 514494966}
   - component: {fileID: 514494967}
   m_Layer: 0
   m_Name: ScriptController
@@ -2739,27 +2738,6 @@ MonoBehaviour:
   newVolume2: 0
   newVolume3: 0
   newVolume4: 0
---- !u!114 &514494966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 514494960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d58177a6e5838148887f3e2eb0d5928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 8ddb999eb09ffa441b1b7621e6275c99, type: 2}
-  sceneLoader: {fileID: 1390587529}
-  splashScreenCanvas: {fileID: 0}
-  communityMessageCanvas: {fileID: 0}
-  showCommmunityMessage: 0
-  communityMessageButton: {fileID: 0}
-  buttonTimer: 0
-  continueButtonClip: {fileID: 0}
-  localAudioManager: {fileID: 0}
 --- !u!114 &514494967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5299,8 +5277,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1281418155}
   m_HandleRect: {fileID: 1281418154}
   m_Direction: 0
-  m_Value: -0.00000012537797
-  m_Size: 0.56711495
+  m_Value: 0
+  m_Size: 0.69917655
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6561,7 +6539,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 302635666}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.49175268
+  m_Size: 0.42248315
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

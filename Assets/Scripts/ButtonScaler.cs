@@ -11,10 +11,10 @@ public class ButtonScaler : MonoBehaviour
     public float largeSizePercentage;
     private Vector3 originalSize;
     private bool canChangeSize = true;
-    private GameObject buttonObject;
+    public GameObject buttonObject;
     private Toggle toggle;
 
-    public void Start()
+    public void Awake()
     {
         buttonObject = gameObject;
         originalSize = buttonObject.transform.localScale;
