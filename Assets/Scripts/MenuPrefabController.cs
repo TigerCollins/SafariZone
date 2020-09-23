@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class MenuPrefabController : MonoBehaviour
 {
+    
     public EventSystem eventSystem;
     public GameObject resumeButton;
     public Animator mainMenuAnimator;
@@ -63,7 +64,7 @@ public class MenuPrefabController : MonoBehaviour
 
         public void GoToMainMenu()
     {
-
+        
         optionsMenuAnimator.SetBool("IsOpen", false);
         backpackMenuAnimator.SetBool("IsOpen", false);
         indexMenuAnimator.SetBool("IsOpen", false);

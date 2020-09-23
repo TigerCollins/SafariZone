@@ -17,6 +17,7 @@ public class Item : ScriptableObject
     public float lingerTime;
     public bool travelPass;
     public bool isOwned;
+    public int amountOwnedLifetime;
 
     [Header("Inventory Details")]
     public int quantity;
@@ -32,5 +33,7 @@ public class Item : ScriptableObject
     {
         
     }
+
+
 
 }

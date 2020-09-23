@@ -311,6 +311,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!114 &431764546 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4171552580336541847, guid: 94181e2447d2c6548ade8c7c9b1c74f7,
@@ -635,6 +636,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!1 &766589508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,7 +1436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1999529606
 RectTransform:
   m_ObjectHideFlags: 0

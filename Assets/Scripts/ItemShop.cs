@@ -162,18 +162,20 @@ public class ItemShop : MonoBehaviour
                             selectedItem.quantity = 99;
                             currencyScript.wallet -= selectedItem.price * (99 - currentItemQuantity);
                             currencyScript.RemoveFromLocalWallet(selectedItem.price * (99 - currentItemQuantity));
+                            playerVariables.moneySpentToDate += selectedItem.price * (99 - currentItemQuantity);
                             walletAmount.text = currencyScript.wallet.ToString();
                             Debug.Log("Inventory Full");
-
+                            selectedItem.amountOwnedLifetime += quantityWanted;
 
                         }
 
                         if ((selectedItem.quantity + quantityWanted) < 99 && selectedItem.itemTypes != Item.ItemTypes.Lure)
                         {
                             selectedItem.quantity += quantityWanted;
-                            currencyScript.wallet -= selectedItem.price * quantityWanted;
+                            currencyScript.RemoveFromLocalWallet(selectedItem.price * quantityWanted);
+                            playerVariables.moneySpentToDate += selectedItem.price * quantityWanted;
                             walletAmount.text = currencyScript.wallet.ToString();
-
+                            selectedItem.amountOwnedLifetime += quantityWanted;
                         }
 
                     }
@@ -187,12 +189,15 @@ public class ItemShop : MonoBehaviour
                             selectedItem.quantity = 99;
                             currencyScript.wallet -= selectedItem.price * (99 - currentItemQuantity);
                             currencyScript.RemoveFromLocalWallet(selectedItem.price * (99 - currentItemQuantity));
+                            playerVariables.moneySpentToDate += selectedItem.price * (99 - currentItemQuantity);
                             walletAmount.text = currencyScript.wallet.ToString();
+                            selectedItem.amountOwnedLifetime += quantityWanted;
                         }
 
                         if (selectedItem.canHaveMultiple == false && selectedItem.quantity == 0)
                         {
-                            selectedItem.quantity += 1;
+                            selectedItem.quantity += 0;
+                            selectedItem.amountOwnedLifetime += 1;
                             //currencyScript.wallet -= selectedItem.price;
                             walletAmount.text = currencyScript.wallet.ToString();
                         }
@@ -201,8 +206,10 @@ public class ItemShop : MonoBehaviour
                     if (selectedItem.itemTypes == Item.ItemTypes.Lure && selectedItem.canHaveMultiple == true && selectedItem.quantity + quantityWanted < 99)
                     {
                         selectedItem.quantity += quantityWanted;
+                        selectedItem.amountOwnedLifetime += quantityWanted;
                         currencyScript.wallet -= selectedItem.price * quantityWanted;
                         currencyScript.RemoveFromLocalWallet(selectedItem.price * quantityWanted);
+                        playerVariables.moneySpentToDate += selectedItem.price * quantityWanted;
                         walletAmount.text = currencyScript.wallet.ToString();
                     }
                    
@@ -212,9 +219,11 @@ public class ItemShop : MonoBehaviour
                 {
                     inventoryObject.Inventory.Capacity = inventoryObject.Inventory.Capacity + 1;
                     inventoryObject.Inventory.Add(selectedItem);
+                    selectedItem.amountOwnedLifetime += quantityWanted;
                     selectedItem.quantity += quantityWanted;
                     currencyScript.wallet -= selectedItem.price;
                     currencyScript.RemoveFromLocalWallet(selectedItem.price);
+                    playerVariables.moneySpentToDate += selectedItem.price;
                     walletAmount.text = currencyScript.wallet.ToString();
                     Debug.Log("Added" + selectedItem + "to your inventory");
                 }

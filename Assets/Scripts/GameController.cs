@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
     public Inventory inventoryScript;
     public CharacterController characterController;
     public GameObject backpackButton;
+    public bool startGameBool = true;
+    public float sceneTickDelay = .5f;
 
     [Header("Game Variables")]
     [SerializeField]
@@ -122,7 +124,9 @@ public class GameController : MonoBehaviour
         characterController = playerObject.GetComponent<CharacterController>();
         characterController.enabled = false;
 
-
+        // gameOv
+        screenTransition.SetActive(true);
+       // playerScript.gameCamera.transform.position = playerObject.transform.transform.position;
         //Needs to be the end of Awake
         // lastPosition = transform.position;
 
@@ -334,6 +338,20 @@ public class GameController : MonoBehaviour
             }
         }
 
+        if (startGameBool == true)
+        {
+
+            if(sceneTickDelay <= 0)
+            {
+                screenTransition.transform.localScale = Vector3.MoveTowards(screenTransition.transform.localScale, new Vector3(209.67f, 209.67f, 209.67f), Time.deltaTime * gameOverTransitionTime);
+                if (screenTransition.transform.localScale == new Vector3(209.67f, 209.67f, 209.67f))
+                {
+                    startGameBool = false;
+                }
+            }
+            sceneTickDelay -= Time.deltaTime;
+        }
+
         Statistics();
         CheckForPause();
         ItemUpdateTime();
@@ -356,6 +374,11 @@ public class GameController : MonoBehaviour
        // yield return new WaitForSeconds(2);
         //creatureText.GetComponent<Animator>().SetBool("isOn", false);
 
+    }
+
+    public void AddToGameCount(int count)
+    {
+        playerData.runsCompleted += count;
     }
 
     public void ItemUpdateTime()
@@ -473,6 +496,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddDistanceToTotal()
+    {
+        playerData.totalDistanceTravelled += distanceTravelled;
+    }
+
     void UpdateCreatureSpawn()
     {
         for (int i = 0; i < allCreatures.Count; i++)
@@ -560,6 +588,7 @@ public class GameController : MonoBehaviour
         screenTransition.SetActive(true);
         sceneTransitionBool = true;
         currencyScript.UpdatePlayerData();
+        AddDistanceToTotal();
         playerData.runsCompleted += 1;
         playerData.playTime = timePlayed;
         playerObject.GetComponent<PlayerController>().canMove = false;

@@ -622,6 +622,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 20
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!1 &252156301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1120,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 20
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!224 &345567271 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4171552579712318162, guid: 94181e2447d2c6548ade8c7c9b1c74f7,
@@ -1265,6 +1267,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 20
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!1 &506009455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,6 +4291,10 @@ MonoBehaviour:
   whistlesContainer: {fileID: 506009455}
   emptyTextPrefab: {fileID: 7305034400148651857, guid: cdba285af421d2c45a9ea51d007a3df3,
     type: 3}
+  allItemsCanvas: {fileID: 0}
+  luresCanvas: {fileID: 0}
+  incenseCanvas: {fileID: 0}
+  whistlesCanvas: {fileID: 0}
 --- !u!114 &1551073692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5033,6 +5040,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 20
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!114 &1894306457 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4171552580336541847, guid: 94181e2447d2c6548ade8c7c9b1c74f7,
@@ -5848,6 +5856,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!114 &4770942011661385314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5863,6 +5872,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 20
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!114 &4770942011709220724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6375,7 +6385,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 719456251}
   m_HandleRect: {fileID: 719456250}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7914,7 +7924,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7746700745032073704}
   m_HandleRect: {fileID: 7746700745032073705}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8005,7 +8015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &7746700746384535255
 CanvasRenderer:
   m_ObjectHideFlags: 0

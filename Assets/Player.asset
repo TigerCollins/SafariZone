@@ -14,16 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTime: 0
   controllerInput: 0
-  latestCommunityMessage: 
-  latestCommunityDate: 
+  latestCommunityMessage: Thank you for playing the July playtest of Safari Zone.
+    It would be greatly appreciated if you can complete the survey after your session.
+    Please remember that items are obtainable but currently have no functionality.
+  latestCommunityDate: 05/07/2020
   playerName: Armani
-  wallet: 9000
-  playTime: 319.66287
+  wallet: 9180
+  playTime: 1076.5479
   runsCompleted: 0
   totalDistanceTravelled: 0
   creaturesCaught: 0
   timePlayed: 0
-  maleGender: 0
+  maleGender: 1
+  creaturesCaughtViaHunting: 0
+  visitedJungle: 0
+  peopleSpokenTo: 0
+  moneySpentToDate: 0
   guidanceIsle: 1
   egressCave: 1
   kebarVillage: 1

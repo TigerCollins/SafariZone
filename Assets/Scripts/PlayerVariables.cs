@@ -28,6 +28,12 @@ public class PlayerVariables : ScriptableObject
     public int timePlayed;
     public bool maleGender;
 
+    [Header("Just For Achievements")]
+    public int creaturesCaughtViaHunting;
+    public bool visitedJungle;
+    public int peopleSpokenTo;
+    public int moneySpentToDate;
+
     [Header("Spawn Areas")]
     public bool guidanceIsle;
     public bool egressCave;

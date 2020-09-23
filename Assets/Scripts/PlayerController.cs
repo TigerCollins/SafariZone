@@ -573,7 +573,17 @@ public class PlayerController : MonoBehaviour
 
     void CameraMove()
     {
-        gameCamera.transform.position = Vector3.SmoothDamp(gameCamera.transform.position, new Vector3(transform.position.x + xOffset, transform.position.y + yOffset, transform.position.z + zOffset),ref velocity, cameraDelay);
+        if (scriptControllerObject.sceneTickDelay >= 0)
+        {
+
+            gameCamera.transform.position = transform.transform.position;
+        }
+        else
+        {
+            gameCamera.transform.position = Vector3.SmoothDamp(gameCamera.transform.position, new Vector3(transform.position.x + xOffset, transform.position.y + yOffset, transform.position.z + zOffset), ref velocity, cameraDelay);
+
+        }
+        
     }
 
     void Raycast()

@@ -118,6 +118,7 @@ public class PopMinigameController : MonoBehaviour
             }
             scriptController.CapturePopup(spawnedCreature);
             spawnedCreature = null;
+            scriptController.statTracker.creaturesCaught++;
 
                 scriptController.playerScript.canMove = true;
             this.gameObject.SetActive(false);

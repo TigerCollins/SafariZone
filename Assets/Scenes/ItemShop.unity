@@ -295,6 +295,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!114 &15059802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1271,6 +1272,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!114 &186422664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,6 +1524,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!1 &198945956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,6 +2678,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!1 &488061434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +2853,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!114 &488061439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3872,6 +3877,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!1 &745967785
 GameObject:
   m_ObjectHideFlags: 0
@@ -7760,6 +7766,7 @@ MonoBehaviour:
   changeTime: 0.1
   smallSizePercentage: 10
   largeSizePercentage: 5
+  buttonObject: {fileID: 0}
 --- !u!114 &1833276846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8552,7 +8559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2072438978
 RectTransform:
   m_ObjectHideFlags: 0
