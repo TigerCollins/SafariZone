@@ -22,7 +22,7 @@ MonoBehaviour:
   totalCaught: 0
   dateFirstCaught: 
   minigameMultiplier: 2
-  spawnRate: 40
+  spawnRate: 15
   heaviestCaught: 0
   lightestCaught: 0
   currentWeight: 0

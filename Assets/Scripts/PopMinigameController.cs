@@ -70,7 +70,7 @@ public class PopMinigameController : MonoBehaviour
             Transform pos = freeSpawnPoints[index];
             freeSpawnPoints.RemoveAt(index); // remove the spawnpoint from our temporary list
             GameObject Button = Instantiate(balloonButtonPrefab, pos.position, pos.rotation);
-            Button.transform.SetParent(gameObject.transform);
+            Button.transform.SetParent(gameObject.transform.GetChild(2).transform);
         }
     }
 

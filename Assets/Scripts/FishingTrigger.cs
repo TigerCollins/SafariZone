@@ -68,6 +68,9 @@ public class FishingTrigger : MonoBehaviour
         player = playerController.gameObject;
         thisObject = gameObject;
 
+
+       
+
         if (Vector3.Distance(gameObject.transform.position, player.transform.position) < distance)
         {
             visible = true;
@@ -79,12 +82,33 @@ public class FishingTrigger : MonoBehaviour
     }
 
 
+    public void SpawnCreatures()
+    {
+        foreach (Creature creature in possibleCreatures)
+        {
+            if (creature != null)
+            {
+                for (int i = 0; i < creature.spawnRate; i++)
+                {
+                    spawnList.Add(creature);
+                    i++;
+                }
+            }
+
+            else
+            {
+                spawnList.Add(null);
+            }
+        }
+    }
+
     public void AttemptFish()
     {
         visible = false;
         BubbleClosed();
         if (!isFishing)
         {
+            SpawnCreatures();
             firstPlaythrough.fishingTriggered = false;
             stillFishing = true;
             playerController.animator.SetBool("isFishing",true);
