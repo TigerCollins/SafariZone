@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class ItemShopSlotController : MonoBehaviour
 {
     public ItemShop itemShopScript;
-    public Text walletAmount;
     public Item item;
     public Text flavourText;
     public Text itemNameExtra;
@@ -25,7 +24,7 @@ public class ItemShopSlotController : MonoBehaviour
         itemShopScript = GameObject.Find("ScriptController").GetComponent<ItemShop>();
         inInventory = GameObject.Find("num").GetComponent<Text>();
         itemSprite = GameObject.Find("CreatureImage").GetComponent<Image>();
-        walletAmount = GameObject.Find("WalletAmountText").GetComponent<Text>();
+       // currencyScript.textDisplay = GameObject.Find("currencyScript.textDisplayText").GetComponent<Text>();
         Awoke();
         currencyScript.ScriptAwoke();
        //pdateInfo();
@@ -39,7 +38,7 @@ public class ItemShopSlotController : MonoBehaviour
         itemShopScript = GameObject.Find("ScriptController").GetComponent<ItemShop>();
         inInventory = GameObject.Find("num").GetComponent<Text>();
         itemSprite = GameObject.Find("CreatureImage").GetComponent<Image>();
-        walletAmount = GameObject.Find("WalletAmountText").GetComponent<Text>();
+      //  currencyScript.textDisplay = GameObject.Find("currencyScript.textDisplayText").GetComponent<Text>();
     }
 
     public void FixedUpdate()
@@ -49,7 +48,7 @@ public class ItemShopSlotController : MonoBehaviour
 
     public void UpdateInfo()
     {
-       
+        currencyScript = GameObject.Find("ScriptController").GetComponent<Currency>();
         Text priceText = transform.Find("ItemPrice").GetComponent<Text>(); 
         Text displayNameText = transform.Find("ItemName").GetComponent<Text>();
         Image displayImage = transform.Find("ItemImage").GetComponent<Image>();
@@ -64,28 +63,29 @@ public class ItemShopSlotController : MonoBehaviour
                     priceText.text = mostRecent.price.ToString();
                     displayNameText.text = mostRecent.itemName;
                     displayImage.sprite = mostRecent.icon;
-                    walletAmount.text = currencyScript.wallet.ToString();
+                    currencyScript.textDisplay.text = currencyScript.wallet.ToString();
                     mostRecent.isOwned = false;
-                   // currencyScript.UpdatePlayerData();
+                   currencyScript.UpdatePlayerData();
                 }
 
                 else if(mostRecent.isOwned && displayNameText.text != mostRecent.itemName)
                 {
-                    priceText.text = "Unavailable";
+                    priceText.text = "---";
                     displayNameText.text = mostRecent.itemName;
                     displayImage.sprite = mostRecent.icon;
-                    walletAmount.text = currencyScript.wallet.ToString();
+                    currencyScript.textDisplay.text = currencyScript.wallet.ToString();
                     mostRecent.isOwned = true;
-                    // currencyScript.UpdatePlayerData();
+                     currencyScript.UpdatePlayerData();
                 }
 
                 else if(mostRecent.isOwned && displayNameText.text == mostRecent.itemName)
                 {
-                    priceText.text = "Unavailable";
+                    priceText.text = "---";
                     displayNameText.text = mostRecent.itemName;
                     displayImage.sprite = mostRecent.icon;
-                    walletAmount.text = currencyScript.wallet.ToString();
+                    currencyScript.textDisplay.text = currencyScript.wallet.ToString();
                     mostRecent.isOwned = true;
+                    currencyScript.UpdatePlayerData();
                 }
             }
 
@@ -95,11 +95,12 @@ public class ItemShopSlotController : MonoBehaviour
                 displayNameText.text = mostRecent.itemName;
                 displayImage.sprite = mostRecent.icon;
                 mostRecent.isOwned = true;
-                //itemShopScript.walletAmount.text = itemShopScript.currencyScript.wallet.ToString();
+                currencyScript.UpdatePlayerData();
+                currencyScript.textDisplay.text = currencyScript.wallet.ToString();
             }
 
 
-          //  walletAmount.text = currencyScript.wallet.ToString();
+          //  currencyScript.textDisplay.text = currencyScript.wallet.ToString();
         }
 
         else
@@ -108,14 +109,14 @@ public class ItemShopSlotController : MonoBehaviour
             displayNameText.text = "";
             displayImage.sprite = null;
           //  currencyScript.UpdatePlayerData();
-            // itemShopScript.walletAmount.text = itemShopScript.currencyScript.wallet.ToString();
+            // itemShopScript.currencyScript.textDisplay.text = itemShopScript.currencyScript.wallet.ToString();
         }
 
     }
 
     public void Update()
     {
-        walletAmount.text = currencyScript.wallet.ToString();
+        currencyScript.textDisplay.text = currencyScript.wallet.ToString();
         //UpdateInventorySelected();
     }
 

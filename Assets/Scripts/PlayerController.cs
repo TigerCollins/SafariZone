@@ -575,7 +575,6 @@ public class PlayerController : MonoBehaviour
     {
         if (scriptControllerObject.sceneTickDelay >= 0)
         {
-
             gameCamera.transform.position = transform.transform.position;
         }
         else

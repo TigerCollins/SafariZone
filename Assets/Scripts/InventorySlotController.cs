@@ -199,6 +199,7 @@ public class InventorySlotController : MonoBehaviour
     {
         if(item != null && itemDisplay!=null)
         {
+            print("it works");
             itemDisplay.sprite = item.icon;
             itemNameExtra.text = item.itemName;
             quantityText.text = "x" + item.quantity;
