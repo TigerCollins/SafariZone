@@ -22,15 +22,7 @@ public class IndexSlotController : MonoBehaviour
     {
         UpdateInfo();
 
-        flavourText = GameObject.Find("Flavour text").GetComponent<Text>();
-        creatureImageMain = GameObject.Find("Creature Image").GetComponent<Image>();
-        habitatImage = GameObject.Find("Habitat Symbol").GetComponent<Image>();
-        creatureNameMainText = GameObject.Find("Creature Name").GetComponent<Text>();
-        totalCaughtText = GameObject.Find("Total Caught Num").GetComponent<Text>();
-        firstCaughtText = GameObject.Find("Date Caught text").GetComponent<Text>();
-        heaviestCaughtText = GameObject.Find("Heaviest Caught text").GetComponent<Text>();
-        valueText = GameObject.Find("Value Num").GetComponent<Text>();
-        rarityText = GameObject.Find("Rarity").GetComponent<Text>();
+       
     }
 
     public void UpdateInfo()
@@ -67,6 +59,15 @@ public class IndexSlotController : MonoBehaviour
 
     public void UpdateInfoSelected()
     {
+        flavourText = GameObject.Find("Flavour text").GetComponent<Text>();
+        creatureImageMain = GameObject.Find("Creature Image").GetComponent<Image>();
+        habitatImage = GameObject.Find("Habitat Symbol").GetComponent<Image>();
+        creatureNameMainText = GameObject.Find("Creature Name").GetComponent<Text>();
+        totalCaughtText = GameObject.Find("Total Caught Num").GetComponent<Text>();
+        firstCaughtText = GameObject.Find("Date Caught text").GetComponent<Text>();
+        heaviestCaughtText = GameObject.Find("Heaviest Caught text").GetComponent<Text>();
+        valueText = GameObject.Find("Value Num").GetComponent<Text>();
+        rarityText = GameObject.Find("Rarity").GetComponent<Text>();
         if (creature && creature.previouslyCaptured == true)
         {
             flavourText.text = creature.flavourText;

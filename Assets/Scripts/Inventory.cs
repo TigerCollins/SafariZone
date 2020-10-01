@@ -265,7 +265,7 @@ public class Inventory : MonoBehaviour
         }
         if (inventoryContainer.transform.GetChild(0) != null)
         {
-            print("not empty");
+
             eventSystem.SetSelectedGameObject(inventoryContainer.transform.GetChild(0).gameObject);
             inventoryContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
             //Destroy(inventoryContainer.transform.GetChild(1));
