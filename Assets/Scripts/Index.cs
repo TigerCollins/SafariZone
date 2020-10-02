@@ -32,6 +32,7 @@ public class Index : MonoBehaviour
       if(SceneManager.GetActiveScene().name != "GameWorld")
         {
             CreateList();
+            creatureListContainer.transform.GetChild(0).GetComponent<IndexSlotController>().UpdateInfoSelected();
         }
        
 

@@ -66,6 +66,31 @@ public class PlayerVariables : ScriptableObject
     public int resolutionWidth;
     public int resolutionHeight;
 
+    [Header("Inputs - Keyboard")]
+    public KeyCode walkHorizontalLeftKeyboard;
+    public KeyCode walkHorizontalRightKeyboard;
+    public KeyCode walkVerticalUpKeyboard;
+    public KeyCode walkVerticalDownKeyboard;
+    public KeyCode submitKeyboard;
+    public KeyCode interactKeyboard;
+    public KeyCode pauseKeyboard;
+    public bool quicktimeUseMouse;
+    public KeyCode quicktimeKeyboard1;
+    public KeyCode quicktimeKeyboard2;
+    public KeyCode quicktimeKeyboard3;
+    public KeyCode quicktimeKeyboard4;
+    public KeyCode quicktimeKeyboard5;
+
+
+    [Header("Inputs - Gamepad")]
+    public KeyCode submitGamepad;
+    public KeyCode interactGamepad;
+    public KeyCode pauseGamepad;
+    public KeyCode quicktimeGamepad1;
+    public KeyCode quicktimeGamepad2;
+    public KeyCode quicktimeGamepad3;
+    public KeyCode quicktimeGamepad4;
+    public KeyCode quicktimeGamepad5;
 
 
 

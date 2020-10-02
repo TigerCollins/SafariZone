@@ -295,14 +295,15 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-            Interactions();
+          
 
             HuntingZoneCountdown();
             CameraMove();
             if (canMove)
             {
                 Movement();
-            }
+            Interactions();
+        }
         
       
 
