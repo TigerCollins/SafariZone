@@ -89,6 +89,11 @@ public class GraphicsManager : MonoBehaviour
 
     }
 
+    public void UseMouseQuicktime(bool useMouseBool)
+    {
+        playerData.quicktimeUseMouse = useMouseBool;
+    }
+
     public void InitialiseOptions()
         {
         chromaticAberration = playerData.chromaticAberration;

@@ -15,6 +15,7 @@ public class ItemShopSlotController : MonoBehaviour
     public Sprite unknownSprite;
     public Currency currencyScript;
     public Item mostRecent;
+    public UIManager interfaceManager;
 
     public void Awake()
     {
@@ -27,7 +28,8 @@ public class ItemShopSlotController : MonoBehaviour
        // currencyScript.textDisplay = GameObject.Find("currencyScript.textDisplayText").GetComponent<Text>();
         Awoke();
         currencyScript.ScriptAwoke();
-       //pdateInfo();
+        //pdateInfo();
+        interfaceManager = GameObject.Find("ScriptController").GetComponent<UIManager>();
     }
 
     public void Awoke()
@@ -39,6 +41,11 @@ public class ItemShopSlotController : MonoBehaviour
         inInventory = GameObject.Find("num").GetComponent<Text>();
         itemSprite = GameObject.Find("CreatureImage").GetComponent<Image>();
       //  currencyScript.textDisplay = GameObject.Find("currencyScript.textDisplayText").GetComponent<Text>();
+    }
+
+    public void Hovered()
+    {
+        interfaceManager.SnapTo(gameObject.GetComponent<RectTransform>());
     }
 
     public void FixedUpdate()

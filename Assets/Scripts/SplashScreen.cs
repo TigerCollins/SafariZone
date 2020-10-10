@@ -23,20 +23,17 @@ public class SplashScreen : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SplashScreenCheck()
     {
         if (SceneManager.GetActiveScene().name == "Splash Screen")
         {
-            if (Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
-            {
-
+           
                 playerData.controllerInput = false;
-                if(showCommmunityMessage == false)
+                if (showCommmunityMessage == false)
                 {
                     localAudioManager.audioManager.OneShotMenuClick(continueButtonClip);
                     StartCoroutine(WaitAndPrint(1f));
-                    
+
                 }
 
                 else
@@ -45,19 +42,25 @@ public class SplashScreen : MonoBehaviour
                     communityMessageCanvas.alpha = 1;
 
                 }
-                //
-            }
+           
         }
 
-        if(communityMessageCanvas.alpha ==1)
+       
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    if (communityMessageCanvas.alpha == 1)
+    {
+        buttonTimer -= Time.deltaTime;
+        if (buttonTimer <= 0)
         {
-            buttonTimer -= Time.deltaTime;
-            if(buttonTimer <= 0)
-            {
-                communityMessageButton.interactable = true;
-            }
+            communityMessageButton.interactable = true;
         }
-        // if()
+    }
     }
 
     private IEnumerator WaitAndPrint(float waitTime)

@@ -353,7 +353,6 @@ public class GameController : MonoBehaviour
         }
 
         Statistics();
-        CheckForPause();
         ItemUpdateTime();
         timePlayed += Time.deltaTime;
     }
@@ -480,9 +479,10 @@ public class GameController : MonoBehaviour
         eventSystem.SetSelectedGameObject(null);
     }
 
-    void CheckForPause()
+    public void CheckForPause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && gamePaused == false)
+        
+        if  (gamePaused == false)
         {
             gameObject.GetComponent<MenuPrefabController>().GoToMainMenuFromGame();
             menuAnimation.SetBool("IsOpen", true);
@@ -494,6 +494,7 @@ public class GameController : MonoBehaviour
             playerScript.canMove = false;
             SetSelectedButton(backpackButton);
         }
+       
     }
 
     public void AddDistanceToTotal()

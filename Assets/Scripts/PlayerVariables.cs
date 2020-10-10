@@ -68,9 +68,13 @@ public class PlayerVariables : ScriptableObject
 
     [Header("Inputs - Keyboard")]
     public KeyCode walkHorizontalLeftKeyboard;
+    public KeyCode walkHorizontalLeftKeyboardAlt;
     public KeyCode walkHorizontalRightKeyboard;
+    public KeyCode walkHorizontalRightKeyboardAlt;
     public KeyCode walkVerticalUpKeyboard;
+    public KeyCode walkVerticalUpKeyboardAlt;
     public KeyCode walkVerticalDownKeyboard;
+    public KeyCode walkVerticalDownKeyboardAlt;
     public KeyCode submitKeyboard;
     public KeyCode interactKeyboard;
     public KeyCode pauseKeyboard;

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public InputActionAsset input;
     public Backpack playerInventory;
     public GameController scriptControllerObject;
     public TrapTrigger trapTrigger;
@@ -23,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public LocalAudioManager localAudioManager;
 
     [Header("Movement Variables")]
+    public Vector2 moveAxis;
+    public bool crouch;
     public Vector3 desiredMoveDirection;
     public Vector3 sneakDesiredMoveDirection;
     public float desiredRotationSpeed;
@@ -87,8 +91,14 @@ public class PlayerController : MonoBehaviour
     public CloseHuntingTutorial closeHuntingTutorial;
     public StartTrapTutorial startTrapTutorial;
     public StartTitleCard startTitleCard;
+    
 
 
+
+    public void Awake()
+    {
+        
+    }
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
     {
@@ -279,6 +289,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveAxis = context.ReadValue<Vector2>();
+        //Debug.Log("OnMove: " + moveAxis.ToString("#.#####"));
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+       // if(c)
+       if(context.ReadValue<float>() !=0)
+        {
+            crouch = true;
+        }
+         else
+        {
+            crouch = false;
+        }
+      
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -294,15 +323,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-
-          
-
             HuntingZoneCountdown();
             CameraMove();
             if (canMove)
             {
                 Movement();
-            Interactions();
         }
         
       
@@ -339,8 +364,8 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove && rigidbody.velocity != new Vector3(0, rigidbody.velocity.y, 0))
         {
-            verticalMovement = Mathf.Abs(Input.GetAxis("Vertical"));
-            horizontalMovement = Mathf.Abs(Input.GetAxis("Horizontal"));
+            verticalMovement = Mathf.Abs(moveAxis.y);
+            horizontalMovement = Mathf.Abs(moveAxis.x);
 
            
                 move = Mathf.Clamp(verticalMovement + horizontalMovement, 0, 1);
@@ -373,7 +398,7 @@ public class PlayerController : MonoBehaviour
         if(canMove)
         {
             //Cancle Idle Timer
-            if ((Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0) && idleTimer != baseIdleTimer)
+            if (moveAxis != Vector2.zero && idleTimer != baseIdleTimer)
             {
                 idleTimer = baseIdleTimer;
                 animator.SetBool("Idle", false);
@@ -382,7 +407,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Idle Timer
-        if (Input.GetAxisRaw("Vertical") == 0 || Input.GetAxisRaw("Horizontal") == 0)
+        if (moveAxis == Vector2.zero)
         {
             if (idleTimer <= 0)
             {
@@ -410,7 +435,7 @@ public class PlayerController : MonoBehaviour
     void AudioMovement()
     {
         //Footsteps
-        if(Input.GetAxisRaw("Horizontal")==0 && Input.GetAxisRaw("Vertical") == 0 && rigidbody.velocity != new Vector3(0, 0, 0))
+        if(moveAxis == new Vector2(0,0) && rigidbody.velocity != new Vector3(0, 0, 0))
         {
             if(!isSneaking)
             {
@@ -424,7 +449,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        else if (Input.GetAxisRaw("Horizontal") != 0 && rigidbody.velocity != new Vector3(0, 0, 0) || Input.GetAxisRaw("Vertical") != 0 && rigidbody.velocity != new Vector3(0, 0, 0))
+        else if (moveAxis != Vector2.zero && rigidbody.velocity != new Vector3(0, 0, 0))
         {
             footstepTimer -= Time.deltaTime;
         }
@@ -461,10 +486,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Interactions()
+    public void Interactions()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
             if (trapTrigger != null)
             {
                 if(firstPlaythrough.interactionTriggered)
@@ -506,18 +529,14 @@ public class PlayerController : MonoBehaviour
                 itemDrop.OnChestTrigger();
                 itemDrop = null;
             }
-        }
-        if (Input.GetKeyUp(KeyCode.X))
-        {
-            
-        }
+        
     }
 
     void Movement()
     {
         //MOVEMENT MULTIPLIER VALUES
-        float horizontal = Input.GetAxisRaw("Horizontal") * baseMovementMultiplier;
-        float vertical = Input.GetAxisRaw("Vertical") * baseMovementMultiplier;
+        float horizontal = moveAxis.x * baseMovementMultiplier;
+        float vertical = moveAxis.y * baseMovementMultiplier;
 
         float sneakHorizontal = horizontal / sneakMultiplier;
         float sneakVertical = vertical / sneakMultiplier;
@@ -525,10 +544,9 @@ public class PlayerController : MonoBehaviour
         // {
         moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
 
-
         rigidbody.Move(moveVector);
         //Sneak Bool Changing
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (crouch)
             {
                 if (firstPlaythrough.playerProfile.firstTime)
                 {
@@ -542,14 +560,14 @@ public class PlayerController : MonoBehaviour
                 isSneaking = false;
             }
 
-            if (isSneaking == false && (Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0))
+            if (isSneaking == false && moveAxis == Vector2.zero)
             {
                 walkingSpeed = 0;
             }
             //Clamps max speed
             desiredMoveDirection = Vector3.ClampMagnitude(new Vector3(horizontal, 0, vertical), maxVelocity);
             //Normal Movement
-            if (isSneaking == false && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+            if (isSneaking == false && moveAxis != Vector2.zero)
             {
                 if (desiredMoveDirection != new Vector3(0, 0, 0))
                 {
@@ -563,7 +581,7 @@ public class PlayerController : MonoBehaviour
 
             //Sneak Movement
             sneakDesiredMoveDirection = new Vector3((sneakHorizontal / baseMovementMultiplier), 0, (sneakVertical / baseMovementMultiplier));
-            if (isSneaking == true && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+            if (isSneaking == true && moveAxis != Vector2.zero)
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(sneakDesiredMoveDirection), desiredRotationSpeed);
                 rigidbody.Move(sneakDesiredMoveDirection * Time.deltaTime * (maxVelocity / sneakMultiplier));

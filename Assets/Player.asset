@@ -51,8 +51,33 @@ MonoBehaviour:
   anistropicFiltering: 0
   VSync: 1
   textureResolution: 1
-  antiAliasing: 0
+  antiAliasing: 1
   ambientOcclusion: 0
   fullScreen: 1
   resolutionWidth: 1920
   resolutionHeight: 1080
+  walkHorizontalLeftKeyboard: 119
+  walkHorizontalLeftKeyboardAlt: 276
+  walkHorizontalRightKeyboard: 100
+  walkHorizontalRightKeyboardAlt: 275
+  walkVerticalUpKeyboard: 119
+  walkVerticalUpKeyboardAlt: 273
+  walkVerticalDownKeyboard: 115
+  walkVerticalDownKeyboardAlt: 274
+  submitKeyboard: 32
+  interactKeyboard: 120
+  pauseKeyboard: 27
+  quicktimeUseMouse: 0
+  quicktimeKeyboard1: 49
+  quicktimeKeyboard2: 50
+  quicktimeKeyboard3: 51
+  quicktimeKeyboard4: 52
+  quicktimeKeyboard5: 53
+  submitGamepad: 0
+  interactGamepad: 0
+  pauseGamepad: 0
+  quicktimeGamepad1: 0
+  quicktimeGamepad2: 0
+  quicktimeGamepad3: 0
+  quicktimeGamepad4: 0
+  quicktimeGamepad5: 0
