@@ -112,7 +112,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                     ""id"": ""a3feab48-8ed4-43e2-85b6-0d0c3fab43ee"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Page Right"",
@@ -120,7 +120,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                     ""id"": ""4547c9a9-526a-4e98-aa40-993963cbff0b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [

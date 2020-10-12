@@ -21,6 +21,8 @@ public class InventorySlotController : MonoBehaviour
 
     public Text itemQuanityText;
 
+    public UIManager interfaceManager;
+
     public void Awake()
     {
         if(SceneManager.GetActiveScene().name == "GameWorld")
@@ -39,9 +41,9 @@ public class InventorySlotController : MonoBehaviour
         {
             inventory = GameObject.Find("_ScriptController").GetComponent<GameController>().inventoryScript;
         }
-      //  UpdateInfo();
+        //  UpdateInfo();
 
-
+        interfaceManager = GameObject.Find("ScriptController").GetComponent<UIManager>();
         quantityText = GameObject.Find("num").GetComponent<Text>();
             flavourText = GameObject.Find("Item Disc.").GetComponent<Text>();
             itemNameExtra = GameObject.Find("Item Display Name").GetComponent<Text>();
@@ -136,12 +138,18 @@ public class InventorySlotController : MonoBehaviour
 
     }
 
+    public void Hovered()
+    {
+        interfaceManager.SnapTo(gameObject.GetComponent<RectTransform>());
+    }
+
+
     public void Use()
     {
-        
-        if(item && SceneManager.GetActiveScene().name == "Backpack")
+
+        if (item && SceneManager.GetActiveScene().name == "Backpack")
         {
-            print("ahhhh");
+            UpdateInventorySelected();
             if (item.itemTypes == Item.ItemTypes.Lure)
             {
                 for (int i = 0; i < inventory.trap.Count; i++)

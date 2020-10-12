@@ -33,6 +33,11 @@ public class UIManager : MonoBehaviour
     public GameObject quitKeyboard;
     public GameObject playButton;
 
+    [Header("ItemShop")]
+    public Toggle[] itemCategories;
+    public int currentCategory;
+    private int triggerCount = 0;
+    public float triggeredTime;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +52,72 @@ public class UIManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "ItemShop")
         {
         }
+        currentCategory = 0;
     }
+
+    public void LeftCategory(InputAction.CallbackContext context)
+    {
+        //if(triggerCount == 0 && triggeredTime <=0)
+        if (context.started)
+        {
+
+                if (currentCategory <= 0)
+                {
+                    ExecuteEvents.Execute(itemCategories[itemCategories.Length - 1].gameObject, new BaseEventData(eventSystem), ExecuteEvents.submitHandler);
+
+                    currentCategory = itemCategories.Length - 1;
+                    triggerCount += 1;
+                }
+
+
+            
+
+            else
+            {
+                if (currentCategory > 0)
+                {
+                    currentCategory -= 1;
+                    ExecuteEvents.Execute(itemCategories[currentCategory].gameObject, new BaseEventData(eventSystem), ExecuteEvents.submitHandler); ;
+                    triggerCount += 1;
+                }
+
+            }
+        }
+        triggeredTime = 0.1f;
+        
+       
+
+    }
+
+    public void RightCategory(InputAction.CallbackContext context)
+    {
+        //if (triggerCount == 0 && triggeredTime <= 0 && context.started)
+            if(context.started)
+        {
+            if (currentCategory >= itemCategories.Length-1)
+            {
+                ExecuteEvents.Execute(itemCategories[0].gameObject, new BaseEventData(eventSystem), ExecuteEvents.submitHandler);
+
+                    currentCategory = 0;
+                    triggerCount += 1;
+            }
+            else
+            {
+                if (currentCategory < itemCategories.Length -1)
+                {
+                    currentCategory += 1;
+                    ExecuteEvents.Execute(itemCategories[currentCategory].gameObject, new BaseEventData(eventSystem), ExecuteEvents.submitHandler); ;
+                    
+                    triggerCount += 1;
+                }
+            }
+        }
+        triggeredTime = 0.1f;
+    }
+
+       
+
+    
 
     public void SnapTo(RectTransform target)
     {
@@ -153,9 +223,22 @@ public class UIManager : MonoBehaviour
         controlsShown = !controlsShown;
     }
 
+    public void FixedUpdate()
+    {
+    
+    }
+
+    public void IsHeldCheck()
+    {
+      //  if()
+    }
+
     public void Update()
     {
-        if(controlsShown )
+
+        triggerCount = 0;
+        triggeredTime -= Time.deltaTime;
+        if (controlsShown )
         {
             if(controlsMenu.alpha != 1)
             {

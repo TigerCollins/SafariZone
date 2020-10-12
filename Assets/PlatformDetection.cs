@@ -115,6 +115,11 @@ public class PlatformDetection : MonoBehaviour
                     pageLeft.sprite = xboxBumperLeft;
                     pageRight.sprite = xboxBumperRight;
                 }
+                else if (sceneName == "Backpack")
+                {
+                    pageLeft.sprite = xboxBumperLeft;
+                    pageRight.sprite = xboxBumperRight;
+                }
             }
 
 
@@ -132,7 +137,11 @@ public class PlatformDetection : MonoBehaviour
                     pageLeft.sprite = playstationBumperLeft;
                     pageRight.sprite = playstationBumperRight;
                 }
-
+                else if (sceneName == "Backpack")
+                {
+                    pageLeft.sprite = playstationBumperLeft;
+                    pageRight.sprite = playstationBumperRight;
+                }
             }
         }
 

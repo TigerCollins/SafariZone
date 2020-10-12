@@ -23,6 +23,8 @@ public class BackpackController : MonoBehaviour
     public CanvasGroup incenseCanvas;
     public CanvasGroup whistlesCanvas;
 
+    public EventSystem eventSystem;
+
     private int invisible = 0;
     private int visible = 1;
 
@@ -66,6 +68,7 @@ public class BackpackController : MonoBehaviour
             if (allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0) != null)
             {
                 allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                eventSystem.SetSelectedGameObject(allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
             }
 
             //inventory.inventoryContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().Select();
@@ -101,6 +104,7 @@ public class BackpackController : MonoBehaviour
                 if (luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
                 {
                     luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                    eventSystem.SetSelectedGameObject(luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
                 }
             }
 
@@ -141,6 +145,8 @@ public class BackpackController : MonoBehaviour
                 if(incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
                 {
                     incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                    eventSystem.SetSelectedGameObject(incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
+                    // travelPassContainer.transform.parent.parent.gameObject.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
                 }
 
             }
@@ -148,6 +154,7 @@ public class BackpackController : MonoBehaviour
               else
             {
                 Instantiate(emptyTextPrefab, incenseContainer.transform.GetChild(0).GetChild(0));
+
                 incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
             }
             
@@ -182,6 +189,7 @@ public class BackpackController : MonoBehaviour
                 if (whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
                 {
                     whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                    eventSystem.SetSelectedGameObject(whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
                 }
             }
 

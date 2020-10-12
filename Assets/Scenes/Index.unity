@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 2440706276728874891, guid: 5b0625b1811849148b571eaca17236ac,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b0625b1811849148b571eaca17236ac, type: 3}
@@ -1094,7 +1094,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 0}
+  platformDetection: {fileID: 0}
+  controlsMenu: {fileID: 0}
+  controlsShown: 1
+  backButton: {fileID: 0}
+  alternateButton: {fileID: 0}
+  scrollGroup1: {fileID: 0}
+  scrollGroup2: {fileID: 0}
+  scrollGroup3: {fileID: 0}
+  scrollGroup4: {fileID: 0}
+  contentPanel1: {fileID: 0}
+  contentPanel2: {fileID: 0}
+  contentPanel3: {fileID: 0}
+  contentPanel4: {fileID: 0}
   quitMenu: {fileID: 0}
+  quitController: {fileID: 0}
+  quitKeyboard: {fileID: 0}
+  playButton: {fileID: 0}
+  itemCategories: []
+  currentCategory: 0
+  triggeredTime: 0
 --- !u!4 &1551073689
 Transform:
   m_ObjectHideFlags: 0

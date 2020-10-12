@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public class ItemShopUIManager : MonoBehaviour
 {
+    public EventSystem eventSystem;
     [Header("Toggle Changer / Pages")]
     public Toggle lureToggle;
     public Toggle incenseToggle;
@@ -55,6 +56,8 @@ public class ItemShopUIManager : MonoBehaviour
                 whistlesContainer.SetActive(false);
                 travelPassContainer.SetActive(false);
                 luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().Awoke();
+                eventSystem.SetSelectedGameObject(luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
+              //  luresContainer.transform.parent.parent.gameObject.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
                 luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
 
             }
@@ -66,6 +69,8 @@ public class ItemShopUIManager : MonoBehaviour
                 whistlesContainer.SetActive(false);
                 travelPassContainer.SetActive(false);
                 incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().Awoke();
+                eventSystem.SetSelectedGameObject(incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
+               // incenseContainer.transform.parent.parent.gameObject.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
                 incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
 
             }
@@ -77,6 +82,8 @@ public class ItemShopUIManager : MonoBehaviour
                 incenseContainer.SetActive(false);
                 travelPassContainer.SetActive(false);
                 whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().Awoke();
+              //  whistlesContainer.transform.parent.parent.gameObject.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
+              eventSystem.SetSelectedGameObject(whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
                 whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
 
             }
@@ -87,6 +94,8 @@ public class ItemShopUIManager : MonoBehaviour
                 incenseContainer.SetActive(false);
                 travelPassContainer.SetActive(true);
                 travelPassContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().Awoke();
+                eventSystem.SetSelectedGameObject(travelPassContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
+               // travelPassContainer.transform.parent.parent.gameObject.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
                 travelPassContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ItemShopSlotController>().UpdateInventorySelected();
 
             }
