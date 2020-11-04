@@ -82,6 +82,9 @@ public class PlayerController : MonoBehaviour
     public Input pause;
     public Input zoomIn;
     public Input zoomOut;
+    public CanvasGroup controlPopup;
+    public bool canSeeControl;
+    public float timeMultiplierUI = .5f;
 
     [Header("Tutorial")]
     public FirstPlaythrough firstPlaythrough;
@@ -349,8 +352,21 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Falling", true);
         }
 
-
+        if(canSeeControl == true)
+        {
+            if(controlPopup.alpha != 1)
+            {
+                controlPopup.alpha += Time.deltaTime * timeMultiplierUI;
+            }
+        }
       
+        else
+        {
+            if (controlPopup.alpha != 0)
+            {
+                controlPopup.alpha -= Time.deltaTime * timeMultiplierUI;
+            }
+        }
             
 
 
@@ -610,48 +626,64 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(rayCastingPoint.position, transform.forward * raycastDistance, raycastColour, Time.deltaTime);
         if (Physics.Raycast(rayCastingPoint.position, transform.forward, out hit, raycastDistance))
         {
+            if(hit.collider.GetComponent<TrapTrigger>() || hit.collider.GetComponent<DialogueTrigger>() || hit.collider.GetComponent<FishingTrigger>() || hit.collider.GetComponent<ItemDrop>())
+            {
+                canSeeControl = true;
+            }
+
+            else
+            {
+                canSeeControl = false;
+            }
             //Creature spawn script initialise variable
             if (hit.collider.GetComponent<TrapTrigger>())
             {
                 trapTrigger = hit.collider.GetComponent<TrapTrigger>();
+
             }
 
             //Deselect a creature spawn when anopther raycast has been hit
             else
             {
                 trapTrigger = null;
+ 
             }
 
             //Dialogue Trigger script initialise variable
             if (hit.collider.GetComponent<DialogueTrigger>())
             {
                 dialogueTrigger = hit.collider.GetComponent<DialogueTrigger>();
+               
             }
 
             else 
             {
                 dialogueTrigger = null;
+             
             }
 
             if (hit.collider.GetComponent<FishingTrigger>())
             {
                 fishingTrigger = hit.collider.GetComponent<FishingTrigger>();
-
+               
             }
 
             else
             {
                 fishingTrigger = null;
+              
             }
 
             if(hit.collider.GetComponent<ItemDrop>())
             {
                 itemDrop = hit.collider.GetComponent<ItemDrop>();
+              
             }
 
             else
             {
                 itemDrop = null;
+        
             }
         }
 
@@ -662,6 +694,7 @@ public class PlayerController : MonoBehaviour
             itemDrop = null;
             dialogueTrigger = null;
             trapTrigger = null;
+            canSeeControl = false;
         }
     }
 }

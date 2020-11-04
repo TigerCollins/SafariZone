@@ -16,6 +16,7 @@ public class ToggleController : MonoBehaviour
         toggleLabel = gameObject.GetComponentInChildren<Text>();
         toggle = GetComponent<Toggle>();
         ChangeButtonColour();
+        toggle.group = transform.parent.GetComponent<ToggleGroup>();
     }
 
     // Update is called once per frame

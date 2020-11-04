@@ -11,7 +11,16 @@ public class ButtonAudio : MonoBehaviour, IPointerEnterHandler
 
     void Start()
     {
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        if(GameObject.Find("AudioManager")!=null)
+        {
+            audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        }
+
+        else
+        {
+            Debug.LogWarning("Couldn't find Audio Manager script");
+        }
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)

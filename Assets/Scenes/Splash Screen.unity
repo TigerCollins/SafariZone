@@ -380,7 +380,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293174444}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdcd06815c47d30489f70df42db56a48, type: 3}
   m_Name: 
@@ -828,6 +828,46 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cfa14d16-f280-4aa3-905b-f33af03bb0f3
     m_ActionName: Player/AnyKey[/Keyboard/anyKey,/XInputControllerWindows/buttonEast,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right,/XInputControllerWindows/dpad/up,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/leftStickPress,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightShoulder,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStickPress,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/select,/XInputControllerWindows/start,/Mouse/rightButton,/Mouse/press,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14e98577-3b08-497a-ba9d-5f70e766de5f
+    m_ActionName: Player/QuickTimeEvent1[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c621af2-c46c-459f-a288-233eb745f56f
+    m_ActionName: Player/QuickTimeEvent2[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd834eaf-3c2c-46a1-81be-98f07e3906a5
+    m_ActionName: Player/QuickTimeEvent3[/Keyboard/3]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9e3e1dba-11cc-48b6-a6a5-7dc15d3fb3f1
+    m_ActionName: Player/QuickTimeEvent4[/Keyboard/4]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e254a31-c1ce-416a-a32d-1ea1cbe45a9c
+    m_ActionName: Player/QuickTimeEvent5[/Keyboard/5]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: da0f1bfb-c5a4-43a6-8ffa-874a1fc01f86
+    m_ActionName: Player/Quit[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a3feab48-8ed4-43e2-85b6-0d0c3fab43ee
+    m_ActionName: Player/Page Left[/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4547c9a9-526a-4e98-aa40-993963cbff0b
+    m_ActionName: Player/Page Right[/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 56c5b464-c3d6-4a0d-9382-604f3fdb3423
+    m_ActionName: Player/Scroll Vertical[/Keyboard/upArrow,/Keyboard/w,/Keyboard/downArrow,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d9bc133b-aff4-405e-b8ed-068437c3e337
+    m_ActionName: UI/Quit[/Keyboard/escape,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -936,6 +976,8 @@ GameObject:
   m_Component:
   - component: {fileID: 674722216}
   - component: {fileID: 674722215}
+  - component: {fileID: 674722218}
+  - component: {fileID: 674722217}
   m_Layer: 0
   m_Name: NULL
   m_TagString: Untagged
@@ -982,7 +1024,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 674722217}
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
@@ -1012,6 +1054,43 @@ RectTransform:
   m_AnchoredPosition: {x: -40.84127, y: 101.330315}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &674722217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674722214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &674722218
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674722214}
+  m_CullTransparentMesh: 0
 --- !u!84 &690065197
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -2803,8 +2882,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputs: {fileID: -944628639613478452, guid: 122c20413f47a7b4790d00ca8c62474e, type: 3}
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 445144779}
   controllerInput: 0
+  xboxController: 0
+  layoutGroup: {fileID: 0}
+  xboxBack: {fileID: 21300000, guid: d9ff56884c1c2b849ab8be457950aaf9, type: 3}
+  xboxSelect: {fileID: 21300000, guid: d9ff56884c1c2b849ab8be457950aaf9, type: 3}
+  xboxBumperRight: {fileID: 21300000, guid: f7352007984efa1469c418775b045f00, type: 3}
+  xboxBumperLeft: {fileID: 21300000, guid: 54ed2748d001eea4f81219ef233d8888, type: 3}
+  xboxAnalogueLeft: {fileID: 21300000, guid: 54ed2748d001eea4f81219ef233d8888, type: 3}
+  playstationBack: {fileID: 21300000, guid: 54ed2748d001eea4f81219ef233d8888, type: 3}
+  playstationSelect: {fileID: 21300000, guid: 54ed2748d001eea4f81219ef233d8888, type: 3}
+  playstationBumperRight: {fileID: 21300000, guid: f7352007984efa1469c418775b045f00,
+    type: 3}
+  playstationBumperLeft: {fileID: -6029496466665404553, guid: a108d6e1339d2e049a29fa099c6efec0,
+    type: 3}
+  playstationAnalogueLeft: {fileID: -4340745599006698805, guid: a108d6e1339d2e049a29fa099c6efec0,
+    type: 3}
+  keyboardBack: {fileID: -4340745599006698805, guid: a108d6e1339d2e049a29fa099c6efec0,
+    type: 3}
+  keyboardSelect: {fileID: 0}
+  keyboardLeft: {fileID: 0}
+  keyboardRight: {fileID: 0}
+  keyboardArrowScroll: {fileID: 0}
+  Select: {fileID: 674722217}
+  Quit: {fileID: 674722217}
+  quitYes: {fileID: 674722217}
+  quitNo: {fileID: 674722217}
+  pageLeft: {fileID: 674722217}
+  pageRight: {fileID: 674722217}
+  select: {fileID: 0}
+  scrollImage: {fileID: 674722217}
 --- !u!4 &2056337765
 Transform:
   m_ObjectHideFlags: 0

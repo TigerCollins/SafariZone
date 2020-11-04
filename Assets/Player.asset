@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTime: 0
   controllerInput: 0
-  latestCommunityMessage: Thank you for playing the July playtest of Safari Zone.
-    It would be greatly appreciated if you can complete the survey after your session.
-    Please remember that items are obtainable but currently have no functionality.
-  latestCommunityDate: 05/07/2020
+  latestCommunityMessage: 
+  latestCommunityDate: 
   playerName: Armani
   wallet: 9180
   playTime: 1076.5479

@@ -4365,6 +4365,10 @@ MonoBehaviour:
   - {fileID: 333526934}
   currentCategory: 0
   triggeredTime: 0.1
+  autoScrollPower: 0
+  levelSelectMap: {fileID: 0}
+  creditsRect: {fileID: 0}
+  creditsRectScrollPower: 0
 --- !u!4 &1551073689
 Transform:
   m_ObjectHideFlags: 0
@@ -5846,22 +5850,22 @@ PrefabInstance:
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50.142517
+      value: 646.5136
       objectReference: {fileID: 0}
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
@@ -6008,6 +6012,18 @@ PrefabInstance:
       propertyPath: playstationBumperLeft
       value: 
       objectReference: {fileID: 21300000, guid: 22b97dfa5af0d1947a62312c31e633e5,
+        type: 3}
+    - target: {fileID: 5633952826072560591, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
+        type: 3}
+      propertyPath: keyboardLeft
+      value: 
+      objectReference: {fileID: -6029496466665404553, guid: a108d6e1339d2e049a29fa099c6efec0,
+        type: 3}
+    - target: {fileID: 5633952826072560591, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
+        type: 3}
+      propertyPath: keyboardRight
+      value: 
+      objectReference: {fileID: -2488622557235709426, guid: a108d6e1339d2e049a29fa099c6efec0,
         type: 3}
     - target: {fileID: 5633952826402299479, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}

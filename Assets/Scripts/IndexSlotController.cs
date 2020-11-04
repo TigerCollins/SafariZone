@@ -17,12 +17,27 @@ public class IndexSlotController : MonoBehaviour
     public Sprite questionMark;
     public Text rarityText;
     public GameObject beenCaught;
-
-    public void Start()
+    public UIManager interfaceManager;
+    public void Hovered()
     {
-        UpdateInfo();
-
+        interfaceManager.SnapTo(this.gameObject.GetComponent<RectTransform>());
+        
+    }
+    public void Awake()
+    {
        
+        interfaceManager = GameObject.Find("ScriptController").GetComponent<UIManager>();
+        if(interfaceManager.contentPanel1 != null)
+        {
+
+            if(gameObject.transform == interfaceManager.contentPanel1.GetChild(0))
+            {
+                print(GetComponent<RectTransform>());
+                interfaceManager.SnapTo(GetComponent<RectTransform>());
+            }
+        }
+        
+        UpdateInfo();
     }
 
     public void UpdateInfo()

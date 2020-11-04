@@ -121,6 +121,14 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Scroll Vertical"",
+                    ""type"": ""Value"",
+                    ""id"": ""56c5b464-c3d6-4a0d-9382-604f3fdb3423"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -805,6 +813,83 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Page Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""bb0513c2-7f7b-46a7-b38b-bfd1b6fdca70"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll Vertical"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""5802d397-1bc0-4b93-998a-e4f514794151"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Scroll Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""16fa6544-58ba-462e-9a15-79bd28897be9"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Scroll Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""0626f8bc-eee1-4495-9965-0a2bf4dd088b"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Scroll Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""ae9ff612-78fc-4f75-a365-ae3f5387de35"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Scroll Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58ea0a2b-a76f-4096-a0e9-fce30d10f1fc"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Scroll Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0563b3da-87f8-4918-be2c-21520522662a"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Scroll Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1456,6 +1541,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         m_Player_PageLeft = m_Player.FindAction("Page Left", throwIfNotFound: true);
         m_Player_PageRight = m_Player.FindAction("Page Right", throwIfNotFound: true);
+        m_Player_ScrollVertical = m_Player.FindAction("Scroll Vertical", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1531,6 +1617,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Quit;
     private readonly InputAction m_Player_PageLeft;
     private readonly InputAction m_Player_PageRight;
+    private readonly InputAction m_Player_ScrollVertical;
     public struct PlayerActions
     {
         private @DefaultInputActions m_Wrapper;
@@ -1548,6 +1635,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputAction @PageLeft => m_Wrapper.m_Player_PageLeft;
         public InputAction @PageRight => m_Wrapper.m_Player_PageRight;
+        public InputAction @ScrollVertical => m_Wrapper.m_Player_ScrollVertical;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1596,6 +1684,9 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                 @PageRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPageRight;
                 @PageRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPageRight;
                 @PageRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPageRight;
+                @ScrollVertical.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrollVertical;
+                @ScrollVertical.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrollVertical;
+                @ScrollVertical.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrollVertical;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1639,6 +1730,9 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                 @PageRight.started += instance.OnPageRight;
                 @PageRight.performed += instance.OnPageRight;
                 @PageRight.canceled += instance.OnPageRight;
+                @ScrollVertical.started += instance.OnScrollVertical;
+                @ScrollVertical.performed += instance.OnScrollVertical;
+                @ScrollVertical.canceled += instance.OnScrollVertical;
             }
         }
     }
@@ -1816,6 +1910,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
         void OnQuit(InputAction.CallbackContext context);
         void OnPageLeft(InputAction.CallbackContext context);
         void OnPageRight(InputAction.CallbackContext context);
+        void OnScrollVertical(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -2238,7 +2238,7 @@ PrefabInstance:
     - target: {fileID: 2440706276728874891, guid: 5b0625b1811849148b571eaca17236ac,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b0625b1811849148b571eaca17236ac, type: 3}
@@ -5653,7 +5653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 604.3, y: -156.70001}
+  m_AnchoredPosition: {x: 604.3, y: -156.69995}
   m_SizeDelta: {x: 1183.379, y: -183.42639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1176234375
@@ -6700,6 +6700,10 @@ MonoBehaviour:
   - {fileID: 15059799}
   currentCategory: 0
   triggeredTime: 0
+  autoScrollPower: 0
+  levelSelectMap: {fileID: 0}
+  creditsRect: {fileID: 0}
+  creditsRectScrollPower: 0
 --- !u!4 &1551073689
 Transform:
   m_ObjectHideFlags: 0
@@ -9540,22 +9544,22 @@ PrefabInstance:
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 646.5136
+      value: 50.142517
       objectReference: {fileID: 0}
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 5633952825712650914, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
@@ -9697,6 +9701,18 @@ PrefabInstance:
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 1551073695}
+    - target: {fileID: 5633952826072560591, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
+        type: 3}
+      propertyPath: keyboardLeft
+      value: 
+      objectReference: {fileID: -6029496466665404553, guid: a108d6e1339d2e049a29fa099c6efec0,
+        type: 3}
+    - target: {fileID: 5633952826072560591, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
+        type: 3}
+      propertyPath: keyboardRight
+      value: 
+      objectReference: {fileID: -2488622557235709426, guid: a108d6e1339d2e049a29fa099c6efec0,
+        type: 3}
     - target: {fileID: 5633952826402299479, guid: 9abe09b0e2d42b14c8e207e4fd2ba4b9,
         type: 3}
       propertyPath: m_AnchorMin.y

@@ -5281,10 +5281,25 @@ MonoBehaviour:
   controlsShown: 1
   backButton: {fileID: 734142331}
   alternateButton: {fileID: 877922534}
+  scrollGroup1: {fileID: 0}
+  scrollGroup2: {fileID: 0}
+  scrollGroup3: {fileID: 0}
+  scrollGroup4: {fileID: 0}
+  contentPanel1: {fileID: 0}
+  contentPanel2: {fileID: 0}
+  contentPanel3: {fileID: 0}
+  contentPanel4: {fileID: 0}
   quitMenu: {fileID: 0}
   quitController: {fileID: 0}
   quitKeyboard: {fileID: 0}
   playButton: {fileID: 0}
+  itemCategories: []
+  currentCategory: 0
+  triggeredTime: 0
+  autoScrollPower: 0
+  levelSelectMap: {fileID: 0}
+  creditsRect: {fileID: 0}
+  creditsRectScrollPower: 0
 --- !u!4 &1551073689
 Transform:
   m_ObjectHideFlags: 0

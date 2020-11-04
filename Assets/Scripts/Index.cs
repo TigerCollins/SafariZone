@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ using UnityEngine.UI;
 public class Index : MonoBehaviour
 {
     public static Index instance;
+    public EventSystem eventSystem;
 
     // [Header("Index Specific")]
 
@@ -24,7 +26,7 @@ public class Index : MonoBehaviour
     
 
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
         // list = inventoryObject.Inventory;
@@ -33,6 +35,7 @@ public class Index : MonoBehaviour
         {
             CreateList();
             creatureListContainer.transform.GetChild(0).GetComponent<IndexSlotController>().UpdateInfoSelected();
+            eventSystem.SetSelectedGameObject(creatureListContainer.transform.GetChild(0).gameObject);
         }
        
 

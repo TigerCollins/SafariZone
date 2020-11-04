@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.Entities.UniversalDelegates;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,13 +20,17 @@ public class UIManager : MonoBehaviour
     public GameObject backButton;
     public GameObject alternateButton; // Button selected when back button goes away
     public ScrollRect scrollGroup1;
+    public ScrollRect horizontalScrollGroup1;
     public ScrollRect scrollGroup2;
     public ScrollRect scrollGroup3;
     public ScrollRect scrollGroup4;
     public RectTransform contentPanel1;
+     public RectTransform horizontalContentPanel1;
     public RectTransform contentPanel2;
     public RectTransform contentPanel3;
     public RectTransform contentPanel4;
+    public float verticalScrollPower = 1500f;
+   
 
     [Header("Main Menu")]
     public GameObject quitMenu;
@@ -39,6 +44,21 @@ public class UIManager : MonoBehaviour
     private int triggerCount = 0;
     public float triggeredTime;
 
+    [Header("Index")]
+    public float autoScrollPower;
+
+    [Header("Level Select")]
+    public ScrollRect levelSelectMap;
+
+    [Header("Credits")]
+    public ScrollRect creditsRect;
+    public float creditsRectScrollPower;
+    private Vector2 moveAxis;
+
+    [Header("Options")]
+    public GameObject resolutionSelectedIcon;
+    public float horizontalScrollPower;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,8 +69,10 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 1;
         }
 
-        if (SceneManager.GetActiveScene().name == "ItemShop")
+        if (SceneManager.GetActiveScene().name == "Index" && controlsMenu.gameObject.GetComponent<PlatformDetection>().controllerInput == true)
         {
+
+           scrollGroup1.verticalNormalizedPosition = .98f;
         }
         currentCategory = 0;
     }
@@ -126,13 +148,21 @@ public class UIManager : MonoBehaviour
           //  Canvas.ForceUpdateCanvases();
             if(contentPanel1 != null && scrollGroup1 != null)
             {
-              //  contentPanel1.anchoredPosition = (Vector2)scrollGroup1.transform.InverseTransformPoint(contentPanel1.position) - (Vector2)scrollGroup1.transform.InverseTransformPoint(target.position);
-               // float //normalizePosition = (float)contentPanel1.transform.GetSiblingIndex() / (float)scrollGroup1.content.transform.childCount;
-               // scroll.verticalNormalizedPosition = 1 - normalizePosition;
-
+                //  contentPanel1.anchoredPosition = (Vector2)scrollGroup1.transform.InverseTransformPoint(contentPanel1.position) - (Vector2)scrollGroup1.transform.InverseTransformPoint(target.position);
+                // float //normalizePosition = (float)contentPanel1.transform.GetSiblingIndex() / (float)scrollGroup1.content.transform.childCount;
+                // scroll.verticalNormalizedPosition = 1 - normalizePosition;
+               
                 float normalizePosition = contentPanel1.anchorMin.y - target.anchoredPosition.y;
                 normalizePosition += (float)target.transform.GetSiblingIndex() / (float)scrollGroup1.content.transform.childCount;
-                normalizePosition /= 1500f;
+                if(sceneName != "Index")// || sceneName != "Options")
+                {
+                    normalizePosition /= verticalScrollPower;
+                }
+                
+                else
+                {
+                    normalizePosition /= autoScrollPower;
+                }
                 normalizePosition = Mathf.Clamp01(1 - normalizePosition);
                 scrollGroup1.verticalNormalizedPosition = normalizePosition;
                 scrollGroup1.verticalScrollbar.interactable = false;
@@ -166,8 +196,40 @@ public class UIManager : MonoBehaviour
             }
 
         }
-       
-        
+       else
+        {
+            print("bruh");
+        }
+    }
+
+    public void SnapToHorizontal(RectTransform target)
+    {
+        if (platformDetection.controllerInput)
+        {
+            //  Canvas.ForceUpdateCanvases();
+            if (horizontalContentPanel1 != null && horizontalScrollGroup1 != null)
+            {
+                //  contentPanel1.anchoredPosition = (Vector2)scrollGroup1.transform.InverseTransformPoint(contentPanel1.position) - (Vector2)scrollGroup1.transform.InverseTransformPoint(target.position);
+                // float //normalizePosition = (float)contentPanel1.transform.GetSiblingIndex() / (float)scrollGroup1.content.transform.childCount;
+                // scroll.verticalNormalizedPosition = 1 - normalizePosition;
+
+                float normalizePosition = horizontalContentPanel1.anchorMin.x - target.anchoredPosition.x;
+                normalizePosition += (float)target.transform.GetSiblingIndex() / (float)horizontalScrollGroup1.content.transform.childCount;
+                 normalizePosition /= horizontalScrollPower;
+                normalizePosition = Mathf.Abs(normalizePosition);
+                print(normalizePosition);
+                normalizePosition = Mathf.Clamp01(1 - normalizePosition);
+                
+                horizontalScrollGroup1.horizontalNormalizedPosition = normalizePosition;
+                horizontalScrollGroup1.horizontalScrollbar.interactable = false;
+            }
+           
+
+        }
+        else
+        {
+          
+        }
     }
 
     public void OpenQuitMenu(GameObject selectedButton)
@@ -238,6 +300,7 @@ public class UIManager : MonoBehaviour
 
         triggerCount = 0;
         triggeredTime -= Time.deltaTime;
+
         if (controlsShown )
         {
             if(controlsMenu.alpha != 1)
@@ -269,25 +332,30 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if(sceneName != "Main Menu" || sceneName != "SplashScreen" || sceneName != "GameWorld")
+        if(sceneName != "Main Menu" || sceneName != "Splash Screen" || sceneName != "GameWorld")
         {
-            if(platformDetection.controllerInput == true)
+            if(backButton!=null)
             {
-                backButton.SetActive(false);
-                if(eventSystem.currentSelectedGameObject == null)
+                if (platformDetection.controllerInput == true)
                 {
-                    eventSystem.SetSelectedGameObject(alternateButton);
+                    backButton.SetActive(false);
+                    if (eventSystem.currentSelectedGameObject == null)
+                    {
+                        eventSystem.SetSelectedGameObject(alternateButton);
+                    }
+                }
+
+                else
+                {
+
+                    backButton.SetActive(true);
                 }
             }
-
-            else
-            {
-                backButton.SetActive(true);
-            }
+           
             
         }
 
-        if(platformDetection.controllerInput == false && sceneName == "ItemShop" || sceneName == "Inventory")
+        if(platformDetection.controllerInput == false && sceneName == "ItemShop" || sceneName == "Inventory" || sceneName == "Index" || sceneName == "SpawnSelect" || sceneName == "Credits")
         {
 
                 if (scrollGroup1 != null)
@@ -306,7 +374,19 @@ public class UIManager : MonoBehaviour
                 {
                     scrollGroup4.verticalScrollbar.interactable = true;
                 }
+
+            if (levelSelectMap != null)
+            {
+            //    levelSelectMap.verticalScrollbar.interactable = true;
+             //   levelSelectMap.horizontalScrollbar.interactable = true;
+            }
         }
+
+        if (creditsRect != null)
+        {
+            creditsRect.verticalNormalizedPosition += moveAxis.y * creditsRectScrollPower; 
+        }
+      
 
         else if(platformDetection.controllerInput)
         {
@@ -326,6 +406,19 @@ public class UIManager : MonoBehaviour
             {
                 scrollGroup4.verticalScrollbar.interactable = false;
             }
+
+            if (levelSelectMap != null)
+            {
+            // /   levelSelectMap.verticalScrollbar.interactable = false;
+             //   levelSelectMap.horizontalScrollbar.interactable = false;
+            }
         }
+    }
+
+    public void VerticalScroll(InputAction.CallbackContext context)
+    {
+        moveAxis = context.ReadValue<Vector2>();
+
+        print(moveAxis.y);
     }
 }

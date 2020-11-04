@@ -28,7 +28,6 @@ public class SplashScreen : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Splash Screen")
         {
            
-                playerData.controllerInput = false;
                 if (showCommmunityMessage == false)
                 {
                     localAudioManager.audioManager.OneShotMenuClick(continueButtonClip);

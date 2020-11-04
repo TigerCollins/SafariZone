@@ -54,8 +54,8 @@ public class ResolutionDropdown : MonoBehaviour {
 
     public void SnapTo(RectTransform target)
     {
-            Canvas.ForceUpdateCanvases();
-            contentPanel.anchoredPosition = (Vector2)toggleHolder.transform.InverseTransformPoint(contentPanel.position) - (Vector2)toggleHolder.transform.InverseTransformPoint(target.position);
+      //      Canvas.ForceUpdateCanvases();
+         //   contentPanel.anchoredPosition = (Vector2)toggleHolder.transform.InverseTransformPoint(contentPanel.position) - (Vector2)toggleHolder.transform.InverseTransformPoint(target.position);
 
          
     }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 using UnityEngine.UI;
-
+using System;
 
 public class PlatformDetection : MonoBehaviour
 {
@@ -18,25 +18,30 @@ public class PlatformDetection : MonoBehaviour
     private Mouse mouse;
     public InputUser inputUser;
     public InputDevice inputDevice;
-    private string deviceLayoutName;
+    public LayoutGroup layoutGroup;
+    public bool onConsole;
+    public GameObject[] notOnConsoleOptions;
 
     [Header("UI Elements - Xbox")]
     public Sprite xboxBack;
     public Sprite xboxSelect;
     public Sprite xboxBumperRight;
     public Sprite xboxBumperLeft;
+    public Sprite xboxAnalogueLeft;
 
     [Header("UI Elements - Xbox")]
     public Sprite playstationBack;
     public Sprite playstationSelect;
     public Sprite playstationBumperRight;
     public Sprite playstationBumperLeft;
+    public Sprite playstationAnalogueLeft;
 
     [Header("UI Elements - Keyboard")]
-            public Sprite keyboardBack;
+    public Sprite keyboardBack;
     public Sprite keyboardSelect;
     public Sprite keyboardLeft;
     public Sprite keyboardRight;
+    public Sprite keyboardArrowScroll;
 
     [Header("Main Menu")]
     public Image Select;
@@ -48,21 +53,42 @@ public class PlatformDetection : MonoBehaviour
     public Image pageLeft;
     public Image pageRight;
 
+    [Header("Index")]
+    public GameObject select;
+
+    [Header("Credits")]
+    public Image scrollImage;
+
     public static PlatformDetection Instance;
     private string sceneName;
-    
+
 
     // Start is called before the first frame update
     void Awake()
     {
-        if (Instance != null)
+        if (Application.platform != RuntimePlatform.WindowsPlayer || Application.platform != RuntimePlatform.OSXPlayer || Application.platform != RuntimePlatform.LinuxPlayer || Application.platform != RuntimePlatform.WindowsEditor)
         {
-            Destroy(gameObject);
+            onConsole = true;
         }
-        else
+        gamepad = Gamepad.current;
+        inputDevice = gamepad;
+        mouse = Mouse.current;
+        keyboard = Keyboard.current;
+
+
+        if (gamepad != null)
         {
-            Instance = this;
-            DontDestroyOnLoad(this);
+            controllerInput = true;
+            //mouse.
+            if (gamepad.layout == "XInputControllerWindows")
+            {
+                xboxController = true;
+            }
+
+            else
+            {
+                xboxController = false;
+            }
         }
 
         playerInput = FindObjectOfType<PlayerInput>().gameObject.GetComponent<PlayerInput>();
@@ -80,6 +106,14 @@ public class PlatformDetection : MonoBehaviour
 
         sceneName = SceneManager.GetActiveScene().name;
 
+        if (onConsole != true && sceneName == "Options")
+        {
+            FindObjectOfType<UIManager>().verticalScrollPower = (FindObjectOfType<UIManager>().verticalScrollPower / 53) *18;
+            for (int i = 0; i < notOnConsoleOptions.Length; i++)
+            {
+                notOnConsoleOptions[i].SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -94,16 +128,32 @@ public class PlatformDetection : MonoBehaviour
 
         MainMenu();
 
-    }
+    } 
 
     public void MainMenu()
     {
         if (controllerInput)
         {
+            if (sceneName == "Index")
+            {
+                select.SetActive(false);
+                layoutGroup.SetLayoutHorizontal();
+            }
             if (xboxController)
             {
-                Select.sprite = xboxSelect;
-                Quit.sprite = xboxBack;
+                if (select != null)
+                {
+                    Select.sprite = xboxSelect;
+                }
+                if(Quit !=null)
+                {
+                    if (Quit.sprite != null)
+                    {
+                        Quit.sprite = xboxBack;
+                    }
+                }
+               
+    
                 if (sceneName == "Main Menu")
                 {
                     quitNo.sprite = xboxBack;
@@ -120,13 +170,23 @@ public class PlatformDetection : MonoBehaviour
                     pageLeft.sprite = xboxBumperLeft;
                     pageRight.sprite = xboxBumperRight;
                 }
+                else if (sceneName == "Credits")
+                {
+                    scrollImage.sprite = xboxAnalogueLeft;
+                }
             }
 
 
             else
             {
-                Select.sprite = playstationSelect;
-                Quit.sprite = playstationBack;
+                if (select != null)
+                {
+                    Select.sprite = playstationSelect;
+                }
+                if (Quit.sprite != null)
+                {
+                    Quit.sprite = playstationBack;
+                }
                 if (sceneName == "Main Menu")
                 {
                     quitNo.sprite = playstationBack;
@@ -142,6 +202,10 @@ public class PlatformDetection : MonoBehaviour
                     pageLeft.sprite = playstationBumperLeft;
                     pageRight.sprite = playstationBumperRight;
                 }
+                else if (sceneName == "Credits")
+                {
+                    scrollImage.sprite = playstationAnalogueLeft;
+                }
             }
         }
 
@@ -149,10 +213,37 @@ public class PlatformDetection : MonoBehaviour
 
         else
         {
-            Select.sprite = keyboardSelect;
-            Quit.sprite = keyboardBack;
-            pageLeft.sprite = keyboardLeft;
-            pageRight.sprite = keyboardRight;
+            if(select!=null)
+            {
+                Select.sprite = keyboardSelect;
+            }
+            if(Quit!= null)
+            {
+                if (Quit.sprite != null)
+                {
+                    Quit.sprite = keyboardBack;
+                }
+            }
+          
+
+            if(sceneName == "Backpack" || sceneName == "ItemShop")
+            {
+                pageLeft.sprite = keyboardLeft;
+                pageRight.sprite = keyboardRight;
+
+            }
+
+            else if (sceneName == "Index")
+            {
+                select.SetActive(true);
+                layoutGroup.SetLayoutHorizontal();
+                LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)layoutGroup.transform);
+            }
+            else if (sceneName == "Credits")
+            {
+                scrollImage.sprite = keyboardArrowScroll;
+            }
+
         }
     }
     
@@ -196,6 +287,6 @@ public class PlatformDetection : MonoBehaviour
         public void OnLevelWasLoaded(int level)
     {
         playerInput = FindObjectOfType<PlayerInput>().gameObject.GetComponent<PlayerInput>();
-      //  playerInput.defaultControlScheme = playerInput.
+        //  playerInput.defaultControlScheme = playerInput.
     }
 }
