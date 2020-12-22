@@ -306,6 +306,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        print(eventSystem.currentSelectedGameObject);
         if (useItem.selectedItem != null)
         {
             if (useItem.selectedItem.itemTypes == Item.ItemTypes.Incense && activeIncense || useItem.selectedItem.itemTypes == Item.ItemTypes.Whistle && activeIncense)

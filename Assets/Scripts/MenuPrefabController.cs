@@ -41,6 +41,10 @@ public class MenuPrefabController : MonoBehaviour
         backpackMenuAnimator.SetBool("IsOpen", false);
         parkPadAnimator.SetBool("IsOpen", false);
         indexMenuAnimator.SetBool("IsOpen", false);
+        backpackMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        parkPadAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        indexMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        optionsMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
         FindObjectOfType<GameController>().DeselectButton();
         gameObject.GetComponent<GameController>().gamePaused = false;
         gameObject.GetComponent<GameController>().audioManager.inMenu = false;
@@ -56,7 +60,10 @@ public class MenuPrefabController : MonoBehaviour
         otherMenuHolder.SetActive(true);
         indexMenuAnimator.SetBool("IsOpen", false);
         backpackMenuAnimator.SetBool("IsOpen", false);
-        
+        backpackMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        parkPadAnimator.gameObject.GetComponent<CanvasGroup>().interactable = true;
+        indexMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        optionsMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
         mainMenuPrefab.SetActive(true);
         eventSystem.SetSelectedGameObject(resumeButton);
         parkPadAnimator.SetBool("IsOpen", true);
@@ -64,7 +71,10 @@ public class MenuPrefabController : MonoBehaviour
 
         public void GoToMainMenu()
     {
-        
+        backpackMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        parkPadAnimator.gameObject.GetComponent<CanvasGroup>().interactable = true;
+        indexMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        optionsMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
         optionsMenuAnimator.SetBool("IsOpen", false);
         backpackMenuAnimator.SetBool("IsOpen", false);
         indexMenuAnimator.SetBool("IsOpen", false);
@@ -91,6 +101,10 @@ public class MenuPrefabController : MonoBehaviour
     */
         public void GoToIndexPrefab(GameObject selectedButton)
     {
+        backpackMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        parkPadAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        indexMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = true;
+        optionsMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
         eventSystem.SetSelectedGameObject(selectedButton);
 
         backpackMenuAnimator.SetBool("IsOpen", false);
@@ -120,8 +134,12 @@ public class MenuPrefabController : MonoBehaviour
 
     public void GoToBackpackPrefab(GameObject selectedButton)
     {
+        backpackMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = true;
+        parkPadAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        indexMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        optionsMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
         //sceneChanger.OpenPanelNoSceneChange();
-       // yield return new WaitForSecondsRealtime(sceneChanger.animationTime);
+        // yield return new WaitForSecondsRealtime(sceneChanger.animationTime);
 
         backpackMenuAnimator.SetBool("IsOpen", true);
         eventSystem.SetSelectedGameObject(resumeButton);
@@ -152,6 +170,10 @@ public class MenuPrefabController : MonoBehaviour
     }
     public void GoToOptionsPrefab(GameObject selectedButton)
     {
+        backpackMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        parkPadAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        indexMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
+        optionsMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = true;
         optionsMenuAnimator.SetBool("IsOpen", true);
         eventSystem.SetSelectedGameObject(resumeButton);
         parkPadAnimator.SetBool("IsOpen", false);

@@ -170,6 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4869555021460592}
   - component: {fileID: 205232115495334008}
+  - component: {fileID: 6822128321266644159}
   m_Layer: 0
   m_Name: SM_Tree_Generic_Giant_01
   m_TagString: Untagged
@@ -216,3 +217,17 @@ LODGroup:
     renderers:
     - renderer: {fileID: 23147111848960612}
   m_Enabled: 1
+--- !u!136 &6822128321266644159
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992559430955086}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.78
+  m_Height: 3.1111813
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

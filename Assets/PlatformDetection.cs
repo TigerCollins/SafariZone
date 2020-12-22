@@ -21,6 +21,9 @@ public class PlatformDetection : MonoBehaviour
     public LayoutGroup layoutGroup;
     public bool onConsole;
     public GameObject[] notOnConsoleOptions;
+    public bool inInventory;
+    public bool inIndex;
+    public bool inOptions;
 
     [Header("UI Elements - Xbox")]
     public Sprite xboxBack;
@@ -128,7 +131,30 @@ public class PlatformDetection : MonoBehaviour
 
         MainMenu();
 
-    } 
+
+       
+    }
+
+    public void IsInOptions()
+    {
+        inOptions = true;
+        inInventory = false;
+        inIndex = false;
+    }
+
+    public void IsInInventory()
+    {
+        inOptions = true;
+        inInventory = false;
+        inIndex = false;
+    }
+
+    public void IsInIndex()
+    {
+        inOptions = true;
+        inInventory = false;
+        inIndex = false;
+    }
 
     public void MainMenu()
     {
@@ -139,6 +165,8 @@ public class PlatformDetection : MonoBehaviour
                 select.SetActive(false);
                 layoutGroup.SetLayoutHorizontal();
             }
+
+
             if (xboxController)
             {
                 if (select != null)
@@ -152,8 +180,25 @@ public class PlatformDetection : MonoBehaviour
                         Quit.sprite = xboxBack;
                     }
                 }
-               
-    
+
+                if (sceneName == "GameWorld")
+                {
+                    if (inOptions)
+                    {
+
+                    }
+
+                    else if (inInventory)
+                    {
+                        pageLeft.sprite = xboxBumperLeft;
+                        pageRight.sprite = xboxBumperRight;
+                    }
+
+                    else if(inIndex)
+                    {
+
+                    }
+                }
                 if (sceneName == "Main Menu")
                 {
                     quitNo.sprite = xboxBack;
@@ -179,14 +224,18 @@ public class PlatformDetection : MonoBehaviour
 
             else
             {
-                if (select != null)
+                if(sceneName != "GameWorld")
                 {
-                    Select.sprite = playstationSelect;
+                    if (select != null)
+                    {
+                        Select.sprite = playstationSelect;
+                    }
+                    if (Quit.sprite != null)
+                    {
+                        Quit.sprite = playstationBack;
+                    }
                 }
-                if (Quit.sprite != null)
-                {
-                    Quit.sprite = playstationBack;
-                }
+              
                 if (sceneName == "Main Menu")
                 {
                     quitNo.sprite = playstationBack;

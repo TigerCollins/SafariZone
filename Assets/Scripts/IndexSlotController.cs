@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IndexSlotController : MonoBehaviour
@@ -25,8 +26,16 @@ public class IndexSlotController : MonoBehaviour
     }
     public void Awake()
     {
+       if(SceneManager.GetActiveScene().name == "GameWorld")
+        {
+            interfaceManager = GameObject.Find("Index").GetComponent<UIManager>();
+        }
+
+       else
+        {
+            interfaceManager = GameObject.Find("ScriptController").GetComponent<UIManager>();
+        }
        
-        interfaceManager = GameObject.Find("ScriptController").GetComponent<UIManager>();
         if(interfaceManager.contentPanel1 != null)
         {
 

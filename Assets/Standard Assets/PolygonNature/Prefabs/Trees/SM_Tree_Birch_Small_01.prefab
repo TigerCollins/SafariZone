@@ -169,6 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4790057636653266}
   - component: {fileID: 205876244315198162}
+  - component: {fileID: 192464688777630299}
   m_Layer: 0
   m_Name: SM_Tree_Birch_Small_01
   m_TagString: Untagged
@@ -215,3 +216,17 @@ LODGroup:
     renderers:
     - renderer: {fileID: 23675916000014552}
   m_Enabled: 1
+--- !u!136 &192464688777630299
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916657975341368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.04
+  m_Height: 1.61
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.72, z: 0}

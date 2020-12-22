@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Unity.Entities.UniversalDelegates;
+using UnityEngine.PlayerLoop;
 
 public class UIManager : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Index")]
     public float autoScrollPower;
+    public bool isIndexMenu;
 
     [Header("Level Select")]
     public ScrollRect levelSelectMap;
@@ -73,6 +75,12 @@ public class UIManager : MonoBehaviour
         {
 
            scrollGroup1.verticalNormalizedPosition = .98f;
+        }
+
+        else if (SceneManager.GetActiveScene().name == "GameWorld" && isIndexMenu == true && platformDetection.controllerInput == true)
+        {
+
+            scrollGroup1.verticalNormalizedPosition = 0.9806211f;
         }
         currentCategory = 0;
     }
@@ -138,7 +146,6 @@ public class UIManager : MonoBehaviour
     }
 
        
-
     
 
     public void SnapTo(RectTransform target)
@@ -154,7 +161,7 @@ public class UIManager : MonoBehaviour
                
                 float normalizePosition = contentPanel1.anchorMin.y - target.anchoredPosition.y;
                 normalizePosition += (float)target.transform.GetSiblingIndex() / (float)scrollGroup1.content.transform.childCount;
-                if(sceneName != "Index")// || sceneName != "Options")
+                if(sceneName != "Index" || isIndexMenu == false)// || sceneName != "Options")
                 {
                     normalizePosition /= verticalScrollPower;
                 }
@@ -166,6 +173,7 @@ public class UIManager : MonoBehaviour
                 normalizePosition = Mathf.Clamp01(1 - normalizePosition);
                 scrollGroup1.verticalNormalizedPosition = normalizePosition;
                 scrollGroup1.verticalScrollbar.interactable = false;
+
             }
             if(contentPanel2 != null && scrollGroup2 != null)
             {
@@ -198,7 +206,7 @@ public class UIManager : MonoBehaviour
         }
        else
         {
-            print("bruh");
+
         }
     }
 
@@ -290,9 +298,11 @@ public class UIManager : MonoBehaviour
     
     }
 
-    public void IsHeldCheck()
+    public void OpenedIndexInWorld()
     {
-      //  if()
+
+        scrollGroup1.verticalNormalizedPosition = 0.9806211f;
+
     }
 
     public void Update()
@@ -300,24 +310,27 @@ public class UIManager : MonoBehaviour
 
         triggerCount = 0;
         triggeredTime -= Time.deltaTime;
-
-        if (controlsShown )
+        if(sceneName != "GameWorld")
         {
-            if(controlsMenu.alpha != 1)
+            if (controlsShown)
             {
-                controlsMenu.alpha += Time.deltaTime * 4f;
+                if (controlsMenu.alpha != 1)
+                {
+                    controlsMenu.alpha += Time.deltaTime * 4f;
+                }
+            }
+
+            else
+            {
+                if (controlsMenu.alpha != 0)
+                {
+                    controlsMenu.alpha -= Time.deltaTime * 4f;
+                }
             }
         }
+        
 
-        else
-        {
-            if (controlsMenu.alpha != 0)
-            {
-                controlsMenu.alpha -= Time.deltaTime *4f;
-            }
-        }
-
-        if(sceneName == "Main Menu")
+        if (sceneName == "Main Menu")
         {
             if (quitMenu.activeInHierarchy==true && platformDetection.controllerInput == true)
             {
@@ -355,7 +368,7 @@ public class UIManager : MonoBehaviour
             
         }
 
-        if(platformDetection.controllerInput == false && sceneName == "ItemShop" || sceneName == "Inventory" || sceneName == "Index" || sceneName == "SpawnSelect" || sceneName == "Credits")
+        if(platformDetection.controllerInput == false && sceneName == "ItemShop" || sceneName == "Inventory" || sceneName == "Index" || sceneName == "SpawnSelect" || sceneName == "Credits" || sceneName == "GameWorld")
         {
 
                 if (scrollGroup1 != null)

@@ -25,6 +25,7 @@ public class UIManagerLink : MonoBehaviour
         {
             print("uh oh");
         }
-        uiManager.SnapToHorizontal(rectTransform);
+
+        //uiManager.SnapToHorizontal(rectTransform);
     }
 }

@@ -11,6 +11,7 @@ public class Index : MonoBehaviour
 {
     public static Index instance;
     public EventSystem eventSystem;
+    public UIManager uiManager;
 
     // [Header("Index Specific")]
 
@@ -37,6 +38,12 @@ public class Index : MonoBehaviour
             creatureListContainer.transform.GetChild(0).GetComponent<IndexSlotController>().UpdateInfoSelected();
             eventSystem.SetSelectedGameObject(creatureListContainer.transform.GetChild(0).gameObject);
         }
+
+      else
+        {
+            uiManager = GameObject.Find("Index").GetComponent<UIManager>();
+        }
+
        
 
     }
@@ -56,7 +63,10 @@ public class Index : MonoBehaviour
                 }
                 index++;
             }
-
+        if (uiManager != null)
+        {
+            uiManager.OpenedIndexInWorld();
+        }
 
     }
 
@@ -87,11 +97,20 @@ public class Index : MonoBehaviour
             {
                 Instantiate(creatureContainerPrefab, creatureListContainer.transform);
                 UpdateCreatureContainerSlots();
+
             }
             indexTracker = 0;
+
+            creatureListContainer.transform.GetChild(0).GetComponent<IndexSlotController>().UpdateInfoSelected();
+            eventSystem.SetSelectedGameObject(creatureListContainer.transform.GetChild(0).gameObject);
+            if(uiManager != null)
+        {
+            uiManager.OpenedIndexInWorld();
+        }
+    }
         }
         //creatureListContainer.transform.GetChild(0).GetComponent<IndexSlotController>().UpdateInfo();
-    }
+        
 
  /*   public void WipeList()
     {
@@ -120,7 +139,6 @@ public class Index : MonoBehaviour
     */
    public void UpdateCreatureContainerSlots()
     {
-        print("Update Container Slots Index Is:" + indexTracker);
         foreach (Transform child in creatureListContainer.transform)
         {
             //Updates slot indexs name and icon

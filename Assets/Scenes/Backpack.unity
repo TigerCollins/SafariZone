@@ -4347,13 +4347,16 @@ MonoBehaviour:
   backButton: {fileID: 7746700745046759784}
   alternateButton: {fileID: 0}
   scrollGroup1: {fileID: 3005032571927357736}
+  horizontalScrollGroup1: {fileID: 0}
   scrollGroup2: {fileID: 627658819}
   scrollGroup3: {fileID: 506009459}
   scrollGroup4: {fileID: 699340733}
   contentPanel1: {fileID: 7746700745698327638}
+  horizontalContentPanel1: {fileID: 0}
   contentPanel2: {fileID: 1586158150}
   contentPanel3: {fileID: 326301732}
   contentPanel4: {fileID: 531651080}
+  verticalScrollPower: 1500
   quitMenu: {fileID: 0}
   quitController: {fileID: 0}
   quitKeyboard: {fileID: 0}
@@ -4369,6 +4372,8 @@ MonoBehaviour:
   levelSelectMap: {fileID: 0}
   creditsRect: {fileID: 0}
   creditsRectScrollPower: 0
+  resolutionSelectedIcon: {fileID: 0}
+  horizontalScrollPower: 0
 --- !u!4 &1551073689
 Transform:
   m_ObjectHideFlags: 0
@@ -4641,6 +4646,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d9bc133b-aff4-405e-b8ed-068437c3e337
     m_ActionName: UI/Quit[/Keyboard/escape,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 56c5b464-c3d6-4a0d-9382-604f3fdb3423
+    m_ActionName: Player/Scroll Vertical[/Keyboard/upArrow,/Keyboard/w,/Keyboard/downArrow,/Keyboard/s,/DualShock4GamepadHID/rightStick,/DualShock4GamepadHID/leftStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

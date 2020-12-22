@@ -56,6 +56,8 @@ public class PopMinigameController : MonoBehaviour
         
     }
 
+    //TRANSFORM.PARENT.PARENT
+
     void SpawnPopIcons()
     {
         spawnpoints = spawnpointContainer.GetComponentsInChildren<Transform>();
