@@ -154,7 +154,7 @@ public class MenuPrefabController : MonoBehaviour
         sceneChanger.OpenPanelNoSceneChange();
         yield return new WaitForSecondsRealtime(sceneChanger.animationTime);
         mainMenuPrefab.SetActive(false);
-        ;
+        
         indexMenuPrefab.SetActive(false);
         //backpackMenuPrefab.SetActive(true);
         sceneChanger.ClosePanelNoSceneChange();

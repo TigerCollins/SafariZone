@@ -5,115 +5,254 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem.Utilities;
 
 using System.Collections.Generic;
-
+using UnityEngine.EventSystems;
 
 public class PopMinigameButton : MonoBehaviour
 {
+    public EventSystem eventSystem;
     public PopMinigameController popMinigameController;
     public GameController gameController;
-    public Text keyInputText;
+    public Text keyInputText1;
+    public Text keyInputText2;
+    public Text keyInputText3;
+    public Text keyInputText4;
+    public Text keyInputText5;
     public string buttonInputRequired;
-    private PlatformDetection platformDetection;
-    public GameObject QTEIconHolder;
+    public PlatformDetection platformDetection;
+    public GameObject QTEIconHolder1;
+    public GameObject QTEIconHolder2;
+    public GameObject QTEIconHolder3;
+    public GameObject QTEIconHolder4;
+    public GameObject QTEIconHolder5;
+    public int activeButtonResult;
+    public string neededButton;
+    public int neededButtonInt;
+    public GameObject reticle;
+    public GameObject thisButton;
 
     [Header("Action")]
-    public InputActionReference inputActionReference1;
-    public InputActionReference inputActionReference2;
-    public InputActionReference inputActionReference3;
-    public InputActionReference inputActionReference4;
-    public InputActionReference inputActionReference5;
-    public InputActionReference inputControlActionReference1;
-    public InputActionReference inputControlActionReference2;
-    public InputActionReference inputControlActionReference3;
-    public InputActionReference inputControlActionReference4;
-    public InputActionReference inputControlActionReference5;
+    public int quicktimeInput;
+    public GameObject button1;
+    public GameObject button2;
+    public GameObject button3;
+    public GameObject button4;
+    public GameObject button5;
+    private int counter;
+
+    [Header("Canvas Groups")]
+    public CanvasGroup MasterGroup;
+    public CanvasGroup Option1Icon;
+    public CanvasGroup Option1Text;
+    public CanvasGroup Option2Icon;
+    public CanvasGroup Option2Text;
+    public CanvasGroup Option3Icon;
+    public CanvasGroup Option3Text;
+    public CanvasGroup Option4Icon;
+    public CanvasGroup Option4Text;
+    public CanvasGroup Option5Icon;
+public CanvasGroup Option5Text;
+
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        eventSystem = FindObjectOfType<EventSystem>();
+        neededButton = transform.GetChild(activeButtonResult).transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().text;
+        popMinigameController = FindObjectOfType<PopMinigameController>();
+        //string neededButton = pmb.transform.GetChild(pmb.activeButtonResult).transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().text;
+        keyInputText1.text = buttonInputRequired;
+        keyInputText2.text = buttonInputRequired;
+        keyInputText3.text = buttonInputRequired;
+        keyInputText4.text = buttonInputRequired;
+        keyInputText5.text = buttonInputRequired;
         gameController = FindObjectOfType<GameController>();
+        platformDetection = FindObjectOfType<PlatformDetection>();
+        CanvasGroupController();
         SetQTE();
     }
 
-
-    public void SetQTE()
+    public void Update()
     {
-        int quicktimeInput;
-        quicktimeInput = Random.Range(0, 4);
-        if(gameController.playerData.quicktimeUseMouse == false)
+        CanvasGroupController();
+        if (thisButton !=null)
         {
-            QTEIconHolder.SetActive(true);
-            if (platformDetection.controllerInput)
+            if(eventSystem.currentSelectedGameObject == thisButton)
             {
-                if(quicktimeInput == 0)
-                {
-                    buttonInputRequired = inputControlActionReference1.ToString();
-                }
-                if(quicktimeInput == 1)
-                {
-                    buttonInputRequired = inputControlActionReference2.ToString();
-                }
-                if(quicktimeInput == 2)
-                {
-                    buttonInputRequired = inputControlActionReference3.ToString();
-                }
-                if(quicktimeInput == 3)
-                {
-                    buttonInputRequired = inputControlActionReference4.ToString();
-                }
-                if(quicktimeInput == 4)
-                {
-                    buttonInputRequired = inputControlActionReference5.ToString();
-                }
-
+                reticle.SetActive(true);
             }
 
             else
             {
-                /*
+                reticle.SetActive(false);
+            }
+        }
+
+        if(popMinigameController.captureTimer <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void SetQTE()
+    {
+        
+
+        
+        
+        quicktimeInput = Random.Range(0, 4);
+        activeButtonResult = quicktimeInput;
+        neededButtonInt = quicktimeInput;
+        if (platformDetection.controllerInput == false)
+        {
+            /*
+         
+            if (gameController.playerData.quicktimeUseMouse == false)
+            {
+
                 if (quicktimeInput == 0)
                 {
-                    buttonInputRequired = inputActionReference1.ToString();
+                    button1.SetActive(true);
                 }
                 if (quicktimeInput == 1)
                 {
-                    buttonInputRequired = inputActionReference2.ToString();
+                    button2.SetActive(true);
                 }
                 if (quicktimeInput == 2)
                 {
-                    buttonInputRequired = inputActionReference3.ToString();
+                    button3.SetActive(true);
                 }
                 if (quicktimeInput == 3)
                 {
-                    buttonInputRequired = inputActionReference4.ToString();
+                    button4.SetActive(true);
                 }
                 if (quicktimeInput == 4)
                 {
-                    buttonInputRequired = inputActionReference5.ToString();
+                    button5.SetActive(true);
                 }
-                */
+                keyInputText1.gameObject.SetActive(true);
+                keyInputText2.gameObject.SetActive(true);
+                keyInputText3.gameObject.SetActive(true);
+                keyInputText4.gameObject.SetActive(true);
+                keyInputText5.gameObject.SetActive(true);
+                QTEIconHolder1.SetActive(false);
+                QTEIconHolder2.SetActive(false);
+                QTEIconHolder3.SetActive(false);
+                QTEIconHolder4.SetActive(false);
+                QTEIconHolder5.SetActive(false);
             }
+            else
+            {
+                keyInputText1.gameObject.SetActive(false);
+                keyInputText2.gameObject.SetActive(false);
+                keyInputText3.gameObject.SetActive(false);
+                keyInputText4.gameObject.SetActive(false);
+                keyInputText5.gameObject.SetActive(false);
+                //buttonInputRequired = null;
+            }
+
+    */
         }
-        
+
         else
         {
-            QTEIconHolder.SetActive(false);
+            if (quicktimeInput == 0)
+            {
+                button1.SetActive(true);
+            }
+            if (quicktimeInput == 1)
+            {
+                button2.SetActive(true);
+            }
+            if (quicktimeInput == 2)
+            {
+                button3.SetActive(true);
+            }
+            if (quicktimeInput == 3)
+            {
+                button4.SetActive(true);
+            }
+            if (quicktimeInput == 4)
+            {
+                button5.SetActive(true);
+            }
+         /*   QTEIconHolder1.SetActive(true);
+            QTEIconHolder2.SetActive(true);
+            QTEIconHolder3.SetActive(true);
+            QTEIconHolder4.SetActive(true);
+            QTEIconHolder5.SetActive(true);
+            */
         }
+     
+       // keyInputText1.gameObject.SetActive(false);
+       // keyInputText2.gameObject.SetActive(false);
+      //  keyInputText3.gameObject.SetActive(false);
+       // keyInputText4.gameObject.SetActive(false);
+       // keyInputText5.gameObject.SetActive(false);
+
     }
 
     public void PopIcon()
     {
-        popMinigameController = GameObject.Find("Pop Minigame").GetComponent<PopMinigameController>();
-        popMinigameController.PopIcon();
+
+       if(platformDetection.controllerInput == true)
+        {
+            if (counter == 0)
+            {
+                counter += 1;
+                popMinigameController.PopIcon();
+              
+                //counter = 0;
+            }
+        }
+
+       else
+        {
+            popMinigameController.PopIcon();
+        }
+        
+       
     }
 
     public void ClosePopIcon()
     {
-        popMinigameController.ClosePopIcon(gameObject);
+        
+        Destroy(gameObject);
+      
+       // popMinigameController.PopIcon();
+   
     }
 
     public void CloseTutorial()
     {
         popMinigameController.CloseTutorial();
+    }
+
+    //public void AttemptClick
+
+    //public void
+
+    public void CanvasGroupController()
+    {
+        if(platformDetection.controllerInput == false)
+        {
+            MasterGroup.alpha = 1;
+            // IF KEYBOARD IS DISABLED   if()
+            Option1Icon.alpha = 0;
+            Option2Icon.alpha = 0;
+            Option3Icon.alpha = 0;
+            Option4Icon.alpha = 0;
+            Option5Icon.alpha = 0;
+        }
+
+        else
+        {
+            MasterGroup.alpha = 1;
+            Option1Icon.alpha = 1;
+            Option2Icon.alpha = 1;
+            Option3Icon.alpha = 1;
+            Option4Icon.alpha = 1;
+            Option5Icon.alpha = 1;
+        }
     }
 }
 

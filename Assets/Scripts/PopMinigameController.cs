@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class PopMinigameController : MonoBehaviour
 {
     public GameController scriptController;
 
+    public EventSystem eventSystem;
     public Creature spawnedCreature;
     private float awakeCaptureTimer;
     public float baseCaptureTimer = 1f;
@@ -25,11 +27,27 @@ public class PopMinigameController : MonoBehaviour
     public GameObject balloonButtonPrefab;
     public int baseSpawned;
     public int totalPopped;
+    [SerializeField]
+    private int totalSpawned = 0;
     public GameObject popIconHolder;
+    public PopMinigameButton pmb;
 
 
     // Start is called before the first frame update
+    public void Start()
+    {
+        SelectRandomBubble();
+        eventSystem = FindObjectOfType<EventSystem>();
+        totalSpawned = 0;
+        
+    }
 
+    public void OnEnable()
+    {
+        
+    }
+
+    //public void Ac
 
     // Update is called once per frame
     void Update()
@@ -38,9 +56,10 @@ public class PopMinigameController : MonoBehaviour
             captureTimer -= Time.deltaTime;
             timerBar.fillAmount = captureTimer / awakeCaptureTimer;
             TimerEvents();
-            //animator.SetBool("IsOpen", false);
+        //animator.SetBool("IsOpen", false);
+        SelectRandomBubble();
 
-        
+
     }
 
     public void StartTutorial()
@@ -61,9 +80,10 @@ public class PopMinigameController : MonoBehaviour
     void SpawnPopIcons()
     {
         spawnpoints = spawnpointContainer.GetComponentsInChildren<Transform>();
+        totalSpawned = 0;
         List<Transform> freeSpawnPoints = new List<Transform>(spawnpoints);
         int i = 0;
-        for (i = 0; i < baseSpawned; i++)
+        for (i = 0; i <= baseSpawned; i++)
         {
             if (freeSpawnPoints.Count <= 0)
             {
@@ -74,7 +94,14 @@ public class PopMinigameController : MonoBehaviour
             freeSpawnPoints.RemoveAt(index); // remove the spawnpoint from our temporary list
             GameObject Button = Instantiate(balloonButtonPrefab, pos.position, pos.rotation);
             Button.transform.SetParent(gameObject.transform.GetChild(2).transform);
+            totalSpawned += 1;
+            if (totalSpawned >= baseSpawned -1)
+            {
+                SelectRandomBubble();
+            }
+
         }
+        
     }
 
     public void UpdateMiniGame()
@@ -84,24 +111,27 @@ public class PopMinigameController : MonoBehaviour
         awakeCaptureTimer = captureTimer;
         spawnedCreature = scriptController.selectedCreature;
         SpawnPopIcons();
-
+       // SelectRandomBubble();
         // spawnedCreature.creatureRarity;
     }
 
     void TimerEvents()
     {
         //minigame failed
-        if(captureTimer < 0)
+        if(captureTimer < 0f)
         {
+            ResetMinigame();
             scriptController.playerScript.canMove = true;
-            this.gameObject.SetActive(false);
+           
         }
     }
 
     public void PopIcon()
     {
         totalPopped += 1;
-        if(totalPopped >= 5)
+        Destroy(pmb.gameObject);
+        
+        if (totalPopped >= 5)
         {
             spawnedCreature.previouslyCaptured = true;
             spawnedCreature.totalCaught += 1;
@@ -124,13 +154,16 @@ public class PopMinigameController : MonoBehaviour
             scriptController.statTracker.creaturesCaught++;
 
                 scriptController.playerScript.canMove = true;
-            this.gameObject.SetActive(false);
+            ResetMinigame();
+            gameObject.SetActive(false);
         }
+        pmb = null;
+        SelectRandomBubble();
     }
 
-    public void ClosePopIcon(GameObject thisObject)
+    public void ClosePopIcon()
     {
-        thisObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public void InitialisePopIcon()
@@ -148,6 +181,61 @@ public class PopMinigameController : MonoBehaviour
 
     public void ResetMinigame()
     {
-        
+        PopMinigameButton pmb;
+        GameObject theSelectedButton = GameObject.Find("Bubble QTE(Clone)");
+
+        for (int i = 0; i < baseSpawned + 1; i++)
+        {
+            if(theSelectedButton != null)
+            {
+                pmb = GameObject.Find("Bubble QTE(Clone)").GetComponent<PopMinigameButton>();
+            }
+            else
+            {
+              
+                return;
+            }
+           
+            if (pmb !=null)
+            {
+                print("YAY IT DESTROYED SHIZ");
+                Destroy(pmb.gameObject);
+            }
+
+
+          
+        }
+        totalSpawned = 0;
+        totalPopped = 0;
+        gameObject.SetActive(false);
+
+        //FIND ME. BUBBLES NOT DESTROYING. BUBBLE ID LINKIN WITH BUTTON ID
+    }
+
+    public void SelectRandomBubble()
+    {
+        if(pmb == null)
+        {
+            pmb = GameObject.Find("Bubble QTE(Clone)").GetComponent<PopMinigameButton>();
+        } 
+      
+        if(pmb != null)
+        {
+            //if(totalSpawned <= baseSpawned)
+           // {
+           if(pmb.platformDetection.controllerInput == true)
+            {
+                eventSystem.SetSelectedGameObject(pmb.gameObject);
+            }
+                
+            ///}
+
+        }
+
+        else
+        {
+            Debug.LogWarning("COULD NOT FIND A QTE BUBBLE");
+        }
+       
     }
 }

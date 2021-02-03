@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+   
+
     public EventSystem eventSystem;
     public GameObject playerObject;
     public PlayerController playerScript;
@@ -31,6 +34,9 @@ public class GameController : MonoBehaviour
     public GameObject backpackButton;
     public bool startGameBool = true;
     public float sceneTickDelay = .5f;
+    public int currentButtonPress;
+    public PlatformDetection platformDetection;
+    
 
     [Header("Game Variables")]
     [SerializeField]
@@ -42,6 +48,8 @@ public class GameController : MonoBehaviour
     public float gameOverTransitionTime;
     public bool dialogueActive;
 
+
+
     [Header("Player Variables")]
     public Text countdownText;
     public bool distanceCounted;
@@ -51,7 +59,9 @@ public class GameController : MonoBehaviour
     public string currentArea;
     public float distanceMultiplier;
 
-
+    [Header("Game1 Variables")]
+    public PopMinigameButton popMinigameButton1;
+    public string popMinigameString;
 
     [Header("Minigame Variable")]
     public Creature selectedCreature;
@@ -113,6 +123,10 @@ public class GameController : MonoBehaviour
 
     [HideInInspector]
     public int caveChange;
+    private bool nullCheck;
+    public PopMinigameButton selectedButton;
+    public PopMinigameController popMinigameController;
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -307,7 +321,12 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
-        print(eventSystem.currentSelectedGameObject);
+        selectedButton = popMinigameController.pmb;
+        if(selectedButton !=null)
+        {
+            eventSystem.SetSelectedGameObject(selectedButton.gameObject);
+        }
+
         if (useItem.selectedItem != null)
         {
             if (useItem.selectedItem.itemTypes == Item.ItemTypes.Incense && activeIncense || useItem.selectedItem.itemTypes == Item.ItemTypes.Whistle && activeIncense)
@@ -358,6 +377,48 @@ public class GameController : MonoBehaviour
         ItemUpdateTime();
         timePlayed += Time.deltaTime;
     }
+
+    public void ButtonCheck(int currentControl)
+    {
+        currentButtonPress = currentControl;
+    }
+
+    public void DestroyPopUpBubble(InputAction.CallbackContext context)
+    {
+      //  selectedButton = GameObject.Find("Bubble QTE(Clone)").GetComponent<PopMinigameButton>();
+        
+        if(popMinigameController.gameObject.activeInHierarchy == true)
+        {
+            if(platformDetection.controllerInput == true)
+            {
+                if (selectedButton != null)
+                {
+
+                    if (selectedButton.neededButtonInt == currentButtonPress)
+                    {
+                        selectedButton.gameObject.GetComponent<Button>().onClick.Invoke();
+                    }
+
+                    else
+                    {
+                        print("WRONG BUTTON");
+                    }
+                }
+            }
+
+            else
+            {
+
+            }
+           
+        }
+
+      
+
+
+
+    }
+    
 
     public void CapturePopup(Creature creature)
     {

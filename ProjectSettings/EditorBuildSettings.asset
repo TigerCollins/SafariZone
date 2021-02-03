@@ -41,4 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Visitor Pass.unity
     guid: 522c8027fd7353b49a1e3914d34eea24
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 7645481762c6cb34ebe095f23fb68323,
+      type: 2}

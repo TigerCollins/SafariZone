@@ -64,7 +64,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                     ""id"": ""14e98577-3b08-497a-ba9d-5f70e766de5f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""QuickTimeEvent2"",
@@ -72,7 +72,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                     ""id"": ""4c621af2-c46c-459f-a288-233eb745f56f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""QuickTimeEvent3"",
@@ -80,7 +80,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                     ""id"": ""dd834eaf-3c2c-46a1-81be-98f07e3906a5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""QuickTimeEvent4"",
@@ -88,7 +88,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                     ""id"": ""9e3e1dba-11cc-48b6-a6a5-7dc15d3fb3f1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""QuickTimeEvent5"",
@@ -96,7 +96,7 @@ public class @DefaultInputActions : IInputActionCollection, IDisposable
                     ""id"": ""0e254a31-c1ce-416a-a32d-1ea1cbe45a9c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Quit"",
