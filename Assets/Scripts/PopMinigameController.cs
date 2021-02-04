@@ -31,6 +31,10 @@ public class PopMinigameController : MonoBehaviour
     private int totalSpawned = 0;
     public GameObject popIconHolder;
     public PopMinigameButton pmb;
+    public int currentButtonPress;
+    public int neededButtonInt;
+    
+
 
 
     // Start is called before the first frame update
@@ -39,7 +43,7 @@ public class PopMinigameController : MonoBehaviour
         SelectRandomBubble();
         eventSystem = FindObjectOfType<EventSystem>();
         totalSpawned = 0;
-        
+        StartTutorial();
     }
 
     public void OnEnable()
@@ -56,7 +60,7 @@ public class PopMinigameController : MonoBehaviour
             captureTimer -= Time.deltaTime;
             timerBar.fillAmount = captureTimer / awakeCaptureTimer;
             TimerEvents();
-        //animator.SetBool("IsOpen", false);
+       // animator.SetBool("IsOpen", false);
         SelectRandomBubble();
 
 
@@ -64,8 +68,19 @@ public class PopMinigameController : MonoBehaviour
 
     public void StartTutorial()
     {
-        animator.SetBool("IsOpen", true);
-        //StartCoroutine(TutorialCountdown());
+        //if(FindObjectOfType<FirstPlaythrough>().playerProfile.firstTime == false)
+     //   {
+            animator.SetBool("IsOpen", true);
+            StartCoroutine(TutorialCountdown());
+      //  }
+
+    }
+
+    IEnumerator TutorialCountdown()
+    {
+        yield return new WaitForSeconds(2f);
+       // CloseTutorial();
+
     }
 
     public void CloseTutorial()
@@ -98,7 +113,9 @@ public class PopMinigameController : MonoBehaviour
             if (totalSpawned >= baseSpawned -1)
             {
                 SelectRandomBubble();
+                return;
             }
+
 
         }
         
@@ -128,42 +145,91 @@ public class PopMinigameController : MonoBehaviour
 
     public void PopIcon()
     {
-        totalPopped += 1;
-        Destroy(pmb.gameObject);
-        
-        if (totalPopped >= 5)
-        {
-            spawnedCreature.previouslyCaptured = true;
-            spawnedCreature.totalCaught += 1;
-            if(spawnedCreature.dateFirstCaught == null)
-            {
-                spawnedCreature.dateFirstCaught = System.DateTime.Now.ToShortDateString();
-            }
-            scriptController.currencyScript.AddToLocalWallet(spawnedCreature.price);
-            if (spawnedCreature.currentWeight >= spawnedCreature.heaviestCaught)
-            {
-                spawnedCreature.heaviestCaught = spawnedCreature.currentWeight;
-            }
+       
 
-            if (spawnedCreature.currentWeight <= spawnedCreature.lightestCaught)
+        if(scriptController.platformDetection.controllerInput == true && pmb.canBeDestroyedController == true)
+        {
+          //  if(currentButtonPress == neededButtonInt)
+         ////   {
+                totalPopped += 1;
+                Destroy(pmb.gameObject);
+
+                if (totalPopped >= 5)
+                {
+                    spawnedCreature.previouslyCaptured = true;
+                    spawnedCreature.totalCaught += 1;
+                    if (spawnedCreature.dateFirstCaught == null)
+                    {
+                        spawnedCreature.dateFirstCaught = System.DateTime.Now.ToShortDateString();
+                    }
+                    scriptController.currencyScript.AddToLocalWallet(spawnedCreature.price);
+                    if (spawnedCreature.currentWeight >= spawnedCreature.heaviestCaught)
+                    {
+                        spawnedCreature.heaviestCaught = spawnedCreature.currentWeight;
+                    }
+
+                    if (spawnedCreature.currentWeight <= spawnedCreature.lightestCaught)
+                    {
+                        spawnedCreature.lightestCaught = spawnedCreature.currentWeight;
+                    }
+                    scriptController.CapturePopup(spawnedCreature);
+                    spawnedCreature = null;
+                    scriptController.statTracker.creaturesCaught++;
+
+                    scriptController.playerScript.canMove = true;
+                    ResetMinigame();
+                    gameObject.SetActive(false);
+                }
+                pmb = null;
+                SelectRandomBubble();
+
+         //   }
+
+          
+        }
+
+        else
+        {
+            totalPopped += 1;
+            Destroy(pmb.gameObject);
+
+            if (totalPopped >= 5)
             {
-                spawnedCreature.lightestCaught = spawnedCreature.currentWeight;
-            }
-            scriptController.CapturePopup(spawnedCreature);
-            spawnedCreature = null;
-            scriptController.statTracker.creaturesCaught++;
+                spawnedCreature.previouslyCaptured = true;
+                spawnedCreature.totalCaught += 1;
+                if (spawnedCreature.dateFirstCaught == null)
+                {
+                    spawnedCreature.dateFirstCaught = System.DateTime.Now.ToShortDateString();
+                }
+                scriptController.currencyScript.AddToLocalWallet(spawnedCreature.price);
+                if (spawnedCreature.currentWeight >= spawnedCreature.heaviestCaught)
+                {
+                    spawnedCreature.heaviestCaught = spawnedCreature.currentWeight;
+                }
+
+                if (spawnedCreature.currentWeight <= spawnedCreature.lightestCaught)
+                {
+                    spawnedCreature.lightestCaught = spawnedCreature.currentWeight;
+                }
+                scriptController.CapturePopup(spawnedCreature);
+                spawnedCreature = null;
+                scriptController.statTracker.creaturesCaught++;
 
                 scriptController.playerScript.canMove = true;
-            ResetMinigame();
-            gameObject.SetActive(false);
+                ResetMinigame();
+                gameObject.SetActive(false);
+            }
+            pmb = null;
+            SelectRandomBubble();
         }
-        pmb = null;
-        SelectRandomBubble();
+
+
+
     }
 
     public void ClosePopIcon()
     {
-        Destroy(gameObject);
+       // Destroy(gameObject);
     }
 
     public void InitialisePopIcon()
@@ -181,12 +247,16 @@ public class PopMinigameController : MonoBehaviour
 
     public void ResetMinigame()
     {
+        print("trigger"); 
         PopMinigameButton pmb;
         GameObject theSelectedButton = GameObject.Find("Bubble QTE(Clone)");
 
+        totalSpawned = 0;
+        totalPopped = 0;
+        gameObject.SetActive(false);
         for (int i = 0; i < baseSpawned + 1; i++)
         {
-            if(theSelectedButton != null)
+            if(theSelectedButton != null && GameObject.Find("Bubble QTE(Clone)")!=null)
             {
                 pmb = GameObject.Find("Bubble QTE(Clone)").GetComponent<PopMinigameButton>();
             }
@@ -205,25 +275,26 @@ public class PopMinigameController : MonoBehaviour
 
           
         }
-        totalSpawned = 0;
-        totalPopped = 0;
-        gameObject.SetActive(false);
+   
 
-        //FIND ME. BUBBLES NOT DESTROYING. BUBBLE ID LINKIN WITH BUTTON ID
     }
 
     public void SelectRandomBubble()
     {
         if(pmb == null)
         {
-            pmb = GameObject.Find("Bubble QTE(Clone)").GetComponent<PopMinigameButton>();
+            if(GameObject.Find("Bubble QTE(Clone)"))
+            {
+                pmb = GameObject.Find("Bubble QTE(Clone)").GetComponent<PopMinigameButton>();
+            }
+         
         } 
       
         if(pmb != null)
         {
             //if(totalSpawned <= baseSpawned)
            // {
-           if(pmb.platformDetection.controllerInput == true)
+           if(pmb.platformDetection.controllerInput == true && pmb!=null)
             {
                 eventSystem.SetSelectedGameObject(pmb.gameObject);
             }

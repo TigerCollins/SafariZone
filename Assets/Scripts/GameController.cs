@@ -393,16 +393,14 @@ public class GameController : MonoBehaviour
             {
                 if (selectedButton != null)
                 {
-
+                    popMinigameController.neededButtonInt = selectedButton.neededButtonInt;
+                    popMinigameController.currentButtonPress = currentButtonPress;
                     if (selectedButton.neededButtonInt == currentButtonPress)
                     {
+                        selectedButton.canBeDestroyedController = true;
                         selectedButton.gameObject.GetComponent<Button>().onClick.Invoke();
                     }
 
-                    else
-                    {
-                        print("WRONG BUTTON");
-                    }
                 }
             }
 
@@ -425,7 +423,7 @@ public class GameController : MonoBehaviour
         creatureText.text = creature.name;
         creatureValueText.text = "+" + creature.price.ToString();
         creatureSprite.sprite = creature.creatureIcon;
-
+        creatureText.transform.parent.GetComponent<Animator>().SetBool("isOn", true);
         StartCoroutine("CloseCaptureText");
     }
 
@@ -433,8 +431,8 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         creatureTextObject.GetComponent<Animator>().SetBool("isOn", true);
-       // yield return new WaitForSeconds(2);
-        //creatureText.GetComponent<Animator>().SetBool("isOn", false);
+        // yield return new WaitForSeconds(2);
+        creatureText.transform.parent.GetComponent<Animator>().SetBool("isOn", false); 
 
     }
 

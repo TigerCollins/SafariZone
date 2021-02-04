@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 5990591460394091232}
   - component: {fileID: 6612001689991879658}
   - component: {fileID: 6770191985244517385}
-  - component: {fileID: 5425152723686900429}
   m_Layer: 5
   m_Name: Bubble QTE
   m_TagString: Untagged
@@ -245,7 +244,7 @@ MonoBehaviour:
   button3: {fileID: 7470574603730967888}
   button4: {fileID: 7343258537683998802}
   button5: {fileID: 6099516010178885792}
-  MasterGroup: {fileID: 5425152723686900429}
+  reticleGroup: {fileID: 4045952287798654760}
   Option1Icon: {fileID: 7489826067311526458}
   Option1Text: {fileID: 0}
   Option2Icon: {fileID: 5218546749345539506}
@@ -278,18 +277,6 @@ MonoBehaviour:
   newVolume2: 0
   newVolume3: 0
   newVolume4: 0
---- !u!225 &5425152723686900429
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549370335842567872}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &587671614810216952
 GameObject:
   m_ObjectHideFlags: 0

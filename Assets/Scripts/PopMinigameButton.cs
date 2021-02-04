@@ -40,7 +40,7 @@ public class PopMinigameButton : MonoBehaviour
     private int counter;
 
     [Header("Canvas Groups")]
-    public CanvasGroup MasterGroup;
+    public CanvasGroup reticleGroup;
     public CanvasGroup Option1Icon;
     public CanvasGroup Option1Text;
     public CanvasGroup Option2Icon;
@@ -51,6 +51,7 @@ public class PopMinigameButton : MonoBehaviour
     public CanvasGroup Option4Text;
     public CanvasGroup Option5Icon;
 public CanvasGroup Option5Text;
+    public bool canBeDestroyedController;
 
 
     // Start is called before the first frame update
@@ -87,7 +88,7 @@ public CanvasGroup Option5Text;
             }
         }
 
-        if(popMinigameController.captureTimer <= 0)
+        if(popMinigameController.captureTimer <= 0f)
         {
             Destroy(gameObject);
         }
@@ -198,8 +199,12 @@ public CanvasGroup Option5Text;
         {
             if (counter == 0)
             {
-                counter += 1;
-                popMinigameController.PopIcon();
+                if(gameController.selectedButton.neededButtonInt == gameController.currentButtonPress)
+                {
+                    counter += 1;
+                    popMinigameController.PopIcon();
+                }
+              
               
                 //counter = 0;
             }
@@ -207,7 +212,9 @@ public CanvasGroup Option5Text;
 
        else
         {
+            popMinigameController.pmb = GetComponent<PopMinigameButton>();
             popMinigameController.PopIcon();
+           
         }
         
        
@@ -216,7 +223,7 @@ public CanvasGroup Option5Text;
     public void ClosePopIcon()
     {
         
-        Destroy(gameObject);
+       // Destroy(gameObject);
       
        // popMinigameController.PopIcon();
    
@@ -235,7 +242,7 @@ public CanvasGroup Option5Text;
     {
         if(platformDetection.controllerInput == false)
         {
-            MasterGroup.alpha = 1;
+            reticleGroup.alpha = 0;
             // IF KEYBOARD IS DISABLED   if()
             Option1Icon.alpha = 0;
             Option2Icon.alpha = 0;
@@ -246,7 +253,7 @@ public CanvasGroup Option5Text;
 
         else
         {
-            MasterGroup.alpha = 1;
+            reticleGroup.alpha = 1;
             Option1Icon.alpha = 1;
             Option2Icon.alpha = 1;
             Option3Icon.alpha = 1;

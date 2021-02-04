@@ -81,7 +81,7 @@ Material:
     - _IntersectionThresholdMax: 0.29
     - _MaskMult: 43.49
     - _MaskPow: 12.57
-    - _Metallic: 0
+    - _Metallic: 0.108
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
