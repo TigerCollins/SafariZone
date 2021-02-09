@@ -94,13 +94,36 @@ public class PlayerController : MonoBehaviour
     public CloseHuntingTutorial closeHuntingTutorial;
     public StartTrapTutorial startTrapTutorial;
     public StartTitleCard startTitleCard;
-    
+    private int timesInteractionTriggered;
+
+    [Header("Gender Details")]
+    public GameObject maleModel;
+ public GameObject femaleModel;
 
 
 
     public void Awake()
     {
-        
+        GenderChange();
+    }
+
+    public void GenderChange()
+    {
+        if(scriptControllerObject.playerData.maleGender == false)
+        {
+            femaleModel.SetActive(true);
+            maleModel.SetActive(false);
+            playerModel = femaleModel;
+            animator = femaleModel.GetComponent<Animator>();
+        }
+
+        else
+        {
+            maleModel.SetActive(true);
+            femaleModel.SetActive(false);
+            playerModel = maleModel;
+            animator = maleModel.GetComponent<Animator>();
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
@@ -118,6 +141,7 @@ public class PlayerController : MonoBehaviour
                 currency.AddToLocalWallet(spawnedCreature.price);
                 spawnedCreature.previouslyCaptured = true;
                 spawnedCreature.totalCaught += 1;
+                FindObjectOfType<AchievementTracker>().AddToHuntCatchCount();
                 if (spawnedCreature.dateFirstCaught == null)
                 {
                     spawnedCreature.dateFirstCaught = System.DateTime.Now.ToShortDateString();
@@ -504,9 +528,14 @@ public class PlayerController : MonoBehaviour
 
     public void Interactions()
     {
+    
+        timesInteractionTriggered+=1;
+        if(timesInteractionTriggered >=3)
+        {
+
             if (trapTrigger != null)
             {
-                if(firstPlaythrough.interactionTriggered)
+                if (firstPlaythrough.interactionTriggered)
                 {
                     firstPlaythrough.interactionTriggered = false;
                 }
@@ -522,6 +551,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 dialogueTrigger.TriggerDialogue();
+                FindObjectOfType<AchievementTracker>().AddToTalkCount();
                 dialogueTrigger = null;
             }
 
@@ -545,7 +575,9 @@ public class PlayerController : MonoBehaviour
                 itemDrop.OnChestTrigger();
                 itemDrop = null;
             }
-        
+            timesInteractionTriggered = 0;
+        }
+
     }
 
     void Movement()

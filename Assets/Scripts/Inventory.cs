@@ -32,6 +32,8 @@ public class Inventory : MonoBehaviour
     public GameObject incenseListContainer;
     public GameObject itemContainerPrefab;
 
+    public UIManager uIManager;
+
 
 
 
@@ -190,77 +192,91 @@ public class Inventory : MonoBehaviour
 
     public void UpdateInventory()
     {
-        print("Inventory called");
+
         list = inventoryObject.Inventory;
         if (list.Count > 0)
         {
+            if(uIManager.backpackCanvasGroup.interactable == false)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    var itemTest = Instantiate(itemContainerPrefab, inventoryContainer.transform);
+                    itemTest.GetComponent<InventorySlotController>().item = list[i];
+                    itemTest.GetComponent<InventorySlotController>().UpdateInfo();
+                    if (itemTest.transform.GetSiblingIndex() == 0 && itemTest.transform.GetComponent<InventorySlotController>().item.name == "Hand Reel")
+                    {
+
+                        Destroy(itemTest);
+                    }
+                    //if(item)
+                    if (list[i].itemTypes == Item.ItemTypes.Lure)
+                    {
+               
+                        for (int ii = 0; ii < wholeLureList.Count; ii++)
+                        {
+                            if (wholeLureList[ii].itemName == list[i].itemName)
+                            {
+                                trap.Add(wholeLureList[ii]);
+                            }
+                        }
+                    }
+
+                    if (list[i].itemTypes == Item.ItemTypes.Whistle)
+                    {
+        
+                        for (int ii = 0; ii < wholeWhistleList.Count; ii++)
+                        {
+                            if (wholeWhistleList[ii].itemName == list[i].itemName)
+                            {
+
+                                whistles.Add(wholeWhistleList[ii]);
+                            }
+                        }
+                    }
+
+                    if (list[i].itemTypes == Item.ItemTypes.Incense)
+                    {
+                   
+                        for (int ii = 0; ii < wholeIncenseList.Count; ii++)
+                        {
+                            if (wholeIncenseList[ii].itemName == list[i].itemName)
+                            {
+                         
+                                incenses.Add(wholeIncenseList[ii]);
+                            }
+                        }
+                    }
+
+                }
+            }
+          
+            if(uIManager.backpackCanvasGroup.interactable == true)
+            {
             
-            for (int i = 0; i < list.Count; i++)
-            {
-                var itemTest = Instantiate(itemContainerPrefab, inventoryContainer.transform);
-                itemTest.GetComponent<InventorySlotController>().item = list[i];
-                itemTest.GetComponent<InventorySlotController>().UpdateInfo();
-                if (itemTest.transform.GetSiblingIndex() == 0 && itemTest.transform.GetComponent<InventorySlotController>().item.name == "Hand Reel")
+                for (int i = 0; i < trap.Count; i++)
                 {
-                    
-                    Destroy(itemTest);
-                }
-                //if(item)
-                if (list[i].itemTypes == Item.ItemTypes.Lure)
-                {
-                    for (int ii = 0; ii < wholeLureList.Count; ii++)
-                    {
-                        if (wholeLureList[ii].itemName == list[i].itemName)
-                        {
-                            trap.Add(wholeLureList[ii]);
-                        }
-                    }
+                    Instantiate(itemContainerPrefab, lureListContainer.transform);
+                    UpdateLureContainerSlots();
                 }
 
-                if (list[i].itemTypes == Item.ItemTypes.Whistle)
+                for (int i = 0; i < incenses.Count; i++)
                 {
-                    for (int ii = 0; ii < wholeWhistleList.Count; ii++)
-                    {
-                        if (wholeWhistleList[ii].itemName == list[i].itemName)
-                        {
-                            whistles.Add(wholeWhistleList[ii]);
-                        }
-                    }
+                    Instantiate(itemContainerPrefab, incenseListContainer.transform);
+                    UpdateIncenseContainerSlots();
                 }
 
-                if (list[i].itemTypes == Item.ItemTypes.Incense)
+                for (int i = 0; i < whistles.Count; i++)
                 {
-                    for (int ii = 0; ii < wholeIncenseList.Count; ii++)
-                    {
-                        if (wholeIncenseList[ii].itemName == list[i].itemName)
-                        {
-                            incenses.Add(wholeIncenseList[ii]);
-                        }
-                    }
+                    Instantiate(itemContainerPrefab, whistlesListContainer.transform);
+                    UpdateWhistleContainerSlots();
                 }
-              
+
             }
 
-            //Lures
-            for (int i = 0; i < trap.Count; i++)
+            else
             {
-                Instantiate(itemContainerPrefab, lureListContainer.transform);
-                UpdateLureContainerSlots();
+                Debug.LogError("OH NO FAILED");
             }
-
-            for (int i = 0; i < incenses.Count; i++)
-            {
-                Instantiate(itemContainerPrefab, incenseListContainer.transform);
-                UpdateIncenseContainerSlots();
-            }
-
-            for (int i = 0; i < whistles.Count; i++)
-            {
-                Instantiate(itemContainerPrefab, whistlesListContainer.transform);
-                UpdateWhistleContainerSlots();
-            }
-
-
 
         }
         if (inventoryContainer.transform.GetChild(0) != null)
@@ -320,102 +336,69 @@ public class Inventory : MonoBehaviour
 
     public void UpdateContainerSlots()
     {
-        int index = 0;
-        foreach(Transform child in inventoryContainer.transform)
+        if(inventoryContainer.activeInHierarchy==true)
         {
-            //Updates slot indexs name and icon
-            InventorySlotController slot = child.GetComponent<InventorySlotController>();
-
-            if(index < list.Count)
+            int index = 0;
+            foreach (Transform child in inventoryContainer.transform)
             {
-                slot.item = list[index];
-            }
+                //Updates slot indexs name and icon
+                InventorySlotController slot = child.GetComponent<InventorySlotController>();
 
-            else
-            {
-                slot.item = null;
-            }
-
-            
-
-            slot.UpdateInfo();
-
-            ForceSerialization();
-            index++;
-        }
-        ForceSerialization();
-        
-    }
-
-    public void UpdateIncenseContainerSlots()
-    {
-        int index = 0;
-        foreach (Transform child in incenseListContainer.transform)
-        {
-            //Updates slot indexs name and icon
-            InventorySlotController slot = child.GetComponent<InventorySlotController>();
-
-            if (index < incenses.Count)
-            {
-                slot.item = incenses[index];
-            }
-
-            else
-            {
-                slot.item = null;
-            }
-
-            if(slot.item == null)
-            {
-                gameObject.Destroy();
-            }
-
-            else if (slot.item.quantity < 1)
-            {
-                for (int i = 0; i < incenses.Count; i++)
+                if (index < list.Count)
                 {
-                    if (slot.item == incenses[i])
-                    {
-                        list.Remove(incenses[i]);
-                    }
-                }
-            }
-
-            slot.UpdateInfo();
-
-            ForceSerialization();
-            index++;
-        }
-        ForceSerialization();
-        incenseListContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
-    }
-    public void UpdateLureContainerSlots()
-    {
-       // DestroyLure();
-        int index = 0;
-        foreach (Transform child in lureListContainer.transform)
-        {
-            //Updates slot indexs name and icon
-            InventorySlotController slot = child.GetComponent<InventorySlotController>();
-            if (slot.item != null)
-            {
-                if (index < trap.Count)
-                {
-                    slot.item = trap[index];
+                    slot.item = list[index];
                 }
 
                 else
                 {
                     slot.item = null;
                 }
-                
-                if (slot.item.quantity < 1)
+
+
+
+                slot.UpdateInfo();
+
+                ForceSerialization();
+                index++;
+            }
+            ForceSerialization();
+
+        }
+
+    }
+
+    public void UpdateIncenseContainerSlots()
+    {
+        if(incenseListContainer.activeInHierarchy==true)
+        {
+            int index = 0;
+            foreach (Transform child in incenseListContainer.transform)
+            {
+                //Updates slot indexs name and icon
+                InventorySlotController slot = child.GetComponent<InventorySlotController>();
+
+                if (index < incenses.Count)
                 {
-                    for (int i = 0; i < trap.Count; i++)
+                    slot.item = incenses[index];
+                }
+
+                else
+                {
+                    slot.item = null;
+                }
+
+                if (slot.item == null)
+                {
+                    gameObject.Destroy();
+                }
+
+                else if (slot.item.quantity < 1)
+                {
+                    for (int i = 0; i < incenses.Count; i++)
                     {
-                        if (slot.item == trap[i])
+                        if (slot.item == incenses[i])
                         {
-                            list.Remove(trap[i]);
+                            list.Remove(incenses[i]);
                         }
                     }
                 }
@@ -425,58 +408,105 @@ public class Inventory : MonoBehaviour
                 ForceSerialization();
                 index++;
             }
+            ForceSerialization();
+            incenseListContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+
+        }
+    }
+    public void UpdateLureContainerSlots()
+    {
+        if(lureListContainer.activeInHierarchy == true)
+        {
+            // DestroyLure();
+            int index = 0;
+            foreach (Transform child in lureListContainer.transform)
+            {
+                //Updates slot indexs name and icon
+                InventorySlotController slot = child.GetComponent<InventorySlotController>();
+                if (slot.item != null)
+                {
+                    if (index < trap.Count)
+                    {
+                        slot.item = trap[index];
+                    }
+
+                    else
+                    {
+                        slot.item = null;
+                    }
+
+                    if (slot.item.quantity < 1)
+                    {
+                        for (int i = 0; i < trap.Count; i++)
+                        {
+                            if (slot.item == trap[i])
+                            {
+                                list.Remove(trap[i]);
+                            }
+                        }
+                    }
+
+                    slot.UpdateInfo();
+
+                    ForceSerialization();
+                    index++;
+                }
+            }
+     
 
            
-        }
+       
         ForceSerialization();
         lureListContainer.transform.GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+        }
     }
 
     public void UpdateWhistleContainerSlots()
     {
-        int index = 0;
-        foreach (Transform child in whistlesListContainer.transform)
+        if(whistlesListContainer.activeInHierarchy==true)
         {
-            //Updates slot indexs name and icon
-            InventorySlotController slot = child.GetComponent<InventorySlotController>();
-
-            if (index < whistles.Count)
+            int index = 0;
+            foreach (Transform child in whistlesListContainer.transform)
             {
-                slot.item = whistles[index];
-            }
+                //Updates slot indexs name and icon
+                InventorySlotController slot = child.GetComponent<InventorySlotController>();
 
-            else
-            {
-                slot.item = null;
-            }
-
-            if (slot.item.quantity < 1)
-            {
-                for (int i = 0; i < whistles.Count; i++)
+                if (index < whistles.Count)
                 {
-                    if (slot.item == whistles[i])
+                    slot.item = whistles[index];
+                }
+
+                else
+                {
+                    slot.item = null;
+                }
+
+                if (slot.item.quantity < 1)
+                {
+                    for (int i = 0; i < whistles.Count; i++)
                     {
-                        list.Remove(whistles[i]);
+                        if (slot.item == whistles[i])
+                        {
+                            list.Remove(whistles[i]);
+                        }
                     }
                 }
+
+                slot.UpdateInfo();
+
+                ForceSerialization();
+                index++;
             }
-
-            slot.UpdateInfo();
-
             ForceSerialization();
-            index++;
         }
-        ForceSerialization();
-    }
 
-    //COOL CODE
-    /*if(Input.GetKeyDown(KeyCode.I))
-    {
-        inventoryEnabled = !inventoryEnabled;
+        //COOL CODE
+        /*if(Input.GetKeyDown(KeyCode.I))
+        {
+            inventoryEnabled = !inventoryEnabled;
+        }
+        */
+   
     }
-    */
-    public void Update()
-    {
-
-    }
+       
 }

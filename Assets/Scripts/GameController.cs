@@ -434,7 +434,7 @@ public class GameController : MonoBehaviour
         // yield return new WaitForSeconds(2);
         creatureText.transform.parent.GetComponent<Animator>().SetBool("isOn", false); 
 
-    }
+    } 
 
     public void AddToGameCount(int count)
     {

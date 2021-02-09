@@ -247,7 +247,7 @@ public class PopMinigameController : MonoBehaviour
 
     public void ResetMinigame()
     {
-        print("trigger"); 
+       
         PopMinigameButton pmb;
         GameObject theSelectedButton = GameObject.Find("Bubble QTE(Clone)");
 
@@ -294,7 +294,7 @@ public class PopMinigameController : MonoBehaviour
         {
             //if(totalSpawned <= baseSpawned)
            // {
-           if(pmb.platformDetection.controllerInput == true && pmb!=null)
+           if(pmb.platformDetection.controllerInput == true && pmb.gameObject!=null)
             {
                 eventSystem.SetSelectedGameObject(pmb.gameObject);
             }

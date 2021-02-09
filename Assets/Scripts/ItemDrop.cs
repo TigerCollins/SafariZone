@@ -118,16 +118,10 @@ public class ItemDrop : MonoBehaviour
             //Stop Duplicates
             if (hasBeenTriggered)
             {
+                print(backpack.Inventory.Capacity);
                 //Checks inventory list
                 for (int i = 0; i < backpack.Inventory.Capacity; i++)
                 {
-                    //Adds inventory item based on whole list
-                    if(item == backpack.Inventory[i])
-                    {
-                        Debug.Log("A " + selectedItem + " extra was added.");
-                        item.quantity+=1;
-                    }
-
                     //Adds inventory item based on what inventory doesnt have
                     if (!backpack.Inventory.Contains(selectedItem))
                     {
@@ -137,7 +131,16 @@ public class ItemDrop : MonoBehaviour
                         item.amountOwnedLifetime += 1;
                         gameController.inventoryScript.ResetInventory();
                         gameController.inventoryScript.UpdateInventory();
+                        return;
                     }
+                    //Adds inventory item based on whole list
+                    if (item == backpack.Inventory[i])
+                    {
+                        Debug.Log("A " + selectedItem + " extra was added.");
+                        item.quantity+=1;
+                    }
+
+                   
                 }
                 
 

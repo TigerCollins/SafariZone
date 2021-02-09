@@ -21,6 +21,7 @@ public class MenuPrefabController : MonoBehaviour
     public Animator backpackMenuAnimator;
     public GameObject optionsMenuPrefab;
     public Animator optionsMenuAnimator;
+    public CanvasGroup menuCanvasGroup;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,7 @@ public class MenuPrefabController : MonoBehaviour
 
     public void CloseMenu()
     {
+        menuCanvasGroup.interactable = false;
         backpackMenuAnimator.SetBool("IsOpen", false);
         parkPadAnimator.SetBool("IsOpen", false);
         indexMenuAnimator.SetBool("IsOpen", false);
@@ -71,6 +73,7 @@ public class MenuPrefabController : MonoBehaviour
 
         public void GoToMainMenu()
     {
+        menuCanvasGroup.interactable = true;
         backpackMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;
         parkPadAnimator.gameObject.GetComponent<CanvasGroup>().interactable = true;
         indexMenuAnimator.gameObject.GetComponent<CanvasGroup>().interactable = false;

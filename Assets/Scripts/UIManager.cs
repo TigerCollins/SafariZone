@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
     public RectTransform contentPanel3;
     public RectTransform contentPanel4;
     public float verticalScrollPower = 1500f;
+    public CanvasGroup backpackCanvasGroup;
    
 
     [Header("Main Menu")]
@@ -146,7 +147,15 @@ public class UIManager : MonoBehaviour
     }
 
        
-    
+    public void TurnOnBackpackCanvasGroup()
+    {
+        backpackCanvasGroup.interactable = true;
+    }
+
+    public void TurnOffBackpackCanvasGroup()
+    {
+
+    }
 
     public void SnapTo(RectTransform target)
     {

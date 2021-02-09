@@ -85,6 +85,7 @@ public class TrapTrigger : MonoBehaviour
 
     public void CheckIfTrapPlaced()
     {
+
         if (trapPlaced)
         {
             TriggerTrap();

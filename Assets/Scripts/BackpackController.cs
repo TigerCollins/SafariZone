@@ -47,163 +47,190 @@ public class BackpackController : MonoBehaviour
 
     public void CategoryChanger()
     {
-        if (allItems.isOn)
+        if(gameObject.activeInHierarchy==true)
         {
-            allItemsCanvas.alpha = visible;
-            allItemsCanvas.interactable = true;
-            allItemsCanvas.blocksRaycasts = true;
-            //allItemsContainer.SetActive(true);
-            luresCanvas.alpha = invisible;
-            luresCanvas.interactable = false;
-            luresCanvas.blocksRaycasts = false;
-            //luresContainer.SetActive(false);
-            incenseCanvas.alpha = invisible;
-            incenseCanvas.interactable = false;
-            incenseCanvas.blocksRaycasts = false;
-            //incenseContainer.SetActive(false);
-            whistlesCanvas.alpha = invisible;
-            whistlesCanvas.interactable = false;
-            whistlesCanvas.blocksRaycasts = false;
-            //whistlesContainer.SetActive(false);
-            if (allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0) != null)
+            if (allItems.isOn)
             {
-                allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
-                eventSystem.SetSelectedGameObject(allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
-            }
-
-            //inventory.inventoryContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().Select();
-             if (inventory.inventoryContainer.transform.GetChild(0).transform.GetChild(5) != null)
-            {
-              //   inventory.inventoryContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();
-              
-             }
-        }
-
-        if (lureToggle.isOn)
-        {
-            allItemsCanvas.alpha = invisible;
-            allItemsCanvas.interactable = false;
-            allItemsCanvas.blocksRaycasts = false;
-            //allItemsContainer.SetActive(true);
-            luresCanvas.alpha = visible;
-            luresCanvas.interactable = true;
-            luresCanvas.blocksRaycasts = true;
-            //luresContainer.SetActive(false);
-            incenseCanvas.alpha = invisible;
-            incenseCanvas.interactable = false;
-            incenseCanvas.blocksRaycasts = false;
-            //incenseContainer.SetActive(false);
-            whistlesCanvas.alpha = invisible;
-            whistlesCanvas.interactable = false;
-            whistlesCanvas.blocksRaycasts = false;
-            //whistlesContainer.SetActive(false);
-
-
-            if (luresContainer.transform.GetChild(0).GetChild(0).transform.childCount > 0)
-            {
-                if (luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                allItemsCanvas.alpha = visible;
+                allItemsCanvas.interactable = true;
+                allItemsCanvas.blocksRaycasts = true;
+                //allItemsContainer.SetActive(true);
+                luresCanvas.alpha = invisible;
+                luresCanvas.interactable = false;
+                luresCanvas.blocksRaycasts = false;
+                //luresContainer.SetActive(false);
+                incenseCanvas.alpha = invisible;
+                incenseCanvas.interactable = false;
+                incenseCanvas.blocksRaycasts = false;
+                //incenseContainer.SetActive(false);
+                whistlesCanvas.alpha = invisible;
+                whistlesCanvas.interactable = false;
+                whistlesCanvas.blocksRaycasts = false;
+                //whistlesContainer.SetActive(false);
+                if (allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0) != null)
                 {
-                    luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
-                    eventSystem.SetSelectedGameObject(luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
-                }
-            }
-
-            else
-            {
-                Instantiate(emptyTextPrefab, luresContainer.transform.GetChild(0).GetChild(0));
-                luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
-            }
-
-              if (inventory.lureListContainer.transform.GetChild(0).transform.GetChild(5) != null)
-              {
-                // inventory.lureListContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();
-              }
-        }
-
-        if (incenseToggle.isOn)
-        {
-            allItemsCanvas.alpha = invisible;
-            allItemsCanvas.interactable = false;
-            allItemsCanvas.blocksRaycasts = false;
-            //allItemsContainer.SetActive(true);
-            luresCanvas.alpha = invisible;
-            luresCanvas.interactable = false;
-            luresCanvas.blocksRaycasts = false;
-            //luresContainer.SetActive(false);
-            incenseCanvas.alpha = visible;
-            incenseCanvas.interactable = true;
-            incenseCanvas.blocksRaycasts = true;
-            //incenseContainer.SetActive(false);
-            whistlesCanvas.alpha = invisible;
-            whistlesCanvas.interactable = false;
-            whistlesCanvas.blocksRaycasts = false;
-            //whistlesContainer.SetActive(false);
-
-
-            if (incenseContainer.transform.GetChild(0).GetChild(0).transform.childCount > 0)
-            {
-                if(incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
-                {
-                    incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
-                    eventSystem.SetSelectedGameObject(incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
-                    // travelPassContainer.transform.parent.parent.gameObject.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
+                    allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                    eventSystem.SetSelectedGameObject(allItemsContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
                 }
 
-            }
-
-              else
-            {
-                Instantiate(emptyTextPrefab, incenseContainer.transform.GetChild(0).GetChild(0));
-
-                incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
-            }
-            
-
-              if (inventory.incenseListContainer.transform.GetChild(0).transform.GetChild(5) != null)
-              {
-               /// inventory.incenseListContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();
-             }
-        }
-
-        if (whistlesToggle.isOn)
-        {
-            allItemsCanvas.alpha = invisible;
-            allItemsCanvas.interactable = false;
-            allItemsCanvas.blocksRaycasts = false;
-            //allItemsContainer.SetActive(true);
-            luresCanvas.alpha = invisible;
-            luresCanvas.interactable = false;
-            luresCanvas.blocksRaycasts = false;
-            //luresContainer.SetActive(false);
-            incenseCanvas.alpha = invisible;
-            incenseCanvas.interactable = false;
-            incenseCanvas.blocksRaycasts = false;
-            //incenseContainer.SetActive(false);
-            whistlesCanvas.alpha = visible;
-            whistlesCanvas.interactable = true;
-            whistlesCanvas.blocksRaycasts = true;
-            //whistlesContainer.SetActive(false);
-
-            if (whistlesContainer.transform.GetChild(0).GetChild(0).transform.childCount > 0 )
-            {
-                if (whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                //inventory.inventoryContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().Select();
+              /*  if (inventory.inventoryContainer.transform.GetChild(0).transform.GetChild(5) != null)
                 {
-                    whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
-                    eventSystem.SetSelectedGameObject(whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
+                    //   inventory.inventoryContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();
+
                 }
+                */
             }
 
-
-            else
+            if (lureToggle.isOn)
             {
-                Instantiate(emptyTextPrefab, whistlesContainer.transform.GetChild(0).GetChild(0));
-                whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
-            }
-             if(inventory.whistlesListContainer.transform.GetChild(0).transform.GetChild(5) != null)
-             {
-               //  inventory.whistlesListContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();
+                allItemsCanvas.alpha = invisible;
+                allItemsCanvas.interactable = false;
+                allItemsCanvas.blocksRaycasts = false;
+                //allItemsContainer.SetActive(true);
+                luresCanvas.alpha = visible;
+                luresCanvas.interactable = true;
+                luresCanvas.blocksRaycasts = true;
+                //luresContainer.SetActive(false);
+                incenseCanvas.alpha = invisible;
+                incenseCanvas.interactable = false;
+                incenseCanvas.blocksRaycasts = false;
+                //incenseContainer.SetActive(false);
+                whistlesCanvas.alpha = invisible;
+                whistlesCanvas.interactable = false;
+                whistlesCanvas.blocksRaycasts = false;
+                //whistlesContainer.SetActive(false);
+
+
+                if (luresContainer.transform.GetChild(0).GetChild(0).transform.childCount > 0)
+                {
+                    if (luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                    {
+                        luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                        eventSystem.SetSelectedGameObject(luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
+                    }
+                }
+
+                else
+                {
+                    Instantiate(emptyTextPrefab, luresContainer.transform.GetChild(0).GetChild(0));
+                    if(luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                    {
+                        luresContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                    }
+               
+                }
+
+               /* if (inventory.lureListContainer.transform.GetChild(0).transform.GetChild(5) != null)
+                {
+                    // inventory.lureListContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();
+                }
+                */
             }
 
+            if (incenseToggle.isOn)
+            {
+                allItemsCanvas.alpha = invisible;
+                allItemsCanvas.interactable = false;
+                allItemsCanvas.blocksRaycasts = false;
+                //allItemsContainer.SetActive(true);
+                luresCanvas.alpha = invisible;
+                luresCanvas.interactable = false;
+                luresCanvas.blocksRaycasts = false;
+                //luresContainer.SetActive(false);
+                incenseCanvas.alpha = visible;
+                incenseCanvas.interactable = true;
+                incenseCanvas.blocksRaycasts = true;
+                //incenseContainer.SetActive(false);
+                whistlesCanvas.alpha = invisible;
+                whistlesCanvas.interactable = false;
+                whistlesCanvas.blocksRaycasts = false;
+                //whistlesContainer.SetActive(false);
+
+
+                if (incenseContainer.transform.GetChild(0).GetChild(0).transform.childCount > 0)
+                {
+                    if (incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                    {
+                        incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                        eventSystem.SetSelectedGameObject(incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
+                        // travelPassContainer.transform.parent.parent.gameObject.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
+                    }
+
+                }
+
+                else
+                {
+                    if(incenseContainer.transform.GetChild(0) != null)
+                    {
+                        if (incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                        {
+                            Instantiate(emptyTextPrefab, incenseContainer.transform.GetChild(0).GetChild(0));
+
+                            incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                        }
+                    }
+                  
+                }
+
+                if(inventory.incenseListContainer.transform.GetChild(0) != null)
+                {
+                    if (inventory.incenseListContainer.transform.GetChild(0).transform.GetChild(5) != null)
+                    {
+                        /// inventory.incenseListContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();
+                    }
+                }
+             
+            }
+
+            if (whistlesToggle.isOn)
+            {
+                allItemsCanvas.alpha = invisible;
+                allItemsCanvas.interactable = false;
+                allItemsCanvas.blocksRaycasts = false;
+                //allItemsContainer.SetActive(true);
+                luresCanvas.alpha = invisible;
+                luresCanvas.interactable = false;
+                luresCanvas.blocksRaycasts = false;
+                //luresContainer.SetActive(false);
+                incenseCanvas.alpha = invisible;
+                incenseCanvas.interactable = false;
+                incenseCanvas.blocksRaycasts = false;
+                //incenseContainer.SetActive(false);
+                whistlesCanvas.alpha = visible;
+                whistlesCanvas.interactable = true;
+                whistlesCanvas.blocksRaycasts = true;
+                //whistlesContainer.SetActive(false);
+
+                if (whistlesContainer.transform.GetChild(0).GetChild(0).transform.childCount > 0)
+                {
+                    if (whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                    {
+                        whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                        eventSystem.SetSelectedGameObject(whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
+                    }
+                }
+
+
+                else
+                {
+                    if(whistlesContainer.transform.GetChild(0)!=null)
+                    {
+                        if (whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
+                        {
+                            Instantiate(emptyTextPrefab, whistlesContainer.transform.GetChild(0).GetChild(0));
+                            whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
+                        }
+                    }
+                   
+                }
+           /*     if (inventory.whistlesListContainer.transform.GetChild(0).transform.GetChild(5) != null)
+                {
+                    //  inventory.whistlesListContainer.transform.GetChild(0).transform.GetChild(5).GetComponent<Button>().onClick.Invoke();
+                }
+                */
+            }
         }
+
     }
 }

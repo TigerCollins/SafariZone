@@ -5282,13 +5282,17 @@ MonoBehaviour:
   backButton: {fileID: 734142331}
   alternateButton: {fileID: 877922534}
   scrollGroup1: {fileID: 0}
+  horizontalScrollGroup1: {fileID: 0}
   scrollGroup2: {fileID: 0}
   scrollGroup3: {fileID: 0}
   scrollGroup4: {fileID: 0}
   contentPanel1: {fileID: 0}
+  horizontalContentPanel1: {fileID: 0}
   contentPanel2: {fileID: 0}
   contentPanel3: {fileID: 0}
   contentPanel4: {fileID: 0}
+  verticalScrollPower: 1500
+  backpackCanvasGroup: {fileID: 0}
   quitMenu: {fileID: 0}
   quitController: {fileID: 0}
   quitKeyboard: {fileID: 0}
@@ -5297,9 +5301,12 @@ MonoBehaviour:
   currentCategory: 0
   triggeredTime: 0
   autoScrollPower: 0
+  isIndexMenu: 0
   levelSelectMap: {fileID: 0}
   creditsRect: {fileID: 0}
   creditsRectScrollPower: 0
+  resolutionSelectedIcon: {fileID: 0}
+  horizontalScrollPower: 0
 --- !u!4 &1551073689
 Transform:
   m_ObjectHideFlags: 0
@@ -5572,6 +5579,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d9bc133b-aff4-405e-b8ed-068437c3e337
     m_ActionName: UI/Quit[/Keyboard/escape,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonEast,/Keyboard/escape,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a3feab48-8ed4-43e2-85b6-0d0c3fab43ee
+    m_ActionName: Player/Page Left[/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4547c9a9-526a-4e98-aa40-993963cbff0b
+    m_ActionName: Player/Page Right[/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 56c5b464-c3d6-4a0d-9382-604f3fdb3423
+    m_ActionName: Player/Scroll Vertical[/Keyboard/upArrow,/Keyboard/w,/Keyboard/downArrow,/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -7692,7 +7711,7 @@ PrefabInstance:
     - target: {fileID: 6066090721646759413, guid: f87a56419cf9ede4892dec1801c744e7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 315.40125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6066090721646759413, guid: f87a56419cf9ede4892dec1801c744e7,
         type: 3}
