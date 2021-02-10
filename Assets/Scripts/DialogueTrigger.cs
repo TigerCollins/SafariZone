@@ -6,7 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     public bool NPC;
     public Dialogue dialogue;
-
+    public bool spokeToBefore;
 
     public void TriggerDialogue()
     {

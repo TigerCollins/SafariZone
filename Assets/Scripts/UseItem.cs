@@ -41,6 +41,7 @@ public class UseItem : MonoBehaviour
     public void UseSelectedItem()
     {
         print("UseItemScript");
+        gameController.gameoverController.ItemUsed(selectedItem);
         if (SceneManager.GetActiveScene().name == "GameWorld")
         {
 

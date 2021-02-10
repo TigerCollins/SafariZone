@@ -125,10 +125,12 @@ public class ItemDrop : MonoBehaviour
                     //Adds inventory item based on what inventory doesnt have
                     if (!backpack.Inventory.Contains(selectedItem))
                     {
+                        gameController.gameoverController.ItemObtained(selectedItem);
                         backpack.Inventory.Add(selectedItem);
                         Debug.Log("Item Added: " + selectedItem);
                         item.quantity += 1;
                         item.amountOwnedLifetime += 1;
+         
                         gameController.inventoryScript.ResetInventory();
                         gameController.inventoryScript.UpdateInventory();
                         return;
@@ -138,6 +140,7 @@ public class ItemDrop : MonoBehaviour
                     {
                         Debug.Log("A " + selectedItem + " extra was added.");
                         item.quantity+=1;
+                        gameController.gameoverController.ItemObtained(selectedItem);
                     }
 
                    

@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public InteractTutorial interactTutorial;
     public Currency currency;
     public LocalAudioManager localAudioManager;
+    public int peopleSpokenTo;
+    public int chestsOpened;
 
     [Header("Movement Variables")]
     public Vector2 moveAxis;
@@ -550,6 +552,12 @@ public class PlayerController : MonoBehaviour
                     firstPlaythrough.interactionTriggered = false;
                 }
 
+                if(dialogueTrigger.spokeToBefore == false)
+                {
+                    peopleSpokenTo += 1;
+                    dialogueTrigger.spokeToBefore = true;
+                }
+
                 dialogueTrigger.TriggerDialogue();
                 FindObjectOfType<AchievementTracker>().AddToTalkCount();
                 dialogueTrigger = null;
@@ -571,6 +579,11 @@ public class PlayerController : MonoBehaviour
                 if (firstPlaythrough.interactionTriggered)
                 {
                     firstPlaythrough.interactionTriggered = false;
+                }
+
+                if(itemDrop.opened == false)
+                {
+                    chestsOpened++;
                 }
                 itemDrop.OnChestTrigger();
                 itemDrop = null;

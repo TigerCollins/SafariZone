@@ -149,9 +149,11 @@ public class PopMinigameController : MonoBehaviour
 
         if(scriptController.platformDetection.controllerInput == true && pmb.canBeDestroyedController == true)
         {
-          //  if(currentButtonPress == neededButtonInt)
-         ////   {
-                totalPopped += 1;
+            //  if(currentButtonPress == neededButtonInt)
+            ////   {
+            ///
+            scriptController.gameoverController.CaughtCreature(spawnedCreature);
+            totalPopped += 1;
                 Destroy(pmb.gameObject);
 
                 if (totalPopped >= 5)
@@ -179,7 +181,8 @@ public class PopMinigameController : MonoBehaviour
                     scriptController.playerScript.canMove = true;
                     ResetMinigame();
                     gameObject.SetActive(false);
-                }
+           
+            }
                 pmb = null;
                 SelectRandomBubble();
 
@@ -195,6 +198,7 @@ public class PopMinigameController : MonoBehaviour
 
             if (totalPopped >= 5)
             {
+                scriptController.gameoverController.CaughtCreature(spawnedCreature);
                 spawnedCreature.previouslyCaptured = true;
                 spawnedCreature.totalCaught += 1;
                 if (spawnedCreature.dateFirstCaught == null)
@@ -214,10 +218,13 @@ public class PopMinigameController : MonoBehaviour
                 scriptController.CapturePopup(spawnedCreature);
                 spawnedCreature = null;
                 scriptController.statTracker.creaturesCaught++;
+                
+
 
                 scriptController.playerScript.canMove = true;
                 ResetMinigame();
                 gameObject.SetActive(false);
+
             }
             pmb = null;
             SelectRandomBubble();

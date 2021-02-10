@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour
     public float sceneTickDelay = .5f;
     public int currentButtonPress;
     public PlatformDetection platformDetection;
+    public bool gameOver;
+    public GameoverController gameoverController;
     
 
     [Header("Game Variables")]
@@ -344,6 +346,7 @@ public class GameController : MonoBehaviour
             if (!GetComponent<DialogueManager>().dialogueActive)
             {
                 playerScript.canMove = false;
+                gameOver = true;
                 GetComponent<DialogueTrigger>().TriggerDialogue();
             }
 
@@ -648,6 +651,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         screenTransition.SetActive(true);
+        
         sceneTransitionBool = true;
         currencyScript.UpdatePlayerData();
         AddDistanceToTotal();
