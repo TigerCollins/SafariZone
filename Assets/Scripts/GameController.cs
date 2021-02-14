@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour
     public PlatformDetection platformDetection;
     public bool gameOver;
     public GameoverController gameoverController;
+    public bool canRemoveDistance = true;
     
 
     [Header("Game Variables")]
@@ -195,26 +196,34 @@ public class GameController : MonoBehaviour
 
     public void TeleportCaveToEgress()
     {
+        canRemoveDistance = false;
         characterController.enabled = false;
-        playerObject.GetComponent<CharacterController>().transform.position = spawnPoints[0].transform.position;
-            playerObject.transform.localRotation = spawnPoints[0].transform.rotation;
+        playerObject.GetComponent<PlayerController>().rigidbody.transform.position = spawnPoints[0].transform.position;
+        playerObject.transform.localRotation = spawnPoints[0].transform.rotation;
             areaID = 1;
             playerScript.areaIdentifierID = 1;
             areaIdentifier = areaIdentifierForSpawn[0];
-        characterController.enabled = true;
+
+            characterController.enabled = true;
+        lastPosition = playerObject.transform.position;
+        canRemoveDistance = true;
 
     }
 
     public void TeleportCaveToGuidance()
     {
+        canRemoveDistance = false;
         characterController.enabled = false;
-        playerObject.GetComponent<CharacterController>().transform.position = spawnPoints[4].transform.position;
+        playerObject.GetComponent<PlayerController>().rigidbody.transform.position = spawnPoints[4].transform.position;
         playerObject.transform.localRotation = spawnPoints[4].transform.rotation;
         areaID = 0;
         playerScript.areaIdentifierID = 0;
         areaIdentifier = areaIdentifierForSpawn[3];
-        characterController.enabled = true;
-     
+   
+            characterController.enabled = true;
+        lastPosition = playerObject.transform.position;
+        canRemoveDistance = true;
+
     }
 
     public void SpawnPoints()
@@ -587,7 +596,11 @@ public class GameController : MonoBehaviour
         if (areaID != 1 && areaID != 6 && areaID != 9 && areaID != 0 && areaID != 13 && GetComponent<FirstPlaythrough>().localFirstTime == false)
         {
             distanceCounted = true;
-            distanceTravelled += (Vector3.Distance(playerObject.transform.position, lastPosition)*distanceMultiplier);
+            if(canRemoveDistance == true)
+            {
+                distanceTravelled += (Vector3.Distance(playerObject.transform.position, lastPosition) * distanceMultiplier);
+            }
+            
             float newDistanceTravelled = maxDistance - distanceTravelled;
             if (pauseIcon.activeInHierarchy != false)
             {

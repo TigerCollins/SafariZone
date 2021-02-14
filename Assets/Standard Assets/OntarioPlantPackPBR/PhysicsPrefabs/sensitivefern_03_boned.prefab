@@ -571,6 +571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013378448958}
+  - component: {fileID: 1462215897730215454}
   m_Layer: 0
   m_Name: sensitivefern_03_boned
   m_TagString: Untagged
@@ -594,6 +595,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &1462215897730215454
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013608027224}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.026391864, y: 0.12848483, z: -0.05163777}
+  m_Size: 0.91510606
+  m_FadeMode: 2
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.094216324
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 137000010271088626}
+  m_Enabled: 1
 --- !u!1 &1000013889609504
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a144aae082d4f478dce882e7a9ff3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeshObject: {fileID: 0}
+  MeshObject: {fileID: 155778}
   StartScaleMultiplier: 1
-  Color: {r: 0, g: 0, b: 0, a: 1}
+  Color: {r: 0.735849, g: 0.36313918, b: 0.17702027, a: 1}
   IsActive: 1
   FadeTime: 1.5
 --- !u!1 &149284
@@ -62,14 +62,13 @@ GameObject:
   - component: {fileID: 474476}
   - component: {fileID: 19823924}
   - component: {fileID: 19904968}
-  - component: {fileID: 114777000177496404}
   m_Layer: 0
   m_Name: IceFog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &474476
 Transform:
   m_ObjectHideFlags: 0
@@ -4604,6 +4603,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4616,6 +4616,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -4651,18 +4652,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &114777000177496404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bebae66b80220b842b22b13cdde1e6fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &155074
 GameObject:
   m_ObjectHideFlags: 0
@@ -4674,7 +4663,6 @@ GameObject:
   - component: {fileID: 413158}
   - component: {fileID: 19892958}
   - component: {fileID: 19975014}
-  - component: {fileID: 114945105022204570}
   m_Layer: 0
   m_Name: Snow
   m_TagString: Untagged
@@ -9090,6 +9078,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9102,6 +9091,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -9137,18 +9127,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &114945105022204570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bebae66b80220b842b22b13cdde1e6fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &155778
 GameObject:
   m_ObjectHideFlags: 0

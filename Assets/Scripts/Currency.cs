@@ -9,6 +9,7 @@ public class Currency : MonoBehaviour
     [SerializeField]
     public int wallet;
     public Text textDisplay;
+    public int newAmount = 0;
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,6 +32,7 @@ public class Currency : MonoBehaviour
     public void AddToLocalWallet(int addAmount)
     {
         wallet += addAmount;
+        newAmount += addAmount;
         textDisplay.text = wallet.ToString("f0");
         UpdatePlayerData();
     }

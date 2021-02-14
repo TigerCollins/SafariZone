@@ -14,9 +14,17 @@ public class GameoverExtraScript : MonoBehaviour
         gameoverController = FindObjectOfType<GameoverController>();
        
         int count = 0;
-        if(transform.parent.name == "Image Group Creature" || transform.parent.name == "Image Group Used" || transform.parent.name == "Image Group Obtained")
+        if(transform.parent.name == "Image Group Creature" || transform.parent.name == "Image Group Obtained" || transform.parent.name == "Creatures Caught")
         {
-            count = gameoverController.creaturesObtained.Count - 4;
+            if(transform.parent.childCount >1)
+            {
+                count = gameoverController.creaturesObtained.Count - 4;
+            }
+            
+            else
+            {
+                count = 0;
+            }
         }
 
         else

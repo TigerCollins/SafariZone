@@ -484,6 +484,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013904721248}
+  - component: {fileID: 3331045723847706868}
+  - component: {fileID: 5029516407011107050}
   m_Layer: 0
   m_Name: sensitivefern_04_boned
   m_TagString: Untagged
@@ -507,6 +509,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3331045723847706868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012238949314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e72c6f397f46114ca26e357c0ff7e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshCombiner: {fileID: 0}
+  lodGroup: {fileID: 0}
+  lodGroupParentIndex: 0
+  lodCount: 0
+--- !u!205 &5029516407011107050
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012238949314}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.045557737, y: 0.12379274, z: -0.015137613}
+  m_Size: 1.0715325
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.09777551
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 137000012604828448}
+  m_Enabled: 1
 --- !u!1 &1000012318472402
 GameObject:
   m_ObjectHideFlags: 0

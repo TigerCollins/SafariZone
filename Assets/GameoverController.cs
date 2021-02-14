@@ -66,13 +66,13 @@ public class GameoverController : MonoBehaviour
 
     public void UpdateCreatureIcons()
     {
-      
+        if (itemsObtained.Count == 0)
+        {
+            Instantiate(creatureIconExtraPrefab, creatureCaughtLayoutGroup.transform);
+        }
         for (int i = 0; i < creaturesObtained.Count; i++)
         {
-            if (creaturesObtained.Count == 0)
-            {
-                Instantiate(creatureIconExtraPrefab, creatureCaughtLayoutGroup.transform);
-            }
+
             if (creatureCaughtLayoutGroup.transform.childCount < 4)
             {
                 Instantiate(creatureIconPrefab, creatureCaughtLayoutGroup.transform);
@@ -110,7 +110,7 @@ public class GameoverController : MonoBehaviour
 
     public void UpdateCoins()
     {
-        coinsText.text = gameController.currencyScript.wallet.ToString();
+        coinsText.text = gameController.currencyScript.newAmount.ToString();
     }
 
     public void UpdateItemsUsedIcons()
@@ -178,7 +178,7 @@ public class GameoverController : MonoBehaviour
 
         if (gameOver == true && gameoverCount <= 0)
         {
-            canvasGroup.alpha = Time.deltaTime;
+        
             UpdateTimeText(); 
             UpdatePeopleSpokenTo(); 
             UpdateChestsOpened();
@@ -188,6 +188,11 @@ public class GameoverController : MonoBehaviour
             UpdateCoins();
             gameoverCount += 1;
 
+        }
+
+        if(gameOver==true)
+        {
+            canvasGroup.alpha += Time.deltaTime *2;
         }
     }
 

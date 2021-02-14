@@ -10,7 +10,7 @@ Material:
   m_Name: IceParticles
   m_Shader: {fileID: 4800000, guid: 3bc67cd3532d0b2429f1a3eddf7f22f7, type: 3}
   m_ShaderKeywords: BlendAlpha Clip_OFF FrameBlend_OFF FresnelFade_OFF SoftParticles_OFF
-    USE_VERTEX_LIGHT VertLight4_ON _BLENDMODE_BLEND
+    VertLight4_ON _BLENDMODE_BLEND
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -130,7 +130,7 @@ Material:
     - _UseParticlesAlphaCutout: 0
     - _UseSoft: 0
     - _UseSoftCutout: 0
-    - _UseVertexLight: 1
+    - _UseVertexLight: 0
     - _UseVertexStreamRandom: 0
     - _WindQuality: 0
     - _ZWrite: 0
@@ -145,7 +145,7 @@ Material:
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 400, g: 400, b: 4, a: 4}
-    - _TintColor: {r: 0.3679245, g: 0.22337645, b: 0.13710395, a: 1}
+    - _TintColor: {r: 0.5332766, g: 0.34191445, b: 0.21586053, a: 1}
     - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.41, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}

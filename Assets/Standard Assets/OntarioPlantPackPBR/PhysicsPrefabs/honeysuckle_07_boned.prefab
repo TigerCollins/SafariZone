@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011235809946}
+  - component: {fileID: 2581720480555357926}
   m_Layer: 0
   m_Name: honeysuckle_07_boned
   m_TagString: Untagged
@@ -32,6 +33,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &2581720480555357926
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010081642772}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.03696394, y: 0.3549762, z: 0.008552462}
+  m_Size: 0.9091142
+  m_FadeMode: 2
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.09897642
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 137000014068273954}
+  m_Enabled: 1
 --- !u!1 &1000010353507254
 GameObject:
   m_ObjectHideFlags: 0
