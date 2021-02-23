@@ -122,7 +122,7 @@ public class TrapTrigger : MonoBehaviour
     public void PlaceTrap()
     {
         trapManager.OpenTrapMenu();
-        
+        scriptController.audioManager.OneShotSFX(scriptController.trapPlace);
         if (trapPlaced)
         {
             BubbleClosed();

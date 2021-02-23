@@ -15,7 +15,9 @@ public class ScrollViewReposition : MonoBehaviour
 
     public void Start()
     {
-        UpdateArrayValue(1);
+
+       // UpdateArrayValue(1);
+
     }
 
     public void UpdateArrayValue(int newArrayValue)

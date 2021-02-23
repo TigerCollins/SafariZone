@@ -33,6 +33,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource shrubSource1;
     public AudioSource shrubSource2;
     public AudioSource footstep;
+    public AudioSource sfx;
 
     [Header("Menu SFX")]
     public AudioSource menuHover;
@@ -111,6 +112,17 @@ public class AudioManager : MonoBehaviour
     {
         footstep.pitch = footstepsCurrentPitch;
         footstep.Play();
+    }
+
+    public void OneShotSFX(AudioClip audioClip)
+    {
+        if (!sfx.isPlaying)
+        {
+            sfx.clip = audioClip;
+
+            sfx.Play();
+        }
+           
     }
 
     public void OneShotShrub(AudioClip audioClip)

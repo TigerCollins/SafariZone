@@ -163,9 +163,10 @@ public class BackpackController : MonoBehaviour
                 {
                     if(incenseContainer.transform.GetChild(0) != null)
                     {
+                        Instantiate(emptyTextPrefab, incenseContainer.transform.GetChild(0).GetChild(0));
                         if (incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
                         {
-                            Instantiate(emptyTextPrefab, incenseContainer.transform.GetChild(0).GetChild(0));
+                           
 
                             incenseContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
                         }
@@ -216,9 +217,10 @@ public class BackpackController : MonoBehaviour
                 {
                     if(whistlesContainer.transform.GetChild(0)!=null)
                     {
+                        Instantiate(emptyTextPrefab, whistlesContainer.transform.GetChild(0).GetChild(0));
                         if (whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>() != null)
                         {
-                            Instantiate(emptyTextPrefab, whistlesContainer.transform.GetChild(0).GetChild(0));
+                           
                             whistlesContainer.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<InventorySlotController>().UpdateInventorySelected();
                         }
                     }

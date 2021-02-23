@@ -107,13 +107,21 @@ public class GraphicsManager : MonoBehaviour
             ambientOcclusion = playerData.ambientOcclusion;
         timer = 0;
         ChromaticAberrationStartup();
+        SetGlobalChromaticAberration();
         FilmGrainStartup();
+        SetGlobalFilmGrain();
         VignetteStartup();
+        SetGlobalVignette();
         DynamicResolutionStartup();
+        SetGlobalDynamicResolution();
         VSyncStartup();
+        SetGlobalVsync();
         TextureResolutionStartup();
+        SetGlobalTextureResolution();
         AntiAliasingStartup();
+        SetGlobalAntiAliasing();
         AmbientOcclusionStartUp();
+        SetGlobalAmbientOcclusion();
         sceneChanging = false;
     }
 

@@ -70,6 +70,15 @@ public class LocalAudioManager : MonoBehaviour
 
     }
 
+    public void OneShotSFX(AudioClip gameClip)
+    {
+        if (audioManager != null)
+        {
+            audioManager.OneShotSFX(gameClip);
+        }
+
+    }
+
     public void MasterVolume()
     {
         float volumeValue = masterSlider.value;

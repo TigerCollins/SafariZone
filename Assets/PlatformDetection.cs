@@ -31,13 +31,15 @@ public class PlatformDetection : MonoBehaviour
     public Sprite xboxBumperRight;
     public Sprite xboxBumperLeft;
     public Sprite xboxAnalogueLeft;
+    public Sprite xboxStart;
 
-    [Header("UI Elements - Xbox")]
+    [Header("UI Elements - Playstation")]
     public Sprite playstationBack;
     public Sprite playstationSelect;
     public Sprite playstationBumperRight;
     public Sprite playstationBumperLeft;
     public Sprite playstationAnalogueLeft;
+    public Sprite playstationStart;
 
     [Header("UI Elements - Keyboard")]
     public Sprite keyboardBack;
@@ -45,6 +47,7 @@ public class PlatformDetection : MonoBehaviour
     public Sprite keyboardLeft;
     public Sprite keyboardRight;
     public Sprite keyboardArrowScroll;
+    public Sprite keyboardX;
 
     [Header("Main Menu")]
     public Image Select;

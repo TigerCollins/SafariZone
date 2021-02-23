@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
     public bool gameOver;
     public GameoverController gameoverController;
     public bool canRemoveDistance = true;
+
     
 
     [Header("Game Variables")]
@@ -104,6 +105,14 @@ public class GameController : MonoBehaviour
     public Text pauseMenuText;
     public Image areaPopupIcon;
     public AreaIdentifier[] areaIdentifierForSpawn;
+    public GameObject multiplerNotification;
+
+    [Header("Audio Clip Holder")]
+    public AudioClip trapPlace;
+ public AudioClip coinGained;
+    public AudioClip creatureSpooked;
+    public AudioClip fishingStarted;
+    public AudioClip chestOpen;
 
     [Header("Timer Popup")]
     public GameObject pauseIcon;
@@ -173,10 +182,21 @@ public class GameController : MonoBehaviour
             audioManager.ChangeRouteSoundtrackClip(PlayerPrefs.GetInt("AreaID"), false);
         }
         SpawnPoints();
+        SetKeyboardQTELocal();
 
 
 
+    }
 
+    public void SetKeyboardQTELocal()
+    {
+        popMinigameController.keyboardQTEEvent = !playerData.quicktimeUseMouse;
+    }
+
+    public void SetKeyboardQTEGlobal(bool useMouse)
+    {
+        popMinigameController.keyboardQTEEvent = !useMouse;
+        playerData.quicktimeUseMouse = useMouse;
     }
 
     private void FixedUpdate()
@@ -332,6 +352,24 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
+        if(distanceMultiplier != 1)
+        {
+            if (multiplerNotification.activeInHierarchy == false)
+            {
+                multiplerNotification.SetActive(true);
+            }
+        }
+
+        else
+        {
+            if (multiplerNotification.activeInHierarchy == true)
+            {
+                multiplerNotification.SetActive(false);
+            }
+        }
+       // 
+
+
         selectedButton = popMinigameController.pmb;
         if(selectedButton !=null)
         {
@@ -418,7 +456,20 @@ public class GameController : MonoBehaviour
 
             else
             {
+               if (popMinigameController.keyboardQTEEvent ==true)
+                {
+                    if (selectedButton != null)
+                    {
+                        popMinigameController.neededButtonInt = selectedButton.neededButtonInt;
+                        popMinigameController.currentButtonPress = currentButtonPress;
+                        if (selectedButton.neededButtonInt == currentButtonPress)
+                        {
+                            selectedButton.canBeDestroyedController = true;
+                            selectedButton.gameObject.GetComponent<Button>().onClick.Invoke();
+                        }
 
+                    }
+                }
             }
            
         }
@@ -436,6 +487,7 @@ public class GameController : MonoBehaviour
         creatureValueText.text = "+" + creature.price.ToString();
         creatureSprite.sprite = creature.creatureIcon;
         creatureText.transform.parent.GetComponent<Animator>().SetBool("isOn", true);
+        audioManager.OneShotSFX(coinGained);
         StartCoroutine("CloseCaptureText");
     }
 

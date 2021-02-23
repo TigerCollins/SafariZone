@@ -9,6 +9,7 @@ TagManager:
   - IntroDialogue
   - StartFall
   - FallEnd
+  - PathCollider
   layers:
   - Default
   - TransparentFX

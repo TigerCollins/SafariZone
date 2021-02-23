@@ -109,6 +109,7 @@ public class UIManager : MonoBehaviour
                 {
                     currentCategory -= 1;
                     ExecuteEvents.Execute(itemCategories[currentCategory].gameObject, new BaseEventData(eventSystem), ExecuteEvents.submitHandler); ;
+         
                     triggerCount += 1;
                 }
 
@@ -137,8 +138,9 @@ public class UIManager : MonoBehaviour
                 if (currentCategory < itemCategories.Length -1)
                 {
                     currentCategory += 1;
+
                     ExecuteEvents.Execute(itemCategories[currentCategory].gameObject, new BaseEventData(eventSystem), ExecuteEvents.submitHandler); ;
-                    
+   
                     triggerCount += 1;
                 }
             }
@@ -146,6 +148,10 @@ public class UIManager : MonoBehaviour
         triggeredTime = 0.1f;
     }
 
+    public void SetCurrentCategory(int localCurrentCategory)
+    {
+        currentCategory = localCurrentCategory;
+    }
        
     public void TurnOnBackpackCanvasGroup()
     {
@@ -377,7 +383,7 @@ public class UIManager : MonoBehaviour
             
         }
 
-        if(platformDetection.controllerInput == false && sceneName == "ItemShop" || sceneName == "Inventory" || sceneName == "Index" || sceneName == "SpawnSelect" || sceneName == "Credits" || sceneName == "GameWorld")
+        if(platformDetection.controllerInput == false && sceneName == "ItemShop" || sceneName == "Inventory" || sceneName == "Index" || sceneName == "SpawnSelect" || sceneName == "Credits" || sceneName == "GameWorld" || sceneName == "Options")
         {
 
                 if (scrollGroup1 != null)

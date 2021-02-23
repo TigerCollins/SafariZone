@@ -15,6 +15,7 @@ public class PopMinigameController : MonoBehaviour
     public float baseCaptureTimer = 1f;
     public float captureTimerMultiplier;
     public float captureTimer;
+    public bool keyboardQTEEvent = false;
 
     public GameObject spawnpointContainer;
     public Transform[] spawnpoints;
@@ -201,6 +202,7 @@ public class PopMinigameController : MonoBehaviour
                 scriptController.gameoverController.CaughtCreature(spawnedCreature);
                 spawnedCreature.previouslyCaptured = true;
                 spawnedCreature.totalCaught += 1;
+
                 if (spawnedCreature.dateFirstCaught == null)
                 {
                     spawnedCreature.dateFirstCaught = System.DateTime.Now.ToShortDateString();

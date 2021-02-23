@@ -60,7 +60,9 @@ public class PlayerController : MonoBehaviour
     public HuntingZone huntingZone;
     public float baseHuntingTimer;
     public float distanceTravelled = 0;
+    public float distanceMultipler = 1;
     private Vector3 lastPosition;
+    public AudioClip huntingWinSound;
 
     [Header("Audio Options")]
     public float baseFootstepTimer;
@@ -130,12 +132,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
     {
+
         if (collision.gameObject.GetComponent<HuntingCreature>())
         {
             bool tempRunningAway = collision.collider.GetComponent<HuntingCreature>().runningAway;
             bool tempNoticed = collision.collider.GetComponent<HuntingCreature>().noticed;
             Creature spawnedCreature = collision.collider.GetComponent<HuntingCreature>().selectedCreature;
             print(collision.collider.GetComponent<HuntingCreature>().selectedCreature);
+         
             if (!tempRunningAway && tempNoticed)
             {
                 firstPlaythrough.huntingTriggered = false;
@@ -143,6 +147,7 @@ public class PlayerController : MonoBehaviour
                 currency.AddToLocalWallet(spawnedCreature.price);
                 spawnedCreature.previouslyCaptured = true;
                 spawnedCreature.totalCaught += 1;
+                scriptControllerObject.audioManager.OneShotSFX(huntingWinSound);
                 FindObjectOfType<AchievementTracker>().AddToHuntCatchCount();
                 if (spawnedCreature.dateFirstCaught == null)
                 {
@@ -290,12 +295,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<SpeedModifier>() && valueChanged == false && areaIdentifierID == 7)
+        if (areaIdentifierID == 7 && other.tag == "PathCollider")
         {
-            scriptControllerObject.distanceMultiplier = 1.25f;
-
-
-            valueChanged = true;
+            scriptControllerObject.distanceMultiplier = 1f;
         }
     }
       
@@ -306,10 +308,9 @@ public class PlayerController : MonoBehaviour
             huntingZone = null;
         }
 
-        if (other.GetComponent<SpeedModifier>() && valueChanged == true && areaIdentifierID == 7)
+        if (other.tag == "PathCollider" && areaIdentifierID == 7)
         {
-            scriptControllerObject.distanceMultiplier = 1f;
-            valueChanged = false;
+            scriptControllerObject.distanceMultiplier = 4f;
         }
 
         if (other.GetComponent<TeleportCave>())
@@ -356,6 +357,11 @@ public class PlayerController : MonoBehaviour
             CameraMove();
             if (canMove)
             {
+            if(scriptControllerObject.eventSystem.currentSelectedGameObject != null)
+            {
+                scriptControllerObject.eventSystem.SetSelectedGameObject(null);
+            }
+          
                 Movement();
         }
         
@@ -404,112 +410,124 @@ public class PlayerController : MonoBehaviour
 
     void AnimationMovement()
     {
-        if (canMove && rigidbody.velocity != new Vector3(0, rigidbody.velocity.y, 0))
-        {
-            verticalMovement = Mathf.Abs(moveAxis.y);
-            horizontalMovement = Mathf.Abs(moveAxis.x);
 
-           
+            if (canMove && rigidbody.velocity != new Vector3(0, rigidbody.velocity.y, 0))
+            {
+
+                verticalMovement = Mathf.Abs(moveAxis.y);
+                horizontalMovement = Mathf.Abs(moveAxis.x);
+
+
                 move = Mathf.Clamp(verticalMovement + horizontalMovement, 0, 1);
-            
-           
 
-            /*
-            if (!valueChanged && areaIdentifierID == 7)
-            {
-                move = Mathf.MoveTowards(move, Mathf.Clamp(verticalMovement + horizontalMovement, 0, .5f), animationTransitionSpeed * Time.deltaTime);
+
+
+                /*
+                if (!valueChanged && areaIdentifierID == 7)
+                {
+                    move = Mathf.MoveTowards(move, Mathf.Clamp(verticalMovement + horizontalMovement, 0, .5f), animationTransitionSpeed * Time.deltaTime);
+                }
+
+                else
+                {
+
+                }
+                */
             }
 
             else
             {
-               
+                move = Mathf.MoveTowards(move, 0, Time.deltaTime);
             }
-            */
-        }
-
-        else
-        {
-            move = Mathf.MoveTowards(move, 0, Time.deltaTime);
-        }
 
 
-        animator.SetFloat("Blend", move);
+            animator.SetFloat("Blend", move);
 
 
 
-        if(canMove)
-        {
-            //Cancle Idle Timer
-            if (moveAxis != Vector2.zero && idleTimer != baseIdleTimer)
+            if (canMove)
             {
-                idleTimer = baseIdleTimer;
-                animator.SetBool("Idle", false);
+                //Cancle Idle Timer
+                if (moveAxis != Vector2.zero && idleTimer != baseIdleTimer)
+                {
+                    idleTimer = baseIdleTimer;
+                    animator.SetBool("Idle", false);
+                }
             }
-        }
 
 
-        //Idle Timer
-        if (moveAxis == Vector2.zero)
-        {
-            if (idleTimer <= 0)
+            //Idle Timer
+            if (moveAxis == Vector2.zero)
             {
-                animator.SetBool("Idle", true);
+                if (idleTimer <= 0)
+                {
+                    animator.SetBool("Idle", true);
+                }
+                else
+                {
+                    idleTimer -= Time.deltaTime;
+                }
             }
+
+            //Sneak
+            if (isSneaking)
+            {
+                animator.SetBool("isSneaking", true);
+            }
+
             else
             {
-                idleTimer -= Time.deltaTime;
+                animator.SetBool("isSneaking", false);
             }
-        }
 
-        //Sneak
-        if (isSneaking)
-        {
-            animator.SetBool("isSneaking", true);
-        }
-
-        else
-        {
-            animator.SetBool("isSneaking", false);
-        }
+        
 
     }
 
     void AudioMovement()
     {
         //Footsteps
-        if(moveAxis == new Vector2(0,0) && rigidbody.velocity != new Vector3(0, 0, 0))
+        if (canMove == true)
         {
-            if(!isSneaking)
+            if (rigidbody.velocity != new Vector3(0, 0, 0))
             {
-                footstepTimer = baseFootstepTimer;
-            }
+                if (moveAxis == new Vector2(0, 0) && rigidbody.velocity != new Vector3(0, 0, 0))
+                {
+                    if (!isSneaking)
+                    {
+                        footstepTimer = baseFootstepTimer;
+                    }
 
-            else
-            {
-                footstepTimer = baseCrouchFootstepTimer;
-            }
+                    else
+                    {
+                        footstepTimer = baseCrouchFootstepTimer;
+                    }
 
+                }
+
+                else if (moveAxis != Vector2.zero && rigidbody.velocity != new Vector3(0, 0, 0))
+                {
+                    footstepTimer -= Time.deltaTime;
+                }
+
+
+                if (footstepTimer < 0)
+                {
+                    scriptControllerObject.audioManager.OneShotFootsteps();
+                    if (!isSneaking)
+                    {
+                        footstepTimer = baseFootstepTimer;
+                    }
+
+                    else
+                    {
+                        footstepTimer = baseCrouchFootstepTimer;
+                    }
+                }
+            }
+           
         }
-
-        else if (moveAxis != Vector2.zero && rigidbody.velocity != new Vector3(0, 0, 0))
-        {
-            footstepTimer -= Time.deltaTime;
-        }
-
-
-        if(footstepTimer < 0 )
-        {
-            scriptControllerObject.audioManager.OneShotFootsteps();
-            if (!isSneaking)
-            {
-                footstepTimer = baseFootstepTimer;
-            }
-
-            else
-            {
-                footstepTimer = baseCrouchFootstepTimer;
-            }
-        }
+       
     }
 
     void HuntingZoneCountdown()
@@ -570,6 +588,7 @@ public class PlayerController : MonoBehaviour
                     firstPlaythrough.interactionTriggered = false;
                 }
                 fishingRod.SetBool("isFishing", true);
+                scriptControllerObject.audioManager.OneShotSFX(scriptControllerObject.fishingStarted);
                 fishingTrigger.AttemptFish();
                 fishingTrigger = null;
             }
@@ -586,6 +605,7 @@ public class PlayerController : MonoBehaviour
                     chestsOpened++;
                 }
                 itemDrop.OnChestTrigger();
+                scriptControllerObject.audioManager.OneShotSFX(scriptControllerObject.chestOpen);
                 itemDrop = null;
             }
             timesInteractionTriggered = 0;

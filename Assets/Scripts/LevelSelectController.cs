@@ -71,22 +71,26 @@ public class LevelSelectController : MonoBehaviour
 
         if(PlayerPrefs.GetInt("AreaID")== 0)
         {
-            toggle[0].isOn = true;
+            toggle[0].isOn = false;
+            toggle[0].Select();
         }
 
         if (PlayerPrefs.GetInt("AreaID") == 1)
         {
             toggle[1].isOn = true;
+            toggle[1].Select();
         }
 
         if (PlayerPrefs.GetInt("AreaID") == 6)
         {
             toggle[2].isOn = true;
+            toggle[2].Select();
         }
 
         if (PlayerPrefs.GetInt("AreaID") == 9)
         {
             toggle[3].isOn = true;
+            toggle[3].Select();
         }
 
 //CONTINUE WHEN AREAS ADDED
@@ -96,6 +100,7 @@ public class LevelSelectController : MonoBehaviour
     {
 
             PlayerPrefs.SetInt("AreaID", value);
+
         Debug.Log("Area ID changed to " + PlayerPrefs.GetInt("AreaID"));
 
     }

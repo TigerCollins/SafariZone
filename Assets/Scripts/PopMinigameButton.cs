@@ -37,6 +37,7 @@ public class PopMinigameButton : MonoBehaviour
     public GameObject button3;
     public GameObject button4;
     public GameObject button5;
+    [SerializeField]
     private int counter;
 
     [Header("Canvas Groups")]
@@ -103,78 +104,63 @@ public CanvasGroup Option5Text;
         quicktimeInput = Random.Range(0, 4);
         activeButtonResult = quicktimeInput;
         neededButtonInt = quicktimeInput;
-        if (platformDetection.controllerInput == false)
+        if (platformDetection.controllerInput == false && popMinigameController.keyboardQTEEvent == true)
         {
-            /*
-         
-            if (gameController.playerData.quicktimeUseMouse == false)
-            {
 
                 if (quicktimeInput == 0)
                 {
                     button1.SetActive(true);
+                    keyInputText1.gameObject.SetActive(true);
                 }
                 if (quicktimeInput == 1)
                 {
                     button2.SetActive(true);
+                    keyInputText2.gameObject.SetActive(true);
                 }
                 if (quicktimeInput == 2)
                 {
                     button3.SetActive(true);
+                    keyInputText4.gameObject.SetActive(true);
                 }
                 if (quicktimeInput == 3)
                 {
                     button4.SetActive(true);
+                    keyInputText4.gameObject.SetActive(true);
                 }
                 if (quicktimeInput == 4)
                 {
                     button5.SetActive(true);
+                    keyInputText5.gameObject.SetActive(true);
                 }
-                keyInputText1.gameObject.SetActive(true);
-                keyInputText2.gameObject.SetActive(true);
-                keyInputText3.gameObject.SetActive(true);
-                keyInputText4.gameObject.SetActive(true);
-                keyInputText5.gameObject.SetActive(true);
-                QTEIconHolder1.SetActive(false);
-                QTEIconHolder2.SetActive(false);
-                QTEIconHolder3.SetActive(false);
-                QTEIconHolder4.SetActive(false);
-                QTEIconHolder5.SetActive(false);
-            }
-            else
-            {
-                keyInputText1.gameObject.SetActive(false);
-                keyInputText2.gameObject.SetActive(false);
-                keyInputText3.gameObject.SetActive(false);
-                keyInputText4.gameObject.SetActive(false);
-                keyInputText5.gameObject.SetActive(false);
-                //buttonInputRequired = null;
-            }
-
-    */
+            
         }
 
-        else
+        else if (platformDetection.controllerInput == true)
         {
             if (quicktimeInput == 0)
             {
                 button1.SetActive(true);
+                keyInputText1.gameObject.SetActive(false);
             }
             if (quicktimeInput == 1)
             {
                 button2.SetActive(true);
+                keyInputText2.gameObject.SetActive(false);
             }
             if (quicktimeInput == 2)
             {
                 button3.SetActive(true);
+                keyInputText3.gameObject.SetActive(false);
             }
             if (quicktimeInput == 3)
             {
                 button4.SetActive(true);
+                keyInputText4.gameObject.SetActive(false);
             }
             if (quicktimeInput == 4)
             {
                 button5.SetActive(true);
+                keyInputText5.gameObject.SetActive(false);
             }
          /*   QTEIconHolder1.SetActive(true);
             QTEIconHolder2.SetActive(true);
@@ -195,29 +181,47 @@ public CanvasGroup Option5Text;
     public void PopIcon()
     {
 
-       if(platformDetection.controllerInput == true)
+        if (platformDetection.controllerInput == true)
         {
             if (counter == 0)
             {
-                if(gameController.selectedButton.neededButtonInt == gameController.currentButtonPress)
+                if (gameController.selectedButton.neededButtonInt == gameController.currentButtonPress)
                 {
                     counter += 1;
                     popMinigameController.PopIcon();
                 }
-              
-              
+
+
                 //counter = 0;
             }
         }
 
-       else
+        else
         {
-            popMinigameController.pmb = GetComponent<PopMinigameButton>();
-            popMinigameController.PopIcon();
-           
+            print("boi");
+            if (popMinigameController.keyboardQTEEvent == false)
+            {
+                popMinigameController.pmb = GetComponent<PopMinigameButton>();
+                popMinigameController.PopIcon();
+            }
+
+            if(popMinigameController.keyboardQTEEvent == true)
+            {
+                print("boi");
+                if (counter == 0)
+                {
+                    if (gameController.selectedButton.neededButtonInt == gameController.currentButtonPress)
+                    {
+                        counter += 1;
+                        popMinigameController.PopIcon();
+                    }
+
+                }
+
+            }
+
+
         }
-        
-       
     }
 
     public void ClosePopIcon()
@@ -240,15 +244,39 @@ public CanvasGroup Option5Text;
 
     public void CanvasGroupController()
     {
-        if(platformDetection.controllerInput == false)
+        if (platformDetection.controllerInput == false)
         {
-            reticleGroup.alpha = 0;
-            // IF KEYBOARD IS DISABLED   if()
-            Option1Icon.alpha = 0;
-            Option2Icon.alpha = 0;
-            Option3Icon.alpha = 0;
-            Option4Icon.alpha = 0;
-            Option5Icon.alpha = 0;
+
+            if (popMinigameController.keyboardQTEEvent == false)
+            {
+                reticleGroup.alpha = 0;
+
+                Option1Icon.alpha = 0;
+                Option1Text.alpha = 0;
+                Option2Icon.alpha = 0;
+                Option2Text.alpha = 0;
+                Option3Icon.alpha = 0;
+                Option3Text.alpha = 0;
+                Option4Icon.alpha = 0;
+                Option4Text.alpha = 0;
+                Option5Icon.alpha = 0;
+                Option5Text.alpha = 0;
+            }
+
+            else
+            {
+                reticleGroup.alpha = 1;
+                Option1Icon.alpha = 0;
+                Option1Text.alpha = 1;
+                Option2Icon.alpha = 0;
+                Option2Text.alpha = 1;
+                Option3Icon.alpha = 0;
+                Option3Text.alpha = 1;
+                Option4Icon.alpha = 0;
+                Option4Text.alpha = 1;
+                Option5Icon.alpha = 0;
+                Option5Text.alpha = 1;
+            }
         }
 
         else

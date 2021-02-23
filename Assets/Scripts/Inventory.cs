@@ -65,7 +65,11 @@ public class Inventory : MonoBehaviour
                 }
             }
             UpdateInventory();
-            
+            UpdateIncenseContainerSlots();
+            UpdateWhistleContainerSlots();
+            UpdateLureContainerSlots();
+
+
         }
 
         else
@@ -249,33 +253,62 @@ public class Inventory : MonoBehaviour
 
                 }
             }
-          
-            if(uIManager.backpackCanvasGroup.interactable == true)
+          if( SceneManager.GetActiveScene().name == "GameWorld")
             {
-            
-                for (int i = 0; i < trap.Count; i++)
+                if (uIManager.backpackCanvasGroup.interactable == true)
                 {
-                    Instantiate(itemContainerPrefab, lureListContainer.transform);
-                    UpdateLureContainerSlots();
+
+                    for (int i = 0; i < trap.Count; i++)
+                    {
+                        Instantiate(itemContainerPrefab, lureListContainer.transform);
+                        UpdateLureContainerSlots();
+                    }
+
+                    for (int i = 0; i < incenses.Count; i++)
+                    {
+                        Instantiate(itemContainerPrefab, incenseListContainer.transform);
+                        UpdateIncenseContainerSlots();
+                    }
+
+                    for (int i = 0; i < whistles.Count; i++)
+                    {
+                        Instantiate(itemContainerPrefab, whistlesListContainer.transform);
+                        UpdateWhistleContainerSlots();
+                    }
+
                 }
 
-                for (int i = 0; i < incenses.Count; i++)
+                else
                 {
-                    Instantiate(itemContainerPrefab, incenseListContainer.transform);
-                    UpdateIncenseContainerSlots();
+                    // Debug.LogError("OH NO FAILED");
                 }
-
-                for (int i = 0; i < whistles.Count; i++)
-                {
-                    Instantiate(itemContainerPrefab, whistlesListContainer.transform);
-                    UpdateWhistleContainerSlots();
-                }
-
             }
 
             else
             {
-               // Debug.LogError("OH NO FAILED");
+
+                uIManager.backpackCanvasGroup.interactable = true;
+                    for (int i = 0; i < trap.Count; i++)
+                    {
+                        Instantiate(itemContainerPrefab, lureListContainer.transform);
+                        UpdateLureContainerSlots();
+                    }
+
+                    for (int i = 0; i < incenses.Count; i++)
+                    {
+                        Instantiate(itemContainerPrefab, incenseListContainer.transform);
+                        UpdateIncenseContainerSlots();
+                    }
+
+                    for (int i = 0; i < whistles.Count; i++)
+                    {
+                        Instantiate(itemContainerPrefab, whistlesListContainer.transform);
+                        UpdateWhistleContainerSlots();
+                    }
+
+                
+
+             
             }
 
         }

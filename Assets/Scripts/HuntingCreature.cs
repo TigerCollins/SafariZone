@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class HuntingCreature : MonoBehaviour
 {
@@ -27,7 +28,12 @@ public class HuntingCreature : MonoBehaviour
     [Header("Creature")]
     public Creature selectedCreature;
 
-
+    [Header("Audio")]
+    public AudioSource bushMovementSource1;
+    public AudioSource bushMovementSource2;
+    public AudioSource caughtSource;
+    public AudioSource lostSource;
+    private int timesPlayed;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,6 +51,8 @@ public class HuntingCreature : MonoBehaviour
             navMeshAgent.speed = objectSpeed;
             
         }
+
+        
         ChangeTargetPoint();
         GetComponent<HuntingCreature>().enabled = true;
 
@@ -75,6 +83,13 @@ public class HuntingCreature : MonoBehaviour
         MoveObject();
         if (runningAway)
         {
+            if(gameController.audioManager.sfx.isPlaying == false && timesPlayed==0)
+
+            {
+                timesPlayed += 1;
+                gameController.audioManager.OneShotSFX(gameController.creatureSpooked);
+
+            }
             GetComponent<SphereCollider>().enabled = false;
             DropObject();
         }
@@ -87,10 +102,12 @@ public class HuntingCreature : MonoBehaviour
             if(noticed  == true)
         {
             navMeshAgent.enabled = false;
+            
             StartCoroutine("AnimateExclamationMark");
             runAwayTimer -= Time.deltaTime;
             if (runAwayTimer <= 0)
             {
+                
                 runningAway = true;
 
             }
@@ -101,7 +118,7 @@ public class HuntingCreature : MonoBehaviour
     {
         transform.GetChild(3).GetComponent<Animator>().SetBool("Visible", true);
         // suspend execution for 5 seconds
-        yield return new WaitForSeconds(runAwayTimer);
+        yield return new WaitForSeconds(runAwayTimer -(runAwayTimer/3));
         transform.GetChild(3).GetComponent<Animator>().SetBool("Visible", false);
     }
 
@@ -153,5 +170,20 @@ public class HuntingCreature : MonoBehaviour
         }
 
     } 
+
+    public void AnomalyOneShot(float pitch)
+    {
+        if (bushMovementSource1.isPlaying)
+        {
+            bushMovementSource2.pitch = pitch;
+            bushMovementSource2.Play();
+        }
+
+        else
+        {
+            bushMovementSource1.pitch = pitch;
+            bushMovementSource1.Play();
+        }
+    }
 
 }

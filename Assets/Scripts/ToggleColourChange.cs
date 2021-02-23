@@ -7,10 +7,12 @@ public class ToggleColourChange : MonoBehaviour
     public Color unselectedColour;
     public Color selectedColour;
     public Toggle toggle;
+    public UIManager uIManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        uIManager = GetComponent<UIManager>();
         if(toggle == null)
         {
             toggle = gameObject.GetComponent<Toggle>();
@@ -32,5 +34,12 @@ public class ToggleColourChange : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if(uIManager != null)
+        {
+            StateCheck();
+        }
+    }
 
 }
